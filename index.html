@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science et technologie — Secondaire 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark:   #1a4a52;
+    --teal-mid:    #256472;
+    --teal-light:  #3a8fa0;
+    --yellow:      #c8d400;
+    --yellow-dim:  #a0aa00;
+    --orange:      #e07b30;
+    --bg:          #f4f3ee;
+    --surface:     #ffffff;
+    --text:        #1e2a2c;
+    --muted:       #5a6e72;
+    --border:      #d0d8d9;
+    --mono:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 55%, var(--teal-light) 100%); padding: 72px 56px 56px; color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: '4'; position: absolute; right: 40px; top: -30px; font-family: 'Barlow Condensed', sans-serif; font-size: 320px; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; pointer-events: none; }
+  .hero .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(38px, 5.5vw, 60px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; margin-bottom: 18px; }
+  .hero p { max-width: 620px; font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.85); margin-bottom: 26px; }
+
+  .progress-wrap { max-width: 420px; }
+  .progress-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .progress-label span:last-child { color: var(--yellow); font-family: var(--mono); }
+  .progress-bar { height: 8px; background: rgba(255,255,255,.18); border-radius: 5px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--yellow); border-radius: 5px; width: calc(100% / 13); }
+
+  /* Content */
+  .content { padding: 48px 56px 90px; max-width: 980px; margin: 0 auto; }
+
+  .univers-block { margin-bottom: 44px; }
+  .univers-block:last-child { margin-bottom: 0; }
+  .univers-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .univers-header .u-icon { font-size: 20px; }
+  .univers-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); }
+  .univers-header .u-count { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-left: auto; }
+
+  .chapter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+
+  .chap-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.05); transition: transform .15s, box-shadow .15s, border-color .15s; }
+
+  a.chap-card { text-decoration: none; color: inherit; }
+  a.chap-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(26,74,82,.14); border-color: var(--teal-light); }
+
+  .chap-card.soon { opacity: .55; cursor: default; }
+  .chap-card.soon:hover { transform: none; box-shadow: 0 1px 4px rgba(0,0,0,.05); border-color: var(--border); }
+
+  .chap-top { display: flex; align-items: center; gap: 10px; }
+  .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 3px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
+  .chap-card.soon .chap-num { background: var(--muted); color: #fff; }
+  .status-badge { font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; margin-left: auto; }
+  .status-badge.dispo { background: rgba(200,212,0,.25); color: var(--teal-dark); }
+  .status-badge.soon-badge { background: rgba(90,110,114,.15); color: var(--muted); }
+  .status-badge.ste { background: var(--orange); color: #fff; margin-left: 6px; }
+
+  .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--teal-dark); line-height: 1.3; text-transform: uppercase; letter-spacing: .01em; }
+  .chap-card.soon .chap-title { color: var(--muted); }
+
+  .chap-arrow { position: absolute; right: 16px; bottom: 14px; color: var(--teal-light); font-size: 16px; opacity: 0; transition: opacity .15s; }
+  a.chap-card:hover .chap-arrow { opacity: 1; }
+
+  footer { text-align: center; padding: 30px 20px 50px; font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .hero { padding: 56px 24px 40px; }
+    .content { padding: 32px 20px 70px; }
+    .univers-header .u-count { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Science et technologie · Secondaire 4 · Québec</div>
+  <h1>Notes de cours<br>Science Sec. 4</h1>
+  <p>Notes de cours basées sur le manuel <em>Kaléidoscope</em> et sur les notes de M. Bouchard. Quatre univers, treize chapitres — du plus petit (l'atome) au plus grand (l'écosystème), en passant par l'énergie, l'électricité et l'ingénierie.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Progression</span><span>1 / 13 chapitres</span></div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- UNIVERS MATÉRIEL -->
+  <div class="univers-block">
+    <div class="univers-header">
+      <span class="u-icon">🧪</span>
+      <h2>Univers matériel</h2>
+      <span class="u-count">Chapitres 1–5</span>
+    </div>
+    <div class="chapter-grid">
+
+      <a class="chap-card" href="chapitre1.html">
+        <div class="chap-top">
+          <span class="chap-num">1</span>
+          <span class="status-badge dispo">Disponible</span>
+        </div>
+        <div class="chap-title">L'organisation de la matière</div>
+        <span class="chap-arrow">→</span>
+      </a>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">2</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">Les propriétés physiques des solutions</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">3</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">Les transformations chimiques et nucléaires</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">4</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">Les transformations de l'énergie</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">5</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">L'électricité et l'électromagnétisme</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UNIVERS TERRE ET ESPACE -->
+  <div class="univers-block">
+    <div class="univers-header">
+      <span class="u-icon">🌍</span>
+      <h2>Univers Terre et espace</h2>
+      <span class="u-count">Chapitres 6–8</span>
+    </div>
+    <div class="chapter-grid">
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">6</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">L'espace et l'atmosphère</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">7</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">La lithosphère et l'hydrosphère</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">8</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">La biosphère</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UNIVERS VIVANT -->
+  <div class="univers-block">
+    <div class="univers-header">
+      <span class="u-icon">🌱</span>
+      <h2>Univers vivant</h2>
+      <span class="u-count">Chapitres 9–10</span>
+    </div>
+    <div class="chapter-grid">
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">9</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">L'écologie</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">10</span>
+          <span class="status-badge soon-badge">À venir</span>
+          <span class="status-badge ste">STE</span>
+        </div>
+        <div class="chap-title">La génétique</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UNIVERS TECHNOLOGIQUE -->
+  <div class="univers-block">
+    <div class="univers-header">
+      <span class="u-icon">⚙️</span>
+      <h2>Univers technologique</h2>
+      <span class="u-count">Chapitres 11–13</span>
+    </div>
+    <div class="chapter-grid">
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">11</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">Le langage des lignes, les matériaux et la fabrication</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">12</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">L'ingénierie mécanique</div>
+      </div>
+
+      <div class="chap-card soon">
+        <div class="chap-top">
+          <span class="chap-num">13</span>
+          <span class="status-badge soon-badge">À venir</span>
+        </div>
+        <div class="chap-title">L'ingénierie électrique</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>M. Bouchard · Notes de cours Science Sec. 4 · basé sur le manuel Kaléidoscope</footer>
+
+</body>
+</html>
