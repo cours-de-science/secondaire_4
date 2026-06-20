@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 1 — L'organisation de la matière | Science Sec. 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark:   #1a4a52;
+    --teal-mid:    #256472;
+    --teal-light:  #3a8fa0;
+    --yellow:      #c8d400;
+    --yellow-dim:  #a0aa00;
+    --orange:      #e07b30;
+    --bg:          #f4f3ee;
+    --surface:     #ffffff;
+    --text:        #1e2a2c;
+    --muted:       #5a6e72;
+    --border:      #d0d8d9;
+    --sidebar-w:   268px;
+    --mono:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: var(--sidebar-w); background: var(--teal-dark);
+    position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; display: flex; flex-direction: column;
+    z-index: 100; transition: transform .3s ease;
+  }
+  .sidebar-header { background: var(--yellow); padding: 20px 18px 16px; flex-shrink: 0; }
+  .sidebar-header .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); }
+  .sidebar-header .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 800; line-height: 1; color: var(--teal-dark); }
+  .sidebar-header .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--teal-dark); margin-top: 4px; }
+  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-light); padding: 20px 18px 8px; }
+  #sidebar nav ul { list-style: none; }
+  #sidebar nav ul li a { display: flex; align-items: flex-start; gap: 10px; padding: 9px 18px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); text-decoration: none; border-left: 3px solid transparent; transition: background .15s, color .15s, border-color .15s; line-height: 1.35; }
+  #sidebar nav ul li a:hover, #sidebar nav ul li a.active { background: rgba(255,255,255,.08); color: #fff; border-left-color: var(--yellow); }
+  #sidebar nav ul li a .num { font-family: var(--mono); font-size: 11px; color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+  .sidebar-footer { margin-top: auto; padding: 16px 18px; font-size: 11px; color: rgba(255,255,255,.3); border-top: 1px solid rgba(255,255,255,.1); }
+
+  /* ── MAIN ── */
+  #main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 60%, var(--teal-light) 100%); padding: 60px 56px 48px; color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: '1'; position: absolute; right: 40px; top: -10px; font-family: 'Barlow Condensed', sans-serif; font-size: 260px; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; pointer-events: none; }
+  .hero .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; margin-bottom: 20px; }
+  .hero p { max-width: 600px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.82); }
+
+  /* Search */
+  .search-bar-wrap { background: var(--teal-dark); padding: 14px 56px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid var(--yellow); }
+  .search-bar-wrap label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.5); white-space: nowrap; letter-spacing: .06em; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; }
+  #search-input { flex: 1; max-width: 440px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 8px 14px; font-size: 14px; color: #fff; font-family: 'Inter', sans-serif; outline: none; transition: background .2s, border-color .2s; }
+  #search-input::placeholder { color: rgba(255,255,255,.4); }
+  #search-input:focus { background: rgba(255,255,255,.16); border-color: var(--yellow); }
+  #search-count { font-size: 12px; color: var(--yellow); font-family: var(--mono); min-width: 90px; }
+
+  /* Content */
+  .content { padding: 48px 56px 80px; max-width: 880px; }
+
+  /* Section cards */
+  .section-card { background: var(--surface); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section-toggle { width: 100%; background: none; border: none; cursor: pointer; padding: 0; text-align: left; display: block; }
+  .section-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface); transition: background .15s; border-bottom: 1px solid transparent; }
+  .section-toggle:hover .section-header, .section-toggle[aria-expanded="true"] .section-header { background: #f0f6f7; border-bottom-color: var(--border); }
+  .section-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 4px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--teal-dark); flex: 1; }
+  .section-badge { font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--orange); color: #fff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+  .chevron { width: 20px; height: 20px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; }
+  .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .section-body { display: none; padding: 28px 28px 32px; border-top: 2px solid var(--yellow); }
+  .section-body.open { display: block; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 32px; }
+  .subsection:last-child { margin-bottom: 0; }
+  .subsection-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; flex-shrink: 0; }
+
+  p { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul.content-list { padding-left: 20px; margin-bottom: 14px; }
+  ul.content-list li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+
+  /* Definition box */
+  .def-box { background: linear-gradient(135deg, #edf6f8, #f4fafb); border-left: 4px solid var(--teal-light); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; }
+  .def-box .def-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 6px; }
+  .def-box p { font-size: 14px; margin: 0 0 6px; color: var(--teal-dark); }
+  .def-box p:last-child { margin: 0; }
+  .def-box strong { color: var(--teal-dark); font-weight: 600; }
+
+  /* Note box */
+  .note-box { background: #fffbec; border-left: 4px solid var(--yellow-dim); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #3a3000; line-height: 1.65; }
+  .note-box .note-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 6px; }
+
+  /* Formula */
+  .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
+  .formula-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 14px; }
+
+  /* Keyword */
+  .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+
+  /* Search highlight */
+  mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
+
+  /* Rappel card */
+  .rappel-card { background: linear-gradient(120deg, var(--teal-dark), var(--teal-mid)); border-radius: 10px; padding: 24px 28px; color: rgba(255,255,255,.88); margin-bottom: 24px; }
+  .rappel-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--yellow); margin-bottom: 10px; }
+  .rappel-card p { color: rgba(255,255,255,.82); font-size: 14px; margin-bottom: 8px; }
+  .rappel-card p:last-child { margin-bottom: 0; }
+
+  /* Timeline for models */
+  .timeline { border-left: 3px solid var(--border); margin: 20px 0 20px 8px; padding-left: 24px; }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-light); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--teal-light); }
+  .timeline-item .year { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--teal-light); margin-bottom: 4px; }
+  .timeline-item .model-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .timeline-item p { font-size: 14px; margin-bottom: 6px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .data-table th { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+  .data-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f7f9f9; }
+  .data-table td strong { color: var(--teal-dark); }
+
+  /* Particle badges */
+  .particle-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .particle-card { flex: 1; min-width: 140px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .particle-card .p-symbol { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--teal-dark); }
+  .particle-card .p-name { font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
+  .particle-card .p-charge { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .particle-card .p-mass { font-size: 12px; color: var(--muted); }
+
+  /* Couches table */
+  .couche-table { display: flex; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .couche-col { flex: 1; }
+  .couche-col .ch { padding: 8px 12px; text-align: center; font-size: 13px; }
+  .couche-col .ch.head { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .couche-col .ch:not(.head) { border-bottom: 1px solid var(--border); font-family: var(--mono); }
+  .couche-col .ch:last-child { border-bottom: none; }
+  .couche-col .ch:nth-child(even) { background: #f7f9f9; }
+
+  /* Trend arrows */
+  .trend-box { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .trend-item { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .trend-item .trend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-dark); margin-bottom: 8px; }
+  .trend-item .trend-dir { font-family: var(--mono); font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 4px; }
+  .trend-item p { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* Figures */
+  .fig-block { margin: 18px 0; background: #f8f9f9; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .fig-block img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 16px; background: #fff; }
+  .fig-block img[src$=".png"]:not([src*="images/"]) { display: none; } /* hide broken placeholders gracefully — remove once images added */
+  .fig-block figcaption { font-size: 12px; color: var(--muted); padding: 8px 14px 10px; border-top: 1px solid var(--border); line-height: 1.5; font-style: italic; }
+
+  /* Compare block (Démocrite vs Aristote) */
+  .compare-block { display: flex; gap: 2px; margin: 16px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .compare-col { flex: 1; padding: 16px 18px; }
+  .compare-col--a { background: linear-gradient(135deg, #edf6f8, #dff0f4); }
+  .compare-col--b { background: linear-gradient(135deg, #fff8ee, #fef0da); }
+  .compare-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 8px; }
+  .compare-col--b .compare-label { color: var(--orange); }
+  .compare-icon { font-size: 22px; margin-bottom: 8px; letter-spacing: 4px; }
+  .compare-col p { font-size: 13px; line-height: 1.6; margin: 0; color: var(--text); }
+
+  /* Back to top */
+  #to-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; background: var(--teal-dark); color: var(--yellow); border: 2px solid var(--yellow); border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 200; }
+  #to-top.visible { opacity: 1; pointer-events: auto; }
+
+  /* Mobile toggle */
+  #menu-toggle { display: none; position: fixed; top: 14px; left: 14px; z-index: 150; background: var(--teal-dark); border: 2px solid var(--yellow); color: var(--yellow); width: 40px; height: 40px; border-radius: 8px; font-size: 20px; cursor: pointer; align-items: center; justify-content: center; }
+
+  @media (max-width: 768px) {
+    #sidebar { transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #menu-toggle { display: flex; }
+    .hero { padding: 60px 24px 36px; }
+    .search-bar-wrap { padding: 12px 24px; }
+    .content { padding: 28px 20px 60px; }
+    .particle-grid { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar" role="navigation" aria-label="Table des matières">
+  <div class="sidebar-header">
+    <div class="label">Science Sec. 4 · Chapitre</div>
+    <div class="chap-num">1</div>
+    <div class="chap-title">L'organisation de la matière</div>
+  </div>
+  <div class="toc-label">Table des matières</div>
+  <nav>
+    <ul>
+      <li><a href="#rappel" class="toc-link"><span class="num">—</span> Rappel</a></li>
+      <li><a href="#section-1-1" class="toc-link"><span class="num">1.1</span> Les modèles atomiques</a></li>
+      <li><a href="#section-1-2" class="toc-link"><span class="num">1.2</span> La masse atomique</a></li>
+      <li><a href="#section-1-3" class="toc-link"><span class="num">1.3</span> Le tableau périodique</a></li>
+      <li><a href="#section-1-4" class="toc-link"><span class="num">1.4</span> Les molécules</a></li>
+      <li><a href="#section-1-5" class="toc-link"><span class="num">1.5</span> La mole et Avogadro</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-footer">M. Bouchard · Collège Charlemagne · 2024–2025</div>
+</aside>
+
+<!-- MAIN -->
+<main id="main">
+  <div class="hero">
+    <div class="eyebrow">Secondaire 4 — Science et technologie · Univers matériel</div>
+    <h1>L'organisation<br>de la matière</h1>
+    <p>L'examen de la structure de la matière permet de décrire ce qui est invisible et infiniment petit. Ce chapitre couvre la structure atomique, la masse atomique, le tableau périodique, les molécules, ainsi que la notion de mole et le nombre d'Avogadro.</p>
+  </div>
+
+  <div class="search-bar-wrap">
+    <label for="search-input">🔍 Recherche rapide</label>
+    <input type="text" id="search-input" placeholder="Ex: électron, proton, isotope, Bohr…" oninput="doSearch(this.value)">
+    <span id="search-count"></span>
+  </div>
+
+  <div class="content">
+
+    <!-- RAPPEL -->
+    <div id="rappel" class="rappel-card">
+      <h2>📌 Rappel — Notions préalables (sec. 3)</h2>
+      <p>• La matière est constituée d'<strong>atomes</strong>, la plus petite unité d'un élément chimique.</p>
+      <p>• Les éléments sont classés dans le <strong>tableau périodique</strong>.</p>
+      <p>• La matière peut exister sous différents <strong>états</strong> : solide, liquide, gazeux.</p>
+      <p>• Un <strong>mélange</strong> peut être homogène (solution) ou hétérogène.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1.1 — MODÈLES ATOMIQUES              -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-1-1">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">1.1</span>
+          <span class="section-title">Les modèles atomiques</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="subsection">
+          <div class="subsection-title">Définition de l'atome</div>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p><strong>Atome :</strong> la plus petite particule de la matière <em>indivisible par des moyens chimiques ou mécaniques</em>.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Évolution des modèles — de l'Antiquité à aujourd'hui</div>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="year">460–370 av. J.-C.</div>
+              <div class="model-name">Modèle de Démocrite</div>
+              <p>Les premiers modèles atomiques montrent qu'on est passé d'une vision purement philosophique à une approche scientifique basée sur des expériences. Deux philosophes grecs s'opposent sur la nature de la matière.</p>
+              <p>Selon Démocrite, la matière est constituée de particules <strong>indivisibles et infiniment petites</strong> qu'il nomme «&nbsp;atomes&nbsp;» (du grec <em>atomos</em> : indivisible). La matière est <strong>discontinue</strong> : lorsque les atomes s'assemblent, il y a du vide entre eux. Les atomes ont tous la même nature, mais se distinguent par leur <strong>forme et leur arrangement</strong>, ce qui explique les différences entre les éléments.</p>
+              <figure class="fig-block">
+                <img src="images/ch1/democrite_atomes.png" alt="Modèle de Démocrite : particules de différentes formes séparées par du vide" loading="lazy">
+                <figcaption>Fig. 1 — Selon Démocrite, la matière est discontinue et constituée de particules indivisibles pleines qui ont différentes formes.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">384–322 av. J.-C.</div>
+              <div class="model-name">Modèle d'Aristote — la matière continue</div>
+              <p>Aristote s'oppose à Démocrite : il rejette les notions d'indivisibilité et de vide dans la matière. Pour lui, la matière est <strong>continue</strong>, donc divisible à l'infini — on peut toujours couper une substance en morceaux plus petits, sans jamais atteindre une particule ultime.</p>
+              <p>Bien qu'erronée, la vision d'Aristote a dominé la pensée scientifique pendant <strong>plus de 2&nbsp;000 ans</strong>, freinant le développement de la chimie atomique jusqu'au XIX<sup>e</sup> siècle.</p>
+              <div class="compare-block">
+                <div class="compare-col compare-col--a">
+                  <div class="compare-label">Démocrite</div>
+                  <div class="compare-icon">⚫ ⚫ &nbsp; ⚫</div>
+                  <p>Matière <strong>discontinue</strong><br>Atomes séparés par du vide<br>Particules indivisibles</p>
+                </div>
+                <div class="compare-col compare-col--b">
+                  <div class="compare-label">Aristote</div>
+                  <div class="compare-icon">▓▓▓▓▓▓</div>
+                  <p>Matière <strong>continue</strong><br>Aucun vide possible<br>Divisible à l'infini</p>
+                </div>
+              </div>
+              <figure class="fig-block">
+                <img src="images/ch1/aristote_vs_democrite.png" alt="Comparaison matière continue (Aristote) vs discontinue (Démocrite)" loading="lazy">
+                <figcaption>Fig. 2 — Comparaison des deux visions : la matière discontinue de Démocrite (atomes et vide) versus la matière continue et indivisible à l'infini d'Aristote.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">1808 — John Dalton</div>
+              <div class="model-name">Modèle de Dalton</div>
+              <p>Dalton est le premier à appuyer le concept d'atome sur des données <strong>expérimentales et quantitatives</strong>, relançant et formalisant l'idée de Démocrite.</p>
+              <ul class="content-list">
+                <li>La matière est constituée d'atomes qui sont des <strong>sphères pleines</strong> (boules de billard), indivisibles et indestructibles.</li>
+                <li>Tous les atomes d'un même élément sont <strong>identiques</strong>, mais diffèrent d'un élément à l'autre par leur masse et leur taille.</li>
+                <li>Il est impossible de transformer les atomes d'un élément en ceux d'un autre élément.</li>
+                <li>Les atomes de différents éléments peuvent se combiner dans des proportions déterminées pour former de nouveaux composés.</li>
+              </ul>
+              <figure class="fig-block">
+                <img src="images/ch1/dalton_spheres.png" alt="Modèle de Dalton : sphères pleines de différentes tailles" loading="lazy">
+                <figcaption>Fig. 3 — Modèle de Dalton : les atomes sont des sphères pleines, indivisibles, de tailles différentes selon l'élément.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">1897 — Joseph-John Thomson</div>
+              <div class="model-name">Modèle de Thomson (« pain aux raisins » / plum pudding)</div>
+              <p>Fait suite à la découverte des <strong>électrons</strong> par l'expérience du tube cathodique. L'atome est une sphère pleine contenant des électrons (charge −) de très faible masse, répartis uniformément dans une sphère de charge positive. Cette sphère positive annule la charge négative des électrons, car l'atome est globalement neutre.</p>
+              <figure class="fig-block">
+                <img src="images/ch1/thomson_plum_pudding.png" alt="Modèle de Thomson : électrons négatifs dispersés dans une sphère positive" loading="lazy">
+                <figcaption>Fig. 4 — Modèle « pain aux raisins » de Thomson : les électrons (raisins, charge −) sont dispersés dans une pâte de charge positive.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">1911 — Ernest Rutherford</div>
+              <div class="model-name">Modèle de Rutherford</div>
+              <p>Expérience : bombardement d'une <strong>mince feuille d'or</strong> par des particules alpha positives.</p>
+              <p><strong>3 observations :</strong></p>
+              <ul class="content-list">
+                <li>≈ 0,001 % des particules sont <strong>fortement déviées</strong> (vers l'arrière).</li>
+                <li>≈ 1 % sont <strong>faiblement déviées</strong>.</li>
+                <li>≈ 99 % <strong>ne sont pas déviées</strong>.</li>
+              </ul>
+              <p><strong>3 conclusions :</strong></p>
+              <ul class="content-list">
+                <li><strong>L'atome est principalement formé de vide.</strong></li>
+                <li>Il existe un <strong>noyau</strong> : dense (cause les fortes déviations), très petit (0,001 % touchent le noyau), et <strong>positif</strong> (les déviations faibles sont dues à la répulsion avec les particules alpha positives).</li>
+                <li>Les <strong>électrons négatifs</strong>, en nombre égal aux protons, circulent autour du noyau dans un espace ≈ 100 000 fois plus grand que le noyau. Ils ont tous le même niveau d'énergie (dans ce modèle).</li>
+              </ul>
+              <figure class="fig-block">
+                <img src="images/ch1/rutherford_experience.png" alt="Expérience de Rutherford : bombardement feuille d'or et trajectoires des particules alpha" loading="lazy">
+                <figcaption>Fig. 5 — L'expérience de la feuille d'or (1911) : la grande majorité des particules alpha passent sans déviation, prouvant que l'atome est essentiellement du vide avec un noyau central dense et positif.</figcaption>
+              </figure>
+              <figure class="fig-block">
+                <img src="images/ch1/rutherford_modele.png" alt="Modèle de Rutherford : noyau central positif entouré d'électrons" loading="lazy">
+                <figcaption>Fig. 6 — Modèle de Rutherford : noyau dense et positif au centre, électrons circulant à grande distance autour.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">1913 — Niels Bohr</div>
+              <div class="model-name">Modèle de Rutherford-Bohr (modèle planétaire)</div>
+              <p>Bohr améliore Rutherford car ce dernier n'expliquait pas les spectres d'émission ni pourquoi les électrons ne s'écrasaient pas sur le noyau.</p>
+              <ul class="content-list">
+                <li>Les électrons circulent sur des <strong>orbites précises</strong> appelées <span class="kw">couches électroniques</span>, chacune correspondant à un niveau d'énergie constant.</li>
+                <li>Sur sa couche, l'électron <strong>conserve son énergie</strong> et ne s'écrase pas sur le noyau. Plus il a d'énergie, plus son orbite est éloignée.</li>
+                <li>Un électron peut absorber de l'énergie (chaleur, lumière, électricité) pour passer à une orbite supérieure (<strong>état excité</strong>), puis revenir à son orbite initiale (<strong>état fondamental</strong>) en libérant la même quantité d'énergie sous forme de lumière ou de chaleur.</li>
+                <li>Il y a un <strong>nombre maximal d'électrons par couche</strong>.</li>
+              </ul>
+              <figure class="fig-block">
+                <img src="images/ch1/bohr_modele.png" alt="Modèle de Bohr : électrons sur des couches circulaires autour du noyau" loading="lazy">
+                <figcaption>Fig. 7 — Modèle planétaire de Rutherford-Bohr : les électrons orbitent sur des couches d'énergie fixes (K, L, M…). Un électron excité monte d'une couche, puis redescend en émettant de la lumière.</figcaption>
+              </figure>
+            </div>
+
+            <div class="timeline-item">
+              <div class="year">1932 — James Chadwick</div>
+              <div class="model-name">Découverte du neutron <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 6px;border-radius:4px;vertical-align:middle;">STE</span></div>
+              <p>Le <span class="kw">neutron</span> est une particule du noyau (nucléon) sans charge électrique, de masse ≈ 1 u (légèrement plus lourd que le proton). Découvert en bombardant du béryllium par des particules alpha :</p>
+              <div class="formula" style="font-size:13px;">⁹₄Be + ⁴₂He → ¹²₆C + ¹₀n</div>
+              <p>Les neutrons augmentent la <strong>force nucléaire forte</strong> (attraction) entre les particules du noyau, ce qui permet de vaincre la répulsion électrique entre les protons et empêche le noyau d'éclater.</p>
+            </div>
+
+          </div>
+
+          <div class="note-box">
+            <div class="note-label">📝 Note du prof</div>
+            En secondaire 4, c'est le <strong>modèle de Rutherford-Bohr</strong> (avec les neutrons dans le noyau) qu'on utilise. Le modèle quantique (nuage électronique) est vu au niveau universitaire.
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les particules subatomiques</div>
+          <div class="particle-grid">
+            <div class="particle-card">
+              <div class="p-symbol">p⁺</div>
+              <div class="p-name">Proton</div>
+              <div class="p-charge" style="color:var(--orange);">Charge : +1</div>
+              <div class="p-mass">Masse : ≈ 1,0073 u</div>
+              <div class="p-mass">Lieu : noyau</div>
+            </div>
+            <div class="particle-card">
+              <div class="p-symbol">n⁰</div>
+              <div class="p-name">Neutron</div>
+              <div class="p-charge" style="color:var(--muted);">Charge : 0</div>
+              <div class="p-mass">Masse : ≈ 1,0087 u</div>
+              <div class="p-mass">Lieu : noyau</div>
+            </div>
+            <div class="particle-card">
+              <div class="p-symbol">e⁻</div>
+              <div class="p-name">Électron</div>
+              <div class="p-charge" style="color:var(--teal-light);">Charge : −1</div>
+              <div class="p-mass">Masse : ≈ 0,00055 u</div>
+              <div class="p-mass">Lieu : couches</div>
+            </div>
+          </div>
+          <div class="note-box">
+            <div class="note-label">À retenir</div>
+            La masse des électrons est <strong>négligeable</strong> (≈ 2000 fois moins lourd qu'un proton). Pour les calculs, seuls protons et neutrons contribuent à la masse de l'atome.
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les couches électroniques et la règle de l'octet</div>
+          <p>Chaque couche a un nombre <strong>maximal</strong> d'électrons :</p>
+          <div class="couche-table">
+            <div class="couche-col">
+              <div class="ch head">Couche</div>
+              <div class="ch">1</div><div class="ch">2</div><div class="ch">3</div><div class="ch">4</div><div class="ch">5</div><div class="ch">6</div><div class="ch">7</div>
+            </div>
+            <div class="couche-col">
+              <div class="ch head">Max. e⁻</div>
+              <div class="ch">2</div><div class="ch">8</div><div class="ch">18</div><div class="ch">32</div><div class="ch">32</div><div class="ch">18</div><div class="ch">8</div>
+            </div>
+          </div>
+          <div class="def-box">
+            <div class="def-label">Règle de l'octet</div>
+            <p>En tout temps, la <strong>dernière couche</strong> (couche de valence) ne peut contenir plus de <strong>8 électrons</strong>, même si la couche peut théoriquement en accueillir davantage. Cette règle s'applique à tous les éléments qui ont <strong>plus d'une couche</strong>.</p>
+          </div>
+          <p>Les couches pouvant accueillir plus de 8 électrons (couches 3, 4, 5…) se remplissent au-delà de 8 seulement <em>après</em> que les couches suivantes ont commencé à se remplir.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La notation nucléaire et la configuration électronique</div>
+          <div class="formula">ᴬ_Z X</div>
+          <ul class="content-list">
+            <li><strong>A</strong> = nombre de masse = total des nucléons (p⁺ + n⁰)</li>
+            <li><strong>Z</strong> = numéro atomique = nombre de protons</li>
+            <li><strong>X</strong> = symbole de l'élément</li>
+          </ul>
+          <div class="formula">N (neutrons) = A − Z</div>
+          <p>Exemple : <strong>¹²₆C</strong> → 6 protons, 6 neutrons, 6 électrons (atome neutre).</p>
+          <p>En ST (secondaire 4), on représente l'atome par sa <strong>configuration électronique</strong> en plaçant les électrons sur les couches autour d'un noyau indiquant p⁺ et n⁰. Exemple du Neptunium-237 (Z=93, N=144) : Np (93p⁺, 144n⁰) avec la répartition 2e⁻ / 8e⁻ / 18e⁻ / 32e⁻ / 22e⁻ / 9e⁻ / 2e⁻.</p>
+          <div class="note-box">
+            <div class="note-label">📝 Note du prof</div>
+            En ST, on ne place pas les neutrons dans la représentation des couches électroniques — on les indique uniquement dans le noyau central (ou via la notation nucléaire).
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1.2 — MASSE ATOMIQUE                 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-1-2">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">1.2</span>
+          <span class="section-title">La masse atomique</span>
+          <span class="section-badge">STE</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="subsection">
+          <div class="subsection-title">L'unité de masse atomique (u)</div>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Par convention, l'atome de <strong>carbone-12</strong> (6p, 6n, 6e) pèse exactement <strong>12 u</strong>. Toutes les masses atomiques sont mesurées par rapport à lui.</p>
+            <p><strong>1 u = 1/12 de la masse du carbone-12 ≈ 1,6605 × 10⁻²⁷ kg</strong></p>
+          </div>
+          <p>Masses des particules :</p>
+          <ul class="content-list">
+            <li>Proton : 1,0073 u</li>
+            <li>Neutron : 1,0087 u</li>
+            <li>Électron : 5,486 × 10⁻⁴ u <em>(négligeable)</em></li>
+            <li>Atome d'hydrogène (1p + 1e, sans neutron) : 1,007825 u</li>
+          </ul>
+          <div class="note-box">
+            <div class="note-label">À retenir</div>
+            La masse d'un isotope (en u) correspond <strong>approximativement</strong> à son nombre de masse (nombre de nucléons). Seul le carbone-12 pèse <em>exactement</em> 12 u.
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les isotopes</div>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p><strong>Isotopes :</strong> variétés du même atome (même Z, même nombre de protons) qui diffèrent uniquement par leur <strong>nombre de neutrons</strong>, et donc par leur nombre de masse A.</p>
+          </div>
+          <p>Les isotopes d'un même élément ont les <strong>mêmes propriétés chimiques</strong> (même nombre d'électrons de valence), mais pas la même masse.</p>
+          <p><strong>Exemple — Lithium :</strong> ⁶₃Li (3p, 3n) et ⁷₃Li (3p, 4n). Les deux ont 3 électrons.</p>
+          <p>Chaque isotope a une <span class="kw">abondance relative</span> (%) différente dans la nature. Les isotopes les plus stables sont généralement les plus abondants.</p>
+          <div class="note-box">
+            <div class="note-label">📝 Exemple — Carbone-14</div>
+            Le carbone-14 contient 14 nucléons : 6 protons et 8 neutrons. Il pèse environ 14 u. Il est utilisé en datation radioactive.
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La masse atomique relative (masse inscrite au tableau périodique)</div>
+          <p>La masse inscrite dans le tableau périodique est la <span class="kw">moyenne pondérée</span> des masses de tous les isotopes naturels, tenant compte de l'abondance relative de chacun.</p>
+          <div class="formula">Masse atomique = Σ (masse isotope × abondance relative)</div>
+          <p>Cette masse n'est jamais un nombre entier car :</p>
+          <ul class="content-list">
+            <li>Une moyenne pondérée donne rarement un entier.</li>
+            <li>Les masses des isotopes ne sont pas exactement des entiers.</li>
+            <li>Les pourcentages d'abondance ne sont pas des entiers.</li>
+            <li>Ce ne sont pas des approximations — ce sont des valeurs précises.</li>
+          </ul>
+          <p><strong>Exemple — Néon :</strong></p>
+          <table class="data-table">
+            <thead><tr><th>Isotope</th><th>Abondance naturelle</th><th>Masse atomique</th><th>Contribution</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Néon-20</strong></td><td>90,48 %</td><td>20 u</td><td>18,10 u</td></tr>
+              <tr><td><strong>Néon-21</strong></td><td>0,27 %</td><td>21 u</td><td>0,057 u</td></tr>
+              <tr><td><strong>Néon-22</strong></td><td>9,25 %</td><td>22 u</td><td>2,035 u</td></tr>
+              <tr><td colspan="3"><strong>Masse atomique moyenne</strong></td><td><strong>20,19 u</strong></td></tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <div class="note-label">📝 Note du prof</div>
+            Remarquez que la masse moyenne (20,19 u) est très proche de l'isotope <strong>le plus abondant</strong> (Néon-20). C'est toujours le cas — l'isotope majoritaire influence davantage la moyenne. En arrondissant la masse du tableau, on retrouve souvent le nombre de masse de l'isotope principal, ce qui permet de calculer son nombre de neutrons par simple soustraction.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1.3 — TABLEAU PÉRIODIQUE             -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-1-3">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">1.3</span>
+          <span class="section-title">Le tableau périodique des éléments</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="subsection">
+          <div class="subsection-title">Organisation générale</div>
+          <p>Les éléments sont disposés selon plusieurs règles :</p>
+          <ul class="content-list">
+            <li>Ordre numérique croissant (Z) de gauche à droite.</li>
+            <li>Quand une couche est remplie au maximum, une nouvelle couche débute → nouvelle ligne.</li>
+            <li>La dernière couche ne peut jamais dépasser 8 électrons (<strong>règle de l'octet</strong>).</li>
+            <li>Les couches pouvant contenir plus de 8 électrons se remplissent après que les couches suivantes ont commencé.</li>
+          </ul>
+          <div class="note-box">
+            <div class="note-label">📝 Vidéo recommandée par M. Bouchard</div>
+            Pour mieux comprendre la construction du tableau : <a href="https://www.youtube.com/watch?v=ZJQjjBR6PbY" target="_blank" style="color:var(--teal-mid);font-weight:600;">youtube.com/watch?v=ZJQjjBR6PbY</a>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les 3 grandes catégories d'éléments</div>
+          <table class="data-table">
+            <thead><tr><th>Catégorie</th><th>Position</th><th>Propriétés physiques</th><th>Propriétés chimiques</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Métaux</strong></td>
+                <td>Côté gauche (à gauche de l'escalier)</td>
+                <td>Brillants, conducteurs de chaleur et d'électricité, malléables (en feuille), ductiles (en fil). Solides sauf le mercure (liquide à TPN).</td>
+                <td>Réagissent avec les acides.</td>
+              </tr>
+              <tr>
+                <td><strong>Non-métaux</strong></td>
+                <td>Extrême droite (sauf H)</td>
+                <td>Aspect terne, cassants, non malléables, non ductiles.</td>
+                <td>Bons isolants électriques et thermiques.</td>
+              </tr>
+              <tr>
+                <td><strong>Métalloïdes</strong></td>
+                <td>De part et d'autre de l'escalier</td>
+                <td>Généralement cassants et non ductiles, mauvais conducteurs.</td>
+                <td>Propriétés intermédiaires entre métaux et non-métaux. Ceux à gauche ressemblent aux métaux ; à droite, aux non-métaux.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Périodes et familles</div>
+          <div class="def-box">
+            <div class="def-label">Périodes (lignes horizontales)</div>
+            <p>Il y en a 7. Tous les éléments d'une même période ont le <strong>même nombre de couches électroniques</strong>. Le numéro de la période = nombre de couches.</p>
+          </div>
+          <div class="def-box">
+            <div class="def-label">Familles / Groupes (colonnes verticales)</div>
+            <p>Les éléments d'une même famille ont le <strong>même nombre d'électrons de valence</strong> (sauf l'hélium), ce qui leur confère des <strong>comportements chimiques similaires</strong>. Ce sont les électrons de valence qui font les réactions chimiques.</p>
+            <p>L'hélium est dans la famille VIII A car sa dernière couche est <em>pleine</em> (2/2), comme tous les autres gaz nobles.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les 4 familles importantes à connaître</div>
+          <table class="data-table">
+            <thead><tr><th>Famille</th><th>Groupe</th><th>Éléments</th><th>Propriétés clés</th><th>Utilisations</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Hydrogène</strong></td>
+                <td>IA (1 é de valence)</td>
+                <td>H</td>
+                <td>Gaz incolore, très léger, très inflammable. Combustion → eau.</td>
+                <td>Carburant (fusées, moteurs H)</td>
+              </tr>
+              <tr>
+                <td><strong>Alcalins</strong></td>
+                <td>IA (1 é de valence)</td>
+                <td>Li, Na, K, Rb, Cs, Fr</td>
+                <td>Métaux mous, réagissent <em>fortement</em> avec l'eau et les non-métaux. Deviennent alcalins (basiques) dans l'eau.</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Alcalino-terreux</strong></td>
+                <td>IIA (2 é de valence)</td>
+                <td>Be, Mg, Ca, Sr, Ba, Ra</td>
+                <td>Métaux mous, réagissent avec l'eau mais moins violemment que les alcalins.</td>
+                <td>Mg : feux d'artifice</td>
+              </tr>
+              <tr>
+                <td><strong>Halogènes</strong></td>
+                <td>VIIA (7 é de valence)</td>
+                <td>F, Cl, Br, I, At</td>
+                <td>Très réactifs. Forment des sels avec les alcalins. Corrosifs (toxiques) et bactéricides. Forment des acides forts avec H.</td>
+                <td>F : anticaries ; F/Cl/I : désinfectants ; I/Br : lampes halogènes</td>
+              </tr>
+              <tr>
+                <td><strong>Gaz nobles</strong></td>
+                <td>VIIIA (8 é, sauf He : 2)</td>
+                <td>He, Ne, Ar, Kr, Xe, Rn</td>
+                <td>Grande stabilité chimique (couche de valence pleine). Gaz incolores, produisent une couleur typique dans un tube cathodique.</td>
+                <td>He : ballons ; He/Ne/Ar… : enseignes lumineuses (néons)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La notation de Lewis</div>
+          <p>Les <span class="kw">électrons de valence</span> (dernière couche) sont responsables des liaisons chimiques. On les représente avec des points autour du symbole de l'élément.</p>
+          <ul class="content-list">
+            <li>On ne représente que les électrons de valence.</li>
+            <li>Le nombre d'électrons de valence = chiffre romain en haut de la colonne (<strong>série A uniquement</strong>).</li>
+            <li>Pour les métaux de transition (série B) : 2 électrons de valence par défaut (nombreuses exceptions).</li>
+            <li>On s'imagine 4 côtés autour de l'atome (haut, bas, gauche, droite). On ne met jamais 2 points du même côté avant d'en avoir placé 1 dans chacun des 4 côtés.</li>
+            <li>Quand il y a 2 électrons du même côté, on peut remplacer les 2 points par un trait (optionnel).</li>
+            <li><strong>Exception :</strong> l'hélium n'a que 2 électrons de valence (1 seule couche à remplir).</li>
+          </ul>
+          <div class="note-box">
+            <div class="note-label">📝 Exemple</div>
+            Azote (N, famille VA) → 5 électrons de valence : 3 côtés avec 1 point, 1 côté avec 2 points (paire liante).
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La périodicité des propriétés <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+
+          <p><strong>Le rayon atomique</strong> est la distance entre le noyau et l'électron le plus éloigné.</p>
+          <div class="trend-box">
+            <div class="trend-item">
+              <div class="trend-title">Le long d'une famille (↕)</div>
+              <div class="trend-dir">↑ Augmente de haut en bas</div>
+              <p>Plus de couches électroniques → rayon plus grand.</p>
+            </div>
+            <div class="trend-item">
+              <div class="trend-title">Le long d'une période (↔)</div>
+              <div class="trend-dir">↓ Diminue de gauche à droite</div>
+              <p>Plus de protons dans le noyau → attraction plus forte sur les électrons → rayon plus petit.</p>
+            </div>
+          </div>
+
+          <p style="margin-top:20px;"><strong>L'électronégativité</strong> est la force avec laquelle un atome attire les électrons des autres lors de la formation de composés. Plus le rayon est petit, plus l'électronégativité est élevée (échelle de 0 à 4).</p>
+          <div class="trend-box">
+            <div class="trend-item">
+              <div class="trend-title">Le long d'une famille (↕)</div>
+              <div class="trend-dir">↑ Augmente du bas vers le haut</div>
+              <p>Les atomes plus petits (en haut) attirent plus fortement les électrons.</p>
+            </div>
+            <div class="trend-item">
+              <div class="trend-title">Le long d'une période (↔)</div>
+              <div class="trend-dir">↑ Augmente de gauche à droite</div>
+              <p>Les non-métaux (droite) cherchent à compléter leur couche ; les métaux (gauche) cèdent facilement leurs électrons.</p>
+            </div>
+          </div>
+          <div class="note-box">
+            <div class="note-label">À retenir</div>
+            Les <strong>gaz inertes n'ont pas d'électronégativité</strong> — leur dernière couche est pleine et n'attire pas les électrons des autres atomes. L'élément le plus électronégatif est le <strong>fluor (F)</strong> ; le moins électronégatif est le <strong>francium (Fr)</strong>.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1.4 — LES MOLÉCULES                  -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-1-4">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">1.4</span>
+          <span class="section-title">Les molécules</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="subsection">
+          <div class="subsection-title">Définitions</div>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p><strong>Molécule :</strong> ensemble d'atomes liés par des liaisons chimiques, formant la plus petite unité d'une substance capable d'exister de façon indépendante en conservant ses propriétés.</p>
+          </div>
+          <p>Une <span class="kw">molécule diatomique</span> contient 2 atomes (H₂, O₂, N₂, Cl₂…). Une <span class="kw">molécule polyatomique</span> en contient plus (H₂O, CO₂, NH₃…).</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les liaisons chimiques</div>
+          <p>Les atomes se lient pour atteindre une configuration électronique stable (couche de valence complète = <strong>règle de l'octet</strong>, ou duet pour H et He).</p>
+          <table class="data-table">
+            <thead><tr><th>Type de liaison</th><th>Mécanisme</th><th>Entre quels éléments</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Liaison covalente</strong></td>
+                <td>Partage d'une ou plusieurs paires d'électrons</td>
+                <td>Non-métal + Non-métal</td>
+                <td>H₂O, CO₂, CH₄</td>
+              </tr>
+              <tr>
+                <td><strong>Liaison ionique</strong></td>
+                <td>Transfert d'électrons → ions + et − qui s'attirent</td>
+                <td>Métal + Non-métal</td>
+                <td>NaCl, MgO, CaCl₂</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <div class="note-label">📝 Note du prof — Truc rapide</div>
+            2 non-métaux → liaison <strong>covalente</strong>. 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité peut confirmer : une grande différence (≥ 1,7) indique une liaison ionique.
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Masse molaire moléculaire</div>
+          <p>La <span class="kw">masse molaire d'une molécule</span> (en g/mol) s'obtient en additionnant les masses atomiques de tous les atomes qui la composent.</p>
+          <div class="formula">M(H₂O) = 2 × 1,01 + 1 × 16,00 = 18,02 g/mol</div>
+          <div class="formula">M(CO₂) = 1 × 12,01 + 2 × 16,00 = 44,01 g/mol</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 1.5 — MOLE ET AVOGADRO              -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-1-5">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">1.5</span>
+          <span class="section-title">La notion de mole et le nombre d'Avogadro</span>
+          <span class="section-badge">STE</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="subsection">
+          <div class="subsection-title">Pourquoi la mole ?</div>
+          <p>Les atomes et molécules sont si minuscules qu'on ne peut pas les compter un par un. En chimie, on utilise la <span class="kw">mole (mol)</span> comme unité de quantité de matière — c'est l'équivalent chimique d'une « douzaine », mais à une échelle gigantesque.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Le nombre d'Avogadro</div>
+          <div class="def-box">
+            <div class="def-label">Définition fondamentale</div>
+            <p><strong>1 mole = 6,022 × 10²³ particules</strong></p>
+            <p>Ce nombre est le <strong>nombre d'Avogadro (Nₐ)</strong>, en hommage au physicien Amedeo Avogadro.</p>
+          </div>
+          <div class="formula">Nₐ = 6,022 × 10²³ mol⁻¹</div>
+          <p>Exemples : 1 mol de carbone = 6,022 × 10²³ atomes C. 1 mol d'eau = 6,022 × 10²³ molécules H₂O.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La masse molaire et les calculs</div>
+          <p>La <span class="kw">masse molaire (M)</span> est la masse d'une mole d'une substance. Sa valeur numérique en g/mol est égale à la masse atomique ou moléculaire (en u).</p>
+          <p>Exemple : M(Na) = 22,99 g/mol. M(H₂O) = 18,02 g/mol.</p>
+          <div class="formula">n = m ÷ M &nbsp;&nbsp;|&nbsp;&nbsp; m = n × M &nbsp;&nbsp;|&nbsp;&nbsp; N = n × Nₐ</div>
+          <p class="formula-caption">n = quantité de matière (mol) · m = masse (g) · M = masse molaire (g/mol) · N = nombre de particules</p>
+
+          <div class="note-box">
+            <div class="note-label">📝 Exemple résolu</div>
+            <strong>Combien de molécules y a-t-il dans 36 g d'eau ?</strong><br><br>
+            Étape 1 — Masse molaire : M(H₂O) = 2(1,01) + 16,00 = <strong>18,02 g/mol</strong><br>
+            Étape 2 — Quantité : n = 36 ÷ 18,02 = <strong>2,00 mol</strong><br>
+            Étape 3 — Nombre de molécules : N = 2,00 × 6,022 × 10²³ = <strong>1,20 × 10²⁴ molécules</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</main>
+
+<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+// ── Toggle sections ────────────────────────────────────────
+function toggleSection(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  btn.parentElement.querySelector('.section-body').classList.toggle('open', !expanded);
+}
+
+// ── Sidebar active link ────────────────────────────────────
+const tocLinks = document.querySelectorAll('.toc-link');
+const sectionIds = ['rappel','section-1-1','section-1-2','section-1-3','section-1-4','section-1-5'];
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 130) current = id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('to-top').classList.toggle('visible', window.scrollY > 300);
+}, {passive: true});
+
+// ── Smooth scroll from TOC ─────────────────────────────────
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const toggle = target.querySelector('.section-toggle');
+    if (toggle && toggle.getAttribute('aria-expanded') === 'false') toggleSection(toggle);
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+// ── Search ─────────────────────────────────────────────────
+const contentEl = document.querySelector('.content');
+const originalHTML = contentEl.innerHTML;
+
+function doSearch(query) {
+  contentEl.innerHTML = originalHTML;
+  const countEl = document.getElementById('search-count');
+  if (!query.trim()) { countEl.textContent = ''; return; }
+
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  let count = 0;
+  nodes.forEach(node => {
+    if (!re.test(node.textContent)) return;
+    re.lastIndex = 0;
+    const span = document.createElement('span');
+    span.innerHTML = node.textContent.replace(re, m => { count++; return `<mark class="sh">${m}</mark>`; });
+    node.parentNode.replaceChild(span, node);
+  });
+
+  countEl.textContent = count ? `${count} résultat${count>1?'s':''}` : 'Aucun résultat';
+
+  document.querySelectorAll('.section-card').forEach(card => {
+    if (card.querySelector('mark.sh')) {
+      const t = card.querySelector('.section-toggle');
+      if (t && t.getAttribute('aria-expanded') === 'false') toggleSection(t);
+    }
+  });
+
+  const first = contentEl.querySelector('mark.sh');
+  if (first) first.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// Ctrl+F → recherche interne
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    const inp = document.getElementById('search-input');
+    inp.focus(); inp.select();
+  }
+});
+</script>
+</body>
+</html>
