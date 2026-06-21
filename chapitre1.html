@@ -107,6 +107,7 @@
 
   /* Search highlight */
   mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
+  mark.sh.current { background: #ff9d2e; box-shadow: 0 0 0 2px #ff9d2e; }
 
   /* Rappel card */
   .rappel-card { background: linear-gradient(120deg, var(--teal-dark), var(--teal-mid)); border-radius: 10px; padding: 24px 28px; color: rgba(255,255,255,.88); margin-bottom: 24px; }
@@ -606,6 +607,9 @@
             Certains manuels, dont le Kaléidoscope, écrivent que les métalloïdes sont situés « de part et d'autre de l'escalier ». La formulation plus précise est qu'ils <strong>forment l'escalier lui-même</strong> : c'est exactement la ligne en escalier (B, Si, Ge, As, Sb, Te, At) qui délimite les métaux à gauche des non-métaux à droite. Les deux formulations réfèrent au même emplacement dans le tableau, mais la seconde est plus juste.
           </div>
         </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Périodes et familles</div>
           <div class="def-box">
             <div class="def-label">Périodes (lignes horizontales)</div>
             <p>Il y en a 7. Tous les éléments d'une même période ont le <strong>même nombre de couches électroniques</strong>. Le numéro de la période = nombre de couches.</p>
@@ -664,6 +668,9 @@
             L'hydrogène (H) est placé dans la colonne IA, comme les alcalins, et possède aussi 1 électron de valence — mais il <strong>n'est pas un alcalin</strong> : c'est un non-métal, et il ne possède pas les propriétés chimiques de cette famille (métal mou, réagit fortement avec l'eau, etc.). L'hydrogène ne fait partie d'aucune famille.
           </div>
         </div>
+
+        <div class="subsection">
+          <div class="subsection-title">La notation de Lewis</div>
           <p>Les <span class="kw">électrons de valence</span> (dernière couche) sont responsables des liaisons chimiques. On les représente avec des points autour du symbole de l'élément.</p>
           <ul class="content-list">
             <li>On ne représente que les électrons de valence.</li>
@@ -678,6 +685,41 @@
             <figure class="fig-block" style="margin-top:10px;">
               <img src="images/ch1/lewis_exemples.png" alt="Notation de Lewis pour Li, Be, B, C, N, O, F, Ne" loading="lazy">
               <figcaption>Fig. — Notation de Lewis des éléments de la 2e période. Remarquer l'azote (N) : 5 électrons de valence, 3 côtés avec 1 point seul, 1 côté avec une paire (2 points). L'hélium (He) fait exception avec seulement 2 électrons.</figcaption>
+            </figure>
+          </div>
+          <div class="note-box">
+            <div class="note-label">⚠️ Erreur fréquente — l'hélium n'est pas comme le béryllium</div>
+            <p style="margin:0 0 10px;">Le béryllium (Be) a 2 électrons de valence répartis sur <strong>2 côtés différents</strong> (haut et bas), car sa couche de valence (n = 2) contient plusieurs orbitales disponibles. Les élèves généralisent souvent ce modèle à l'hélium — <strong>c'est une erreur</strong> : l'hélium n'a qu'une seule couche (K), qui ne contient qu'<strong>une seule orbitale (1s)</strong>. Ses 2 électrons sont donc forcément déjà appariés et doivent être dessinés comme <strong>un seul doublet</strong> collé au symbole, jamais comme 2 points séparés.</p>
+            <figure class="fig-block" style="margin-top:10px;">
+              <svg viewBox="0 0 620 170" style="width:100%;max-height:260px;display:block;background:#fff;" role="img" aria-label="Comparaison Lewis Be et He">
+                <!-- Panneau 1 : Béryllium, correct -->
+                <text x="103" y="24" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="700" letter-spacing="0.04em" fill="#1f6f64">BÉRYLLIUM (Be) — correct</text>
+                <text x="103" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="600" fill="#1f1f1f">Be</text>
+                <circle cx="103" cy="58" r="3.2" fill="#1f1f1f"/>
+                <circle cx="103" cy="122" r="3.2" fill="#1f1f1f"/>
+                <text x="103" y="158" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="11" fill="#5a5a5a">2 points séparés (2 orbitales)</text>
+
+                <line x1="207" y1="14" x2="207" y2="156" stroke="#e2e2e2" stroke-width="1"/>
+
+                <!-- Panneau 2 : Hélium, erreur fréquente -->
+                <text x="310" y="24" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="700" letter-spacing="0.04em" fill="#b03a2e">HÉLIUM (He) — erreur</text>
+                <text x="310" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="600" fill="#c7c7c7">He</text>
+                <circle cx="310" cy="58" r="3.2" fill="#c7c7c7"/>
+                <circle cx="310" cy="122" r="3.2" fill="#c7c7c7"/>
+                <line x1="292" y1="82" x2="328" y2="118" stroke="#b03a2e" stroke-width="3" stroke-linecap="round"/>
+                <line x1="328" y1="82" x2="292" y2="118" stroke="#b03a2e" stroke-width="3" stroke-linecap="round"/>
+                <text x="310" y="158" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="11" fill="#5a5a5a">faux : 2 points séparés</text>
+
+                <line x1="413" y1="14" x2="413" y2="156" stroke="#e2e2e2" stroke-width="1"/>
+
+                <!-- Panneau 3 : Hélium, correct -->
+                <text x="517" y="24" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="700" letter-spacing="0.04em" fill="#1f6f64">HÉLIUM (He) — correct</text>
+                <text x="517" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="600" fill="#1f1f1f">He</text>
+                <circle cx="552" cy="85" r="3.2" fill="#1f1f1f"/>
+                <circle cx="552" cy="95" r="3.2" fill="#1f1f1f"/>
+                <text x="517" y="158" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-size="11" fill="#5a5a5a">1 seul doublet (1 orbitale)</text>
+              </svg>
+              <figcaption>Fig. — À gauche : Be, 2 électrons de valence sur 2 côtés distincts (correct, car n = 2 possède plusieurs orbitales). Au centre : la même répartition appliquée à l'hélium est <strong>fausse</strong>. À droite : représentation correcte de He — un seul doublet, puisque He ne possède qu'une orbitale (1s).</figcaption>
             </figure>
           </div>
         </div>
@@ -744,6 +786,132 @@
         </div>
 
         <div class="subsection">
+          <div class="subsection-title">Les ions</div>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>ion</strong> est un atome (ou un groupe d'atomes) qui a <strong>perdu ou gagné un ou plusieurs électrons</strong>, ce qui le rend électriquement chargé. On distingue deux types d'ions :</p>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Type d'ion</th><th>Formation</th><th>Charge</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Cation</strong></td>
+                <td>Un atome <strong>perd</strong> un ou plusieurs électrons (typique des métaux)</td>
+                <td>Positive (+)</td>
+                <td>Na → Na⁺ + e⁻</td>
+              </tr>
+              <tr>
+                <td><strong>Anion</strong></td>
+                <td>Un atome <strong>gagne</strong> un ou plusieurs électrons (typique des non-métaux)</td>
+                <td>Négative (−)</td>
+                <td>Cl + e⁻ → Cl⁻</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>La <span class="kw">liaison ionique</span> (vue dans la sous-section suivante) résulte justement de ce transfert d'électrons : un métal cède un ou plusieurs électrons de valence à un non-métal, ce qui forme un cation et un anion qui s'attirent par leur charge opposée.</p>
+
+          <div class="def-box">
+            <div class="def-label">Comment prédire la charge d'un ion</div>
+            <p>Les atomes dont la dernière couche n'est pas pleine cherchent à la remplir (les non-métaux) ou à se débarrasser de leurs électrons de valence (les métaux), car ils deviennent ainsi stables comme un gaz inerte.</p>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Type d'élément</th><th>Comportement</th><th>Charge obtenue</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Non-métaux</strong> (très électronégatifs, sauf gaz inertes)</td>
+                <td>Gagnent des électrons pour compléter leur couche de valence</td>
+                <td><strong>Négative</strong> = numéro de famille − 8</td>
+              </tr>
+              <tr>
+                <td><strong>Métaux, série A</strong> (peu électronégatifs)</td>
+                <td>Perdent facilement leurs électrons de valence, retenus faiblement</td>
+                <td><strong>Positive</strong> = numéro de famille</td>
+              </tr>
+              <tr>
+                <td><strong>Métaux de transition, série B</strong></td>
+                <td>Perdent généralement 2 électrons</td>
+                <td>Généralement <strong>2+</strong> (plusieurs exceptions)</td>
+              </tr>
+            </tbody>
+          </table>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/cation_anion_schema.png" alt="Schéma général illustrant la perte d'électron formant un cation et le gain d'électron formant un anion" loading="lazy">
+            <figcaption>Fig. — Perte d'électron(s) → cation (charge positive). Gain d'électron(s) → anion (charge négative).</figcaption>
+          </figure>
+          <div class="note-box">
+            <div class="note-label">📝 Cas particulier — l'hydrogène</div>
+            La charge de l'hydrogène dépend de l'élément auquel il est lié :
+            <ul class="content-list" style="margin-top:8px;">
+              <li>Lié à un <strong>non-métal</strong> → l'hydrogène est <strong>positif (H⁺)</strong>. Exemple : HCl → H⁺ + Cl⁻</li>
+              <li>Lié à un <strong>métal</strong> → l'hydrogène est <strong>négatif (H⁻)</strong>. Exemple : LiH → Li⁺ + H⁻</li>
+            </ul>
+          </div>
+          <div class="note-box">
+            <div class="note-label">📝 Exemple — Mg et P</div>
+            Un atome de magnésium (Mg, famille IIA) qui perd ses 2 électrons de valence devient <strong>Mg²⁺</strong> (12 protons, 10 électrons restants). Un atome de phosphore (P, famille VA) qui gagne 3 électrons pour compléter sa couche devient <strong>P³⁻</strong> (15 protons, 18 électrons) — charge = 5 − 8 = −3.
+          </div>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/mg_p_ions.png" alt="Schéma de formation des ions Mg2+ et P3- à partir des atomes neutres" loading="lazy">
+            <figcaption>Fig. — Formation de Mg²⁺ (perte de 2 e⁻) et de P³⁻ (gain de 3 e⁻).</figcaption>
+          </figure>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/tableau_charges_ions.png" alt="Tableau périodique montrant la charge typique des ions formés par chaque famille d'éléments" loading="lazy">
+            <figcaption>Fig. — Charge typique des ions selon leur position dans le tableau périodique (métaux de gauche → cations, non-métaux de droite → anions, gaz inertes → pas d'ions).</figcaption>
+          </figure>
+          <div class="note-box">
+            <div class="note-label">📝 Exemple — Formation du chlorure de sodium (NaCl)</div>
+            <p style="margin:0 0 8px;"><strong>Avant la liaison :</strong> le sodium (Na) possède 1 électron de valence ; le chlore (Cl) en possède 7.</p>
+            <p style="margin:0 0 8px;"><strong>Pendant la liaison :</strong> le sodium cède son électron de valence au chlore, qui complète ainsi sa couche périphérique (règle de l'octet) — la couche qui était l'avant-dernière chez le sodium devient sa nouvelle couche périphérique.</p>
+            <p style="margin:0;"><strong>Après la liaison :</strong> en perdant un électron, le sodium n'est plus électriquement neutre — il devient l'ion sodium <strong>Na⁺</strong> (cation). En gagnant cet électron, le chlore devient l'ion chlorure <strong>Cl⁻</strong> (anion). Les deux ions, de charges opposées, s'attirent : c'est la liaison ionique.</p>
+          </div>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/transfert_electron_nacl.png" alt="Schéma du transfert d'un électron du sodium vers le chlore, formant Na+ et Cl-" loading="lazy">
+            <figcaption>Fig. — Transfert de l'électron de valence du sodium vers le chlore : formation de Na⁺ et Cl⁻.</figcaption>
+          </figure>
+          <div class="note-box">
+            <div class="note-label">À retenir</div>
+            Le nom d'un cation reste généralement le <strong>même que celui de l'atome</strong> (ex. sodium → ion sodium). Le nom d'un anion change pour se terminer en <strong>« ure »</strong> (ex. chlore → ion chlor<strong>ure</strong>), à l'exception de quelques anions comme l'oxygène (→ ion oxyde).
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Les ions polyatomiques</div>
+          <p>Il existe aussi des groupes d'atomes chimiquement liés qui portent une charge électrique globale, causée par un surplus ou un déficit d'électrons. Un tel groupe forme un tout indissociable, appelé <span class="kw">ion polyatomique</span> (« poly » = plusieurs ; « polyatomique » = constitué de plusieurs atomes).</p>
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>ion polyatomique</strong> est un groupe de deux ou de plusieurs atomes chimiquement liés, qui porte une charge électrique causée par un surplus ou un déficit d'électrons.</p>
+          </div>
+          <p>D'une manière générale, il existe plus d'anions polyatomiques que de cations polyatomiques. Les cations polyatomiques, comme l'ammonium (NH₄⁺), sont habituellement unis à un ion non métallique (ex. NH₄Cl). Les anions polyatomiques, comme les sulfates (SO₄²⁻), sont unis soit à un ion métallique (ex. MgSO₄), soit à un ion hydrogène (ex. HNO₃).</p>
+          <table class="data-table">
+            <thead><tr><th>Charge</th><th>Formule chimique</th><th>Nom de l'ion</th></tr></thead>
+            <tbody>
+              <tr><td rowspan="2">+1 (cation)</td><td>H₃O⁺</td><td>Hydronium</td></tr>
+              <tr><td>NH₄⁺</td><td>Ammonium</td></tr>
+              <tr><td rowspan="7">−1</td><td>OH⁻</td><td>Hydroxyde</td></tr>
+              <tr><td>NO₃⁻</td><td>Nitrate</td></tr>
+              <tr><td>NO₂⁻</td><td>Nitrite</td></tr>
+              <tr><td>CH₃COO⁻</td><td>Acétate</td></tr>
+              <tr><td>CN⁻</td><td>Cyanure</td></tr>
+              <tr><td>ClO₃⁻</td><td>Chlorate</td></tr>
+              <tr><td>HCO₃⁻</td><td>Hydrogénocarbonate (bicarbonate)</td></tr>
+              <tr><td rowspan="6">−2</td><td>CO₃²⁻</td><td>Carbonate</td></tr>
+              <tr><td>SO₄²⁻</td><td>Sulfate</td></tr>
+              <tr><td>SO₃²⁻</td><td>Sulfite</td></tr>
+              <tr><td>CrO₄²⁻</td><td>Chromate</td></tr>
+              <tr><td>Cr₂O₇²⁻</td><td>Dichromate</td></tr>
+              <tr><td>MnO₄²⁻</td><td>Manganate</td></tr>
+              <tr><td rowspan="2">−3</td><td>PO₄³⁻</td><td>Phosphate</td></tr>
+              <tr><td>BO₃³⁻</td><td>Borate</td></tr>
+              <tr><td>−4</td><td>P₂O₇⁴⁻</td><td>Pyrophosphate</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <div class="note-label">⚠️ Erreur fréquente</div>
+            Il est difficile de prévoir la charge d'un ion polyatomique en se basant sur les atomes qui le constituent — il est plus simple de <strong>mémoriser sa charge</strong> en se fiant directement à sa formule chimique (le tableau ci-dessus), plutôt que de tenter de la recalculer à chaque fois.
+          </div>
+        </div>
+
+        <div class="subsection">
           <div class="subsection-title">Les liaisons chimiques</div>
           <p>Les atomes se lient pour atteindre une configuration électronique stable (couche de valence complète = <strong>règle de l'octet</strong>, ou duet pour H et He).</p>
           <table class="data-table">
@@ -767,6 +935,15 @@
             <div class="note-label">📝 Note du prof — Truc rapide</div>
             2 non-métaux → liaison <strong>covalente</strong>. 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité peut confirmer : une grande différence (≥ 1,7) indique une liaison ionique.
           </div>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/transfert_electron_nacl.png" alt="Transfert d'un électron du sodium vers le chlore, représenté par une flèche, avec les valeurs d'électronégativité (Na = 0,9 ; Cl = 3,0)" loading="lazy">
+            <figcaption>Fig. — La liaison ionique est représentée par une flèche montrant le transfert de l'électron du métal (Na, électronégativité 0,9) vers le non-métal (Cl, électronégativité 3,0). Différence d'électronégativité ici : 2,1.</figcaption>
+          </figure>
+          <p style="margin-top:16px;">Il existe aussi des <span class="kw">liaisons polaires</span>, généralement quand la différence d'électronégativité se situe entre 0,4 et 1,7. C'est une liaison à mi-chemin entre covalente et ionique, qui crée des pôles partiellement positif et négatif au sein de la molécule — d'où le nom de « polaire ». L'eau (H₂O) est un exemple classique de molécule polaire, ce qui en fait un excellent solvant.</p>
+          <figure class="fig-block" style="margin-top:10px;">
+            <img src="images/ch1/liaison_apolaire_polaire_ionique.png" alt="Comparaison des trois types de liaison selon la différence d'électronégativité : covalente apolaire, covalente polaire, ionique" loading="lazy">
+            <figcaption>Fig. — Plus la différence d'électronégativité augmente, plus le partage d'électrons devient inégal : liaison covalente apolaire (différence ≈ 0) → covalente polaire (0,4 à 1,7) → ionique (≥ 1,7).</figcaption>
+          </figure>
         </div>
 
         <div class="subsection">
@@ -978,10 +1155,16 @@ tocLinks.forEach(link => {
 const contentEl = document.querySelector('.content');
 const originalHTML = contentEl.innerHTML;
 
+let lastQuery = '';
+let matchIndex = -1;
+
 function doSearch(query) {
   contentEl.innerHTML = originalHTML;
   const countEl = document.getElementById('search-count');
-  if (!query.trim()) { countEl.textContent = ''; return; }
+  matchIndex = -1;
+  lastQuery = query;
+
+  if (!query.trim()) { countEl.textContent = ''; return 0; }
 
   const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
   const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
@@ -1006,9 +1189,36 @@ function doSearch(query) {
     }
   });
 
-  const first = contentEl.querySelector('mark.sh');
-  if (first) first.scrollIntoView({behavior:'smooth', block:'center'});
+  return count;
 }
+
+function goToMatch(step) {
+  const marks = contentEl.querySelectorAll('mark.sh');
+  if (!marks.length) return;
+  if (matchIndex >= 0 && marks[matchIndex]) marks[matchIndex].classList.remove('current');
+  matchIndex = (matchIndex + step + marks.length) % marks.length;
+  const m = marks[matchIndex];
+  m.classList.add('current');
+  m.scrollIntoView({behavior:'smooth', block:'center'});
+  const countEl = document.getElementById('search-count');
+  countEl.textContent = `${matchIndex+1} / ${marks.length} résultats`;
+}
+
+function runSearchAndJump(query, step) {
+  if (query !== lastQuery || !contentEl.querySelector('mark.sh')) {
+    const count = doSearch(query);
+    if (count > 0) goToMatch(0);
+  } else {
+    goToMatch(step);
+  }
+}
+
+document.getElementById('search-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    runSearchAndJump(e.target.value, e.shiftKey ? -1 : 1);
+  }
+});
 
 // Ctrl+F → recherche interne
 document.addEventListener('keydown', e => {
