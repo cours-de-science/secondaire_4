@@ -41,6 +41,11 @@
   #sidebar nav ul li a:hover, #sidebar nav ul li a.active { background: rgba(255,255,255,.08); color: #fff; border-left-color: var(--yellow); }
   #sidebar nav ul li a .num { font-family: var(--mono); font-size: 11px; color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-weight: 600; }
   .sidebar-footer { margin-top: auto; padding: 16px 18px; font-size: 11px; color: rgba(255,255,255,.3); border-top: 1px solid rgba(255,255,255,.1); }
+  .sidebar-footer button { background: none; border: none; cursor: pointer; font-size: 11px; color: rgba(255,255,255,.3); padding: 0; text-align: left; width: 100%; transition: color .15s; }
+  .sidebar-footer button:hover { color: rgba(255,255,255,.6); }
+  .attrib-popover { display: none; position: absolute; bottom: 60px; left: 14px; width: 230px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.18); padding: 14px 16px; font-size: 12px; color: #1e2a2c; line-height: 1.6; z-index: 200; }
+  .attrib-popover::after { content: ''; position: absolute; bottom: -7px; left: 20px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); box-shadow: 2px 2px 4px rgba(0,0,0,.08); }
+  .attrib-popover.visible { display: block; }
 
   /* ── MAIN ── */
   #main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
@@ -213,7 +218,12 @@
       <li><a href="#section-1-5" class="toc-link"><span class="num">1.5</span> La mole et Avogadro</a></li>
     </ul>
   </nav>
-  <div class="sidebar-footer">M. Bouchard · Collège Charlemagne · 2024–2025</div>
+  <div class="sidebar-footer">
+    <button onclick="document.getElementById('attrib-pop').classList.toggle('visible')" title="À propos de ce document">ⓘ À propos de ce document</button>
+    <div class="attrib-popover" id="attrib-pop">
+      Matériel préparé par M. Raphaël Sylvestre Bouchard à l'aide des notes de cours de M. Bouchard (Collège Charlemagne, 2024–2025) et du manuel <em>Kaléidoscope</em>, Secondaire 4 (ERPI).
+    </div>
+  </div>
 </aside>
 
 <!-- MAIN -->
@@ -1351,6 +1361,14 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
     const inp = document.getElementById('search-input');
     inp.focus(); inp.select();
+  }
+});
+
+// Fermer la bulle d'attribution au clic à l'extérieur
+document.addEventListener('click', e => {
+  const pop = document.getElementById('attrib-pop');
+  if (pop && !pop.contains(e.target) && !e.target.closest('.sidebar-footer button')) {
+    pop.classList.remove('visible');
   }
 });
 </script>
