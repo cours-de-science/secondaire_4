@@ -194,6 +194,43 @@
     .content { padding: 28px 20px 60px; }
     .particle-grid { flex-direction: column; }
   }
+
+  /* ── QUIZ ── */
+  .quiz-block { margin-top: 36px; border-top: 2px solid var(--yellow); padding-top: 24px; }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; }
+  .quiz-intro { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+  .quiz-score-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; color: var(--text-muted); }
+  .quiz-score-bar progress { flex: 1; height: 6px; border-radius: 3px; appearance: none; -webkit-appearance: none; }
+  .quiz-score-bar progress::-webkit-progress-bar { background: var(--border); border-radius: 3px; }
+  .quiz-score-bar progress::-webkit-progress-value { background: var(--teal-mid); border-radius: 3px; transition: width .4s; }
+
+  .quiz-q { background: var(--bg-alt); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; border: 1.5px solid var(--border); transition: border-color .2s; }
+  .quiz-q.answered { border-color: transparent; }
+  .quiz-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 6px; }
+  .quiz-q-text { font-size: 15px; font-weight: 500; color: var(--text-dark); line-height: 1.5; margin-bottom: 14px; }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: #fff; cursor: pointer; font-size: 14px; color: var(--text-dark); transition: background .15s, border-color .15s; text-align: left; width: 100%; line-height: 1.45; }
+  .quiz-option:hover:not(:disabled) { background: #f0f8f8; border-color: var(--teal-mid); }
+  .quiz-option .opt-letter { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-option.correct { background: #e8f8ef; border-color: #2da262; color: #1a6640; }
+  .quiz-option.correct .opt-letter { color: #2da262; }
+  .quiz-option.wrong { background: #fdecea; border-color: #d94f3d; color: #8b2218; }
+  .quiz-option.wrong .opt-letter { color: #d94f3d; }
+  .quiz-option.reveal { background: #e8f8ef; border-color: #2da262; color: #1a6640; opacity: .7; }
+  .quiz-option.reveal .opt-letter { color: #2da262; }
+
+  .quiz-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; line-height: 1.55; display: none; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: #e8f8ef; color: #1a6640; }
+  .quiz-feedback.ko { background: #fdecea; color: #8b2218; }
+
+  .quiz-reset { margin-top: 20px; padding: 9px 20px; border-radius: 8px; border: 1.5px solid var(--teal-mid); background: #fff; color: var(--teal-dark); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; display: none; }
+  .quiz-reset:hover { background: #f0f8f8; }
+  .quiz-result-msg { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; }
+  .quiz-result-msg.show { display: block; }
 </style>
 </head>
 <body>
@@ -523,6 +560,116 @@
             <img src="images/ch1/sodium_configuration.png" alt="Configuration électronique du sodium (Na) : noyau avec 11 p⁺ et 12 n⁰, entouré de 3 couches avec 2, 8 et 1 électrons" loading="lazy">
             <figcaption>Fig. — Configuration électronique du sodium (Na) selon le modèle simplifié. Le noyau indique le nombre de protons (11 p⁺) et de neutrons (12 n⁰). Les trois couches contiennent respectivement 2, 8 et 1 électron(s), pour un total de 11 électrons — égal au nombre de protons, confirmant que l'atome est neutre.</figcaption>
           </figure>
+        </div>
+
+        <!-- QUIZ 1.1 -->
+        <div class="quiz-block" data-quiz="q11">
+          <div class="quiz-block-title">Exercices — Section 1.1</div>
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Selon Dalton, tous les atomes d'un même élément sont identiques.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. C'est l'un des postulats fondamentaux de Dalton (1808) : tous les atomes d'un même élément sont identiques en masse et en propriétés.</div>
+            <div class="quiz-feedback ko">✗ Faux. Selon Dalton, tous les atomes d'un même élément sont bien identiques. Ce n'est qu'avec la découverte des isotopes, bien plus tard, qu'on a nuancé ce postulat.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans le modèle de Thomson (1897), où se trouvent les électrons ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Sur des couches circulaires autour du noyau</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Dispersés dans une sphère chargée positivement</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Regroupés dans le noyau central</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> À l'extérieur de l'atome, sous forme de nuage</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Thomson décrit l'atome comme une sphère de charge positive uniforme dans laquelle les électrons négatifs sont dispersés — d'où la comparaison avec un pain aux raisins.</div>
+            <div class="quiz-feedback ko">✗ Ce modèle appartient à Bohr (couches) ou Rutherford (noyau). Chez Thomson, l'atome est une sphère de charge positive uniforme parsemée d'électrons — le modèle du « pain aux raisins ».</div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel est le signe de la charge électrique des rayons alpha (α) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Négative</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Positive</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Nulle (neutres)</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Les particules alpha sont des noyaux d'hélium (2 protons + 2 neutrons), ce qui leur donne une charge de 2+. Dans un champ électrique, elles dévient vers la plaque négative.</div>
+            <div class="quiz-feedback ko">✗ Les rayons alpha sont positifs (charge 2+). Ce sont des noyaux d'hélium. Les rayons bêta sont négatifs, et les rayons gamma sont neutres.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Lors de l'expérience de la feuille d'or, la majorité des particules alpha ont été fortement déviées.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Au contraire, la grande majorité des particules traversent la feuille sans déviation ou presque. Seule une infime fraction rebondit — ce qui prouve que l'atome est surtout vide et que la charge positive est concentrée dans un noyau minuscule.</div>
+            <div class="quiz-feedback ko">✗ C'est l'inverse : la plupart des particules passent tout droit. C'est justement la surprise de Rutherford — quelques-unes seulement sont fortement déviées, ce qui révèle l'existence d'un noyau petit et dense.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Combien d'électrons maximum peut contenir la couche L (deuxième couche) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 2</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 8</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 18</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 32</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. La couche K en contient 2, la couche L en contient 8, la couche M en contient 18, etc.</div>
+            <div class="quiz-feedback ko">✗ La couche L (2ᵉ couche) contient au maximum 8 électrons. La couche K en contient 2, et la couche M en contient 18.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le neutron a été découvert avant le proton.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Le proton a été identifié par Rutherford en 1919, alors que le neutron n'a été découvert par Chadwick qu'en 1932, soit 13 ans plus tard.</div>
+            <div class="quiz-feedback ko">✗ C'est le proton qui vient en premier : Rutherford l'identifie en 1919. Le neutron est découvert par Chadwick en 1932.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans la notation nucléaire ᴬ𝓩X, que représente le nombre Z ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le nombre de masse (protons + neutrons)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Le nombre de neutrons seulement</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Le nombre de protons (numéro atomique)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Le nombre d'électrons de valence</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Z est le numéro atomique — il indique le nombre de protons dans le noyau, ce qui définit l'identité de l'élément. A est le nombre de masse (protons + neutrons).</div>
+            <div class="quiz-feedback ko">✗ Z est le numéro atomique : il indique le nombre de protons. C'est A (le nombre de masse) qui donne le total protons + neutrons.</div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la configuration électronique correcte du chlore (Cl, Z = 17) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 2 — 8 — 8</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 2 — 8 — 7</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2 — 7 — 8</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 2 — 9 — 6</button>
+            </div>
+            <div class="quiz-feedback ok">✓ Exact. Cl a 17 électrons : 2 sur la couche K, 8 sur la couche L, et 7 sur la couche M. Il lui manque 1 électron pour compléter sa couche de valence — c'est pourquoi il est très réactif.</div>
+            <div class="quiz-feedback ko">✗ Cl a 17 électrons au total. On les place : 2 sur K (pleine), 8 sur L (pleine), et il reste 7 pour la couche M → 2 — 8 — 7. La réponse A (2-8-8) correspondrait à 18 électrons, donc à l'argon (Ar).</div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q11"></div>
+          <button class="quiz-reset" id="reset-q11">↺ Recommencer</button>
         </div>
 
       </div>
@@ -1371,6 +1518,82 @@ document.addEventListener('click', e => {
     pop.classList.remove('visible');
   }
 });
+
+// === MOTEUR DE QUIZ INTERACTIFS ===
+function initQuizBlock(block) {
+  const questions = Array.from(block.querySelectorAll('.quiz-q'));
+  const total = questions.length;
+  const scoreLabel = block.querySelector('.quiz-score-label');
+  const progressBar = block.querySelector('.quiz-progress');
+  const resultMsg = block.querySelector('.quiz-result-msg');
+  const resetBtn = block.querySelector('.quiz-reset');
+
+  function updateScore() {
+    const answered = questions.filter(q => q.classList.contains('answered'));
+    const correct = answered.filter(q => q.dataset.gotCorrect === 'true').length;
+    scoreLabel.textContent = `${correct} / ${total}`;
+    progressBar.value = answered.length;
+
+    if (answered.length === total) {
+      resultMsg.classList.add('show');
+      const pct = Math.round((correct / total) * 100);
+      let msg;
+      if (pct === 100) msg = `🎉 Parfait ! ${correct} / ${total} — la section est maîtrisée.`;
+      else if (pct >= 70) msg = `👍 Bon travail : ${correct} / ${total}. Relis les explications des questions manquées.`;
+      else msg = `📖 ${correct} / ${total} — il serait utile de revoir cette section avant de continuer.`;
+      resultMsg.textContent = msg;
+      resetBtn.style.display = 'inline-block';
+    } else {
+      resultMsg.classList.remove('show');
+      resetBtn.style.display = 'none';
+    }
+  }
+
+  questions.forEach(q => {
+    const options = Array.from(q.querySelectorAll('.quiz-option'));
+    const fbOk = q.querySelector('.quiz-feedback.ok');
+    const fbKo = q.querySelector('.quiz-feedback.ko');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (q.classList.contains('answered')) return; // déjà répondu
+
+        const isCorrect = opt.dataset.correct === 'true';
+        q.classList.add('answered');
+        q.dataset.gotCorrect = isCorrect ? 'true' : 'false';
+
+        options.forEach(o => {
+          o.disabled = true;
+          if (o.dataset.correct === 'true') {
+            o.classList.add(o === opt ? 'correct' : 'reveal');
+          } else if (o === opt) {
+            o.classList.add('wrong');
+          }
+        });
+
+        (isCorrect ? fbOk : fbKo).classList.add('show');
+        updateScore();
+      });
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    questions.forEach(q => {
+      q.classList.remove('answered');
+      delete q.dataset.gotCorrect;
+      q.querySelectorAll('.quiz-option').forEach(o => {
+        o.disabled = false;
+        o.classList.remove('correct', 'wrong', 'reveal');
+      });
+      q.querySelectorAll('.quiz-feedback').forEach(f => f.classList.remove('show'));
+    });
+    updateScore();
+  });
+
+  updateScore();
+}
+
+document.querySelectorAll('.quiz-block').forEach(initQuizBlock);
 </script>
 </body>
 </html>
