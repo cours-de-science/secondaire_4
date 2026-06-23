@@ -197,8 +197,13 @@
 
   /* ── QUIZ ── */
   .quiz-block { margin-top: 36px; border-top: 2px solid var(--yellow); padding-top: 24px; }
-  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 6px; text-align: left; }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); display: flex; align-items: center; gap: 8px; }
   .quiz-block-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; }
+  .quiz-block-bar .chevron-q { margin-left: auto; width: 18px; height: 18px; transition: transform .2s; flex-shrink: 0; color: var(--teal-mid); }
+  .quiz-block-bar[aria-expanded="true"] .chevron-q { transform: rotate(180deg); }
+  .quiz-body { display: none; }
+  .quiz-block-bar[aria-expanded="true"] + .quiz-body { display: block; padding-top: 14px; }
   .quiz-intro { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
   .quiz-score-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; color: var(--text-muted); }
   .quiz-score-bar progress { flex: 1; height: 6px; border-radius: 3px; appearance: none; -webkit-appearance: none; }
@@ -674,7 +679,11 @@
 
         <!-- QUIZ 1.1 -->
         <div class="quiz-block" data-quiz="q11">
-          <div class="quiz-block-title">Exercices — Section 1.1</div>
+          <button class="quiz-block-bar" aria-expanded="true" onclick="toggleQuiz(this)">
+            <span class="quiz-block-title">Exercices — Section 1.1</span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
           <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
           <div class="quiz-score-bar">
             <span class="quiz-score-label">0 / 8</span>
@@ -780,6 +789,7 @@
 
           <div class="quiz-result-msg" id="result-q11"></div>
           <button class="quiz-reset" id="reset-q11">↺ Recommencer</button>
+          </div>
         </div>
 
       </div>
@@ -1523,6 +1533,12 @@ function toggleHint(btn) {
   const hint = btn.nextElementSibling;
   hint.classList.toggle('show');
   btn.textContent = hint.classList.contains('show') ? '▾ Cacher la piste de réponse' : '▸ Voir une piste de réponse';
+}
+
+// ── Toggle blocs d'exercices ────────────────────────────────
+function toggleQuiz(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
 }
 
 // ── Sidebar active link ────────────────────────────────────
