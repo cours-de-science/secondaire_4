@@ -231,6 +231,20 @@
   .quiz-reset:hover { background: #f0f8f8; }
   .quiz-result-msg { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; }
   .quiz-result-msg.show { display: block; }
+
+  /* === ACTIVITÉ SUGGÉRÉE === */
+  .activity-block { margin: 22px 0; border: 1.5px solid var(--orange); border-radius: 10px; overflow: hidden; background: #fffaf4; }
+  .activity-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #fdeee0; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange); text-align: left; transition: background .15s; }
+  .activity-bar:hover { background: #fbe3cc; }
+  .activity-bar .activity-icon { font-size: 16px; flex-shrink: 0; }
+  .activity-bar .chevron-a { margin-left: auto; width: 16px; height: 16px; transition: transform .2s; flex-shrink: 0; }
+  .activity-bar[aria-expanded="true"] .chevron-a { transform: rotate(180deg); }
+  .activity-content { display: none; padding: 16px 18px 18px; }
+  .activity-bar[aria-expanded="true"] + .activity-content { display: block; }
+  .activity-question { font-size: 14.5px; color: var(--text); line-height: 1.6; font-style: italic; }
+  .activity-hint-toggle { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--teal-mid); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
+  .activity-hint { display: none; margin-top: 8px; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 10px 12px; line-height: 1.55; }
+  .activity-hint.show { display: block; }
 </style>
 </head>
 <body>
@@ -311,6 +325,18 @@
 
         <div class="subsection">
           <div class="subsection-title">Les premiers modèles atomiques</div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <span class="activity-icon">🎯</span> Activité suggérée — Dessin diagnostique
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Dessine un atome comme tu te le représenterais de la façon la plus scientifique possible. Annote ton dessin si tu peux (charges, parties, etc.).</p>
+              <p style="font-size:13px;color:var(--muted);margin-top:10px;">Garde ce dessin sous la main — on y reviendra avec le modèle simplifié à la fin de la section.</p>
+            </div>
+          </div>
+
           <div class="timeline">
 
             <div class="timeline-item">
@@ -347,6 +373,18 @@
               </figure>
             </div>
 
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Réflexion
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Le modèle de Démocrite existait en même temps que celui d'Aristote. Pourtant, c'est celui d'Aristote — aujourd'hui considéré comme faux — qui a dominé pendant plus de 2000 ans. À ton avis, pourquoi ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">À cette époque, il n'existait aucun moyen expérimental de vérifier laquelle des deux visions était juste — le débat restait purement philosophique. De plus, Aristote était une autorité intellectuelle immense (logique, biologie, physique), ce qui a donné un poids supplémentaire à ses idées, indépendamment de leur exactitude.</div>
+              </div>
+            </div>
+
             <div class="timeline-item">
               <div class="year">1808 — John Dalton</div>
               <div class="model-name">Modèle de Dalton</div>
@@ -367,6 +405,18 @@
               </figure>
             </div>
 
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Vérification
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">D'après les postulats de Dalton, serait-il possible de transformer un atome de cuivre en atome d'or ? Justifie ta réponse en te basant sur ce que dit Dalton.</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">Non. Dalton affirme qu'il est impossible de transformer les atomes d'un élément en ceux d'un autre — chaque élément a ses propres atomes, indivisibles et indestructibles. Le cuivre resterait du cuivre, peu importe ce qu'on lui fait subir chimiquement.</div>
+              </div>
+            </div>
+
             <div class="timeline-item">
               <div class="year">1897 — Joseph-John Thomson</div>
               <div class="model-name">Modèle de Thomson (« pain aux raisins » / plum pudding)</div>
@@ -385,6 +435,18 @@
                 <img src="images/ch1/thomson_plum_pudding.png" alt="Modèle de Thomson : électrons négatifs dispersés dans une sphère positive" loading="lazy">
                 <figcaption>Fig. 4 — Modèle « pain aux raisins » de Thomson : les électrons (raisins, charge −) sont dispersés dans une pâte de charge positive.</figcaption>
               </figure>
+            </div>
+
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Vérification
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Si l'atome de Thomson contient des électrons chargés négativement, comment celui-ci peut-il être neutre dans l'ensemble ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">La sphère elle-même porte une charge positive répartie uniformément. Cette charge positive annule exactement la charge négative totale des électrons dispersés à l'intérieur — l'atome est donc globalement neutre.</div>
+              </div>
             </div>
 
           </div>
@@ -414,6 +476,18 @@
               </div>
             </div>
 
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Vérification (inférence)
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Une simple feuille de papier arrête les rayons alpha, mais il faut plusieurs centimètres de plomb pour arrêter les rayons gamma. Sans regarder la suite de tes notes, qu'est-ce que ça te permet de déduire sur la différence entre ces deux types de rayonnement ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">Les rayons alpha sont probablement des particules relativement grosses et lentes — elles interagissent facilement avec la matière et sont vite stoppées. Les rayons gamma traversent beaucoup plus de matière, ce qui suggère qu'ils sont très énergétiques et probablement de nature différente (on découvrira que c'est une onde, pas une particule).</div>
+              </div>
+            </div>
+
             <div class="timeline-item">
               <div class="year">1911 — Ernest Rutherford</div>
               <div class="model-name">Modèle de Rutherford</div>
@@ -440,6 +514,18 @@
               </figure>
             </div>
 
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Réflexion
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Avant l'expérience de Rutherford, on pensait que l'atome ressemblait au modèle de Thomson (une sphère pleine). Pourquoi le fait que presque toutes les particules alpha aient traversé la feuille d'or sans déviation a-t-il autant surpris les scientifiques de l'époque ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">Si l'atome avait vraiment été une sphère pleine et compacte comme le proposait Thomson, les particules alpha auraient dû être déviées ou bloquées en grand nombre en heurtant cette matière dense. Le fait que presque toutes passent tout droit montre au contraire que l'atome est presque entièrement vide.</div>
+              </div>
+            </div>
+
             <div class="timeline-item">
               <div class="year">1913 — Niels Bohr</div>
               <div class="model-name">Modèle de Rutherford-Bohr</div>
@@ -454,6 +540,18 @@
                 <img src="images/ch1/bohr_modele.png" alt="Modèle de Bohr : électrons sur des couches circulaires autour du noyau" loading="lazy">
                 <figcaption>Fig. 7 — Modèle planétaire de Rutherford-Bohr : les électrons orbitent sur des couches d'énergie fixes (K, L, M…). Un électron excité monte d'une couche, puis redescend en émettant de la lumière.</figcaption>
               </figure>
+            </div>
+
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Application dans le monde réel
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Selon toi, comment la lumière d'une lampe est-elle produite ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">L'énergie électrique excite les électrons des atomes du filament (ou du gaz, selon le type de lampe) : ils absorbent de l'énergie et montent à une couche supérieure. En redescendant à leur couche d'origine, ils libèrent cette énergie sous forme de lumière — exactement le mécanisme décrit par le modèle de Bohr.</div>
+              </div>
             </div>
 
           </div>
@@ -479,6 +577,18 @@
   <img src="images/ch1/chadwick_reaction.png" alt="Réaction nucléaire de Chadwick : béryllium-9 + particule alpha → carbone-12 + neutron" style="max-width: 480px; width: 100%;">
 </figure>
               <p>Les neutrons augmentent la <strong>force nucléaire forte</strong> (attraction) entre les particules du noyau, ce qui permet de vaincre la répulsion électrique entre les protons et empêche le noyau d'éclater.</p>
+            </div>
+
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <span class="activity-icon">🎯</span> Activité suggérée — Réflexion
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">Le proton a été identifié en 1919, mais il a fallu attendre 1932 pour découvrir le neutron. Indice : repense à la méthode utilisée pour étudier les rayons α/β/γ (déviation dans un champ électrique). Pourquoi penses-tu que le neutron a été plus difficile à détecter ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+                <div class="activity-hint">Les méthodes de détection de l'époque reposaient sur la déviation des particules dans un champ électrique ou magnétique — une technique qui ne fonctionne que pour des particules chargées. Le neutron, n'ayant aucune charge, n'est pas dévié et reste donc « invisible » à ces méthodes, ce qui explique le délai par rapport au proton (chargé positivement).</div>
+              </div>
             </div>
 
           </div>
@@ -1401,6 +1511,18 @@ function toggleSection(btn) {
   const expanded = btn.getAttribute('aria-expanded') === 'true';
   btn.setAttribute('aria-expanded', String(!expanded));
   btn.parentElement.querySelector('.section-body').classList.toggle('open', !expanded);
+}
+
+// ── Toggle activités suggérées ─────────────────────────────
+function toggleActivity(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+function toggleHint(btn) {
+  const hint = btn.nextElementSibling;
+  hint.classList.toggle('show');
+  btn.textContent = hint.classList.contains('show') ? '▾ Cacher la piste de réponse' : '▸ Voir une piste de réponse';
 }
 
 // ── Sidebar active link ────────────────────────────────────
