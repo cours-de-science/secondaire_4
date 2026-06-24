@@ -682,6 +682,27 @@
             <figcaption>Fig. — Configuration électronique du chlore (Cl, Z=17). Période 3 → 3 couches. Famille VIIA → 7 électrons sur la couche externe. Répartition : 2 — 8 — 7 (total = 17 électrons = 17 protons → atome neutre).</figcaption>
           </figure>
 
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Activité — Couches et électrons de valence
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question"><strong>Question 1.</strong> Un atome se trouve dans la <strong>2e période</strong> du tableau périodique. Combien de couches électroniques possède-t-il ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le numéro de période = nombre de couches. Période 2 → <strong>2 couches</strong>. Simple.</div>
+
+              <p class="activity-question" style="margin-top:18px;"><strong>Question 2.</strong> Un atome a <strong>15 protons</strong> et se trouve dans la <strong>3e période</strong>. Combien d'électrons de valence possède-t-il ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">
+                Z = 15 → 15 électrons au total. Période 3 → 3 couches.<br>
+                On remplit de l'intérieur : couche 1 → 2 e⁻ | couche 2 → 8 e⁻ | il reste 15 − 2 − 8 = <strong>5 e⁻</strong> sur la couche 3.<br>
+                Les électrons de valence = électrons sur la dernière couche = <strong>5 électrons de valence</strong>.<br>
+                <em>(Il s'agit du phosphore, P — famille VA, ce qui confirme 5 électrons de valence.)</em>
+              </div>
+            </div>
+          </div>
+
           <div class="def-box">
             <div class="def-label">Règle de l'octet</div>
             <p>En tout temps, la <strong>dernière couche</strong> (couche de valence) ne peut contenir plus de <strong>8 électrons</strong>, même si la couche peut théoriquement en accueillir davantage. Cette règle s'applique à tous les éléments qui ont <strong>plus d'une couche</strong>.</p>
@@ -703,14 +724,33 @@
 
         <div class="subsection">
           <div class="subsection-title">La notation nucléaire et la configuration électronique</div>
+
+          <p>Pour identifier un atome précisément, on utilise la <span class="kw">notation nucléaire</span>. Elle indique deux informations essentielles : le <strong>nombre total de nucléons</strong> (protons + neutrons) en haut, et le <strong>nombre de protons</strong> en bas — ce qui suffit à identifier l'élément de façon unique.</p>
+
+          <div class="def-box">
+            <div class="def-label">Ce qui définit un élément chimique</div>
+            <p>C'est le <strong>nombre de protons (Z)</strong> — et lui seul — qui détermine de quel élément il s'agit. Deux atomes avec le même Z sont toujours le même élément, peu importe leur nombre de neutrons.</p>
+            <p style="margin:8px 0 0;">En revanche, le nombre de neutrons peut varier d'un atome à l'autre pour un même élément : ce sont les <strong>isotopes</strong>. Pour un même Z, on peut donc avoir différentes valeurs de A. <em>(Voir section <a href="#section-1-2" onclick="var t=document.getElementById('section-1-2');var btn=t.querySelector('.section-toggle');if(btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">1.2 →</a> pour les isotopes en détail.)</em></p>
+          </div>
+
           <figure style="text-align:center; margin: 20px 0;">
-  <img src="images/ch1/notation_nucleaire.png" alt="Notation nucléaire : A en exposant, Z en indice, X symbole de l'élément" style="max-width: 420px; width: 100%;">
-</figure>
-         <figure style="text-align:center; margin: 20px 0;">
-  <img src="images/ch1/neutrons_formule.png" alt="N = A − Z : N = nombre de neutrons, A = nombre de masse, Z = numéro atomique" style="max-width: 420px; width: 100%;">
-</figure>
-          <p>Exemple : <strong>¹²₆C</strong> → 6 protons, 6 neutrons, 6 électrons (atome neutre).</p>
-          <p>En ST (secondaire 4), on représente l'atome par sa <strong>configuration électronique</strong> en plaçant les électrons sur les couches autour d'un noyau indiquant p⁺ et n⁰. Exemple du Neptunium-237 (Z=93, N=144) : Np (93p⁺, 144n⁰) avec la répartition 2e⁻ / 8e⁻ / 18e⁻ / 32e⁻ / 22e⁻ / 9e⁻ / 2e⁻.</p>
+            <img src="images/ch1/neutrons_formule.png" alt="N = A − Z : N = nombre de neutrons, A = nombre de masse, Z = numéro atomique" style="max-width: 420px; width: 100%;">
+          </figure>
+          <figure style="text-align:center; margin: 20px 0;">
+            <img src="images/ch1/notation_nucleaire.png" alt="Notation nucléaire : A en exposant, Z en indice, X symbole de l'élément" style="max-width: 420px; width: 100%;">
+          </figure>
+
+          <ul class="content-list">
+            <li><strong>A</strong> (en haut) = nombre de masse = nombre total de nucléons (p⁺ + n⁰)</li>
+            <li><strong>Z</strong> (en bas) = numéro atomique = nombre de protons = identité de l'élément</li>
+            <li><strong>N</strong> = nombre de neutrons = A − Z</li>
+            <li><strong>X</strong> = symbole de l'élément</li>
+          </ul>
+
+          <p>Exemple : <strong>¹²₆C</strong> → A=12, Z=6 → 6 protons, 6 neutrons (12−6), 6 électrons (atome neutre).</p>
+          <p>Autre exemple : <strong>¹⁴₆C</strong> (carbone-14) → même Z=6 (toujours du carbone), mais A=14 → 8 neutrons. C'est un <strong>isotope</strong> du carbone-12.</p>
+
+          <p>En ST (secondaire 4), on représente l'atome par sa <strong>configuration électronique</strong> en plaçant les électrons sur les couches autour d'un noyau indiquant p⁺ et n⁰.</p>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof</span></div>
             En ST, on ne place pas les neutrons dans la représentation des couches électroniques — on les indique uniquement dans le noyau central (ou via la notation nucléaire).
