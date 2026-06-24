@@ -893,6 +893,18 @@
       </button>
       <div class="section-body">
 
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Activité suggérée — Estimation
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Selon toi, combien d'atomes contient un seul grain de sable ? Donne ton estimation dans le chat — pas de mauvaise réponse !</p>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+            <div class="activity-hint">Un grain de sable moyen (environ 1 mg de dioxyde de silicium, SiO₂) contient approximativement <strong>10¹⁸ à 10¹⁹ atomes</strong> — soit entre un milliard de milliards et dix milliards de milliards d'atomes. Aucune unité du quotidien ne permet d'écrire ce genre de nombre facilement. C'est précisément pour ça que les scientifiques ont dû inventer une unité adaptée à l'échelle atomique.</div>
+          </div>
+        </div>
+
         <div class="subsection">
           <div class="subsection-title">L'unité de masse atomique (u)</div>
           <p>Un proton pèse environ 1,67 × 10⁻²⁷ kg — un nombre si petit qu'il est pratiquement inutilisable dans les calculs courants. Plutôt que de travailler avec des puissances de 10 négatives, les scientifiques ont créé une unité <strong>relative</strong> : l'<span class="kw">unité de masse atomique (u)</span>, définie par rapport à un étalon de référence.</p>
@@ -927,6 +939,17 @@
 
         <div class="subsection">
           <div class="subsection-title">Les isotopes</div>
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Activité suggérée — Réflexion
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Prenons deux atomes du même élément chimique. Comment est-ce possible que les deux aient un poids légèrement différent ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+              <div class="activity-hint">Ce qui définit un élément, c'est son nombre de <strong>protons</strong> (Z) — pas son nombre de neutrons. Deux atomes peuvent donc avoir le même Z (même élément, mêmes propriétés chimiques) mais un nombre de neutrons différent, ce qui change leur masse. Ces variétés d'un même élément s'appellent des <strong>isotopes</strong>.</div>
+            </div>
+          </div>
           <div class="def-box">
             <div class="def-label">Définition</div>
             <p><strong>Isotopes :</strong> variétés du même atome (même Z, même nombre de protons) qui diffèrent uniquement par leur <strong>nombre de neutrons</strong>, et donc par leur nombre de masse A.</p>
