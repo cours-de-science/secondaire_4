@@ -641,6 +641,10 @@
           <div class="note-box">
             <div class="note-label">À retenir</div>
             La masse des électrons est <strong>négligeable</strong> (≈ 2000 fois moins lourd qu'un proton). Pour les calculs, seuls protons et neutrons contribuent à la masse de l'atome.
+            <p style="margin-top:8px;margin-bottom:0;font-size:13px;color:var(--muted);">
+              ℹ️ Les masses en <strong>u</strong> (unité de masse atomique) sont présentées ici à titre indicatif. La définition de l'unité <strong>u</strong>, son origine et son utilisation dans les calculs sont expliquées en détail dans la section
+              <a href="#section-1-2" onclick="document.getElementById('section-1-2').querySelector('.section-toggle').getAttribute('aria-expanded')==='false' && document.getElementById('section-1-2').querySelector('.section-toggle').click(); setTimeout(()=>document.getElementById('section-1-2').scrollIntoView({behavior:'smooth',block:'start'}),80); return false;" style="color:var(--teal-mid);font-weight:600;">1.2 — La masse atomique →</a>
+            </p>
           </div>
         </div>
 
@@ -657,11 +661,44 @@
               <div class="ch">2</div><div class="ch">8</div><div class="ch">18</div><div class="ch">32</div><div class="ch">32</div><div class="ch">18</div><div class="ch">8</div>
             </div>
           </div>
+
+          <div class="def-box">
+            <div class="def-label">Couches et tableau périodique — le lien essentiel</div>
+            <p>Le numéro de couche correspond exactement au <strong>numéro de la période</strong> dans le tableau périodique. Un atome de la période 3 possède 3 couches électroniques, un atome de la période 2 en possède 2, etc.</p>
+            <p style="margin:8px 0 0;">De plus, comme tout atome est <strong>électriquement neutre</strong>, le nombre d'électrons est toujours <em>égal</em> au nombre de protons (= numéro atomique Z). Ces électrons se répartissent sur les couches en les remplissant de l'intérieur vers l'extérieur.</p>
+            <p style="margin:8px 0 0;font-size:13px;color:var(--muted);">→ Ce lien entre couches et périodes est approfondi dans la section <a href="#section-1-3" onclick="var t=document.getElementById('section-1-3');var btn=t.querySelector('.section-toggle');if(btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">1.3 — Le tableau périodique →</a></p>
+          </div>
+
+          <p><strong>Exemple — le chlore (Cl) :</strong></p>
+          <ul class="content-list">
+            <li>Z = 17 → 17 protons → <strong>17 électrons</strong> à répartir</li>
+            <li>Période 3 → <strong>3 couches</strong> électroniques</li>
+            <li>Famille VIIA (halogènes) → <strong>7 électrons de valence</strong> sur la dernière couche</li>
+            <li>Répartition : couche 1 → <strong>2 e⁻</strong> | couche 2 → <strong>8 e⁻</strong> | couche 3 → <strong>7 e⁻</strong> &nbsp;→&nbsp; <strong>2 — 8 — 7</strong> ✓</li>
+          </ul>
+
+          <figure class="fig-block" style="margin-top:16px;">
+            <img src="images/ch1/chlore_configuration.png" alt="Configuration électronique du chlore (Cl) : noyau avec 17 p⁺, trois couches avec 2, 8 et 7 électrons" loading="lazy">
+            <figcaption>Fig. — Configuration électronique du chlore (Cl, Z=17). Période 3 → 3 couches. Famille VIIA → 7 électrons sur la couche externe. Répartition : 2 — 8 — 7 (total = 17 électrons = 17 protons → atome neutre).</figcaption>
+          </figure>
+
           <div class="def-box">
             <div class="def-label">Règle de l'octet</div>
             <p>En tout temps, la <strong>dernière couche</strong> (couche de valence) ne peut contenir plus de <strong>8 électrons</strong>, même si la couche peut théoriquement en accueillir davantage. Cette règle s'applique à tous les éléments qui ont <strong>plus d'une couche</strong>.</p>
           </div>
           <p>Les couches pouvant accueillir plus de 8 électrons (couches 3, 4, 5…) se remplissent au-delà de 8 seulement <em>après</em> que les couches suivantes ont commencé à se remplir.</p>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Nuance — La règle de l'octet n'est pas universelle</span></div>
+            <p style="margin-bottom:8px;">La règle de l'octet est une <strong>tendance chimique</strong>, pas une loi de la nature. Elle traduit le fait que les atomes cherchent à imiter la configuration stable des gaz nobles (Ne, Ar…) qui ont 8 électrons sur leur couche externe.</p>
+            <p style="margin-bottom:8px;">Elle fonctionne très bien pour les éléments de la 2e période : C, N, O, F. Mais elle <strong>ne s'applique pas toujours</strong> :</p>
+            <ul class="content-list" style="font-size:14px;margin-bottom:8px;">
+              <li><strong>H et He</strong> → règle du <em>duet</em> (couche K pleine = 2 électrons)</li>
+              <li><strong>B</strong> → souvent stable avec seulement 6 électrons</li>
+              <li><strong>Be</strong> → souvent stable avec 4 électrons</li>
+              <li><strong>P, S, Cl</strong> → peuvent <em>dépasser</em> 8 électrons dans certains composés</li>
+            </ul>
+            <p style="margin:0;">En secondaire 4, on applique la règle de l'octet pour les molécules simples — elle marche très bien dans ce contexte. Mais il faut la voir comme un <em>modèle pratique</em>, pas comme une limite physique absolue.</p>
+          </div>
         </div>
 
         <div class="subsection">
@@ -953,6 +990,7 @@
           <div class="def-box">
             <div class="def-label">Périodes (lignes horizontales)</div>
             <p>Il y en a 7. Tous les éléments d'une même période ont le <strong>même nombre de couches électroniques</strong>. Le numéro de la période = nombre de couches.</p>
+            <p style="margin:8px 0 0;font-size:13px;color:var(--muted);">→ Ce principe est illustré avec l'exemple du chlore (2—8—7) dans la section <a href="#section-1-1" onclick="var t=document.getElementById('section-1-1');var btn=t.querySelector('.section-toggle');if(btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">1.1 — Les modèles atomiques →</a></p>
           </div>
           <div class="def-box">
             <div class="def-label">Familles / Groupes (colonnes verticales)</div>
@@ -1006,6 +1044,17 @@
           <div class="note-box">
             <div class="note-label">⚠️ Erreur fréquente</div>
             L'hydrogène (H) est placé dans la colonne IA, comme les alcalins, et possède aussi 1 électron de valence — mais il <strong>n'est pas un alcalin</strong> : c'est un non-métal, et il ne possède pas les propriétés chimiques de cette famille (métal mou, réagit fortement avec l'eau, etc.). L'hydrogène ne fait partie d'aucune famille.
+          </div>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Pourquoi les alcalins réagissent-ils si violemment avec l'eau ?</span></div>
+            <p style="margin-bottom:10px;">Les métaux alcalins (Li, Na, K…) réagissent fortement avec l'eau pour deux raisons qui se combinent :</p>
+            <p style="margin-bottom:8px;"><strong>1. Leur électron de valence est très facile à perdre.</strong> Avec un seul électron sur leur couche externe, très peu retenu par le noyau (faible énergie d'ionisation), les alcalins cherchent à s'en débarrasser. L'eau est parfaite pour accepter cet électron.</p>
+            <p style="margin-bottom:8px;"><strong>2. La réaction libère du gaz H₂ et beaucoup de chaleur.</strong> La réaction générale est :</p>
+            <div class="formula" style="font-size:14px;margin:8px 0;">2 M + 2 H₂O → 2 M⁺ + 2 OH⁻ + H₂ ↑</div>
+            <p style="margin-bottom:8px;">Le métal devient ion positif (M⁺), l'eau se transforme en hydroxyde (OH⁻ — une base forte comme NaOH), et du gaz hydrogène est libéré. La chaleur dégagée par la réaction peut enflammer ce H₂ → flamme ou explosion.</p>
+            <p style="margin-bottom:8px;"><strong>3. La réactivité augmente en descendant la colonne</strong>, car l'électron externe est de plus en plus loin du noyau et de plus en plus facile à arracher :</p>
+            <div class="formula" style="font-size:13px;margin:8px 0;">Li &lt; Na &lt; K &lt; Rb &lt; Cs &nbsp;→&nbsp; réactivité croissante</div>
+            <p style="margin:0;">C'est pourquoi le lithium réagit calmement, le sodium fond et crache des étincelles, et le potassium s'enflamme avec une flamme violette.</p>
           </div>
         </div>
 
