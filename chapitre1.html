@@ -275,7 +275,7 @@
     <ul>
       <li><a href="#rappel" class="toc-link"><span class="num">—</span> Rappel</a></li>
       <li><a href="#section-1-1" class="toc-link"><span class="num">1.1</span> Les modèles atomiques</a></li>
-      <li><a href="#section-1-2" class="toc-link"><span class="num">1.2</span> La masse atomique</a></li>
+      <li><a href="#section-1-2" class="toc-link"><span class="num">1.2</span> La masse atomique relative</a></li>
       <li><a href="#section-1-3" class="toc-link"><span class="num">1.3</span> Le tableau périodique</a></li>
       <li><a href="#section-1-4" class="toc-link"><span class="num">1.4</span> Les molécules</a></li>
       <li><a href="#section-1-5" class="toc-link"><span class="num">1.5</span> La mole et Avogadro</a></li>
@@ -643,7 +643,7 @@
             La masse des électrons est <strong>négligeable</strong> (≈ 2000 fois moins lourd qu'un proton). Pour les calculs, seuls protons et neutrons contribuent à la masse de l'atome.
             <p style="margin-top:8px;margin-bottom:0;font-size:13px;color:var(--muted);">
               ℹ️ Les masses en <strong>u</strong> (unité de masse atomique) sont présentées ici à titre indicatif. La définition de l'unité <strong>u</strong>, son origine et son utilisation dans les calculs sont expliquées en détail dans la section
-              <a href="#section-1-2" onclick="document.getElementById('section-1-2').querySelector('.section-toggle').getAttribute('aria-expanded')==='false' && document.getElementById('section-1-2').querySelector('.section-toggle').click(); setTimeout(()=>document.getElementById('section-1-2').scrollIntoView({behavior:'smooth',block:'start'}),80); return false;" style="color:var(--teal-mid);font-weight:600;">1.2 — La masse atomique →</a>
+              <a href="#section-1-2" onclick="document.getElementById('section-1-2').querySelector('.section-toggle').getAttribute('aria-expanded')==='false' && document.getElementById('section-1-2').querySelector('.section-toggle').click(); setTimeout(()=>document.getElementById('section-1-2').scrollIntoView({behavior:'smooth',block:'start'}),80); return false;" style="color:var(--teal-mid);font-weight:600;">1.2 — La masse atomique relative →</a>
             </p>
           </div>
         </div>
@@ -913,7 +913,7 @@
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
         <div class="section-header">
           <span class="section-num">1.2</span>
-          <span class="section-title">La masse atomique</span>
+          <span class="section-title">La masse atomique relative</span>
           <span class="section-badge">STE</span>
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -952,6 +952,23 @@
           <div class="note-box">
             <div class="note-label">À retenir</div>
             Une unité de masse atomique correspond approximativement à la masse d'un proton <em>ou</em> d'un neutron. La masse d'un isotope (en u) est donc proche de son nombre de masse (nombre de nucléons). Seul le carbone-12 pèse <em>exactement</em> 12 u — les autres valeurs sont des mesures expérimentales légèrement différentes des entiers.
+          </div>
+
+          <div class="activity-block" style="margin-top:14px;">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — Pourquoi 6p + 6n ≠ 12,000 u exactement ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content" style="background:#f0f6f7;">
+              <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">Si on additionne les masses de 6 protons et 6 neutrons libres :</p>
+              <ul style="font-size:14px;line-height:1.75;margin:0 0 10px;padding-left:20px;">
+                <li>6 protons → 6 × 1,0073 = <strong>6,0438 u</strong></li>
+                <li>6 neutrons → 6 × 1,0087 = <strong>6,0522 u</strong></li>
+                <li>Total : <strong>12,096 u</strong> — mais le carbone-12 pèse exactement <strong>12,000 u</strong></li>
+              </ul>
+              <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">Il manque <strong>0,096 u</strong>. Cette masse n'a pas disparu : elle a été <strong>convertie en énergie</strong> lors de la formation du noyau. C'est ce qu'on appelle le <em>défaut de masse</em>.</p>
+              <p style="font-size:14px;line-height:1.75;margin:0;">Selon la formule d'Einstein E = mc², lier des nucléons ensemble libère de l'énergie — et cette énergie libérée correspond à une perte de masse. Un noyau est un système <em>plus stable</em> que ses constituants séparés, et cette stabilité a un coût en masse. C'est exactement ce phénomène, l'<strong>énergie de liaison nucléaire</strong>, qui rend les noyaux atomiques stables.</p>
+            </div>
           </div>
           <div class="activity-block" style="margin-top:14px;">
             <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
@@ -1023,6 +1040,121 @@
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof</span></div>
             Remarquez que la masse moyenne (20,19 u) est très proche de l'isotope <strong>le plus abondant</strong> (Néon-20). C'est toujours le cas — l'isotope majoritaire influence davantage la moyenne. En arrondissant la masse du tableau, on retrouve souvent le nombre de masse de l'isotope principal, ce qui permet de calculer son nombre de neutrons par simple soustraction.
+          </div>
+        </div>
+
+        <div class="quiz-block" data-quiz="q12">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <span class="quiz-block-title">Exercices — Section 1.2</span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La masse atomique relative du carbone-12 est fixée à 12 u par convention arbitraire.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La valeur 12 u a été choisie arbitrairement en 1961 comme étalon de référence. C'est précisément pour ça qu'on dit que la masse est « relative » — elle est toujours mesurée par rapport à cet étalon.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est bien une convention : le carbone-12 a été choisi comme étalon et sa masse fixée à exactement 12 u par définition. C'est pourquoi on parle de masse « relative ».</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Deux isotopes d'un même élément ont obligatoirement le même…</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Nombre de masse (A)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Numéro atomique (Z)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Nombre de neutrons</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Masse atomique</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est Z — le nombre de protons — qui définit l'élément. Des isotopes ont le même Z, mais un nombre de neutrons différent, ce qui donne des masses différentes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Ce qui est identique entre deux isotopes, c'est leur numéro atomique Z (nombre de protons). C'est justement parce que leur nombre de neutrons diffère qu'ils ont des masses différentes.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La masse atomique inscrite dans le tableau périodique est toujours un nombre entier.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La masse du tableau est une moyenne pondérée de tous les isotopes naturels de l'élément. Comme chaque isotope a une abondance différente, la moyenne est presque toujours décimale (ex. : chlore = 35,45 u).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Faux. La masse du tableau est une moyenne pondérée des isotopes naturels — elle est donc presque toujours décimale. Par exemple, le chlore a une masse de 35,45 u car il est un mélange de ³⁵Cl (75,77 %) et de ³⁷Cl (24,23 %).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le lithium-6 et le lithium-7 sont des isotopes. Quelle affirmation est vraie ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Ils ont le même nombre de neutrons mais des nombres de protons différents</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Ils ont les mêmes propriétés physiques mais des propriétés chimiques différentes</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Ils ont le même nombre de protons mais des nombres de neutrons différents</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Ils ont la même masse atomique</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le Li-6 a 3 protons et 3 neutrons ; le Li-7 a 3 protons et 4 neutrons. Même Z = 3, mais A différent. Leurs propriétés chimiques sont identiques (même Z), mais leurs masses diffèrent légèrement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Les isotopes ont toujours le même Z (même nombre de protons, donc mêmes propriétés chimiques) mais des nombres de neutrons différents. Li-6 : 3p + 3n. Li-7 : 3p + 4n.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La masse atomique relative d'un élément dépend de l'abondance naturelle de ses isotopes.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est une moyenne pondérée : un isotope très abondant influence davantage la masse moyenne. C'est pourquoi la masse du néon (20,19 u) est très proche du néon-20 (90,48 % d'abondance).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Si, justement. Plus un isotope est abondant dans la nature, plus il contribue à la masse moyenne de l'élément. C'est pourquoi on parle de moyenne pondérée par l'abondance relative.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le néon-20 a une abondance de 90,48 %, le néon-21 de 0,27 % et le néon-22 de 9,25 %. Vers quelle valeur tend la masse atomique moyenne du néon ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Vers 21 u (la valeur centrale)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Vers 20 u (l'isotope le plus abondant)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Vers 22 u (l'isotope le plus lourd)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Exactement 21 u (la moyenne simple)</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La masse moyenne pondérée du néon est 20,19 u — très proche du néon-20 qui représente 90,48 % des atomes de néon. L'isotope majoritaire domine toujours la moyenne.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La masse moyenne est de 20,19 u, très proche du néon-20. C'est normal : le néon-20 représente 90,48 % des atomes, donc il domine le calcul. La moyenne pondérée s'écarte peu de l'isotope majoritaire.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Calcul — Choix multiple</div>
+            <div class="quiz-q-text">On dispose d'un échantillon contenant le même nombre d'atomes de carbone-12 et d'un atome inconnu X. L'échantillon de carbone pèse 12,00 g et l'échantillon de X pèse 32,00 g. Quelle est la masse atomique relative de X ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 16,00 u</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 24,00 u</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 32,00 u</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 44,00 u</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. On fait le rapport des masses pour le même nombre d'atomes : masse(X)/masse(C-12) = 32,00/12,00 = 2,667. Puis on multiplie par 12 u : 2,667 × 12 = 32,00 u. C'est le soufre (S) !</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Démarche : on fait le rapport des masses pour le même nombre d'atomes (32,00 ÷ 12,00 = 2,667), puis on multiplie par 12 u pour obtenir la masse relative : 2,667 × 12 = 32,00 u. C'est la définition même de la masse atomique relative.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Calcul — Choix multiple</div>
+            <div class="quiz-q-text">On a le même nombre d'atomes de carbone-12 et d'un élément Y inconnu. L'échantillon de carbone pèse <strong>9,00 g</strong> et celui de Y pèse <strong>24,75 g</strong>. Quelle est la masse atomique relative de Y ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 24,75 u</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 27,00 u</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 33,00 u</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 44,00 u</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rapport des masses : 24,75 ÷ 9,00 = 2,75. Masse relative : 2,75 × 12 = 33,00 u. C'est l'arsenic (As, Z = 33) ! Remarque : l'échantillon ne pesait pas 12 g — c'est voulu pour montrer que les grammes et les u sont deux choses différentes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Démarche : rapport des masses pour le même nombre d'atomes = 24,75 ÷ 9,00 = 2,75, puis × 12 u (la masse du C-12) = 33,00 u. C'est l'arsenic (As). Attention au piège : la réponse A (24,75 u) serait fausse — les grammes de l'échantillon ne sont pas égaux à la masse atomique relative.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q12"></div>
+          <button class="quiz-reset" id="reset-q12">↺ Recommencer</button>
           </div>
         </div>
 
