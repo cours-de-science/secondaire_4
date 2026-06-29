@@ -1965,110 +1965,127 @@
           </div>
           <figure class="fig-block" style="margin-top:10px;">
             <div style="background:#fff;padding:16px;">
-              <svg width="100%" viewBox="0 0 680 460" role="img" style="font-family:'Inter',sans-serif;">
+              <svg width="100%" viewBox="0 0 680 510" role="img" style="font-family:'Inter',sans-serif;">
                 <title>Transfert d'un électron du sodium vers le chlore</title>
                 <desc>Schéma montrant un atome de sodium (2-8-1) perdant son électron de valence vers un atome de chlore (2-8-7), formant Na+ (2-8) et Cl- (2-8-8).</desc>
                 <defs>
                   <marker id="arrowred-nacl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d63031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
                 </defs>
 
-                <text x="40" y="30" font-size="12" fill="var(--muted)">Avant (atomes neutres)</text>
-                <text x="40" y="248" font-size="12" fill="var(--muted)">Après (ions)</text>
-                <line x1="20" y1="232" x2="660" y2="232" stroke="var(--border)" stroke-width="0.5"/>
+                <!-- ── Étiquettes de section ── -->
+                <text x="40" y="28" font-size="12" fill="var(--muted)">Avant (atomes neutres)</text>
+                <line x1="20" y1="240" x2="660" y2="240" stroke="var(--border)" stroke-width="0.5"/>
+                <text x="40" y="258" font-size="12" fill="var(--muted)">Après (ions)</text>
 
-                <!-- ===== AVANT : Na (gauche) ===== -->
+                <!-- ===== AVANT : Na (gauche) — 2-8-1 ===== -->
+                <!-- couches -->
                 <circle cx="170" cy="150" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
                 <circle cx="170" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
                 <circle cx="170" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <!-- noyau -->
                 <circle cx="170" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
                 <text x="170" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Na</text>
+                <!-- couche 1 r=28 : 2 e⁻ -->
                 <circle cx="198" cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="142" cy="150" r="5" fill="#2f6fed"/>
-                <circle cx="170" cy="98" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 8 e⁻ -->
+                <circle cx="170" cy="98"  r="5" fill="#2f6fed"/>
                 <circle cx="206.8" cy="113.2" r="5" fill="#2f6fed"/>
-                <circle cx="222" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="222"  cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="206.8" cy="186.8" r="5" fill="#2f6fed"/>
-                <circle cx="170" cy="202" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="202"  r="5" fill="#2f6fed"/>
                 <circle cx="133.2" cy="186.8" r="5" fill="#2f6fed"/>
-                <circle cx="118" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="118"  cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="133.2" cy="113.2" r="5" fill="#2f6fed"/>
-                <circle cx="170" cy="74" r="5.5" fill="#2f6fed" stroke="#d63031" stroke-width="1"/>
-                <text x="170" y="218" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 1</text>
+                <!-- couche 3 r=76 : 1 e⁻ (valence, à céder) — cerclé rouge -->
+                <circle cx="170" cy="74" r="5.5" fill="#2f6fed" stroke="#d63031" stroke-width="1.5"/>
+                <text x="170" y="230" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 1</text>
 
-                <!-- ===== AVANT : Cl (droite) ===== -->
+                <!-- ===== AVANT : Cl (droite) — 2-8-7 ===== -->
                 <circle cx="510" cy="150" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
                 <circle cx="510" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
                 <circle cx="510" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
                 <circle cx="510" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
                 <text x="510" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Cl</text>
+                <!-- couche 1 r=28 -->
                 <circle cx="538" cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="482" cy="150" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="98" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 -->
+                <circle cx="510" cy="98"  r="5" fill="#2f6fed"/>
                 <circle cx="546.8" cy="113.2" r="5" fill="#2f6fed"/>
-                <circle cx="562" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="562"  cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="546.8" cy="186.8" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="202" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="202"  r="5" fill="#2f6fed"/>
                 <circle cx="473.2" cy="186.8" r="5" fill="#2f6fed"/>
-                <circle cx="458" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="458"  cy="150" r="5" fill="#2f6fed"/>
                 <circle cx="473.2" cy="113.2" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="74" r="5" fill="#2f6fed"/>
-                <circle cx="563.7" cy="96.3" r="5" fill="#2f6fed"/>
-                <circle cx="586" cy="150" r="5" fill="#2f6fed"/>
+                <!-- couche 3 r=76 : 7 e⁻ (case vide à gauche, là où l'électron arrivera) -->
+                <circle cx="510" cy="74"   r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="96.3"  r="5" fill="#2f6fed"/>
+                <circle cx="586"  cy="150"  r="5" fill="#2f6fed"/>
                 <circle cx="563.7" cy="203.7" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="226" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="226"  r="5" fill="#2f6fed"/>
                 <circle cx="456.3" cy="203.7" r="5" fill="#2f6fed"/>
-                <circle cx="456.3" cy="96.3" r="5" fill="#2f6fed"/>
-                <circle cx="434" cy="150" r="6" fill="none" stroke="#d63031" stroke-width="1" stroke-dasharray="2 2"/>
-                <text x="510" y="218" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 7</text>
+                <!-- (434, 150) est vide — case pointillée -->
+                <circle cx="456.3" cy="96.3"  r="5" fill="#2f6fed"/>
+                <circle cx="434" cy="150" r="6" fill="none" stroke="#d63031" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+                <text x="510" y="230" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 7</text>
 
-                <!-- Transfer arrow -->
-                <path d="M170,68 Q320,15 432,144" fill="none" stroke="#d63031" stroke-width="1.5" marker-end="url(#arrowred-nacl)"/>
-                <text x="300" y="42" text-anchor="middle" font-size="12" fill="var(--muted)">transfert de l'électron de valence</text>
+                <!-- ── Flèche de transfert ── -->
+                <path d="M170,68 Q320,12 432,144" fill="none" stroke="#d63031" stroke-width="1.5" marker-end="url(#arrowred-nacl)"/>
+                <text x="300" y="38" text-anchor="middle" font-size="12" fill="var(--muted)">transfert de l'électron de valence</text>
 
-                <!-- ===== APRÈS : Na+ (gauche) ===== -->
-                <circle cx="170" cy="350" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
-                <circle cx="170" cy="350" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
-                <circle cx="170" cy="350" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
-                <text x="170" y="350" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Na</text>
-                <circle cx="198" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="142" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="170" cy="298" r="5" fill="#2f6fed"/>
-                <circle cx="206.8" cy="313.2" r="5" fill="#2f6fed"/>
-                <circle cx="222" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="206.8" cy="386.8" r="5" fill="#2f6fed"/>
-                <circle cx="170" cy="402" r="5" fill="#2f6fed"/>
-                <circle cx="133.2" cy="386.8" r="5" fill="#2f6fed"/>
-                <circle cx="118" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="133.2" cy="313.2" r="5" fill="#2f6fed"/>
-                <text x="170" y="424" text-anchor="middle" font-size="14" font-weight="600" fill="#d63031">Na⁺</text>
-                <text x="170" y="440" text-anchor="middle" font-size="12" fill="var(--muted)">cation — 2 – 8</text>
+                <!-- ===== APRÈS : Na⁺ (gauche) — cy=390 ===== -->
+                <!-- Na+ a perdu sa couche 3 : plus que 2 couches -->
+                <circle cx="170" cy="390" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="390" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="390" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="170" y="390" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Na</text>
+                <!-- couche 1 r=28 -->
+                <circle cx="198" cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="142" cy="390" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 8 e⁻ -->
+                <circle cx="170"  cy="338" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="353.2" r="5" fill="#2f6fed"/>
+                <circle cx="222"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="170"  cy="442" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="118"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="353.2" r="5" fill="#2f6fed"/>
+                <text x="170" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#d63031">Na⁺</text>
+                <text x="170" y="478" text-anchor="middle" font-size="12" fill="var(--muted)">cation — 2 – 8</text>
 
-                <!-- ===== APRÈS : Cl- (droite) ===== -->
-                <circle cx="510" cy="350" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
-                <circle cx="510" cy="350" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
-                <circle cx="510" cy="350" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
-                <circle cx="510" cy="350" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
-                <text x="510" y="350" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Cl</text>
-                <circle cx="538" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="482" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="298" r="5" fill="#2f6fed"/>
-                <circle cx="546.8" cy="313.2" r="5" fill="#2f6fed"/>
-                <circle cx="562" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="546.8" cy="386.8" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="402" r="5" fill="#2f6fed"/>
-                <circle cx="473.2" cy="386.8" r="5" fill="#2f6fed"/>
-                <circle cx="458" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="473.2" cy="313.2" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="274" r="5" fill="#2f6fed"/>
-                <circle cx="563.7" cy="296.3" r="5" fill="#2f6fed"/>
-                <circle cx="586" cy="350" r="5" fill="#2f6fed"/>
-                <circle cx="563.7" cy="403.7" r="5" fill="#2f6fed"/>
-                <circle cx="510" cy="426" r="5" fill="#2f6fed"/>
-                <circle cx="456.3" cy="403.7" r="5" fill="#2f6fed"/>
-                <circle cx="434" cy="350" r="5.5" fill="#27ae60"/>
-                <circle cx="456.3" cy="296.3" r="5" fill="#2f6fed"/>
-                <text x="510" y="448" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6fed">Cl⁻</text>
-                <text x="510" y="464" text-anchor="middle" font-size="12" fill="var(--muted)">anion — 2 – 8 – 8</text>
+                <!-- ===== APRÈS : Cl⁻ (droite) — cy=390 ===== -->
+                <!-- Cl- a reçu 1 e⁻ : maintenant 8 dans sa couche 3 -->
+                <circle cx="510" cy="390" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="390" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="390" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="390" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="510" y="390" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Cl</text>
+                <!-- couche 1 r=28 -->
+                <circle cx="538" cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="482" cy="390" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 -->
+                <circle cx="510"  cy="338" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="353.2" r="5" fill="#2f6fed"/>
+                <circle cx="562"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="510"  cy="442" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="458"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="353.2" r="5" fill="#2f6fed"/>
+                <!-- couche 3 r=76 : 8 e⁻ (l'électron reçu en vert à gauche) -->
+                <circle cx="510"  cy="314" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="336.3" r="5" fill="#2f6fed"/>
+                <circle cx="586"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="443.7" r="5" fill="#2f6fed"/>
+                <circle cx="510"  cy="466" r="5" fill="#2f6fed"/>
+                <circle cx="456.3" cy="443.7" r="5" fill="#2f6fed"/>
+                <circle cx="434"  cy="390" r="5.5" fill="#27ae60"/>
+                <circle cx="456.3" cy="336.3" r="5" fill="#2f6fed"/>
+                <text x="510" y="485" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6fed">Cl⁻</text>
+                <text x="510" y="503" text-anchor="middle" font-size="12" fill="var(--muted)">anion — 2 – 8 – 8</text>
               </svg>
             </div>
             <figcaption>Fig. — Transfert de l'électron de valence du sodium vers le chlore : formation de Na⁺ et Cl⁻.</figcaption>
