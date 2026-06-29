@@ -138,6 +138,24 @@
   .data-table tr:nth-child(even) td { background: #f7f9f9; }
   .data-table td strong { color: var(--teal-dark); }
 
+  .ion-charge-wrap { overflow-x: auto; margin: 16px 0; }
+  .ion-charge-table { display: grid; grid-template-columns: repeat(8, minmax(82px, 1fr)); gap: 8px; min-width: 680px; }
+  .ion-fam { display: flex; flex-direction: column; align-items: center; border-radius: 8px; padding: 12px 6px 10px; text-align: center; border: 1px solid var(--border); background: var(--surface); }
+  .ion-fam-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--teal-dark); }
+  .ion-fam-name { font-size: 9.5px; line-height: 1.35; color: var(--muted); margin: 3px 0 7px; text-transform: uppercase; letter-spacing: .03em; min-height: 26px; display: flex; align-items: center; }
+  .ion-fam-ex { font-family: var(--mono); font-size: 11px; line-height: 1.35; color: var(--text); margin-bottom: 9px; min-height: 30px; display: flex; align-items: center; }
+  .ion-fam-charge { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 800; margin-top: auto; padding-top: 4px; }
+  .ion-cation { background: linear-gradient(160deg, #fff, #fdf1e7); border-color: #f0cda3; }
+  .ion-cation .ion-fam-charge { color: var(--orange); }
+  .ion-variable { background: #f7f9f9; }
+  .ion-variable .ion-fam-charge { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .ion-anion { background: linear-gradient(160deg, #fff, #eaf5f7); border-color: #bfe0e6; }
+  .ion-anion .ion-fam-charge { color: var(--teal-mid); }
+  .ion-neutral { background: var(--bg); border-style: dashed; }
+  .ion-neutral .ion-fam-charge { color: var(--muted); }
+  .ion-charge-legend { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+  .ion-charge-legend strong { color: var(--text); }
+
   /* Particle badges */
   .particle-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
   .particle-card { flex: 1; min-width: 140px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
@@ -1752,7 +1770,63 @@
             <figcaption>Fig. — Formation de Mg²⁺ (perte de 2 e⁻) et de O²⁻ (gain de 2 e⁻).</figcaption>
           </figure>
           <figure class="fig-block" style="margin-top:10px;">
-            <img src="images/ch1/tableau_charges_ions.png" alt="Tableau périodique montrant la charge typique des ions formés par chaque famille d'éléments" loading="lazy">
+            <div class="ion-charge-wrap">
+              <div class="ion-charge-table">
+                <div class="ion-fam ion-cation">
+                  <div class="ion-fam-num">IA</div>
+                  <div class="ion-fam-name">Alcalins</div>
+                  <div class="ion-fam-ex">Li · Na · K</div>
+                  <div class="ion-fam-charge">+1</div>
+                </div>
+                <div class="ion-fam ion-cation">
+                  <div class="ion-fam-num">IIA</div>
+                  <div class="ion-fam-name">Alcalino-terreux</div>
+                  <div class="ion-fam-ex">Mg · Ca</div>
+                  <div class="ion-fam-charge">+2</div>
+                </div>
+                <div class="ion-fam ion-cation">
+                  <div class="ion-fam-num">IIIA</div>
+                  <div class="ion-fam-name">Famille du bore</div>
+                  <div class="ion-fam-ex">Al</div>
+                  <div class="ion-fam-charge">+3</div>
+                </div>
+                <div class="ion-fam ion-variable">
+                  <div class="ion-fam-num">IVA</div>
+                  <div class="ion-fam-name">Famille du carbone</div>
+                  <div class="ion-fam-ex">C · Si</div>
+                  <div class="ion-fam-charge">—*</div>
+                </div>
+                <div class="ion-fam ion-anion">
+                  <div class="ion-fam-num">VA</div>
+                  <div class="ion-fam-name">Famille de l'azote</div>
+                  <div class="ion-fam-ex">N · P</div>
+                  <div class="ion-fam-charge">−3</div>
+                </div>
+                <div class="ion-fam ion-anion">
+                  <div class="ion-fam-num">VIA</div>
+                  <div class="ion-fam-name">Famille de l'oxygène</div>
+                  <div class="ion-fam-ex">O · S</div>
+                  <div class="ion-fam-charge">−2</div>
+                </div>
+                <div class="ion-fam ion-anion">
+                  <div class="ion-fam-num">VIIA</div>
+                  <div class="ion-fam-name">Halogènes</div>
+                  <div class="ion-fam-ex">F · Cl · Br</div>
+                  <div class="ion-fam-charge">−1</div>
+                </div>
+                <div class="ion-fam ion-neutral">
+                  <div class="ion-fam-num">VIIIA</div>
+                  <div class="ion-fam-name">Gaz inertes</div>
+                  <div class="ion-fam-ex">He · Ne · Ar</div>
+                  <div class="ion-fam-charge">0</div>
+                </div>
+              </div>
+              <div class="ion-charge-legend">
+                <span>← <strong>Métaux</strong> : perdent des e⁻ (cations)</span>
+                <span><strong>Non-métaux</strong> : gagnent des e⁻ (anions) →</span>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--muted);margin:8px 0 0;">* Le carbone et le silicium forment presque exclusivement des <strong>liaisons covalentes</strong> ; ils ne suivent pas la règle simple de charge ionique.</p>
             <figcaption>Fig. — Charge typique des ions selon leur position dans le tableau périodique (métaux de gauche → cations, non-métaux de droite → anions, gaz inertes → pas d'ions).</figcaption>
           </figure>
           <div class="note-box">
