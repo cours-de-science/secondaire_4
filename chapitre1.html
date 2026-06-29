@@ -1755,7 +1755,130 @@
             </tbody>
           </table>
           <figure class="fig-block" style="margin-top:10px;">
-            <img src="images/ch1/cation_anion_schema.png" alt="Schéma général illustrant la perte d'électron formant un cation et le gain d'électron formant un anion" loading="lazy">
+            <svg width="100%" viewBox="0 0 680 560" role="img" style="max-width:620px;display:block;margin:0 auto;">
+              <title>Formation d'un cation et d'un anion</title>
+              <desc>Schéma comparatif : un atome qui perd un électron forme un cation (charge positive) ; un atome qui gagne un électron forme un anion (charge négative).</desc>
+              <defs>
+                <marker id="arr-ca" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+
+              <!-- En-têtes colonnes -->
+              <text x="170" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" letter-spacing=".08em" fill="#5a6e72">ATOME NEUTRE</text>
+              <text x="510" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" letter-spacing=".08em" fill="#5a6e72">ION FORMÉ</text>
+
+              <!-- Séparateurs verticaux (rangée 1 et 2, avec trou au séparateur horizontal) -->
+              <line x1="340" y1="48" x2="340" y2="265" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="340" y1="285" x2="340" y2="540" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+
+              <!-- ══ RANGÉE 1 : CATION — noyau cy=148 ══ -->
+              <text x="40" y="148" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#5a6e72">Perd un e⁻</text>
+              <!-- Noyau gauche -->
+              <circle cx="170" cy="148" r="22" fill="#1a4a52"/>
+              <text x="170" y="145" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#c8d400">p⁺</text>
+              <text x="170" y="158" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(200,212,0,0.65)">n⁰</text>
+              <!-- Couche 1 : 2 e⁻ -->
+              <circle cx="170" cy="148" r="42" fill="none" stroke="#3a8fa0" stroke-width="1.2"/>
+              <circle cx="170" cy="106" r="5" fill="#3a8fa0"/>
+              <circle cx="170" cy="190" r="5" fill="#3a8fa0"/>
+              <!-- Couche 2 : 1 e⁻ à droite -->
+              <circle cx="170" cy="148" r="70" fill="none" stroke="#3a8fa0" stroke-width="1.2" opacity=".6"/>
+              <circle cx="240" cy="148" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- Électron sortant + flèche -->
+              <line x1="249" y1="148" x2="315" y2="148" stroke="#e07b30" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-ca)"/>
+              <circle cx="318" cy="148" r="5" fill="#e07b30" opacity=".9"/>
+              <text x="280" y="141" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#e07b30">1 e⁻</text>
+              <!-- Noyau cation -->
+              <circle cx="510" cy="148" r="22" fill="#1a4a52"/>
+              <text x="510" y="145" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#c8d400">p⁺</text>
+              <text x="510" y="158" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(200,212,0,0.65)">n⁰</text>
+              <!-- Couche 1 cation -->
+              <circle cx="510" cy="148" r="42" fill="none" stroke="#3a8fa0" stroke-width="1.2"/>
+              <circle cx="510" cy="106" r="5" fill="#3a8fa0"/>
+              <circle cx="510" cy="190" r="5" fill="#3a8fa0"/>
+              <!-- Couche 2 vide -->
+              <circle cx="510" cy="148" r="70" fill="none" stroke="#3a8fa0" stroke-width="1" stroke-dasharray="4,4" opacity=".3"/>
+              <!-- Badge + -->
+              <rect x="572" y="80" width="28" height="22" rx="11" fill="#e07b30"/>
+              <text x="586" y="96" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="white">+</text>
+              <!-- Labels rangée 1 -->
+              <text x="510" y="238" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-size="15" font-weight="700" fill="#1a4a52">CATION</text>
+              <text x="510" y="254" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5a6e72">charge positive</text>
+              <text x="170" y="238" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5a6e72">couche de valence incomplète</text>
+
+              <!-- Séparateur horizontal — bien sous les labels (y=254) et au-dessus du haut de l'atome rangée 2 (cy=400-70=330) -->
+              <line x1="40" y1="272" x2="640" y2="272" stroke="#d0d8d9" stroke-width="1"/>
+
+              <!-- ══ RANGÉE 2 : ANION — noyau cy=400 ══ -->
+              <!-- cy=400, r couche2=70 → haut=330, bas=470. Labels à 490/506. Total ~520 + marge = 560 -->
+              <text x="40" y="400" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#5a6e72">Gagne un e⁻</text>
+              <!-- Noyau gauche -->
+              <circle cx="170" cy="400" r="22" fill="#1a4a52"/>
+              <text x="170" y="397" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#c8d400">p⁺</text>
+              <text x="170" y="410" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(200,212,0,0.65)">n⁰</text>
+              <!-- Couche 1 : 2 e⁻ haut/bas -->
+              <circle cx="170" cy="400" r="42" fill="none" stroke="#3a8fa0" stroke-width="1.2"/>
+              <circle cx="170" cy="358" r="5" fill="#3a8fa0"/>
+              <circle cx="170" cy="442" r="5" fill="#3a8fa0"/>
+              <!-- Couche 2 : 7 e⁻ en octogone, case vide à droite -->
+              <circle cx="170" cy="400" r="70" fill="none" stroke="#3a8fa0" stroke-width="1.2" opacity=".6"/>
+              <!-- 7 positions (angles 90°/135°/180°/225°/270°/315°/0° — en laissant la position droite=0° vide) -->
+              <!-- 90°  → cx=170, cy=470 -->
+              <circle cx="170" cy="470" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 135° → cx=121, cy=449 -->
+              <circle cx="121" cy="449" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 180° → cx=100, cy=400 -->
+              <circle cx="100" cy="400" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 225° → cx=121, cy=351 -->
+              <circle cx="121" cy="351" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 270° → cx=170, cy=330 -->
+              <circle cx="170" cy="330" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 315° → cx=219, cy=351 -->
+              <circle cx="219" cy="351" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- 45°  → cx=219, cy=449 -->
+              <circle cx="219" cy="449" r="5" fill="#3a8fa0" opacity=".75"/>
+              <!-- Case vide 0° → cx=240, cy=400 (là où la flèche arrive) -->
+              <circle cx="240" cy="400" r="5" fill="none" stroke="#0f9d58" stroke-width="1.4" stroke-dasharray="2,2" opacity=".7"/>
+              <!-- Flèche électron entrant -->
+              <line x1="323" y1="400" x2="253" y2="400" stroke="#0f9d58" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-ca)"/>
+              <circle cx="326" cy="400" r="5" fill="#0f9d58" opacity=".9"/>
+              <text x="287" y="393" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#0f9d58">+ 1 e⁻</text>
+
+              <!-- Noyau anion -->
+              <circle cx="510" cy="400" r="22" fill="#1a4a52"/>
+              <text x="510" y="397" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#c8d400">p⁺</text>
+              <text x="510" y="410" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(200,212,0,0.65)">n⁰</text>
+              <!-- Couche 1 anion -->
+              <circle cx="510" cy="400" r="42" fill="none" stroke="#3a8fa0" stroke-width="1.2"/>
+              <circle cx="510" cy="358" r="5" fill="#3a8fa0"/>
+              <circle cx="510" cy="442" r="5" fill="#3a8fa0"/>
+              <!-- Couche 2 anion : 8 e⁻ en octogone régulier -->
+              <circle cx="510" cy="400" r="70" fill="none" stroke="#3a8fa0" stroke-width="1.5" opacity=".9"/>
+              <!-- 0°   → cx=580, cy=400 (le nouveau, en vert) -->
+              <circle cx="580" cy="400" r="5" fill="#0f9d58"/>
+              <!-- 45°  → cx=559, cy=351 -->
+              <circle cx="559" cy="351" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 90°  → cx=510, cy=330 -->
+              <circle cx="510" cy="330" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 135° → cx=461, cy=351 -->
+              <circle cx="461" cy="351" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 180° → cx=440, cy=400 -->
+              <circle cx="440" cy="400" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 225° → cx=461, cy=449 -->
+              <circle cx="461" cy="449" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 270° → cx=510, cy=470 -->
+              <circle cx="510" cy="470" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- 315° → cx=559, cy=449 -->
+              <circle cx="559" cy="449" r="5" fill="#3a8fa0" opacity=".85"/>
+              <!-- Badge − bien au-dessus des électrons -->
+              <rect x="572" y="322" width="28" height="22" rx="11" fill="#256472"/>
+              <text x="586" y="338" text-anchor="middle" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="white">−</text>
+              <!-- Labels anion -->
+              <text x="510" y="496" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-size="15" font-weight="700" fill="#1a4a52">ANION</text>
+              <text x="510" y="512" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5a6e72">charge négative</text>
+              <text x="170" y="496" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5a6e72">couche de valence incomplète</text>
+            </svg>
             <figcaption>Fig. — Perte d'électron(s) → cation (charge positive). Gain d'électron(s) → anion (charge négative).</figcaption>
           </figure>
           <div class="note-box">
@@ -1984,13 +2107,14 @@
         </div>
 
         <div class="subsection">
-          <div class="subsection-title">Les ions polyatomiques</div>
+          <div class="subsection-title">Les ions polyatomiques <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
           <p>Il existe aussi des groupes d'atomes chimiquement liés qui portent une charge électrique globale, causée par un surplus ou un déficit d'électrons. Un tel groupe forme un tout indissociable, appelé <span class="kw">ion polyatomique</span> (« poly » = plusieurs ; « polyatomique » = constitué de plusieurs atomes).</p>
+          <p>Par exemple, le nitrate de lithium (LiNO₃) se sépare lors de la dissolution en un ion positif, l'ion lithium (Li⁺), et en un ion négatif, l'ion nitrate (NO₃⁻). Le groupe d'atomes chargé NO₃⁻ doit être considéré comme un tout indissociable — au même titre que les ions formés d'un seul atome.</p>
           <div class="def-box">
             <div class="def-label">Définition</div>
             <p>Un <strong>ion polyatomique</strong> est un groupe de deux ou de plusieurs atomes chimiquement liés, qui porte une charge électrique causée par un surplus ou un déficit d'électrons.</p>
           </div>
-          <p>D'une manière générale, il existe plus d'anions polyatomiques que de cations polyatomiques. Les cations polyatomiques, comme l'ammonium (NH₄⁺), sont habituellement unis à un ion non métallique (ex. NH₄Cl). Les anions polyatomiques, comme les sulfates (SO₄²⁻), sont unis soit à un ion métallique (ex. MgSO₄), soit à un ion hydrogène (ex. HNO₃).</p>
+          <p>D'une manière générale, il existe plus d'<strong>anions</strong> polyatomiques que de <strong>cations</strong> polyatomiques. Les cations polyatomiques, comme l'ammonium (NH₄⁺), sont habituellement unis à un ion non métallique (ex. : chlorure d'ammonium, NH₄Cl). Les anions polyatomiques, comme les sulfates (SO₄²⁻), sont unis soit à un ion métallique (ex. : sulfate de magnésium, MgSO₄), soit à un ion hydrogène (ex. : nitrate d'hydrogène, HNO₃).</p>
           <table class="data-table">
             <thead><tr><th>Charge</th><th>Formule chimique</th><th>Nom de l'ion</th></tr></thead>
             <tbody>
@@ -2293,6 +2417,121 @@
           </div>
         </div>
 
+        <div class="quiz-block" data-quiz="q14">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <span class="quiz-block-title">Exercices — Section 1.4</span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une molécule est toujours formée d'atomes différents.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact — faux. Une molécule peut très bien être formée d'atomes identiques. H₂, O₂, N₂, Cl₂ sont tous des molécules diatomiques homoatomiques. Ce qui définit une molécule, c'est que ses atomes sont liés par des liaisons covalentes — pas la diversité des éléments.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Faux. Une molécule peut être formée d'atomes identiques : H₂, O₂, N₂ en sont des exemples classiques. Ce qui caractérise une molécule, c'est la liaison covalente entre ses atomes — pas la présence de plusieurs éléments différents.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel énoncé décrit correctement la différence entre un cation et un anion ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un cation est un non-métal ; un anion est un métal</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un cation a perdu des électrons (charge +) ; un anion en a gagné (charge −)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un cation est toujours issu d'un métal alcalin</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un cation et un anion ont toujours la même charge en valeur absolue</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un atome neutre qui perd des électrons devient un cation (charge positive, car il a plus de protons que d'électrons). S'il en gagne, il devient un anion (charge négative). La clé : c'est le bilan d'électrons qui détermine la charge.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La bonne distinction est celle des électrons : perte d'électrons → cation (+), gain d'électrons → anion (−). Les métaux forment souvent des cations, mais la définition est basée sur la charge — pas sur la nature de l'élément.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel type de liaison unit les atomes dans la molécule d'eau (H₂O) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Liaison ionique, car O est beaucoup plus électronégatif que H</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Liaison covalente, car H et O sont tous deux des non-métaux</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Liaison ionique, car l'eau conduit l'électricité</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Les deux types à la fois</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. H et O sont deux non-métaux → liaison covalente par partage d'électrons. La différence d'électronégativité H/O est de 1,24 (en dessous du seuil de 1,7), ce qui confirme une liaison covalente — polaire, mais covalente. L'eau pure conduit très peu l'électricité ; c'est les ions dissous qui le font.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>H₂O est une liaison covalente : H et O sont deux non-métaux qui partagent des électrons. La différence d'électronégativité (1,24) reste sous le seuil de 1,7 → covalente polaire. Ce n'est pas ionique.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La molécule N₂ contient une liaison triple, ce qui en fait l'une des liaisons les plus difficiles à briser.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. N₂ partage 3 doublets d'électrons entre ses deux atomes d'azote → liaison triple. Plus une liaison partage de doublets, plus elle est solide et difficile à rompre. C'est pourquoi le diazote N₂ est si peu réactif — il représente 78 % de l'air que l'on respire sans participer aux réactions biologiques ordinaires.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. N₂ possède une liaison triple (3 doublets partagés), l'une des liaisons covalentes les plus résistantes. C'est précisément pour ça que le diazote est si stable et peu réactif malgré sa grande abondance dans l'atmosphère.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">La formule du composé formé entre le calcium (Ca, colonne IIA) et le chlore (Cl, colonne VIIA) est :</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> CaCl</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> CaCl₂</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Ca₂Cl</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Ca₂Cl₂</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Ca (colonne IIA) → 2 liaisons. Cl (colonne VIIA, 8−7=1) → 1 liaison. PPCM(2,1) = 2. Ca : 2÷2 = 1 atome. Cl : 2÷1 = 2 atomes. Formule : CaCl₂. C'est le chlorure de calcium, utilisé notamment pour déglacer les routes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Méthode : Ca (colonne IIA) → 2 liaisons ; Cl (8−7=1) → 1 liaison. PPCM(2,1) = 2. Ca : 2÷2 = 1 ; Cl : 2÷1 = 2. Formule : CaCl₂. L'erreur fréquente est d'oublier de calculer le PPCM et de simplement croiser les indices.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel est le nom correct du composé P₂O₅ ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Oxyde de phosphore</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Pentaoxyde de phosphore</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Pentaoxyde de diphosphore</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Diphosphure de pentaoxygène</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Règle de nomenclature : l'élément en 2e position dans la formule est nommé en premier + suffixe « ure » (exception : oxygène → oxyde). O (5 atomes) → penta + oxyde. P (2 atomes) → di + phosphore. Et comme P est en 1re position dans la formule, son nom vient en second : pentaoxyde de diphosphore.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>L'élément en 2e position (O) est nommé en premier : 5 atomes → penta + oxyde → « pentaoxyde ». L'élément en 1re position (P) vient ensuite : 2 atomes → di + phosphore → « diphosphore ». Résultat : pentaoxyde de diphosphore. Ne pas oublier le préfixe « di » devant phosphore.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le NaCl (sel de table) est une molécule, tout comme H₂O.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact — faux. NaCl est un composé ionique : Na⁺ et Cl⁻ forment un réseau cristallin (un arrangement infini de millions d'ions), pas une unité discrète Na⁺Cl⁻ isolée. Le terme « molécule » est réservé aux composés à liaison covalente comme H₂O, où un nombre précis d'atomes forme une unité identifiable et stable.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Faux. NaCl n'est pas une molécule — c'est un composé ionique qui forme un réseau cristallin. Une molécule est une unité discrète maintenue par des liaisons covalentes (comme H₂O). NaCl est décrit par sa formule unitaire (le ratio 1:1 d'ions), pas par le nombre de paires isolées.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">La masse molaire du dioxyde de soufre (SO₂) est :</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 32,07 g/mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 48,07 g/mol</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 64,07 g/mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 80,07 g/mol</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. M(SO₂) = M(S) + 2 × M(O) = 32,07 + 2 × 16,00 = 32,07 + 32,00 = 64,07 g/mol. Ne pas oublier de multiplier la masse de l'oxygène par son indice (2) dans la formule.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>M(SO₂) = M(S) + 2 × M(O) = 32,07 + 2(16,00) = 64,07 g/mol. L'erreur fréquente est d'oublier l'indice 2 devant O et de calculer 32,07 + 16,00 = 48,07 au lieu de 64,07.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q14"></div>
+          <button class="quiz-reset" id="reset-q14">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -2346,10 +2585,123 @@
           </div>
         </div>
 
+        <div class="quiz-block" data-quiz="q15">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <span class="quiz-block-title">Exercices — Section 1.5</span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une mole de fer (Fe) et une mole d'hélium (He) contiennent le même nombre de particules.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Quelle que soit la substance, 1 mole contient toujours 6,022 × 10²³ particules (le nombre d'Avogadro). Ce qui change d'un élément à l'autre, c'est la masse de cette mole — 55,85 g pour Fe, mais seulement 4,00 g pour He.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Vrai. La mole est définie par un nombre de particules, pas par une masse : 1 mol = 6,022 × 10²³ particules, peu importe la substance. Ce qui varie, c'est la masse de cette mole (masse molaire).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la masse d'une mole d'eau (H₂O) ? (M(H) = 1,01 g/mol ; M(O) = 16,00 g/mol)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 16,00 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 17,01 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 18,02 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 20,03 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. M(H₂O) = 2 × 1,01 + 1 × 16,00 = 2,02 + 16,00 = 18,02 g/mol. Il faut bien multiplier la masse de H par son indice 2 dans la formule. Une mole d'eau pèse donc 18,02 g.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>M(H₂O) = 2 × M(H) + M(O) = 2(1,01) + 16,00 = 18,02 g/mol. L'erreur fréquente : ne pas multiplier M(H) par 2 (l'indice dans la formule) et obtenir 17,01 g au lieu de 18,02 g.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Combien de moles représentent 44 g de CO₂ ? (M(CO₂) = 44,01 g/mol)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 0,5 mol</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> ≈ 1,0 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2,0 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 44 mol</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. n = m ÷ M = 44 ÷ 44,01 ≈ 1,00 mol. La formule à retenir : n = m/M (quantité en mol = masse en g ÷ masse molaire en g/mol).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>n = m ÷ M = 44 g ÷ 44,01 g/mol ≈ 1,00 mol. Retenir : n (mol) = m (g) ÷ M (g/mol). L'erreur D vient de confondre les unités — 44 mol donnerait une masse de 44 × 44,01 ≈ 1 936 g, pas 44 g.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La masse molaire du sodium (Na) est d'environ 23 g/mol parce que c'est la valeur qu'on lit dans le tableau périodique, en u.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est le lien fondamental entre u et g/mol : la valeur numérique de la masse atomique (en u) est la même que la masse molaire (en g/mol). Na pèse ≈ 22,99 u → une mole de Na pèse ≈ 22,99 g. La mole est précisément définie pour que cette équivalence soit exacte.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La valeur dans le tableau (22,99 u) et la masse molaire (22,99 g/mol) ont le même chiffre — c'est précisément le rôle de la mole : convertir la masse atomique relative (microsccopique) en masse d'un échantillon laboratoire (macroscopique).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Combien d'atomes y a-t-il dans 2,0 mol de fer (Fe) ? (Nₐ = 6,022 × 10²³ mol⁻¹)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 6,022 × 10²³ atomes</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 1,204 × 10²⁴ atomes</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 3,011 × 10²³ atomes</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 55,85 atomes</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. N = n × Nₐ = 2,0 mol × 6,022 × 10²³ = 1,204 × 10²⁴ atomes. Chaque mole contient Nₐ particules, donc 2 moles en contient le double.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>N = n × Nₐ = 2,0 × 6,022 × 10²³ = 1,204 × 10²⁴ atomes. Retenir : nombre de particules N = n (mol) × Nₐ. 1 mol = Nₐ particules, 2 mol = 2 × Nₐ particules.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle masse de NaCl (M = 58,44 g/mol) contient 3,0 mol de NaCl ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 19,5 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 175,3 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 58,4 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,051 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. m = n × M = 3,0 mol × 58,44 g/mol = 175,3 g. La formule m = n × M donne la masse en g quand on connaît la quantité en mol et la masse molaire en g/mol.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>m = n × M = 3,0 mol × 58,44 g/mol = 175,3 g. L'erreur A divise au lieu de multiplier (58,44 ÷ 3 = 19,5). L'erreur C oublie de multiplier par n (donne M seul). La formule est m = n × M.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">1 mol d'atomes de carbone-12 pèse exactement 12 g — et c'est précisément pour cette raison que la mole a été définie ainsi.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est le pont entre l'échelle atomique (u) et l'échelle du laboratoire (g) : un atome de C-12 pèse 12 u ; une mole de C-12 pèse 12 g. La mole est le facteur de conversion entre ces deux échelles. C'est pourquoi M(élément) en g/mol a toujours la même valeur numérique que la masse atomique en u.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. C'est précisément le rôle de la mole : convertir les masses atomiques relatives (en u) en masses molaires pesables en g. 1 atome de C-12 = 12 u → 1 mol de C-12 = 12 g. C'est cette équivalence u ↔ g/mol qui rend la mole si fondamentale en chimie.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un échantillon contient 1,806 × 10²⁴ molécules de H₂O. Combien de moles cela représente-t-il ? (Nₐ = 6,022 × 10²³)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 0,5 mol</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 3,0 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 6,0 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1,806 × 10²⁴ mol</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. n = N ÷ Nₐ = 1,806 × 10²⁴ ÷ 6,022 × 10²³ = 3,0 mol. Pour trouver le nombre de moles à partir d'un nombre de particules, on divise par Nₐ (l'inverse de N = n × Nₐ).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>n = N ÷ Nₐ = (1,806 × 10²⁴) ÷ (6,022 × 10²³) = 3,0 mol. On divise le nombre de particules par Nₐ pour obtenir la quantité en moles. Retenir le triangle : N = n × Nₐ → n = N ÷ Nₐ.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q15"></div>
+          <button class="quiz-reset" id="reset-q15">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
-
-  </div><!-- /content -->
 </main>
 
 <button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
