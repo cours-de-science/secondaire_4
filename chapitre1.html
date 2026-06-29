@@ -103,6 +103,11 @@
   .note-box { background: #fffbec; border-left: 4px solid var(--yellow-dim); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #3a3000; line-height: 1.65; }
   .note-box .note-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
   .note-label .icon-sm { width: 13px; height: 13px; flex-shrink: 0; }
+  .note-bar { width: 100%; display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; padding: 0; text-align: left; font-family: inherit; color: inherit; }
+  .note-bar .chevron-n { margin-left: auto; width: 15px; height: 15px; transition: transform .2s; flex-shrink: 0; color: var(--yellow-dim); }
+  .note-bar[aria-expanded="true"] .chevron-n { transform: rotate(180deg); }
+  .note-body { display: none; margin-top: 8px; }
+  .note-bar[aria-expanded="true"] + .note-body { display: block; }
 
   /* Formula */
   .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
@@ -1836,12 +1841,124 @@
             <p style="margin:0;"><strong>Après la liaison :</strong> en perdant un électron, le sodium n'est plus électriquement neutre — il devient l'ion sodium <strong>Na⁺</strong> (cation). En gagnant cet électron, le chlore devient l'ion chlorure <strong>Cl⁻</strong> (anion). Les deux ions, de charges opposées, s'attirent : c'est la liaison ionique.</p>
           </div>
           <figure class="fig-block" style="margin-top:10px;">
-            <img src="images/ch1/transfert_electron_nacl.png" alt="Schéma du transfert d'un électron du sodium vers le chlore, formant Na+ et Cl-" loading="lazy">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 460" role="img" style="font-family:'Inter',sans-serif;">
+                <title>Transfert d'un électron du sodium vers le chlore</title>
+                <desc>Schéma montrant un atome de sodium (2-8-1) perdant son électron de valence vers un atome de chlore (2-8-7), formant Na+ (2-8) et Cl- (2-8-8).</desc>
+                <defs>
+                  <marker id="arrowred-nacl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d63031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                </defs>
+
+                <text x="40" y="30" font-size="12" fill="var(--muted)">Avant (atomes neutres)</text>
+                <text x="40" y="248" font-size="12" fill="var(--muted)">Après (ions)</text>
+                <line x1="20" y1="232" x2="660" y2="232" stroke="var(--border)" stroke-width="0.5"/>
+
+                <!-- ===== AVANT : Na (gauche) ===== -->
+                <circle cx="170" cy="150" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="170" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Na</text>
+                <circle cx="198" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="142" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="98" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="222" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="202" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="118" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="74" r="5.5" fill="#2f6fed" stroke="#d63031" stroke-width="1"/>
+                <text x="170" y="218" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 1</text>
+
+                <!-- ===== AVANT : Cl (droite) ===== -->
+                <circle cx="510" cy="150" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="510" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Cl</text>
+                <circle cx="538" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="482" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="98" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="562" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="202" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="458" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="74" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="96.3" r="5" fill="#2f6fed"/>
+                <circle cx="586" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="203.7" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="226" r="5" fill="#2f6fed"/>
+                <circle cx="456.3" cy="203.7" r="5" fill="#2f6fed"/>
+                <circle cx="456.3" cy="96.3" r="5" fill="#2f6fed"/>
+                <circle cx="434" cy="150" r="6" fill="none" stroke="#d63031" stroke-width="1" stroke-dasharray="2 2"/>
+                <text x="510" y="218" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 7</text>
+
+                <!-- Transfer arrow -->
+                <path d="M170,68 Q320,15 432,144" fill="none" stroke="#d63031" stroke-width="1.5" marker-end="url(#arrowred-nacl)"/>
+                <text x="300" y="42" text-anchor="middle" font-size="12" fill="var(--muted)">transfert de l'électron de valence</text>
+
+                <!-- ===== APRÈS : Na+ (gauche) ===== -->
+                <circle cx="170" cy="350" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="350" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="350" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="170" y="350" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Na</text>
+                <circle cx="198" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="142" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="298" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="313.2" r="5" fill="#2f6fed"/>
+                <circle cx="222" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="386.8" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="402" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="386.8" r="5" fill="#2f6fed"/>
+                <circle cx="118" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="313.2" r="5" fill="#2f6fed"/>
+                <text x="170" y="424" text-anchor="middle" font-size="14" font-weight="600" fill="#d63031">Na⁺</text>
+                <text x="170" y="440" text-anchor="middle" font-size="12" fill="var(--muted)">cation — 2 – 8</text>
+
+                <!-- ===== APRÈS : Cl- (droite) ===== -->
+                <circle cx="510" cy="350" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="350" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="350" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="350" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="510" y="350" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Cl</text>
+                <circle cx="538" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="482" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="298" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="313.2" r="5" fill="#2f6fed"/>
+                <circle cx="562" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="386.8" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="402" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="386.8" r="5" fill="#2f6fed"/>
+                <circle cx="458" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="313.2" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="274" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="296.3" r="5" fill="#2f6fed"/>
+                <circle cx="586" cy="350" r="5" fill="#2f6fed"/>
+                <circle cx="563.7" cy="403.7" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="426" r="5" fill="#2f6fed"/>
+                <circle cx="456.3" cy="403.7" r="5" fill="#2f6fed"/>
+                <circle cx="434" cy="350" r="5.5" fill="#27ae60"/>
+                <circle cx="456.3" cy="296.3" r="5" fill="#2f6fed"/>
+                <text x="510" y="448" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6fed">Cl⁻</text>
+                <text x="510" y="464" text-anchor="middle" font-size="12" fill="var(--muted)">anion — 2 – 8 – 8</text>
+              </svg>
+            </div>
             <figcaption>Fig. — Transfert de l'électron de valence du sodium vers le chlore : formation de Na⁺ et Cl⁻.</figcaption>
           </figure>
           <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — NaCl n'est pas une « molécule »</span></div>
-            <p style="margin:0;">Certains manuels parlent de « la molécule de NaCl », mais ce terme devrait être réservé aux composés à liaison <strong>covalente</strong> (comme H₂O ou CO₂), où un nombre fixe d'atomes forme une unité discrète et isolable. Le NaCl, lui, est un <strong>composé ionique</strong> : à l'état solide, il forme un <strong>réseau cristallin</strong> où chaque Na⁺ est entouré de plusieurs Cl⁻ (et vice-versa) dans toutes les directions — il n'existe pas de « paire » NaCl isolée comme il existe une molécule H₂O isolée. La formule NaCl représente donc une <strong>unité formulaire</strong> (le plus petit ratio d'ions), pas une molécule au sens strict.</p>
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — NaCl n'est pas une « molécule »</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Certains manuels parlent de « la molécule de NaCl », mais ce terme devrait être réservé aux composés à liaison <strong>covalente</strong> (comme H₂O ou CO₂), où un nombre fixe d'atomes forme une unité discrète et isolable. Le NaCl, lui, est un <strong>composé ionique</strong> : à l'état solide, il forme un <strong>réseau cristallin</strong> où chaque Na⁺ est entouré de plusieurs Cl⁻ (et vice-versa) dans toutes les directions — il n'existe pas de « paire » NaCl isolée comme il existe une molécule H₂O isolée. La formule NaCl représente donc une <strong>unité formulaire</strong> (le plus petit ratio d'ions), pas une molécule au sens strict.</p>
+              <p style="margin:10px 0 0;"><a href="#liaisons-chimiques" style="color:var(--teal-mid);font-weight:600;">→ Voir la section sur les liaisons covalentes et ioniques</a></p>
+            </div>
           </div>
           <div class="note-box">
             <div class="note-label">À retenir</div>
@@ -1850,13 +1967,18 @@
 
           <div class="activity-block">
             <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — NaCl : molécule ou autre chose ?
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Exploration — Quels ions peuvent s'attirer ?
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="activity-content">
-              <p class="activity-question">On vient de voir que NaCl se forme par transfert d'un électron de Na vers Cl, créant Na⁺ et Cl⁻. Est-ce que NaCl est une « molécule » au même titre que H₂O ? Quelle est la différence fondamentale entre les deux ?</p>
-              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">Non — NaCl n'est <strong>pas</strong> une molécule au sens strict. H₂O est une molécule : c'est une unité discrète de 2 atomes H et 1 atome O liés par des liaisons <em>covalentes</em>. NaCl, lui, forme un <strong>réseau cristallin</strong> : un arrangement régulier de millions d'ions Na⁺ et Cl⁻ qui s'attirent mutuellement dans toutes les directions. Il n'y a pas d'unité Na⁺Cl⁻ isolée — seulement un ratio de 1:1 dans le cristal. On parle donc de <strong>composé ionique</strong> ou d'<strong>unité formulaire</strong>, pas de molécule.</div>
+              <p class="activity-question">Parmi les éléments des trois premières périodes du tableau périodique, lesquels forment facilement des cations ? Lesquels forment facilement des anions ? En te basant uniquement sur l'idée que les charges opposées s'attirent, propose quelques paires cation–anion qui devraient pouvoir se combiner.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+              <div class="activity-hint">
+                <p style="margin:0 0 10px;">Dans les trois premières périodes, voici les ions simples les plus courants :</p>
+                <p style="margin:0 0 10px;"><strong>Cations</strong> (métaux, perdent des électrons) : Li⁺, Be²⁺, Na⁺, Mg²⁺, Al³⁺<br><strong>Anions</strong> (non-métaux, gagnent des électrons) : N³⁻, O²⁻, F⁻, P³⁻, S²⁻, Cl⁻</p>
+                <p style="margin:0 0 10px;">Les paires les plus « évidentes » sont celles où les deux charges ont la <strong>même grandeur</strong> — un ion 1+ avec un ion 1−, un ion 2+ avec un ion 2−, etc., puisqu'elles s'annulent directement : Li⁺ avec F⁻ ou Cl⁻, Na⁺ avec F⁻ ou Cl⁻, Mg²⁺ avec O²⁻ ou S²⁻, Al³⁺ avec N³⁻.</p>
+                <p style="margin:0;">Mais que ferais-tu avec Mg²⁺ et Cl⁻ ? Ou avec Al³⁺ et O²⁻ ? Leurs charges ne sont pas de la même grandeur — un seul de chaque ne suffit pas à obtenir une charge totale nulle. Pourtant, ces combinaisons existent bel et bien dans la nature (par exemple MgCl₂ ou Al₂O₃) ! Comment plusieurs atomes pourraient-ils se combiner pour que le total des charges s'annule malgré tout ? C'est exactement ce qu'on apprendra à calculer précisément au <strong>chapitre 2</strong>, consacré aux composés ioniques.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1910,7 +2032,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="liaisons-chimiques">
           <div class="subsection-title">Les liaisons chimiques <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
           <p>Les atomes se lient pour atteindre une configuration électronique stable (couche de valence complète = <strong>règle de l'octet</strong>, ou duet pour H et He).</p>
           <table class="data-table">
@@ -2254,6 +2376,12 @@ function toggleHint(btn) {
 
 // ── Toggle blocs d'exercices ────────────────────────────────
 function toggleQuiz(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Toggle bulles de note ────────────────────────────────────
+function toggleNote(btn) {
   const expanded = btn.getAttribute('aria-expanded') === 'true';
   btn.setAttribute('aria-expanded', String(!expanded));
 }
