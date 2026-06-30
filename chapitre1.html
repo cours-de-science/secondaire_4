@@ -1206,7 +1206,7 @@
           <p>Les éléments sont disposés selon plusieurs règles :</p>
           <ul class="content-list">
             <li>Ordre numérique croissant (Z) de gauche à droite.</li>
-            <li>Quand une couche est remplie au maximum, une nouvelle couche débute → nouvelle ligne.</li>
+            <li>Quand une couche électronique est remplie au maximum, une nouvelle couche débute → nouvelle ligne.</li>
             <li>La dernière couche ne peut jamais dépasser 8 électrons (<strong>règle de l'octet</strong>).</li>
             <li>Les couches pouvant contenir plus de 8 électrons se remplissent après que les couches suivantes ont commencé.</li>
           </ul>
@@ -1229,11 +1229,11 @@
             </button>
             <div class="activity-content">
               <p class="activity-question">En chimie, on classe les éléments du tableau périodique en grandes catégories. Parmi les choix suivants, lequel représente le bon découpage ?</p>
-              <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0;">
-                <div style="background:#fff;border:1.5px solid var(--teal-mid);border-radius:8px;padding:10px 14px;font-size:14px;"><strong>A.</strong> Métal · Métalloïde · Non-métal</div>
-                <div style="background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--muted)"><strong>B.</strong> Gaz · Liquide · Solide</div>
-                <div style="background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--muted)"><strong>C.</strong> Métal · Non-métal · Gaz · Liquide</div>
-                <div style="background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--muted)"><strong>D.</strong> Alcalin · Halogène · Gaz noble · Métal</div>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Métal · Métalloïde · Non-métal</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Gaz · Liquide · Solide</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Métal · Non-métal · Gaz · Liquide</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Alcalin · Halogène · Gaz noble · Métal</button>
               </div>
               <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
               <div class="activity-hint">
@@ -1694,13 +1694,14 @@
 
           <div class="activity-block">
             <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Vérification — Deux substances, même élément
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Vérification — Même élément, propriétés opposées
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="activity-content">
-              <p class="activity-question">Le dioxygène (O₂) et l'ozone (O₃) sont tous deux composés uniquement d'atomes d'oxygène. Pourtant, ce sont deux substances complètement différentes — l'une est indispensable à la vie, l'autre est un gaz irritant. Comment l'expliquer ?</p>
+              <p class="activity-question">Le dioxygène (O₂) — l'air qu'on respire — et l'ozone (O₃) — qui nous protège des rayons UV en haute atmosphère, mais qui devient un gaz irritant si on le respire au niveau du sol — sont tous deux composés <strong>exclusivement d'atomes d'oxygène</strong>. Même élément, propriétés opposées.</p>
+              <p class="activity-question" style="margin-top:10px;"><strong>1.</strong> D'après leur formule, combien d'atomes d'oxygène compte chacune de ces deux molécules ?<br><strong>2.</strong> Puisque l'élément est rigoureusement le même dans les deux cas, qu'est-ce qui doit forcément différer entre O₂ et O₃ pour produire des propriétés aussi opposées ?</p>
               <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">Ce qui définit une molécule, c'est le <strong>nombre</strong> et l'<strong>arrangement</strong> des atomes qui la composent — pas seulement l'élément. O₂ contient 2 atomes d'oxygène liés par une liaison double ; O₃ en contient 3, arrangés en angle. Ces deux structures donnent des propriétés physiques et chimiques entièrement différentes.</div>
+              <div class="activity-hint"><strong>1.</strong> O₂ compte 2 atomes d'oxygène ; O₃ en compte 3.<br><br><strong>2.</strong> Ce qui définit une molécule, c'est le <strong>nombre</strong> et l'<strong>arrangement</strong> des atomes qui la composent — pas seulement l'élément qui les constitue. Avec 2 atomes liés par une liaison double, O₂ forme une structure stable et peu réactive. Avec 3 atomes liés en angle, O₃ forme une structure plus instable, beaucoup plus réactive — c'est justement cette réactivité qui le rend irritant pour les voies respiratoires.<br><br><em>Retenir : deux substances faites du même élément peuvent avoir des propriétés complètement opposées si le nombre d'atomes par molécule diffère.</em></div>
             </div>
           </div>
         </div>
@@ -1728,6 +1729,10 @@
               </tr>
             </tbody>
           </table>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Truc mnémotechnique</span></div>
+            <strong>An</strong>ion → « <strong>Ah, non !</strong> » → charge <strong>négative</strong>. Le cation, lui, est positif — il ne reste qu'une seule case possible pour l'autre.
+          </div>
           <p>La <span class="kw">liaison ionique</span> (vue dans la sous-section suivante) résulte justement de ce transfert d'électrons : un métal cède un ou plusieurs électrons de valence à un non-métal, ce qui forme un cation et un anion qui s'attirent par leur charge opposée.</p>
 
           <div class="def-box">
@@ -1894,8 +1899,111 @@
             Un atome de magnésium (Mg, famille IIA) qui perd ses 2 électrons de valence devient <strong>Mg²⁺</strong> (12 protons, 10 électrons restants). Un atome d'oxygène (O, famille VIA) qui gagne 2 électrons pour compléter sa couche devient <strong>O²⁻</strong> (8 protons, 10 électrons) — charge = 6 − 8 = −2. Ces deux ions s'attirent dans un ratio 1:1 pour former le solide ionique <strong>MgO</strong>.
           </div>
           <figure class="fig-block" style="margin-top:10px;">
-            <img src="images/ch1/mg_o_ions.png" alt="Schéma de formation des ions Mg2+ et O2- à partir des atomes neutres" loading="lazy">
-            <figcaption>Fig. — Formation de Mg²⁺ (perte de 2 e⁻) et de O²⁻ (gain de 2 e⁻).</figcaption>
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 510" role="img" style="font-family:'Inter',sans-serif;max-width:620px;display:block;margin:0 auto;">
+                <title>Formation des ions Mg²⁺ et O²⁻</title>
+                <desc>Schéma montrant un atome de magnésium (2-8-2) cédant ses 2 électrons de valence à un atome d'oxygène (2-6), formant Mg²⁺ (2-8) et O²⁻ (2-8). Les deux ions résultants ont la même configuration électronique que le néon.</desc>
+                <defs>
+                  <marker id="arrowred-mgo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#d63031" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                </defs>
+
+                <!-- ── Étiquettes de section ── -->
+                <text x="40" y="28" font-size="12" fill="var(--muted)">Avant (atomes neutres)</text>
+                <line x1="20" y1="240" x2="660" y2="240" stroke="var(--border)" stroke-width="0.5"/>
+                <text x="40" y="258" font-size="12" fill="var(--muted)">Après (ions)</text>
+
+                <!-- ===== AVANT : Mg (gauche) — 2-8-2 ===== -->
+                <circle cx="170" cy="150" r="76" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="170" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Mg</text>
+                <!-- couche 1 r=28 : 2 e⁻ -->
+                <circle cx="198" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="142" cy="150" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 8 e⁻ -->
+                <circle cx="170" cy="98"  r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="222"  cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="170" cy="202"  r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="118"  cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="113.2" r="5" fill="#2f6fed"/>
+                <!-- couche 3 r=76 : 2 e⁻ (valence, à céder) — cerclés rouge -->
+                <circle cx="150.3" cy="76.6" r="5.5" fill="#2f6fed" stroke="#d63031" stroke-width="1.5"/>
+                <circle cx="189.7" cy="76.6" r="5.5" fill="#2f6fed" stroke="#d63031" stroke-width="1.5"/>
+                <text x="170" y="230" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 8 – 2</text>
+
+                <!-- ===== AVANT : O (droite) — 2-6 ===== -->
+                <circle cx="510" cy="150" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="150" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="150" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="510" y="150" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">O</text>
+                <!-- couche 1 r=28 : 2 e⁻ -->
+                <circle cx="538" cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="482" cy="150" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 6 e⁻ (2 cases vides à gauche, là où les électrons arriveront) -->
+                <circle cx="510" cy="98"  r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="113.2" r="5" fill="#2f6fed"/>
+                <circle cx="562"  cy="150" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="186.8" r="5" fill="#2f6fed"/>
+                <circle cx="510" cy="202"  r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="113.2" r="5" fill="#2f6fed"/>
+                <!-- (473.2, 186.8) et (458, 150) sont vides — cases pointillées -->
+                <circle cx="473.2" cy="186.8" r="6" fill="none" stroke="#d63031" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+                <circle cx="458" cy="150" r="6" fill="none" stroke="#d63031" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+                <text x="510" y="230" text-anchor="middle" font-size="12" fill="var(--muted)">2 – 6</text>
+
+                <!-- ── Flèches de transfert (2 électrons) ── -->
+                <path d="M153,68 Q300,4 462,144" fill="none" stroke="#d63031" stroke-width="1.5" marker-end="url(#arrowred-mgo)"/>
+                <path d="M193,80 Q330,55 478,182" fill="none" stroke="#d63031" stroke-width="1.5" marker-end="url(#arrowred-mgo)"/>
+                <text x="300" y="40" text-anchor="middle" font-size="12" fill="var(--muted)">transfert des 2 électrons de valence</text>
+
+                <!-- ===== APRÈS : Mg²⁺ (gauche) — cy=390 ===== -->
+                <!-- Mg²⁺ a perdu sa couche 3 : plus que 2 couches -->
+                <circle cx="170" cy="390" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="390" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="170" cy="390" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="170" y="390" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">Mg</text>
+                <!-- couche 1 r=28 -->
+                <circle cx="198" cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="142" cy="390" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 8 e⁻ -->
+                <circle cx="170"  cy="338" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="353.2" r="5" fill="#2f6fed"/>
+                <circle cx="222"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="206.8" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="170"  cy="442" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="118"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="133.2" cy="353.2" r="5" fill="#2f6fed"/>
+                <text x="170" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#d63031">Mg²⁺</text>
+                <text x="170" y="478" text-anchor="middle" font-size="12" fill="var(--muted)">cation — 2 – 8</text>
+
+                <!-- ===== APRÈS : O²⁻ (droite) — cy=390 ===== -->
+                <!-- O²⁻ a reçu 2 e⁻ : maintenant 8 dans sa couche 2 -->
+                <circle cx="510" cy="390" r="52" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="390" r="28" fill="none" stroke="#999" stroke-width="0.5"/>
+                <circle cx="510" cy="390" r="22" fill="#cfcfcf" stroke="#888" stroke-width="0.5"/>
+                <text x="510" y="390" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="600" fill="#333">O</text>
+                <!-- couche 1 r=28 -->
+                <circle cx="538" cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="482" cy="390" r="5" fill="#2f6fed"/>
+                <!-- couche 2 r=52 : 8 e⁻ (les 2 électrons reçus, en vert, à gauche) -->
+                <circle cx="510"  cy="338" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="353.2" r="5" fill="#2f6fed"/>
+                <circle cx="562"  cy="390" r="5" fill="#2f6fed"/>
+                <circle cx="546.8" cy="426.8" r="5" fill="#2f6fed"/>
+                <circle cx="510"  cy="442" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="353.2" r="5" fill="#2f6fed"/>
+                <circle cx="473.2" cy="426.8" r="5.5" fill="#27ae60"/>
+                <circle cx="458"  cy="390" r="5.5" fill="#27ae60"/>
+                <text x="510" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6fed">O²⁻</text>
+                <text x="510" y="478" text-anchor="middle" font-size="12" fill="var(--muted)">anion — 2 – 8</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Formation de Mg²⁺ (perte de 2 e⁻ de valence) et de O²⁻ (gain de 2 e⁻) : les deux ions obtiennent la même configuration électronique que le néon (2 – 8) et s'attirent dans un ratio 1:1 pour former le solide ionique MgO.</figcaption>
           </figure>
           <figure class="fig-block" style="margin-top:10px;">
             <div class="ion-charge-wrap">
@@ -1957,6 +2065,18 @@
             <p style="font-size:12px;color:var(--muted);margin:8px 0 0;">* Le carbone et le silicium forment presque exclusivement des <strong>liaisons covalentes</strong> ; ils ne suivent pas la règle simple de charge ionique.</p>
             <figcaption>Fig. — Charge typique des ions selon leur position dans le tableau périodique (métaux de gauche → cations, non-métaux de droite → anions, gaz inertes → pas d'ions).</figcaption>
           </figure>
+
+          <div class="activity-block" style="margin-top:14px;">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — Le carbone et le silicium peuvent-ils vraiment former C⁴⁺/C⁴⁻ ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content" style="background:#f0f6f7;">
+              <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">Le manuel Kaléidoscope présente un tableau qui prévoit, pour la famille IVA (C, Si), un ion possible <strong>X⁴⁺ ou X⁴⁻</strong> selon le même principe que les autres familles : 4 électrons de valence → perte ou gain de 4 électrons pour atteindre l'octet. Sur papier, c'est la suite logique du tableau. Dans les faits, c'est presque jamais ce qui se passe.</p>
+              <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">La raison : perdre ou gagner <strong>4 électrons</strong> coûte énormément d'énergie. Chaque électron arraché (ou ajouté) à un atome devient de plus en plus difficile à retirer (ou de moins en moins favorable à ajouter) que le précédent. Pour un ion 1+ ou 1−, ce coût reste raisonnable ; rendu à 4+ ou 4−, il devient prohibitif. Le carbone et le silicium « choisissent » donc presque toujours une option beaucoup plus économe : <strong>partager</strong> leurs 4 électrons de valence avec d'autres atomes via 4 liaisons covalentes, plutôt que de les transférer en bloc. C'est pourquoi CH₄, CO₂, SiH₄ et SiCl₄ existent, mais pas de sels solides faits d'ions C⁴⁺, C⁴⁻, Si⁴⁺ ou Si⁴⁻.</p>
+              <p style="font-size:14px;line-height:1.75;margin:0;"><strong>Un piège classique :</strong> le SiO₂ (silice — le sable, le quartz) a une formule qui ressemble à un composé ionique obtenu par chassé-croisé. Mais Si (χ ≈ 1,8) et O (χ ≈ 3,4) donnent une différence d'électronégativité d'environ <strong>1,6</strong> — sous le seuil de 1,7, donc une liaison covalente (polaire). SiO₂ est en réalité un <strong>solide covalent géant</strong> : chaque atome de Si est lié par covalence à 4 atomes d'O dans un immense réseau cristallin tridimensionnel — pas un réseau ionique comme NaCl, même si son aspect (solide cristallin, point de fusion très élevé) y ressemble beaucoup.</p>
+            </div>
+          </div>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple — Formation du chlorure de sodium (NaCl)</span></div>
             <p style="margin:0 0 8px;"><strong>Avant la liaison :</strong> le sodium (Na) possède 1 électron de valence ; le chlore (Cl) en possède 7.</p>
@@ -2426,16 +2546,17 @@
           <p>Pour établir la formule moléculaire d'un <span class="kw">composé binaire</span> (constitué d'un métal et d'un non-métal), on utilise la méthode suivante basée sur le <span class="kw">PPCM</span> (plus petit commun multiple).</p>
           <div class="def-box">
             <div class="def-label">Rappel</div>
-            <p><strong>Nombre de liaisons d'un métal</strong> = numéro de sa colonne dans le tableau périodique.<br>
-            <strong>Nombre de liaisons d'un non-métal</strong> = 8 − numéro de sa colonne.</p>
+            <p><strong>Nombre de liaisons d'un métal</strong> = numéro de sa famille (système A vu en 1.3 : IA → 1, IIA → 2, IIIA → 3…).<br>
+            <strong>Nombre de liaisons d'un non-métal</strong> = 8 − numéro de sa famille (IVA → 4, VA → 5, VIA → 6, VIIA → 7).</p>
+            <p style="margin-top:8px;font-size:13px;color:var(--muted);">Avec la numérotation moderne du tableau périodique (groupes 1 à 18), on retrouve la famille A en soustrayant 10 aux groupes 13 à 18 — c'est pourquoi le chlore, groupe 17, est bien en famille <strong>VIIA</strong> (17 − 10 = 7).</p>
           </div>
           <table class="data-table">
             <thead><tr><th>Étape</th><th>Action</th><th>Exemple : CaCl₂</th></tr></thead>
             <tbody>
               <tr><td><strong>1</strong></td><td>Écrire le symbole du métal</td><td>Ca</td></tr>
-              <tr><td><strong>2</strong></td><td>Déterminer le nombre de liaisons du métal (= numéro de colonne)</td><td>Ca est en colonne 2 → <strong>2 liaisons</strong></td></tr>
+              <tr><td><strong>2</strong></td><td>Déterminer le nombre de liaisons du métal (= numéro de sa famille)</td><td>Ca est en famille IIA → <strong>2 liaisons</strong></td></tr>
               <tr><td><strong>3</strong></td><td>Écrire le symbole du non-métal</td><td>Cl</td></tr>
-              <tr><td><strong>4</strong></td><td>Déterminer le nombre de liaisons du non-métal (= 8 − numéro de colonne)</td><td>Cl est en colonne 17 → 8 − 7 = <strong>1 liaison</strong></td></tr>
+              <tr><td><strong>4</strong></td><td>Déterminer le nombre de liaisons du non-métal (= 8 − numéro de sa famille)</td><td>Cl est en famille VIIA → 8 − 7 = <strong>1 liaison</strong></td></tr>
               <tr><td><strong>5</strong></td><td>Calculer le PPCM entre les deux nombres de liaisons</td><td>PPCM(2, 1) = <strong>2</strong></td></tr>
               <tr><td><strong>6</strong></td><td>Nombre d'atomes de chaque élément = PPCM ÷ nombre de liaisons de cet élément</td><td>Ca : 2 ÷ 2 = <strong>1</strong> &nbsp;|&nbsp; Cl : 2 ÷ 1 = <strong>2</strong></td></tr>
               <tr><td><strong>7</strong></td><td>Écrire la formule moléculaire</td><td><strong>CaCl₂</strong></td></tr>
@@ -2443,8 +2564,12 @@
           </table>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple supplémentaire — Mg₃N₂</span></div>
-            Magnésium (colonne 2) → 2 liaisons. Azote (colonne 15) → 8 − 5 = 3 liaisons.<br>
+            Magnésium (famille IIA) → 2 liaisons. Azote (famille VA) → 8 − 5 = 3 liaisons.<br>
             PPCM(2, 3) = 6. &nbsp;Mg : 6 ÷ 2 = <strong>3</strong>. &nbsp;N : 6 ÷ 3 = <strong>2</strong>. &nbsp;→ Formule : <strong>Mg₃N₂</strong>
+          </div>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Limite de la méthode PPCM</span></div>
+            Cette méthode fonctionne bien pour les métaux de la <strong>série A</strong> (charge = numéro de famille). Pour un métal de <strong>série B</strong> (fer, cuivre…), il faut plutôt connaître sa charge précise au cas par cas (voir la <strong>notation de Stock</strong> plus loin) — son « numéro de colonne » moderne ne donne pas directement son nombre de liaisons.
           </div>
 
           <div class="def-box" style="margin-top:16px;">
@@ -3125,6 +3250,29 @@ function initQuizBlock(block) {
 
   updateScore();
 }
+
+// === MOTEUR DE QCM AUTONOMES (activités suggérées avec choix cliquables) ===
+function initStandaloneMCQ(block) {
+  const options = Array.from(block.querySelectorAll('.quiz-option'));
+  let answered = false;
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (answered) return;
+      answered = true;
+      const isCorrect = opt.dataset.correct === 'true';
+      options.forEach(o => {
+        o.disabled = true;
+        if (o.dataset.correct === 'true') {
+          o.classList.add(o === opt ? 'correct' : 'reveal');
+        } else if (o === opt) {
+          o.classList.add('wrong');
+        }
+      });
+    });
+  });
+}
+
+document.querySelectorAll('.standalone-mcq').forEach(initStandaloneMCQ);
 
 document.querySelectorAll('.quiz-block').forEach(initQuizBlock);
 </script>
