@@ -142,6 +142,11 @@
   .data-table tr:last-child td { border-bottom: none; }
   .data-table tr:nth-child(even) td { background: #f7f9f9; }
   .data-table td strong { color: var(--teal-dark); }
+  .data-table tr.ion-key td { background: #fdf9d8; }
+  .data-table tr.ion-key td:nth-child(2), .data-table tr.ion-key td:nth-child(3) { font-weight: 700; color: var(--teal-dark); }
+  .data-table tr.ion-secondary td:nth-child(2), .data-table tr.ion-secondary td:nth-child(3) { font-weight: 600; }
+  .ion-freq-note { font-size: 13px; color: var(--text-soft, #5a6a6c); margin: -6px 0 14px; display: flex; align-items: center; gap: 6px; }
+  .ion-freq-note .dot-key { width: 10px; height: 10px; border-radius: 2px; background: #fdf9d8; border: 1px solid #e2d98a; display: inline-block; }
 
   .ion-charge-wrap { overflow-x: auto; margin: 16px 0; }
   .ion-charge-table { display: grid; grid-template-columns: repeat(8, minmax(82px, 1fr)); gap: 8px; min-width: 680px; }
@@ -2237,7 +2242,7 @@
                 <p style="margin:0 0 10px;">Dans les trois premières périodes, voici les ions simples les plus courants :</p>
                 <p style="margin:0 0 10px;"><strong>Cations</strong> (métaux, perdent des électrons) : Li⁺, Be²⁺, Na⁺, Mg²⁺, Al³⁺<br><strong>Anions</strong> (non-métaux, gagnent des électrons) : N³⁻, O²⁻, F⁻, P³⁻, S²⁻, Cl⁻</p>
                 <p style="margin:0 0 10px;">Les paires les plus « évidentes » sont celles où les deux charges ont la <strong>même grandeur</strong> — un ion 1+ avec un ion 1−, un ion 2+ avec un ion 2−, etc., puisqu'elles s'annulent directement : Li⁺ avec F⁻ ou Cl⁻, Na⁺ avec F⁻ ou Cl⁻, Mg²⁺ avec O²⁻ ou S²⁻, Al³⁺ avec N³⁻.</p>
-                <p style="margin:0;">Mais que ferais-tu avec Mg²⁺ et Cl⁻ ? Ou avec Al³⁺ et O²⁻ ? Leurs charges ne sont pas de la même grandeur — un seul de chaque ne suffit pas à obtenir une charge totale nulle. Pourtant, ces combinaisons existent bel et bien dans la nature (par exemple MgCl₂ ou Al₂O₃) ! Comment plusieurs atomes pourraient-ils se combiner pour que le total des charges s'annule malgré tout ? C'est exactement ce qu'on apprendra à calculer précisément au <strong>chapitre 2</strong>, consacré aux composés ioniques.</p>
+                <p style="margin:0;">Mais que ferais-tu avec Mg²⁺ et Cl⁻ ? Ou avec Al³⁺ et O²⁻ ? Leurs charges ne sont pas de la même grandeur — un seul de chaque ne suffit pas à obtenir une charge totale nulle. Pourtant, ces combinaisons existent bel et bien dans la nature (par exemple MgCl₂ ou Al₂O₃) ! Comment plusieurs atomes pourraient-ils se combiner pour que le total des charges s'annule malgré tout ? C'est exactement ce qu'on apprendra à calculer précisément un peu <a href="#formule-moleculaire"><strong>plus loin dans cette section</strong></a>, avec la méthode du chassé-croisé.</p>
               </div>
             </div>
           </div>
@@ -2252,25 +2257,26 @@
             <p>Un <strong>ion polyatomique</strong> est un groupe de deux ou de plusieurs atomes chimiquement liés, qui porte une charge électrique causée par un surplus ou un déficit d'électrons.</p>
           </div>
           <p>D'une manière générale, il existe plus d'<strong>anions</strong> polyatomiques que de <strong>cations</strong> polyatomiques. Les cations polyatomiques, comme l'ammonium (NH₄⁺), sont habituellement unis à un ion non métallique (ex. : chlorure d'ammonium, NH₄Cl). Les anions polyatomiques, comme les sulfates (SO₄²⁻), sont unis soit à un ion métallique (ex. : sulfate de magnésium, MgSO₄), soit à un ion hydrogène (ex. : nitrate d'hydrogène, HNO₃).</p>
+          <p class="ion-freq-note"><span class="dot-key"></span> Les ions en <strong>gras sur fond surligné</strong> sont les plus fréquents et doivent être mémorisés en priorité ; ceux en <strong>semi-gras</strong> reviennent occasionnellement.</p>
           <table class="data-table">
             <thead><tr><th>Charge</th><th>Formule chimique</th><th>Nom de l'ion</th></tr></thead>
             <tbody>
-              <tr><td rowspan="2">+1 (cation)</td><td>H₃O⁺</td><td>Hydronium</td></tr>
-              <tr><td>NH₄⁺</td><td>Ammonium</td></tr>
-              <tr><td rowspan="7">−1</td><td>OH⁻</td><td>Hydroxyde</td></tr>
-              <tr><td>NO₃⁻</td><td>Nitrate</td></tr>
+              <tr class="ion-secondary"><td rowspan="2">+1 (cation)</td><td>H₃O⁺</td><td>Hydronium</td></tr>
+              <tr class="ion-key"><td>NH₄⁺</td><td>Ammonium</td></tr>
+              <tr class="ion-key"><td rowspan="7">−1</td><td>OH⁻</td><td>Hydroxyde</td></tr>
+              <tr class="ion-key"><td>NO₃⁻</td><td>Nitrate</td></tr>
               <tr><td>NO₂⁻</td><td>Nitrite</td></tr>
               <tr><td>CH₃COO⁻</td><td>Acétate</td></tr>
               <tr><td>CN⁻</td><td>Cyanure</td></tr>
               <tr><td>ClO₃⁻</td><td>Chlorate</td></tr>
-              <tr><td>HCO₃⁻</td><td>Hydrogénocarbonate (bicarbonate)</td></tr>
-              <tr><td rowspan="6">−2</td><td>CO₃²⁻</td><td>Carbonate</td></tr>
-              <tr><td>SO₄²⁻</td><td>Sulfate</td></tr>
+              <tr class="ion-secondary"><td>HCO₃⁻</td><td>Hydrogénocarbonate (bicarbonate)</td></tr>
+              <tr class="ion-key"><td rowspan="6">−2</td><td>CO₃²⁻</td><td>Carbonate</td></tr>
+              <tr class="ion-key"><td>SO₄²⁻</td><td>Sulfate</td></tr>
               <tr><td>SO₃²⁻</td><td>Sulfite</td></tr>
               <tr><td>CrO₄²⁻</td><td>Chromate</td></tr>
               <tr><td>Cr₂O₇²⁻</td><td>Dichromate</td></tr>
               <tr><td>MnO₄²⁻</td><td>Manganate</td></tr>
-              <tr><td rowspan="2">−3</td><td>PO₄³⁻</td><td>Phosphate</td></tr>
+              <tr class="ion-key"><td rowspan="2">−3</td><td>PO₄³⁻</td><td>Phosphate</td></tr>
               <tr><td>BO₃³⁻</td><td>Borate</td></tr>
               <tr><td>−4</td><td>P₂O₇⁴⁻</td><td>Pyrophosphate</td></tr>
             </tbody>
@@ -2293,6 +2299,156 @@
           </div>
         </div>
 
+        <div class="subsection">
+          <div class="subsection-title">Comment les ions se combinent</div>
+          <p>On a déjà vu que Na⁺ et Cl⁻ s'attirent 1 pour 1, et que Mg²⁺ et O²⁻ font de même. Mais ce n'est pas toujours le cas : <strong>le ratio dépend des charges en jeu</strong>, pas seulement du fait que les charges sont opposées.</p>
+          <div class="def-box">
+            <div class="def-label">Règle de la neutralité électrique</div>
+            <p>Un composé ionique est toujours <strong>électriquement neutre</strong> : la charge positive totale des cations doit exactement annuler la charge négative totale des anions. Quand les charges ne sont pas de la même grandeur, il faut plus d'un ion de l'un ou de l'autre pour y arriver.</p>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Cation</th><th>Anion</th><th>Ratio</th><th>Formule</th></tr></thead>
+            <tbody>
+              <tr><td>Na⁺</td><td>Cl⁻</td><td>1 : 1</td><td>NaCl</td></tr>
+              <tr><td>Mg²⁺</td><td>O²⁻</td><td>1 : 1</td><td>MgO</td></tr>
+              <tr><td>Ca²⁺</td><td>Cl⁻</td><td>1 : 2</td><td>CaCl₂</td></tr>
+              <tr><td>Al³⁺</td><td>O²⁻</td><td>2 : 3</td><td>Al₂O₃</td></tr>
+            </tbody>
+          </table>
+          <p>Remarque le lien entre la grandeur des charges et le ratio : quand les deux charges sont égales (1 et 1, ou 2 et 2), le ratio est 1:1. Quand elles diffèrent, il en faut plus d'un côté pour équilibrer — c'est exactement ce qu'on apprendra à calculer systématiquement avec la méthode du chassé-croisé, un peu <a href="#formule-moleculaire"><strong>plus loin dans cette section</strong></a>.</p>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Le sens inverse — déduire une charge à partir d'une formule</div>
+          <p>Il arrive aussi qu'on doive faire le raisonnement à l'envers : à partir d'une formule complète, déduire la charge d'un ion qu'on ne connaît pas encore — typique des métaux de série B (transition), dont la charge n'est pas fixe.</p>
+          <div class="def-box">
+            <div class="def-label">Exemple résolu</div>
+            <p><strong>Quelle est la charge du cuivre dans CuCl₂ ?</strong><br>
+            Le chlore (famille VIIA) a toujours une charge de −1. Il y a 2 atomes de Cl, donc la charge négative totale est de −2. Pour que le composé soit neutre, le cuivre doit donc porter une charge de <strong>+2</strong> → Cu²⁺.</p>
+          </div>
+          <div class="def-box">
+            <div class="def-label">Exemple résolu — avec un ion polyatomique</div>
+            <p><strong>Quelle est la charge du manganèse dans Mn(NO₃)₂ ?</strong><br>
+            Le nitrate (NO₃⁻) a une charge connue de −1 (voir le tableau des ions polyatomiques). Il y en a 2, donc −2 au total. Le manganèse doit donc être <strong>+2</strong> → Mn²⁺.</p>
+          </div>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Ne confonds pas l'<strong>indice</strong> (le petit chiffre après le symbole, qui indique le nombre d'atomes) avec la <strong>charge</strong> de l'ion. Dans Fe₂O₃, l'indice 2 sur le fer ne veut pas dire que Fe est 2+ — il faut faire le calcul de neutralité au complet pour trouver que Fe est en fait 3+.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Trouver la charge cachée
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Dans le composé Co₂(SO₄)₃, quelle est la charge de l'ion cobalt (Co) ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le sulfate (SO₄²⁻) porte une charge de −2. Il y en a 3, donc −6 au total. Il y a 2 atomes de cobalt pour porter cette charge positive : 6 ÷ 2 = <strong>3</strong>. Le cobalt est donc <strong>Co³⁺</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-block" data-quiz="q14-ions">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <span class="quiz-block-title">Exercices intermédiaires — Les ions</span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 7</span>
+            <progress class="quiz-progress" value="0" max="7"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un atome qui perd des électrons devient un anion.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact — faux. Un atome qui perd des électrons a plus de protons que d'électrons, donc une charge positive : c'est un <strong>cation</strong>, pas un anion. L'anion se forme quand un atome gagne des électrons.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Faux. Perdre des électrons laisse un surplus de protons, donc une charge positive : c'est un <strong>cation</strong>. L'anion, lui, résulte d'un gain d'électrons (charge négative).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel ion l'atome de soufre (S, famille VIA) forme-t-il le plus probablement ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> S⁶⁺</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> S²⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> S⁴⁺</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> S⁸⁻</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le soufre est un non-métal de famille VIA (6 électrons de valence). Sa charge se calcule par 6 − 8 = −2. Il gagne donc 2 électrons pour compléter sa couche de valence et devient S²⁻.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le soufre (famille VIA) est un non-métal : il gagne des électrons plutôt que d'en perdre. Sa charge se calcule par 6 − 8 = −2, donc S²⁻.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">L'atome de calcium (Ca) possède le même nombre de protons que son ion Ca²⁺.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Former un ion ne change jamais le nombre de protons — seul le nombre d'électrons change. Ca et Ca²⁺ ont tous les deux 20 protons ; c'est Ca²⁺ qui a 2 électrons de moins.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai, en fait. Le nombre de protons ne change jamais lors de la formation d'un ion — c'est ce qui définit toujours l'élément. Seul le nombre d'électrons varie.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un atome possède 9 protons et 10 électrons. De quel ion s'agit-il ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Ne⁺</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> F⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> F⁺</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Na⁻</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 9 protons identifie l'élément : c'est le fluor (Z=9). Avec 10 électrons (1 de plus que de protons), la charge est de −1 : F⁻.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le nombre de protons (9) identifie toujours l'élément — ici, le fluor (Z=9), pas le néon (Z=10). Avec 1 électron de plus que de protons, la charge est −1 : F⁻.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Parmi ces molécules, laquelle ne contient PAS d'ion polyatomique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> KHCO₃</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> (NH₄)₂CO₃</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> PCl₃</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Ca(NO₃)₂</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. PCl₃ est un composé binaire classique (phosphore + chlore seulement) — aucun groupe d'atomes chargé de type ion polyatomique. Les trois autres contiennent HCO₃⁻, NH₄⁺/CO₃²⁻, ou NO₃⁻.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>PCl₃ est la bonne réponse : composé binaire simple (2 éléments seulement), sans ion polyatomique. Les autres options contiennent HCO₃⁻, NH₄⁺/CO₃²⁻ ou NO₃⁻.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle est la charge de l'ion fer (Fe) dans le composé Fe₂O₃ ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Fe²⁺</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Fe³⁺</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Fe⁶⁺</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Fe²⁻</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'oxygène (famille VIA) porte toujours une charge de −2. Avec 3 atomes de O, la charge négative totale est de −6. Avec 2 atomes de Fe pour compenser : 6 ÷ 2 = 3, donc Fe³⁺.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>L'erreur fréquente est de confondre l'indice (2, sur le fer) avec la charge. O est toujours −2 ; avec 3 O, ça fait −6 au total ; réparti sur 2 Fe, chaque Fe doit porter +3. Fe³⁺.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Les cations polyatomiques n'existent pas — seuls les anions polyatomiques sont possibles.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact — faux. Les cations polyatomiques existent, même s'ils sont moins nombreux que les anions. L'ammonium (NH₄⁺) et l'hydronium (H₃O⁺) en sont deux exemples déjà vus dans ce chapitre.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Faux. Les cations polyatomiques existent bel et bien, même s'ils sont plus rares — l'ammonium (NH₄⁺) et l'hydronium (H₃O⁺) en sont des exemples.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q14-ions"></div>
+          <button class="quiz-reset" id="reset-q14-ions">↺ Recommencer</button>
+          </div>
+        </div>
+
         <div class="subsection" id="liaisons-chimiques">
           <div class="subsection-title">Les liaisons chimiques <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
           <p>Comme on l'a vu, les atomes cherchent à atteindre la stabilité chimique : ils visent la configuration électronique du <strong>gaz inerte le plus proche d'eux</strong> dans le tableau périodique (sur la période juste au-dessus de la leur, ou sur leur propre période). Cela s'obtient de deux manières différentes :</p>
@@ -2308,28 +2464,6 @@
           </div>
           <p>Ce cas est typique d'une liaison entre un <strong>métal</strong> (couche périphérique presque vide — peu d'électrons de valence) et un <strong>non-métal</strong> (couche périphérique presque pleine — beaucoup d'électrons de valence). Le métal va céder son ou ses électrons de valence au non-métal, qui complète ainsi sa couche périphérique.</p>
           <p>La formation de la molécule de chlorure de sodium (NaCl) illustre bien une liaison ionique — la figure ci-dessous montre cette formation. <strong>Notons que la formule moléculaire d'un composé formé d'un métal et d'un non-métal commence toujours par le symbole du métal</strong> (NaCl, et non ClNa).</p>
-
-          <table class="data-table" style="margin-top:16px;">
-            <thead><tr><th>Type de liaison</th><th>Mécanisme</th><th>Entre quels éléments</th><th>Exemples</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><strong>Liaison covalente</strong></td>
-                <td>Partage d'une ou plusieurs paires d'électrons (doublets électroniques)</td>
-                <td>Non-métal + Non-métal</td>
-                <td>H₂O, CO₂, N₂, Cl₂</td>
-              </tr>
-              <tr>
-                <td><strong>Liaison ionique</strong></td>
-                <td>Transfert d'électrons → ions + et − qui s'attirent</td>
-                <td>Métal + Non-métal</td>
-                <td>NaCl, MgO, CaCl₂</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof — Truc rapide</span></div>
-            2 non-métaux → liaison <strong>covalente</strong>. 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité peut confirmer : une grande différence (≥ 1,7) indique une liaison ionique.
-          </div>
           <figure class="fig-block" style="margin-top:10px;">
             <svg width="100%" viewBox="0 0 680 330" role="img" style="font-family:'Inter',sans-serif;max-width:620px;display:block;margin:0 auto;">
               <title>Transfert d'un électron du sodium vers le chlore, avec les électronégativités</title>
@@ -2505,6 +2639,29 @@
               <div class="activity-hint">Différence d'électronégativité : 4,0 − 2,2 = <strong>1,8</strong>, ce qui dépasse le seuil de 1,7 → la règle prédit une liaison <strong>ionique</strong>. Pourtant, HF est classé comme covalente polaire dans la plupart des manuels de secondaire. Pourquoi ? Parce que le seuil 1,7 est une approximation, et HF reste une molécule gazeuse discrète (pas un réseau cristallin). En réalité, il s'agit d'une liaison à fort caractère ionique — une zone grise qui montre les limites du modèle simple covalente/ionique.</div>
             </div>
           </div>
+
+          <p style="margin-top:24px;"><strong>En résumé</strong> — les deux types de liaison vus dans cette sous-section :</p>
+          <table class="data-table" style="margin-top:10px;">
+            <thead><tr><th>Type de liaison</th><th>Mécanisme</th><th>Entre quels éléments</th><th>Exemples</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Liaison covalente</strong></td>
+                <td>Partage d'une ou plusieurs paires d'électrons (doublets électroniques)</td>
+                <td>Non-métal + Non-métal</td>
+                <td>H₂O, CO₂, N₂, Cl₂</td>
+              </tr>
+              <tr>
+                <td><strong>Liaison ionique</strong></td>
+                <td>Transfert d'électrons → ions + et − qui s'attirent</td>
+                <td>Métal + Non-métal</td>
+                <td>NaCl, MgO, CaCl₂</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof — Truc rapide</span></div>
+            2 non-métaux → liaison <strong>covalente</strong>. 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité peut confirmer : une grande différence (≥ 1,7) indique une liaison ionique.
+          </div>
         </div>
 
         <div class="subsection">
@@ -2536,7 +2693,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="formule-moleculaire">
           <div class="subsection-title">Élaboration d'une formule moléculaire — méthode en 7 étapes</div>
           <div class="def-box">
             <div class="def-label">Règle d'écriture — l'ordre des éléments</div>
