@@ -226,10 +226,12 @@
 
   /* ── QUIZ ── */
   .quiz-block { margin-top: 36px; border-top: 2px solid var(--yellow); padding-top: 24px; }
-  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 6px; text-align: left; }
-  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); display: flex; align-items: center; gap: 8px; }
-  .quiz-block-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; }
-  .quiz-block-bar .chevron-q { margin-left: auto; width: 18px; height: 18px; transition: transform .2s; flex-shrink: 0; color: var(--teal-mid); }
+  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 10px; background: var(--teal-dark); border: none; border-radius: 10px; cursor: pointer; padding: 14px 18px; margin-bottom: 6px; text-align: left; transition: background .15s; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .quiz-block-bar:hover { background: var(--teal-mid); }
+  .quiz-block-bar .quiz-block-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-subtitle { font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; color: rgba(255,255,255,.72); margin-left: 2px; }
+  .quiz-block-bar .chevron-q { margin-left: auto; width: 20px; height: 20px; transition: transform .2s; flex-shrink: 0; color: #fff; }
   .quiz-block-bar[aria-expanded="true"] .chevron-q { transform: rotate(180deg); }
   .quiz-body { display: none; }
   .quiz-block-bar[aria-expanded="true"] + .quiz-body { display: block; padding-top: 14px; }
@@ -819,7 +821,7 @@
         <!-- QUIZ 1.1 -->
         <div class="quiz-block" data-quiz="q11">
           <button class="quiz-block-bar" aria-expanded="true" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices — Section 1.1</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 1.1<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
@@ -1073,7 +1075,7 @@
 
         <div class="quiz-block" data-quiz="q12">
           <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices — Section 1.2</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 1.2<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
@@ -1551,7 +1553,7 @@
 
         <div class="quiz-block" data-quiz="q13">
           <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices — Section 1.3</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 1.3<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
@@ -2222,6 +2224,7 @@
             </button>
             <div class="note-body">
               <p style="margin:0;">Certains manuels parlent de « la molécule de NaCl », mais ce terme devrait être réservé aux composés à liaison <strong>covalente</strong> (comme H₂O ou CO₂), où un nombre fixe d'atomes forme une unité discrète et isolable. Le NaCl, lui, est un <strong>composé ionique</strong> : à l'état solide, il forme un <strong>réseau cristallin</strong> où chaque Na⁺ est entouré de plusieurs Cl⁻ (et vice-versa) dans toutes les directions — il n'existe pas de « paire » NaCl isolée comme il existe une molécule H₂O isolée. La formule NaCl représente donc une <strong>unité formulaire</strong> (le plus petit ratio d'ions), pas une molécule au sens strict.</p>
+              <p style="margin:10px 0 0;">Concrètement : dans le cristal de NaCl, chaque Na⁺ est entouré de <strong>6 Cl⁻</strong> à la fois (et chaque Cl⁻, de 6 Na⁺) — pas un seul partenaire, mais plusieurs simultanément. C'est parce que l'attraction électrique d'un ion agit dans <strong>toutes les directions à la fois</strong>, contrairement à la liaison covalente qui unit des atomes précis entre eux. C'est cette différence qui explique pourquoi les composés covalents forment des molécules isolées, alors que les composés ioniques forment un réseau qui se répète indéfiniment. D'autres composés ioniques, comme Al₂O₃, s'organisent selon d'autres arrangements géométriques — mais le principe reste le même : chaque ion est lié à plusieurs ions voisins à la fois, jamais à un seul.</p>
               <p style="margin:10px 0 0;"><a href="#liaisons-chimiques" style="color:var(--teal-mid);font-weight:600;">→ Voir la section sur les liaisons covalentes et ioniques</a></p>
             </div>
           </div>
@@ -2340,16 +2343,34 @@
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="activity-content">
-              <p class="activity-question">Dans le composé Co₂(SO₄)₃, quelle est la charge de l'ion cobalt (Co) ?</p>
+              <p class="activity-question" style="margin-bottom:4px;">Pour chaque composé, déduis la charge de l'ion en gras à partir de la règle de neutralité électrique. Essaie de répondre avant de révéler la piste.</p>
+
+              <p class="activity-question" style="margin-top:16px;"><strong>1.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Dans MgBr₂, quelle est la charge de l'ion <strong>magnésium</strong> ?</p>
               <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">Le sulfate (SO₄²⁻) porte une charge de −2. Il y en a 3, donc −6 au total. Il y a 2 atomes de cobalt pour porter cette charge positive : 6 ÷ 2 = <strong>3</strong>. Le cobalt est donc <strong>Co³⁺</strong>.</div>
+              <div class="activity-hint">Le brome (famille VIIA) porte une charge de −1. Il y a 2 atomes de Br, donc −2 au total. Le magnésium doit donc porter <strong>+2</strong> → Mg²⁺.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>2.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Dans K₂O, quelle est la charge de l'ion <strong>potassium</strong> ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">L'oxygène porte toujours une charge de −2. Il y a 2 atomes de K pour compenser cette charge : 2 ÷ 2 = <strong>1</strong>. Le potassium est donc K⁺.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>3.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>Dans Cu₂S, quelle est la charge de l'ion <strong>cuivre</strong> ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le soufre (famille VIA) porte une charge de −2. Il y a 2 atomes de Cu pour compenser : 2 ÷ 2 = <strong>1</strong>. Le cuivre est donc Cu⁺ (cuivre(I)) — attention, ce n'est pas Cu²⁺ ! Le cuivre est un métal de série B à charge variable ; ici, les indices imposent +1.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>4.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>Dans Ni(NO₃)₂, quelle est la charge de l'ion <strong>nickel</strong> ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le nitrate (NO₃⁻) porte une charge de −1. Il y en a 2, donc −2 au total. Le nickel doit donc porter <strong>+2</strong> → Ni²⁺.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>5.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>Dans Co₂(SO₄)₃, quelle est la charge de l'ion <strong>cobalt</strong> ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le sulfate (SO₄²⁻) porte une charge de −2. Il y en a 3, donc −6 au total. Il y a 2 atomes de cobalt pour porter cette charge positive : 6 ÷ 2 = <strong>3</strong>. Le cobalt est donc Co³⁺.</div>
             </div>
           </div>
         </div>
 
         <div class="quiz-block" data-quiz="q14-ions">
           <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices intermédiaires — Les ions</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices intermédiaires — Les ions<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
@@ -2531,7 +2552,7 @@
             </svg>
             <figcaption>Fig. — La liaison ionique est représentée par une flèche montrant le transfert de l'électron du métal (Na, électronégativité 0,9) vers le non-métal (Cl, électronégativité 3,0). Différence d'électronégativité ici : 2,1.</figcaption>
           </figure>
-          <p style="margin-top:16px;">Il existe aussi des <span class="kw">liaisons polaires</span>, généralement quand la différence d'électronégativité se situe entre 0,4 et 1,7. C'est une liaison à mi-chemin entre covalente et ionique, qui crée des pôles partiellement positif et négatif au sein de la molécule — d'où le nom de « polaire ». L'eau (H₂O) est un exemple classique de molécule polaire, ce qui en fait un excellent solvant.</p>
+
 
           <p style="margin-top:18px;"><strong>La liaison covalente</strong></p>
           <div class="def-box">
@@ -2540,26 +2561,36 @@
           </div>
           <p>Ce cas est typique d'une liaison entre <strong>deux non-métaux</strong> — les deux ont une couche périphérique presque pleine et cherchent chacun à gagner des électrons plutôt qu'à en céder. Plutôt qu'un transfert complet, ils mettent en commun leurs électrons de valence non appariés sous forme de <span class="kw">doublets électroniques</span> partagés.</p>
 
-          <table class="data-table" style="margin-top:16px;">
-            <thead><tr><th>Type de liaison</th><th>Différence d'électronégativité (Δχ)</th><th>Exemple</th></tr></thead>
+          <p style="margin-top:18px;"><strong>Liaisons simples, doubles et triples</strong></p>
+          <p>Le nombre de doublets partagés entre deux atomes détermine le type de liaison covalente :</p>
+          <table class="data-table">
+            <thead><tr><th>Type</th><th>Doublets partagés</th><th>Exemple</th></tr></thead>
             <tbody>
-              <tr>
-                <td><strong>Covalente apolaire</strong></td>
-                <td>Δχ &lt; 0,4 (souvent ≈ 0)</td>
-                <td>H₂, Cl₂, O₂ (même élément ou presque)</td>
-              </tr>
-              <tr>
-                <td><strong>Covalente polaire</strong></td>
-                <td>0,4 ≤ Δχ &lt; 1,7</td>
-                <td>H₂O, HCl</td>
-              </tr>
-              <tr>
-                <td><strong>Ionique</strong></td>
-                <td>Δχ ≥ 1,7</td>
-                <td>NaCl, MgO</td>
-              </tr>
+              <tr><td><strong>Liaison simple</strong></td><td>1 doublet (2 électrons)</td><td>Cl₂, H₂O</td></tr>
+              <tr><td><strong>Liaison double</strong></td><td>2 doublets (4 électrons)</td><td>CO₂, O₂</td></tr>
+              <tr><td><strong>Liaison triple</strong></td><td>3 doublets (6 électrons)</td><td>N₂</td></tr>
             </tbody>
           </table>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof</span></div>
+            Contrairement à la liaison ionique, la liaison covalente <strong>ne crée pas d'ions</strong> — il n'y a pas d'électrons perdus ou gagnés, seulement partagés. Dans une liaison ionique (métal + non-métal), le nombre d'électrons perdus par le métal doit être <em>égal</em> au nombre d'électrons gagnés par le non-métal.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application réelle — Pourquoi le N₂ est-il si peu réactif ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le diazote (N₂) représente 78 % de l'air qu'on respire et est utilisé pour emballer les croustilles sous atmosphère protectrice. En te basant sur le type de liaison dans N₂, explique pourquoi cette molécule est si peu réactive.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">N₂ contient une <strong>liaison triple</strong> : 3 doublets d'électrons partagés entre les deux atomes d'azote. C'est l'une des liaisons les plus solides qui existent — il faut énormément d'énergie pour la briser. C'est pourquoi N₂ ne réagit presque avec rien dans les conditions normales. Dans l'emballage alimentaire, il remplace l'O₂ (qui oxyde et fait rancir) sans interagir avec les aliments.</div>
+            </div>
+          </div>
+
+          <p style="margin-top:18px;"><strong>Le spectre covalent–ionique</strong></p>
+          <p style="margin-top:14px;">Mais covalent et ionique ne sont pas deux cases parfaitement étanches — il existe un <strong>spectre continu</strong> entre les deux, mesuré par la différence d'électronégativité (Δχ). Quand le partage d'électrons est inégal (sans aller jusqu'au transfert complet), on parle de <span class="kw">liaison covalente polaire</span> : des pôles partiellement positif (δ+) et négatif (δ−) apparaissent au sein de la molécule. L'eau (H₂O) en est l'exemple classique, ce qui en fait un excellent solvant. Le schéma ci-dessous illustre ce spectre (le tableau complet des seuils Δχ se trouve en résumé, à la fin de cette sous-section).</p>
+
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Doublet liant et doublet libre</span></div>
             Dans une molécule comme l'eau, l'oxygène forme deux <strong>doublets liants</strong> (partagés avec chaque H) et conserve deux <strong>doublets libres</strong> (non partagés, juste sur l'oxygène). C'est justement cette répartition asymétrique des doublets autour de l'oxygène, combinée à la différence d'électronégativité O/H, qui rend la molécule polaire.
@@ -2640,18 +2671,27 @@
             </div>
           </div>
 
-          <p style="margin-top:24px;"><strong>En résumé</strong> — les deux types de liaison vus dans cette sous-section :</p>
+          <p style="margin-top:24px;"><strong>En résumé</strong> — le spectre des liaisons vues dans cette sous-section :</p>
           <table class="data-table" style="margin-top:10px;">
-            <thead><tr><th>Type de liaison</th><th>Mécanisme</th><th>Entre quels éléments</th><th>Exemples</th></tr></thead>
+            <thead><tr><th>Type de liaison</th><th>Δχ</th><th>Mécanisme</th><th>Entre quels éléments</th><th>Exemples</th></tr></thead>
             <tbody>
               <tr>
-                <td><strong>Liaison covalente</strong></td>
-                <td>Partage d'une ou plusieurs paires d'électrons (doublets électroniques)</td>
-                <td>Non-métal + Non-métal</td>
-                <td>H₂O, CO₂, N₂, Cl₂</td>
+                <td><strong>Covalente</strong> <span style="font-weight:400;color:var(--muted);">(apolaire)</span></td>
+                <td>&lt; 0,4</td>
+                <td>Partage égal d'une ou plusieurs paires d'électrons (doublets électroniques)</td>
+                <td>Non-métal + Non-métal (souvent le même élément)</td>
+                <td>H₂, O₂, N₂, Cl₂</td>
               </tr>
               <tr>
-                <td><strong>Liaison ionique</strong></td>
+                <td><strong>Covalente polaire</strong></td>
+                <td>0,4 à 1,7</td>
+                <td>Partage inégal d'électrons → pôles δ+ / δ− au sein de la molécule</td>
+                <td>Non-métal + Non-métal (électronégativités assez différentes)</td>
+                <td>H₂O, CO₂, HCl</td>
+              </tr>
+              <tr>
+                <td><strong>Ionique</strong></td>
+                <td>≥ 1,7</td>
                 <td>Transfert d'électrons → ions + et − qui s'attirent</td>
                 <td>Métal + Non-métal</td>
                 <td>NaCl, MgO, CaCl₂</td>
@@ -2660,36 +2700,7 @@
           </table>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof — Truc rapide</span></div>
-            2 non-métaux → liaison <strong>covalente</strong>. 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité peut confirmer : une grande différence (≥ 1,7) indique une liaison ionique.
-          </div>
-        </div>
-
-        <div class="subsection">
-          <div class="subsection-title">Liaisons simples, doubles et triples</div>
-          <p>Dans une liaison covalente, deux atomes partagent des électrons sous forme de <span class="kw">doublets électroniques</span>. Le nombre de doublets partagés détermine le type de liaison :</p>
-          <table class="data-table">
-            <thead><tr><th>Type</th><th>Doublets partagés</th><th>Exemple</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Liaison simple</strong></td><td>1 doublet (2 électrons)</td><td>Cl₂, H₂O</td></tr>
-              <tr><td><strong>Liaison double</strong></td><td>2 doublets (4 électrons)</td><td>CO₂, O₂</td></tr>
-              <tr><td><strong>Liaison triple</strong></td><td>3 doublets (6 électrons)</td><td>N₂</td></tr>
-            </tbody>
-          </table>
-          <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof</span></div>
-            Contrairement à la liaison ionique, la liaison covalente <strong>ne crée pas d'ions</strong> — il n'y a pas d'électrons perdus ou gagnés, seulement partagés. Dans une liaison ionique (métal + non-métal), le nombre d'électrons perdus par le métal doit être <em>égal</em> au nombre d'électrons gagnés par le non-métal.
-          </div>
-
-          <div class="activity-block">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application réelle — Pourquoi le N₂ est-il si peu réactif ?
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="activity-content">
-              <p class="activity-question">Le diazote (N₂) représente 78 % de l'air qu'on respire et est utilisé pour emballer les croustilles sous atmosphère protectrice. En te basant sur le type de liaison dans N₂, explique pourquoi cette molécule est si peu réactive.</p>
-              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">N₂ contient une <strong>liaison triple</strong> : 3 doublets d'électrons partagés entre les deux atomes d'azote. C'est l'une des liaisons les plus solides qui existent — il faut énormément d'énergie pour la briser. C'est pourquoi N₂ ne réagit presque avec rien dans les conditions normales. Dans l'emballage alimentaire, il remplace l'O₂ (qui oxyde et fait rancir) sans interagir avec les aliments.</div>
-            </div>
+            2 non-métaux → liaison <strong>covalente</strong> (apolaire ou polaire selon Δχ). 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité tranche précisément : Δχ &lt; 0,4 → apolaire ; 0,4 ≤ Δχ &lt; 1,7 → polaire ; Δχ ≥ 1,7 → ionique.
           </div>
         </div>
 
@@ -2874,7 +2885,7 @@
 
         <div class="quiz-block" data-quiz="q14">
           <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices — Section 1.4</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 1.4<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
@@ -3079,7 +3090,7 @@
 
         <div class="quiz-block" data-quiz="q15">
           <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
-            <span class="quiz-block-title">Exercices — Section 1.5</span>
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 1.5<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
             <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="quiz-body">
