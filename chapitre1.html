@@ -2846,25 +2846,46 @@
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
             Sans les parenthèses, <strong>Mg(NO₃)₂</strong> deviendrait <strong>MgNO₃₂</strong> — une écriture ambiguë qui laisserait croire qu'il y a seulement 2 atomes d'oxygène en plus du NO₃, plutôt que 2 groupes NO₃ complets (donc 2 N et 6 O au total). Les parenthèses sont ce qui distingue « 2 groupes entiers » de « 2 atomes en plus ».
           </div>
-          <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple supplémentaire — Al₂(SO₄)₃</span></div>
-            Al³⁺ et SO₄²⁻ → on croise : Al<sub>2</sub>(SO₄)<sub>3</sub> → <strong>Al₂(SO₄)₃</strong> (sulfate d'aluminium). Ici, les deux indices sont supérieurs à 1, mais seul celui de l'ion polyatomique (SO₄) a besoin de parenthèses — l'aluminium est un ion simple, donc Al₂ s'écrit directement sans parenthèses.
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Combiner les ions (charges données, méthode croisée)
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question" style="margin-bottom:4px;">Pour chaque paire d'ions, croise les charges (sans le signe), ajoute les parenthèses si nécessaire autour d'un ion polyatomique, puis simplifie si possible. Essaie avant de révéler la réponse. Plusieurs de ces ions se trouvent dans le tableau des ions polyatomiques plus haut — repère ceux en gras sur fond surligné.</p>
+
+              <p class="activity-question" style="margin-top:16px;"><strong>1.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Al³⁺ + O²⁻</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Aucun ion polyatomique ici — le cas le plus simple. On croise : Al<sub>2</sub> (charge de O) et O<sub>3</sub> (charge de Al). Peut-on simplifier ? PPCM(2, 3) = 6, donc les indices 2 et 3 n'ont aucun facteur commun : pas de simplification possible. → Formule : <strong>Al₂O₃</strong> (oxyde d'aluminium — la « rouille blanche » de l'aluminium, aussi connue sous le nom de corindon).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>2.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Na⁺ + OH⁻ (hydroxyde)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On croise : Na<sub>1</sub> (charge de OH) et OH<sub>1</sub> (charge de Na). Les deux indices valent 1, donc ils ne s'écrivent pas — et aucune parenthèse n'est nécessaire puisque l'indice de l'ion polyatomique est 1. → Formule : <strong>NaOH</strong> (hydroxyde de sodium).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>3.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>Ca²⁺ + NO₃⁻ (nitrate)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On croise : Ca<sub>1</sub> (charge de NO₃) et (NO₃)<sub>2</sub> (charge de Ca). L'indice 1 sur Ca ne s'écrit pas ; l'indice 2 sur le nitrate exige des parenthèses. → Formule : <strong>Ca(NO₃)₂</strong> (nitrate de calcium).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>4.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>NH₄⁺ (ammonium) + Cl⁻</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Ici c'est le <strong>cation</strong> qui est polyatomique. On croise : (NH₄)<sub>1</sub> (charge de Cl) et Cl<sub>1</sub> (charge de NH₄). Les deux indices valent 1 : aucune parenthèse n'est nécessaire, même autour de l'ammonium. → Formule : <strong>NH₄Cl</strong> (chlorure d'ammonium).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>5.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>Mg²⁺ + CO₃²⁻ (carbonate)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On croise : Mg<sub>2</sub> et (CO₃)<sub>2</sub> — mais les deux charges ont la <strong>même grandeur</strong> (2 et 2), donc ce résultat brut doit être <strong>simplifié</strong> en divisant les deux indices par leur PPCM commun (2). → Formule simplifiée : <strong>MgCO₃</strong> (carbonate de magnésium). Attention à ne jamais oublier cette étape de simplification !</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>6.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>Fe³⁺ + PO₄³⁻ (phosphate)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On croise : Fe<sub>3</sub> et (PO₄)<sub>3</sub> — encore une fois les deux charges ont la même grandeur (3 et 3), donc on simplifie en divisant par 3. → Formule simplifiée : <strong>FePO₄</strong> (phosphate de fer(III)).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>7.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>NH₄⁺ (ammonium) + PO₄³⁻ (phosphate)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Cette fois, <strong>les deux ions sont polyatomiques</strong>. On croise : (NH₄)<sub>3</sub> (charge de PO₄) et (PO₄)<sub>1</sub> (charge de NH₄). L'indice 3 sur l'ammonium exige des parenthèses ; l'indice 1 sur le phosphate ne s'écrit pas, et sa parenthèse n'est donc pas nécessaire. → Formule : <strong>(NH₄)₃PO₄</strong> (phosphate d'ammonium).</div>
+            </div>
           </div>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
             Après avoir croisé les charges, il faut toujours <strong>simplifier les indices</strong> si possible (diviser par leur PPCM commun) — sinon on obtient une formule non réduite. Exemple : Mg²⁺ et O²⁻ croisés donneraient Mg₂O₂, qu'il faut simplifier en <strong>MgO</strong>.
-          </div>
-
-          <div class="activity-block">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Formule de l'oxyde d'aluminium
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="activity-content">
-              <p class="activity-question">En utilisant le chassé-croisé des charges, détermine la formule du composé formé entre l'aluminium (Al³⁺) et l'oxygène (O²⁻). N'oublie pas de vérifier si les indices peuvent être simplifiés.</p>
-              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">Al³⁺ et O²⁻. Chassé-croisé : la charge de Al (3) devient l'indice de O, et la charge de O (2) devient l'indice de Al → Al₂O₃. Peut-on simplifier ? PPCM(2, 3) = 6 → on ne peut pas simplifier davantage. Formule finale : <strong>Al₂O₃</strong> (oxyde d'aluminium — la rouille blanche de l'aluminium, aussi connue comme corindon).</div>
-            </div>
           </div>
         </div>
 
