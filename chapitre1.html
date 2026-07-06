@@ -274,6 +274,11 @@
   .quiz-reset:hover { background: #f0f8f8; }
 
   /* === ACTIVITÉ SUGGÉRÉE === */
+  .quick-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #eef5f5; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; }
+  .quick-links-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-right: 2px; }
+  .quick-links a { font-size: 13px; font-weight: 600; color: var(--teal-dark); background: #fff; border: 1px solid var(--teal-light); border-radius: 20px; padding: 5px 13px; text-decoration: none; transition: background .15s, color .15s; }
+  .quick-links a:hover { background: var(--teal-dark); color: #fff; border-color: var(--teal-dark); }
+
   .activity-block { margin: 22px 0; border: 1.5px solid var(--orange); border-radius: 10px; overflow: hidden; background: #fffaf4; }
   .activity-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #fdeee0; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange); text-align: left; transition: background .15s; }
   .activity-bar:hover { background: #fbe3cc; }
@@ -1688,10 +1693,21 @@
       </button>
       <div class="section-body">
 
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#definitions-molecules">Définitions</a>
+          <a href="#les-ions">Les ions</a>
+          <a href="#ions-polyatomiques">Ions polyatomiques</a>
+          <a href="#comment-ions-se-combinent">Comment les ions se combinent</a>
+          <a href="#liaisons-chimiques">Les liaisons chimiques</a>
+          <a href="#formule-moleculaire">Formule moléculaire</a>
+          <a href="#nomenclature-composes-binaires">Nomenclature</a>
+        </div>
+
         <p>Jusqu'ici, on a étudié les atomes <em>individuellement</em> — leur structure, leurs couches, leur masse. Mais dans la nature, très peu d'éléments existent à l'état d'atomes isolés : l'oxygène qu'on respire est O₂, l'eau est H₂O, le sel de table est NaCl. Les atomes se lient presque toujours à d'autres atomes pour former des <strong>substances</strong> plus stables.</p>
         <p>Cette stabilité, on sait déjà d'où elle vient : la <strong>règle de l'octet</strong>. Les atomes cherchent à avoir 8 électrons sur leur couche externe, comme les gaz nobles. Pour y arriver, ils ont deux stratégies : <strong>partager</strong> des électrons (liaison covalente → molécules) ou <strong>transférer</strong> des électrons (liaison ionique → ions et sels). Cette section explore ces deux façons de se lier, ainsi que les règles qui permettent de nommer et d'écrire correctement les composés qui en résultent.</p>
 
-        <div class="subsection">
+        <div class="subsection" id="definitions-molecules">
           <div class="subsection-title">Définitions</div>
           <div class="def-box">
             <div class="def-label">Définition</div>
@@ -1713,7 +1729,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="les-ions">
           <div class="subsection-title">Les ions</div>
           <div class="def-box">
             <div class="def-label">Définition</div>
@@ -2251,7 +2267,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="ions-polyatomiques">
           <div class="subsection-title">Les ions polyatomiques <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
           <p>Il existe aussi des groupes d'atomes chimiquement liés qui portent une charge électrique globale, causée par un surplus ou un déficit d'électrons. Un tel groupe forme un tout indissociable, appelé <span class="kw">ion polyatomique</span> (« poly » = plusieurs ; « polyatomique » = constitué de plusieurs atomes).</p>
           <p>Par exemple, le nitrate de lithium (LiNO₃) se sépare lors de la dissolution en un ion positif, l'ion lithium (Li⁺), et en un ion négatif, l'ion nitrate (NO₃⁻). Le groupe d'atomes chargé NO₃⁻ doit être considéré comme un tout indissociable — au même titre que les ions formés d'un seul atome.</p>
@@ -2302,7 +2318,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="comment-ions-se-combinent">
           <div class="subsection-title">Comment les ions se combinent</div>
           <p>On a déjà vu que Na⁺ et Cl⁻ s'attirent 1 pour 1, et que Mg²⁺ et O²⁻ font de même. Mais ce n'est pas toujours le cas : <strong>le ratio dépend des charges en jeu</strong>, pas seulement du fait que les charges sont opposées.</p>
           <div class="def-box">
@@ -2592,12 +2608,39 @@
           <p style="margin-top:14px;">Mais covalent et ionique ne sont pas deux cases parfaitement étanches — il existe un <strong>spectre continu</strong> entre les deux, mesuré par la différence d'électronégativité (Δχ). Quand le partage d'électrons est inégal (sans aller jusqu'au transfert complet), on parle de <span class="kw">liaison covalente polaire</span> : des pôles partiellement positif (δ+) et négatif (δ−) apparaissent au sein de la molécule. L'eau (H₂O) en est l'exemple classique, ce qui en fait un excellent solvant. Le schéma ci-dessous illustre ce spectre (le tableau complet des seuils Δχ se trouve en résumé, à la fin de cette sous-section).</p>
 
           <div class="note-box">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — Pourquoi l'eau est-elle un si bon solvant ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">C'est justement sa polarité qui rend l'eau si efficace pour dissoudre autant de substances :</p>
+              <p style="margin:10px 0 0;"><strong>Avec les composés ioniques</strong> (comme le sel, NaCl) : le pôle δ− (l'oxygène) attire les cations (Na⁺), et le pôle δ+ (les hydrogènes) attire les anions (Cl⁻). Les molécules d'eau entourent chaque ion de tous les côtés et l'arrachent littéralement du réseau cristallin — c'est ce qu'on appelle l'<strong>hydratation</strong> des ions.</p>
+              <p style="margin:10px 0 0;"><strong>Avec d'autres molécules polaires</strong> (comme le sucre ou l'éthanol) : les pôles δ+/δ− de l'eau s'alignent avec les pôles opposés de l'autre molécule, créant des attractions électriques suffisantes pour les séparer les unes des autres et les maintenir en solution.</p>
+              <p style="margin:10px 0 0;">À l'inverse, les substances <strong>apolaires</strong> (comme l'huile) n'ont pas de pôles pour interagir avec l'eau — d'où l'expression <em>« qui se ressemble s'assemble »</em> (polaire dissout polaire, apolaire dissout apolaire).</p>
+            </div>
+          </div>
+
+          <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Doublet liant et doublet libre</span></div>
             Dans une molécule comme l'eau, l'oxygène forme deux <strong>doublets liants</strong> (partagés avec chaque H) et conserve deux <strong>doublets libres</strong> (non partagés, juste sur l'oxygène). C'est justement cette répartition asymétrique des doublets autour de l'oxygène, combinée à la différence d'électronégativité O/H, qui rend la molécule polaire.
           </div>
+          <p style="margin-top:14px;">Attention : la notation de Lewis <strong>ne montre pas la polarité</strong> par elle-même — un trait entre deux atomes représente un doublet partagé, peu importe si les deux atomes ont la même électronégativité ou non. Pour visualiser la polarité <em>directement sur</em> une structure de Lewis, on ajoute manuellement les symboles δ+ / δ− (comme dans le schéma du spectre plus haut) :</p>
           <figure class="fig-block" style="margin-top:10px;">
-            <img src="images/ch1/lewis_h2o.png" alt="Notation de Lewis de H₂O : H–O–H avec 2 doublets libres sur l'oxygène" loading="lazy" style="max-width:420px;">
-            <figcaption>Fig. — Notation de Lewis de l'eau (H₂O) : 2 doublets liants (tirets, un par liaison O–H) et 2 doublets libres (paires de points) sur l'oxygène.</figcaption>
+            <svg width="100%" viewBox="0 0 400 240" role="img" style="font-family:'Inter',sans-serif;max-width:380px;display:block;margin:0 auto;">
+              <title>Notation de Lewis de l'eau annotée avec les charges partielles</title>
+              <desc>Structure de Lewis de H2O : deux atomes d'hydrogène reliés à un atome d'oxygène central par des traits représentant chacun un doublet liant, l'oxygène portant deux doublets libres représentés par des paires de points au-dessus et en dessous. Le symbole δ+ apparaît près de chaque hydrogène et le symbole δ− apparaît près de l'oxygène, illustrant la polarité de la molécule.</desc>
+              <text x="90" y="60" text-anchor="middle" font-size="15" font-weight="700" fill="#c8a200">δ+</text>
+              <text x="200" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#8a6d00">δ−</text>
+              <text x="310" y="60" text-anchor="middle" font-size="15" font-weight="700" fill="#c8a200">δ+</text>
+              <circle cx="200" cy="106" r="4" fill="#2f6fed"/><circle cx="212" cy="106" r="4" fill="#2f6fed"/>
+              <circle cx="200" cy="178" r="4" fill="#2f6fed"/><circle cx="212" cy="178" r="4" fill="#2f6fed"/>
+              <line x1="130" y1="142" x2="178" y2="142" stroke="#1e2a2c" stroke-width="3"/>
+              <line x1="234" y1="142" x2="282" y2="142" stroke="#1e2a2c" stroke-width="3"/>
+              <text x="100" y="142" text-anchor="middle" dominant-baseline="central" font-size="40" font-weight="700" fill="#1e2a2c">H</text>
+              <text x="206" y="142" text-anchor="middle" dominant-baseline="central" font-size="40" font-weight="700" fill="#1e2a2c">O</text>
+              <text x="312" y="142" text-anchor="middle" dominant-baseline="central" font-size="40" font-weight="700" fill="#1e2a2c">H</text>
+            </svg>
+            <figcaption>Fig. — Notation de Lewis de l'eau (H₂O) : 2 doublets liants (traits, un par liaison O–H) et 2 doublets libres (paires de points) sur l'oxygène. Les symboles δ+ et δ− ont été ajoutés ici pour montrer la polarité — ils ne font pas partie de la notation de Lewis standard.</figcaption>
           </figure>
 
           <figure class="fig-block" style="margin-top:10px;">
@@ -2700,7 +2743,7 @@
           </table>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof — Truc rapide</span></div>
-            2 non-métaux → liaison <strong>covalente</strong> (apolaire ou polaire selon Δχ). 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité tranche précisément : Δχ &lt; 0,4 → apolaire ; 0,4 ≤ Δχ &lt; 1,7 → polaire ; Δχ ≥ 1,7 → ionique.
+            2 non-métaux → liaison <strong>covalente</strong> (apolaire ou polaire selon Δχ). 1 métal + 1 non-métal → liaison <strong>ionique</strong>. L'électronégativité donne une <strong>bonne approximation</strong> : Δχ &lt; 0,4 → apolaire ; 0,4 ≤ Δχ &lt; 1,7 → polaire ; Δχ ≥ 1,7 → ionique. Mais ce ne sont que des seuils de référence, pas une règle infaillible — HF en est un bon exemple (voir l'activité de réflexion ci-dessus).
           </div>
         </div>
 
@@ -2712,6 +2755,10 @@
             <p style="margin-top:8px;">Exemples : <strong>LiH</strong>, <strong>H₂O</strong>, <strong>NH₃</strong>, <strong>NaCl</strong>, <strong>KF</strong>.</p>
           </div>
           <p>Pour établir la formule moléculaire d'un <span class="kw">composé binaire</span> (constitué d'un métal et d'un non-métal), on utilise la méthode suivante basée sur le <span class="kw">PPCM</span> (plus petit commun multiple).</p>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Pourquoi cette méthode ne fonctionne que pour l'ionique</span></div>
+            Cette méthode (comme le chassé-croisé plus loin) ne s'applique <strong>qu'aux composés ioniques</strong> (métal + non-métal), jamais aux composés covalents (non-métal + non-métal). La raison : les charges des ions imposent un <strong>ratio unique</strong> — Al³⁺ et O²⁻ ne peuvent former qu'Al₂O₃, point final. Deux non-métaux, eux, peuvent former <strong>plusieurs composés valides et différents</strong> (NO, NO₂, N₂O, N₂O₃, N₂O₄, N₂O₅ existent tous — voir l'activité sur les préfixes STE plus loin). Il n'existe donc aucune façon de « calculer » à l'avance une formule covalente à partir des deux éléments seuls : elle doit déjà être connue ou donnée, puis nommée à l'aide des préfixes.
+          </div>
           <div class="def-box">
             <div class="def-label">Rappel</div>
             <p><strong>Nombre de liaisons d'un métal</strong> = numéro de sa famille (système A vu en 1.3 : IA → 1, IIA → 2, IIIA → 3…).<br>
@@ -2730,10 +2777,38 @@
               <tr><td><strong>7</strong></td><td>Écrire la formule moléculaire</td><td><strong>CaCl₂</strong></td></tr>
             </tbody>
           </table>
-          <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple supplémentaire — Mg₃N₂</span></div>
-            Magnésium (famille IIA) → 2 liaisons. Azote (famille VA) → 8 − 5 = 3 liaisons.<br>
-            PPCM(2, 3) = 6. &nbsp;Mg : 6 ÷ 2 = <strong>3</strong>. &nbsp;N : 6 ÷ 3 = <strong>2</strong>. &nbsp;→ Formule : <strong>Mg₃N₂</strong>
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Construire la formule (méthode PPCM)
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question" style="margin-bottom:4px;">Pour chaque paire d'éléments, détermine le nombre de liaisons de chacun (famille), calcule le PPCM, puis écris la formule moléculaire. Essaie avant de révéler la piste.</p>
+
+              <p class="activity-question" style="margin-top:16px;"><strong>1.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Sodium (Na) + Oxygène (O)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Na (famille IA) → <strong>1 liaison</strong>. O (famille VIA) → 8 − 6 = <strong>2 liaisons</strong>. PPCM(1, 2) = 2. Na : 2 ÷ 1 = <strong>2</strong>. O : 2 ÷ 2 = <strong>1</strong>. → Formule : <strong>Na₂O</strong>.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>2.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Facile</span><br>Potassium (K) + Chlore (Cl)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">K (famille IA) → <strong>1 liaison</strong>. Cl (famille VIIA) → 8 − 7 = <strong>1 liaison</strong>. PPCM(1, 1) = 1. K : 1 ÷ 1 = <strong>1</strong>. Cl : 1 ÷ 1 = <strong>1</strong>. → Formule : <strong>KCl</strong>.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>3.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>Aluminium (Al) + Chlore (Cl)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Al (famille IIIA) → <strong>3 liaisons</strong>. Cl (famille VIIA) → 8 − 7 = <strong>1 liaison</strong>. PPCM(3, 1) = 3. Al : 3 ÷ 3 = <strong>1</strong>. Cl : 3 ÷ 1 = <strong>3</strong>. → Formule : <strong>AlCl₃</strong>.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>4.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Intermédiaire</span><br>Magnésium (Mg) + Azote (N)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Mg (famille IIA) → <strong>2 liaisons</strong>. N (famille VA) → 8 − 5 = <strong>3 liaisons</strong>. PPCM(2, 3) = 6. Mg : 6 ÷ 2 = <strong>3</strong>. N : 6 ÷ 3 = <strong>2</strong>. → Formule : <strong>Mg₃N₂</strong>.</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>5.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>Lithium (Li) + Azote (N)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Li (famille IA) → <strong>1 liaison</strong>. N (famille VA) → 8 − 5 = <strong>3 liaisons</strong>. PPCM(1, 3) = 3. Li : 3 ÷ 1 = <strong>3</strong>. N : 3 ÷ 3 = <strong>1</strong>. → Formule : <strong>Li₃N</strong> (nitrure de lithium — l'un des rares métaux qui réagit directement avec le N₂ de l'air à température ambiante).</div>
+
+              <p class="activity-question" style="margin-top:20px;"><strong>6.</strong> <span style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Difficile</span><br>Aluminium (Al) + Soufre (S)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Al (famille IIIA) → <strong>3 liaisons</strong>. S (famille VIA) → 8 − 6 = <strong>2 liaisons</strong>. PPCM(3, 2) = 6. Al : 6 ÷ 3 = <strong>2</strong>. S : 6 ÷ 2 = <strong>3</strong>. → Formule : <strong>Al₂S₃</strong>.</div>
+            </div>
           </div>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Limite de la méthode PPCM</span></div>
@@ -2793,7 +2868,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="nomenclature-composes-binaires">
           <div class="subsection-title">Nomenclature des composés binaires <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
           <p>Les règles de nomenclature permettent de <strong>nommer un composé à partir de sa formule</strong> ou d'<strong>écrire la formule à partir du nom</strong>. On ne traite ici que les composés binaires.</p>
 
