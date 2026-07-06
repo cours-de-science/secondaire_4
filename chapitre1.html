@@ -2446,7 +2446,7 @@
 
           <div class="quiz-q" data-qi="4">
             <div class="quiz-q-label">Choix multiple</div>
-            <div class="quiz-q-text">Parmi ces molécules, laquelle ne contient PAS d'ion polyatomique ?</div>
+            <div class="quiz-q-text">Parmi ces composés, lequel ne contient PAS d'ion polyatomique ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> KHCO₃</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> (NH₄)₂CO₃</button>
@@ -2500,7 +2500,7 @@
             La liaison ionique est obtenue par le <strong>transfert d'électrons</strong> d'un atome dont la couche périphérique est <strong>presque vide</strong> vers un atome dont la couche périphérique est <strong>presque pleine</strong>.
           </div>
           <p>Ce cas est typique d'une liaison entre un <strong>métal</strong> (couche périphérique presque vide — peu d'électrons de valence) et un <strong>non-métal</strong> (couche périphérique presque pleine — beaucoup d'électrons de valence). Le métal va céder son ou ses électrons de valence au non-métal, qui complète ainsi sa couche périphérique.</p>
-          <p>La formation de la molécule de chlorure de sodium (NaCl) illustre bien une liaison ionique — la figure ci-dessous montre cette formation. <strong>Notons que la formule moléculaire d'un composé formé d'un métal et d'un non-métal commence toujours par le symbole du métal</strong> (NaCl, et non ClNa).</p>
+          <p>La formation du chlorure de sodium (NaCl) illustre bien une liaison ionique — la figure ci-dessous montre cette formation. <strong>Notons que la formule moléculaire d'un composé formé d'un métal et d'un non-métal commence toujours par le symbole du métal</strong> (NaCl, et non ClNa).</p>
           <figure class="fig-block" style="margin-top:10px;">
             <svg width="100%" viewBox="0 0 680 330" role="img" style="font-family:'Inter',sans-serif;max-width:620px;display:block;margin:0 auto;">
               <title>Transfert d'un électron du sodium vers le chlore, avec les électronégativités</title>
@@ -3504,6 +3504,7 @@ function initQuizBlock(block) {
   const progressBar = block.querySelector('.quiz-progress');
   const resultMsg = block.querySelector('.quiz-result-msg');
   const resetBtn = block.querySelector('.quiz-reset');
+  progressBar.max = total; // synchronise toujours le max réel avec le nombre de questions présentes
 
   function updateScore() {
     const answered = questions.filter(q => q.classList.contains('answered'));
