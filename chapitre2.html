@@ -292,6 +292,16 @@
   .activity-hint-toggle { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--teal-mid); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
   .activity-hint { display: none; margin-top: 8px; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 10px 12px; line-height: 1.55; }
   .activity-hint.show { display: block; }
+
+  /* Outil (procédure expérimentale / appareil) */
+  .outil-box { background: linear-gradient(135deg, #eef7f1, #f6fbf7); border: 1.5px solid #6fae87; border-radius: 10px; padding: 20px 24px; margin: 22px 0; }
+  .outil-box .outil-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: #217a4a; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .outil-box .outil-label .icon-sm { width: 16px; height: 16px; }
+  .outil-subhead { font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #217a4a; margin: 16px 0 7px; }
+  .outil-subhead:first-of-type { margin-top: 0; }
+  .outil-box ul.outil-list, .outil-box ol.outil-list { padding-left: 20px; margin: 0 0 4px; }
+  .outil-box ul.outil-list li, .outil-box ol.outil-list li { font-size: 14px; line-height: 1.65; margin-bottom: 6px; color: var(--text); }
+  .outil-safety { background: #fff4f0; border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 9px 13px; margin-top: 12px; font-size: 13px; color: #7a3a15; line-height: 1.55; }
 </style>
 </head>
 <body>
@@ -711,26 +721,593 @@
       </button>
       <div class="section-body">
 
-        <div class="note-box" style="background:#f0f6f7;">
-          <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Section en construction</span></div>
-          <p style="margin:0;">Le contenu détaillé de cette section (définitions, exemples, activités, exercices) sera ajouté dans une prochaine session. Voici pour l'instant le squelette prévu, selon la structure de Kaléidoscope.</p>
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#conductibilite">Conductibilité</a>
+          <a href="#dissociation">Dissociation</a>
+          <a href="#outil-dce">Outil — DCE</a>
+          <a href="#force-electrolytes">Force des électrolytes</a>
+          <a href="#abs">Acides, bases, sels</a>
+        </div>
+
+        <p>Un fil de cuivre conduit le courant électrique grâce à ses électrons libres, qui se déplacent facilement d'un atome à l'autre dans le réseau métallique. L'eau pure, elle, n'a pas d'électrons libres — et pourtant, plonges-y une pincée de sel et une pile, et le courant se met à circuler. Ce n'est donc pas la même sorte de « courant » : dans une solution, ce sont des <strong>ions</strong> qui transportent les charges, pas des électrons. Cette section explique comment et pourquoi, et pourquoi certaines solutions conduisent beaucoup mieux que d'autres.</p>
+
+        <div class="subsection" id="conductibilite">
+          <div class="subsection-title">2.2.1 — La conductibilité électrique</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>conductibilité électrique</strong> est la propriété d'une substance de permettre le passage du courant électrique.</p>
+          </div>
+
+          <p>Un courant électrique, c'est toujours un déplacement de charges. Dans un métal, ce sont des électrons ; dans une solution aqueuse, ce sont des <strong>ions</strong> — des particules chargées, libres de se déplacer dans le liquide. Mais la simple présence d'ions ne suffit pas : il faut réunir <strong>trois conditions</strong> à la fois pour qu'un courant électrique circule réellement dans une solution.</p>
+
+          <table class="data-table">
+            <thead><tr><th>Condition</th><th>Ce que ça signifie concrètement</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1. Présence de charges</strong></td><td>La solution doit contenir des ions — des particules réellement chargées, positives ou négatives.</td></tr>
+              <tr><td><strong>2. Mobilité des charges</strong></td><td>Ces ions doivent pouvoir se déplacer librement. Dans un solide ionique intact, les ions sont figés dans le réseau cristallin : aucun courant ne peut circuler, même si les charges sont bel et bien présentes.</td></tr>
+              <tr><td><strong>3. Direction du déplacement</strong></td><td>Il faut un champ électrique (créé par deux électrodes reliées à une pile) pour forcer les ions à se déplacer <em>dans un sens précis</em> : les cations vers l'électrode négative (la cathode), les anions vers l'électrode positive (l'anode). Sans direction commune, le mouvement des charges ne produit pas de courant net.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>électrolyte</strong> est une substance qui, une fois dissoute en solution, produit des ions et permet donc le passage du courant électrique. Une substance qui ne produit pas d'ions en solution est un <strong>non-électrolyte</strong> — elle n'est pas conductrice.</p>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Le sel ne conduit pas... jusqu'à ce qu'il fonde ou se dissolve
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le sel de table solide (NaCl) est fait d'ions Na⁺ et Cl⁻ — les charges sont donc bel et bien présentes. Pourtant, un cristal de sel sec ne conduit pas du tout l'électricité. Une fois dissous dans l'eau, la même substance conduit très bien le courant. Laquelle des trois conditions ci-dessus change entre les deux situations ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">La <strong>mobilité</strong> (condition 2). Dans le cristal solide, les ions Na⁺ et Cl⁻ sont verrouillés en place dans un réseau rigide, en alternance stricte — ils ne peuvent pas se déplacer, donc aucun courant ne circule malgré la présence des charges. Une fois dissous, le réseau est brisé et les ions deviennent libres de se déplacer dans l'eau : les trois conditions sont alors réunies. (Fondre le sel, sans le dissoudre, aurait le même effet : à l'état liquide aussi, les ions redeviennent mobiles.)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="dissociation">
+          <div class="subsection-title">2.2.2 — La dissociation électrolytique</div>
+
+          <p>Que se passe-t-il, exactement, quand on dissout une substance dans l'eau ? La réponse dépend entièrement du <strong>type de liaison</strong> de cette substance (chapitre 1, section 1.4) — et c'est là que se joue la différence entre un électrolyte et un non-électrolyte.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>dissociation électrolytique</strong> (ou dissolution électrolytique, ou dissolution ionique) est le processus par lequel une substance dissoute dans l'eau se sépare en ions libres. Ce sont les substances à liaisons <strong>ioniques</strong> — les acides, les bases et les sels (ABS) — qui subissent ce type de dissolution.</p>
+          </div>
+          <div class="formula" style="font-size:14px;">KCl<sub>(s)</sub> → K⁺<sub>(aq)</sub> + Cl⁻<sub>(aq)</sub></div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>dissolution moléculaire</strong> est le processus par lequel une substance dissoute dans l'eau reste intacte — la molécule ne se sépare pas en ions. Ce sont les substances à liaisons <strong>covalentes</strong> (comme le glucose) qui subissent ce type de dissolution.</p>
+          </div>
+          <div class="formula" style="font-size:14px;">C₆H₁₂O₆<sub>(s)</sub> → C₆H₁₂O₆<sub>(aq)</sub></div>
+
+          <table class="data-table">
+            <thead><tr><th></th><th>Dissociation électrolytique</th><th>Dissolution moléculaire</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Type de liaison</strong></td><td>Ionique</td><td>Covalente</td></tr>
+              <tr><td><strong>Ce qui se passe</strong></td><td>Le composé se sépare en ions libres</td><td>La molécule reste intacte, entourée d'eau</td></tr>
+              <tr><td><strong>Produit-elle des ions ?</strong></td><td>Oui</td><td>Non</td></tr>
+              <tr><td><strong>Conduit-elle le courant ?</strong></td><td>Oui — c'est un électrolyte</td><td>Non — c'est un non-électrolyte</td></tr>
+              <tr><td><strong>Exemple</strong></td><td>KCl, NaCl, tous les ABS</td><td>Glucose, sucrose, éthanol</td></tr>
+            </tbody>
+          </table>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Prédire le type de dissolution
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le bromure de calcium (CaBr₂) est dissous dans l'eau. S'agit-il d'une dissociation électrolytique ou d'une dissolution moléculaire, et quelle équation en résulte ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Dissolution moléculaire : CaBr₂<sub>(s)</sub> → CaBr₂<sub>(aq)</sub></button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Dissociation électrolytique : CaBr₂<sub>(s)</sub> → Ca²⁺<sub>(aq)</sub> + 2 Br⁻<sub>(aq)</sub></button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Dissociation électrolytique : CaBr₂<sub>(s)</sub> → Ca⁺<sub>(aq)</sub> + Br₂⁻<sub>(aq)</sub></button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> Ca (métal) et Br (non-métal) forment une liaison <strong>ionique</strong> — donc dissociation électrolytique, pas dissolution moléculaire (élimine A). Le calcium (famille IIA) forme toujours Ca²⁺, et le brome (famille VIIA, halogène) forme toujours Br⁻ — jamais Br₂⁻, qui n'existe pas (élimine C). Pour respecter la neutralité de charge (2+ contre 2 × 1−), il faut <strong>2 ions Br⁻</strong> pour chaque Ca²⁺.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="outil-box" id="outil-dce">
+          <div class="outil-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4M15 2v4"/><rect x="5" y="6" width="14" height="14" rx="2"/><path d="M9 12h2v4H9zM13 10h2v6h-2z"/></svg><span>Outil 1 — Vérifier la conductibilité électrique d'une solution aqueuse</span></div>
+
+          <p style="margin-bottom:4px;">Comment savoir, concrètement, si une solution conduit le courant — et à quel point ? On utilise un <strong>détecteur de conductibilité électrique (DCE)</strong>.</p>
+
+          <div class="outil-subhead">Matériel</div>
+          <ul class="outil-list">
+            <li>Une pile carrée de 9 V (source de courant à basse tension — jamais le courant du secteur)</li>
+            <li>Deux électrodes (généralement en cuivre), reliées à la pile par des fils conducteurs</li>
+            <li>Une ampoule (ou une DEL) témoin ; certains modèles plus précis affichent plutôt une échelle graduée de <strong>0 à 10</strong></li>
+          </ul>
+
+          <div class="outil-subhead">Étapes</div>
+          <ol class="outil-list">
+            <li>Plonger les deux électrodes dans la solution à tester, <strong>sans qu'elles se touchent entre elles</strong>.</li>
+            <li>Observer l'ampoule (ou la lecture sur l'échelle).</li>
+            <li>Rincer et essuyer soigneusement les électrodes avant de tester une nouvelle solution, pour éviter qu'un résidu de la solution précédente ne fausse le résultat suivant.</li>
+          </ol>
+
+          <div class="outil-subhead">Interprétation des résultats</div>
+          <table class="data-table" style="margin-top:0;">
+            <thead><tr><th>Observation</th><th>Interprétation</th></tr></thead>
+            <tbody>
+              <tr><td>L'ampoule brille intensément (échelle : jusqu'à 10)</td><td><strong>Électrolyte fort</strong> — beaucoup d'ions en solution</td></tr>
+              <tr><td>L'ampoule brille faiblement (échelle : autour de 1)</td><td><strong>Électrolyte faible</strong> — peu d'ions en solution</td></tr>
+              <tr><td>L'ampoule ne s'allume pas du tout</td><td><strong>Non-électrolyte</strong> — aucun ion en solution (isolant)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="outil-safety"><strong>Sécurité :</strong> le DCE utilisé en classe fonctionne toujours à basse tension (pile 9 V). Ne jamais tenter de tester un liquide en le mettant en contact avec une prise électrique standard (120 V) — risque sérieux de choc électrique.</div>
+        </div>
+
+        <div class="quiz-block" data-quiz="q221">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Activités 2.2.1 et 2.2.2<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Dans une solution aqueuse, ce sont des électrons libres qui transportent le courant électrique, exactement comme dans un fil de cuivre.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Dans une solution, ce sont des <strong>ions</strong> (des atomes ou groupes d'atomes chargés) qui se déplacent et transportent le courant — pas des électrons libres comme dans un métal.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Une solution n'a pas d'électrons libres comme un métal ; ce sont plutôt des <strong>ions</strong> (particules chargées) qui se déplacent et transportent les charges.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un cristal de KI (iodure de potassium) parfaitement sec est posé sur la table. Pourquoi ne conduit-il pas le courant électrique, même s'il est fait d'ions K⁺ et I⁻ ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Parce qu'il ne contient pas de charges</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Parce que les ions sont figés dans le réseau cristallin et ne peuvent pas se déplacer</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Parce qu'il n'y a pas d'électrode disponible</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Parce que KI est un composé covalent</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Les charges (K⁺ et I⁻) sont bel et bien présentes — c'est la condition de <strong>mobilité</strong> qui manque : dans un solide ionique intact, les ions sont verrouillés en place.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>KI est bien ionique (métal + non-métal) et contient bien des charges. Ce qui manque, c'est la <strong>mobilité</strong> : dans le solide, les ions K⁺ et I⁻ sont figés dans le réseau cristallin et ne peuvent pas se déplacer pour transporter un courant.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Laquelle de ces substances subit une dissolution moléculaire (et non une dissociation électrolytique) lorsqu'on la dissout dans l'eau ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> NaCl</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> KBr</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> C₆H₁₂O₆ (glucose)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> CaCl₂</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le glucose est un composé <strong>covalent</strong> (formé de non-métaux uniquement) : il se dissout sans se séparer en ions. Les trois autres (NaCl, KBr, CaCl₂) sont tous ioniques (métal + non-métal) et se dissocient en ions.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>NaCl, KBr et CaCl₂ sont tous des composés <strong>ioniques</strong> (métal + non-métal), qui se dissocient en ions. Seul le glucose (C₆H₁₂O₆), un composé <strong>covalent</strong>, reste intact en solution — c'est donc lui qui subit une dissolution moléculaire.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle équation représente correctement la dissociation électrolytique du bromure de sodium ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> NaBr<sub>(s)</sub> → NaBr<sub>(aq)</sub></button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> NaBr<sub>(s)</sub> → Na⁺<sub>(aq)</sub> + Br⁻<sub>(aq)</sub></button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> NaBr<sub>(s)</sub> → Na⁻<sub>(aq)</sub> + Br⁺<sub>(aq)</sub></button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> NaBr<sub>(s)</sub> → Na<sub>(aq)</sub> + Br<sub>(aq)</sub></button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. NaBr est ionique : il se sépare en ions <strong>libres et chargés</strong>. Le sodium (famille IA) forme Na⁺, le brome (famille VIIA) forme Br⁻ — jamais l'inverse (élimine C), et jamais sans leurs charges (élimine D). L'option A décrit une dissolution moléculaire, qui ne s'applique pas à un composé ionique.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>NaBr est ionique, donc il se <strong>dissocie en ions chargés</strong> : Na⁺ (le sodium, famille IA, perd toujours 1 électron) et Br⁻ (le brome, famille VIIA, gagne toujours 1 électron). Bonne réponse : B.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans un détecteur de conductibilité électrique (DCE), les électrodes sont généralement faites de quel matériau ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Plastique</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Verre</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Cuivre</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Bois</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact — le cuivre, comme la plupart des métaux, est un excellent conducteur, ce qui en fait un bon choix pour des électrodes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Les électrodes d'un DCE sont généralement en <strong>cuivre</strong>, un métal, donc un excellent conducteur — nécessaire pour transmettre le courant entre le circuit et la solution.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Avec un DCE à échelle graduée (0 à 10), une ampoule qui n'atteint que « 1 » sur l'échelle indique un non-électrolyte.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Une lecture faible (autour de 1) signifie qu'un <strong>petit courant passe quand même</strong> — c'est le signe d'un <strong>électrolyte faible</strong> (peu d'ions en solution), pas d'un non-électrolyte. Un vrai non-électrolyte n'allumerait pas du tout l'ampoule (lecture à 0).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Une lecture de « 1 » signifie qu'un peu de courant passe — donc que quelques ions sont présents : c'est un <strong>électrolyte faible</strong>. Un non-électrolyte donnerait une lecture de <strong>0</strong> (aucun courant du tout).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Pourquoi essuie-t-on soigneusement les électrodes du DCE entre deux tests de solutions différentes ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Pour éviter que les électrodes ne rouillent</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Pour recharger la pile</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Pour éviter qu'un résidu de la solution précédente fausse le résultat suivant</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Ce n'est pas nécessaire, c'est juste une habitude</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un résidu de la solution précédente pourrait contaminer la nouvelle solution testée et fausser la lecture — un principe de rigueur expérimentale de base.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est pour éviter la contamination croisée : un résidu de la solution testée juste avant pourrait rester sur les électrodes et fausser le résultat du test suivant.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">L'eau de source (embouteillée) contient de petites quantités de sels minéraux dissous. L'eau distillée, elle, n'en contient pratiquement aucun. Laquelle des deux allumera le plus l'ampoule d'un DCE ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> L'eau de source, car elle contient plus d'ions</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> L'eau distillée, car elle est plus pure</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Les deux allumeront l'ampoule également, l'eau étant toujours conductrice</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucune des deux, l'eau ne conduit jamais le courant</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La conductibilité dépend de la <strong>quantité d'ions présents</strong>, pas de la « pureté » en soi. L'eau de source contient des sels minéraux dissous (donc des ions) ; l'eau distillée, presque exempte d'ions, conduit très mal le courant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est la présence d'ions qui compte, pas la « pureté ». L'eau de source contient des sels minéraux dissous (des ions) et conduit donc mieux que l'eau distillée, qui en contient très peu.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q221"></div>
+          <button class="quiz-reset" id="reset-q221">↺ Recommencer</button>
+          </div>
+        </div>
+
+        <div class="subsection" id="force-electrolytes">
+          <div class="subsection-title">2.2.3 — La force des électrolytes <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+
+          <p>Tous les électrolytes ne se valent pas : certains libèrent presque tous leurs ions dès qu'ils touchent l'eau, alors que d'autres n'en libèrent qu'une infime fraction. Cette différence, c'est la <span class="kw">force</span> de l'électrolyte — et elle détermine directement à quel point une solution conduira bien le courant.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>électrolyte fort</strong> se dissocie presque entièrement (environ 100 %) en ions. Il produit beaucoup d'ions et permet donc facilement le passage du courant électrique.</p>
+          </div>
+          <div class="formula" style="font-size:14px;">HCl → H⁺<sub>(aq)</sub> + Cl⁻<sub>(aq)</sub> &nbsp; (≈ 100 % dissocié, ≈ 0 % HCl<sub>(aq)</sub> intact)</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>électrolyte faible</strong> se dissocie très peu (moins de 25 % en ions) — la majorité de la substance reste sous forme moléculaire intacte. Il produit peu d'ions et permet donc difficilement le passage du courant électrique.</p>
+          </div>
+          <div class="formula" style="font-size:14px;">CH₃COOH → H⁺<sub>(aq)</sub> + CH₃COO⁻<sub>(aq)</sub> &nbsp; (≈ 1 % dissocié) &nbsp;|&nbsp; CH₃COOH → CH₃COOH<sub>(aq)</sub> &nbsp; (≈ 99 % intact)</div>
+          <p class="formula-caption">Exemple : le vinaigre, une solution d'acide acétique (CH₃COOH)</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            « Fort » et « faible » ne sont <strong>pas réservés aux acides</strong> — cette classification s'applique de la même façon aux acides, aux bases et aux sels. Un acide faible (comme le vinaigre) n'est pas nécessairement « peu dangereux », et un acide fort n'est pas nécessairement « très corrosif » — la force décrit uniquement <strong>le pourcentage d'ions produits en solution</strong>, pas la réactivité ni le danger de la substance.
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — force et solubilité, deux choses différentes</span></div>
+            La <strong>force</strong> d'un électrolyte (quel pourcentage de la substance dissoute se sépare en ions) est un concept différent de sa <strong>solubilité</strong> (quelle quantité totale de la substance peut se dissoudre dans l'eau). Un sel peu soluble peut très bien être un électrolyte <em>fort</em> — presque tout ce qui parvient à se dissoudre se sépare en ions — tout en produisant, au final, peu d'ions en solution simplement parce que peu de matière s'est dissoute. Force et solubilité influencent toutes les deux la conductibilité finale, mais ce ne sont pas la même propriété.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Classer un électrolyte à partir de données
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Un chimiste dissout un acide inconnu dans l'eau. Une analyse révèle que 18 % des molécules se sont séparées en ions H⁺ et une base conjuguée ; 82 % sont demeurées intactes sous forme moléculaire. S'agit-il d'un électrolyte fort ou faible ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Électrolyte faible.</strong> Le seuil donné par la définition est de 25 % de dissociation ionique : à 18 %, la grande majorité de l'acide (82 %) reste sous forme moléculaire intacte, ce qui correspond au comportement d'un électrolyte faible — semblable à celui de l'acide acétique du vinaigre (≈ 1 % dissocié), quoique nettement plus dissocié dans ce cas-ci.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-block" data-quiz="q223">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Activités 2.2.3 <span style="font-size:10px;background:rgba(255,255,255,.2);padding:1px 6px;border-radius:3px;margin-left:2px;">STE</span><span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 6</span>
+            <progress class="quiz-progress" value="0" max="6"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un électrolyte fort libère environ 100 % de ses molécules sous forme d'ions en solution.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est la définition même d'un électrolyte fort : une dissociation ionique presque complète, comme HCl (≈ 100 % dissocié).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Un électrolyte fort se dissocie presque entièrement (≈ 100 %) en ions — c'est justement ce qui le distingue d'un électrolyte faible.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le vinaigre (solution de CH₃COOH) ne se dissocie qu'à environ 1 %. Quel type d'électrolyte est-il ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Électrolyte fort</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Électrolyte faible</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Non-électrolyte</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Impossible à déterminer</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. À seulement 1 % de dissociation (bien en dessous du seuil de 25 %), le vinaigre est un <strong>électrolyte faible</strong> — bien qu'il conduise quand même un peu le courant, contrairement à un non-électrolyte qui n'en produirait aucun.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>À 1 % de dissociation ionique (sous le seuil de 25 %), il s'agit d'un <strong>électrolyte faible</strong>. Attention : ce n'est pas un non-électrolyte, puisqu'il produit tout de même une petite quantité d'ions (1 %), suffisante pour conduire un peu de courant.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La classification « fort » ou « faible » ne s'applique qu'aux acides ; les bases et les sels sont toujours des électrolytes forts.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La classification fort/faible s'applique <strong>autant aux acides, aux bases qu'aux sels</strong> — aucune des trois catégories n'est automatiquement « toujours forte ».</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — c'est une erreur fréquente. La distinction fort/faible s'applique de la même façon aux acides, aux bases <strong>et</strong> aux sels ; aucune catégorie n'échappe à cette classification.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Deux solutions, A et B, contiennent chacune la même quantité (en moles) de soluté dissous dans le même volume d'eau. Testées au DCE, la solution A allume l'ampoule beaucoup plus intensément que B. Quelle est l'explication la plus probable ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Le soluté de A est un électrolyte plus fort que celui de B</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Le soluté de A a une masse molaire plus élevée</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La solution A contient plus d'eau</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Il n'y a aucune explication possible ; ce résultat serait impossible</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. À quantité de soluté égale, l'intensité de la lumière dépend du <strong>pourcentage de dissociation</strong> : un électrolyte fort produit beaucoup plus d'ions qu'un électrolyte faible pour la même quantité dissoute, d'où une conductibilité nettement supérieure.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>À quantité de soluté identique, seule la <strong>force de l'électrolyte</strong> (le pourcentage de dissociation en ions) explique une conductibilité différente. La masse molaire ne joue aucun rôle direct dans la conductibilité.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un composé se dissocie à 90 % en ions lorsqu'il est dissous dans l'eau. Comment le classe-t-on ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Électrolyte fort</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Électrolyte faible</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Non-électrolyte</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un mélange homogène</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 90 % est très au-dessus du seuil de 25 % qui distingue faible de fort — même si ce n'est pas exactement 100 %, un tel taux de dissociation classe la substance comme un <strong>électrolyte fort</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>90 % de dissociation est très largement au-dessus du seuil de 25 % — c'est un <strong>électrolyte fort</strong> (le seuil de « fort » n'exige pas exactement 100 %, seulement un taux très élevé).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un sel peu soluble dans l'eau est nécessairement un électrolyte faible.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La <strong>solubilité</strong> (combien de substance se dissout) et la <strong>force</strong> (quel pourcentage de ce qui est dissous se sépare en ions) sont deux choses différentes. Un sel peu soluble peut très bien être un électrolyte fort — presque tout ce qui se dissout se sépare en ions — tout en produisant peu d'ions au total, faute de matière dissoute.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — solubilité et force sont deux propriétés distinctes. Un sel peu soluble peut quand même être un électrolyte <strong>fort</strong> si la petite quantité qui se dissout se sépare presque entièrement en ions.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q223"></div>
+          <button class="quiz-reset" id="reset-q223">↺ Recommencer</button>
+          </div>
+        </div>
+
+        <div class="subsection" id="abs">
+          <div class="subsection-title">2.2.4 — Les acides, les bases et les sels</div>
+
+          <p>Parmi tous les électrolytes, trois grandes familles reviennent constamment en chimie : les <strong>acides</strong>, les <strong>bases</strong> et les <strong>sels</strong> — souvent regroupés sous l'acronyme <strong>ABS</strong>. Ce sont les seules substances qui produisent des ions en solution ; toutes les autres sont des non-électrolytes.</p>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>D'où vient cette classification ? La théorie d'Arrhenius</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">En 1884, le chimiste suédois <strong>Svante Arrhenius</strong> propose, dans sa thèse de doctorat, l'idée que les composés ioniques dissous dans l'eau se séparent en ions — même en l'absence de tout courant électrique. Ses correcteurs ne sont pas convaincus : comment le sodium (qui s'enflamme au contact de l'eau) et le chlore (un gaz toxique) pourraient-ils former un sel de table inoffensif, puis se « libérer » de nouveau sous forme d'ions chargés en solution ? Sa thèse obtient à peine la note de passage.</p>
+              <p style="margin:10px 0 0;">Arrhenius avait pourtant raison. Sa théorie deviendra l'un des fondements de la chimie moderne — c'est précisément l'idée de dissociation électrolytique enseignée dans cette section — et lui vaudra le <strong>prix Nobel de chimie en 1903</strong> « pour sa théorie de la dissociation électrolytique ». C'est aussi Arrhenius qui a proposé les toutes premières définitions formelles d'un acide (une substance qui libère des ions H⁺ en solution) et d'une base (une substance qui libère des ions OH⁻ en solution) — les définitions utilisées dans cette section.</p>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Famille</th><th>Propriétés</th><th>Types (avec exemples)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Acides</strong></td>
+                <td>Libèrent des ions H⁺ (protons libres) en solution<br>• pH &lt; 7, rougit le papier de tournesol<br>• Goût aigre<br>• Réagit avec les métaux</td>
+                <td>
+                  • H / non-métal : HCl → H⁺ + Cl⁻<br>
+                  • Groupe d'atomes + COOH (acides organiques) : CH₃COOH → H⁺ + CH₃COO⁻<br>
+                  • H / radical négatif : H₂SO₄ → 2H⁺ + SO₄²⁻
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Bases</strong></td>
+                <td>Libèrent des ions OH⁻ (ou captent des ions H⁺) en solution<br>• pH &gt; 7, bleuit le papier de tournesol<br>• Goût amer, toucher visqueux<br>• Ne réagit pas avec les métaux</td>
+                <td>
+                  • Métal / OH : KOH → K⁺ + OH⁻<br>
+                  • NH₄ / OH : NH₄OH → NH₄⁺ + OH⁻
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Sels</strong></td>
+                <td>Produisent des ions autres que H⁺ et OH⁻<br>• pH = 7, ne change pas la couleur du tournesol<br>• Goût salé<br>• Ne réagit pas avec les métaux</td>
+                <td>
+                  • Métal / non-métal : KF → K⁺ + F⁻<br>
+                  • Métal / radical négatif : Mg₃(PO₄)₂ → 3 Mg²⁺ + 2 PO₄³⁻<br>
+                  • NH₄⁺ / non-métal : NH₄Cl → NH₄⁺ + Cl⁻<br>
+                  • NH₄⁺ / radical négatif : NH₄NO₃ → NH₄⁺ + NO₃⁻
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            « NH₄OH » (hydroxyde d'ammonium) est une façon simplifiée d'écrire une base à base d'ammonium — mais ce qui se produit réellement en solution, c'est que l'ammoniac (NH₃) réagit avec l'eau : <strong>NH₃ + H₂O → NH₄⁺ + OH⁻</strong>. Les deux écritures mènent au même résultat (des ions NH₄⁺ et OH⁻ en solution), mais la seconde décrit plus fidèlement ce qui se passe réellement.
+          </div>
+
+          <div class="def-box">
+            <div class="def-label">Comment classer un ABS à partir de ses ions</div>
+            <p>Ce tableau résume les quatre combinaisons possibles entre un cation et un anion :</p>
+          </div>
+          <table class="data-table">
+            <thead><tr><th></th><th>OH⁻</th><th>Non-métal ou radical négatif</th></tr></thead>
+            <tbody>
+              <tr><td><strong>H⁺</strong></td><td>H₂O</td><td><strong>Acide</strong></td></tr>
+              <tr><td><strong>Métal ou NH₄⁺</strong></td><td><strong>Base</strong></td><td><strong>Sel</strong></td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);">Note : il existe, en réalité, des sels dits « acides » ou « basiques » (dont le pH n'est pas exactement 7) — mais pour les besoins de l'examen du ministère, tous les sels sont considérés neutres.</p>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Classer un composé (acide, base ou sel)
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le nitrate d'ammonium (NH₄NO₃), un engrais courant, est dissous dans l'eau. S'agit-il d'un acide, d'une base ou d'un sel — et pourquoi ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un acide, car il contient des atomes d'hydrogène (dans NH₄⁺)</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un sel, car ses ions (NH₄⁺ et NO₃⁻) ne sont ni H⁺ ni OH⁻</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Une base, car NH₄⁺ provient de l'ammoniac</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> Ce qui détermine la famille, ce ne sont pas les atomes présents dans la formule, mais bien les <strong>ions produits en solution</strong>. NH₄NO₃ se dissocie en NH₄⁺ (un cation qui n'est pas H⁺) et NO₃⁻ (un radical négatif qui n'est pas OH⁻) — d'après le tableau de classification, c'est la case <strong>« Métal ou NH₄⁺ » × « non-métal ou radical négatif »</strong>, donc un <strong>sel</strong>. Le H présent dans la formule ne compte pas comme un « acide/H⁺ » : il fait partie intégrante de l'ion ammonium NH₄⁺, qui ne se libère jamais séparément en solution.</div>
+            </div>
+          </div>
         </div>
 
         <div class="subsection">
-          <div class="subsection-title">2.2.1 — La conductibilité électrique</div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+          <div class="subsection-title">Synthèse — Section 2.2</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Conductibilité</strong></td><td>Nécessite 3 conditions : charges présentes, mobiles, et orientées dans un sens (via des électrodes)</td></tr>
+              <tr><td><strong>Dissociation électrolytique</strong></td><td>Composé ionique → se sépare en ions libres en solution (produit un électrolyte)</td></tr>
+              <tr><td><strong>Dissolution moléculaire</strong></td><td>Composé covalent → reste intact en solution (produit un non-électrolyte)</td></tr>
+              <tr><td><strong>Électrolyte fort / faible</strong></td><td>≈ 100 % dissocié (fort) vs &lt; 25 % dissocié (faible) — s'applique aux acides, bases <strong>et</strong> sels</td></tr>
+              <tr><td><strong>Acide / Base / Sel</strong></td><td>Déterminé par les ions produits : H⁺ (acide), OH⁻ avec métal/NH₄⁺ (base), ni l'un ni l'autre (sel)</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="subsection">
-          <div class="subsection-title">2.2.2 — La dissociation électrolytique</div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir (inclura l'outil « Vérifier la conductibilité électrique d'une solution aqueuse »).</p>
-        </div>
-        <div class="subsection">
-          <div class="subsection-title">2.2.3 — La force des électrolytes <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
-        </div>
-        <div class="subsection">
-          <div class="subsection-title">2.2.4 — Les acides, les bases et les sels</div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+
+        <div class="quiz-block" data-quiz="q224">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Activités 2.2.4<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution rougit le papier de tournesol et a un goût aigre. De quelle famille s'agit-il probablement ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Un acide</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Une base</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un sel</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un non-électrolyte</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rougir le tournesol et avoir un goût aigre sont deux propriétés caractéristiques des <strong>acides</strong> (pH &lt; 7).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Rougir le tournesol (pas le bleuir) et avoir un goût aigre (pas amer) sont des propriétés d'<strong>acide</strong>, pas de base ni de sel.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le fluorure de potassium (KF) est dissous dans l'eau. Quelle famille ABS est-ce, et pourquoi ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Une base, car K⁺ est un métal</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un sel, car il produit K⁺ (métal) et F⁻ (non-métal) — ni H⁺ ni OH⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un acide, car F est un halogène</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Impossible à déterminer sans mesurer le pH</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. KF → K⁺ + F⁻. C'est un cas « métal / non-métal » : ni H⁺ ni OH⁻ n'apparaissent, donc c'est un <strong>sel</strong> par définition — pas besoin de mesurer le pH pour le savoir.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>KF se dissocie en K⁺ (métal) et F⁻ (non-métal) — ni l'un ni l'autre n'est H⁺ ou OH⁻. C'est donc un <strong>sel</strong>, identifiable directement à partir de ses ions, sans avoir besoin de mesurer le pH.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une base typique ne réagit pas avec les métaux, contrairement à un acide.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est l'une des propriétés qui distingue une base d'un acide : les acides réagissent typiquement avec les métaux, alors que les bases (comme les sels) n'y réagissent pas.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Réagir avec les métaux est une propriété typique des <strong>acides</strong> — les bases (et les sels) n'y réagissent généralement pas.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">D'après la théorie d'Arrhenius présentée dans cette section, comment définit-on formellement une base ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Une substance qui a un goût amer</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Une substance qui libère des ions OH⁻ en solution</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Une substance dont le pH est exactement 7</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Une substance qui contient un métal</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La définition d'Arrhenius est basée sur les <strong>ions produits en solution</strong> : une base libère des OH⁻. Le goût amer est une conséquence observable, pas la définition elle-même.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La définition d'Arrhenius se base sur les ions produits, pas sur les propriétés sensorielles ou le pH d'un sel : une base est une substance qui libère des ions <strong>OH⁻</strong> en solution.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle équation représente correctement la dissociation de l'acide sulfurique (H₂SO₄) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> H₂SO₄ → H₂⁺ + SO₄⁻</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> H₂SO₄ → 2 H⁺ + SO₄²⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> H₂SO₄ → 2 H⁺ + S²⁻ + 4 O²⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> H₂SO₄ → H₂SO₄<sub>(aq)</sub></button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Type « H / radical négatif » : les 2 atomes d'hydrogène se libèrent en <strong>2 ions H⁺ distincts</strong> (pas un ion H₂⁺, qui n'existe pas), et le radical polyatomique <strong>SO₄²⁻</strong> (sulfate) reste intact en tant qu'unité — il ne se décompose jamais en S²⁻ et O²⁻ séparés.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Deux pièges à éviter : les H se séparent individuellement en <strong>2 H⁺</strong> (jamais un « H₂⁺ » groupé), et l'ion polyatomique <strong>SO₄²⁻</strong> (sulfate) reste toujours intact comme un tout indissociable — jamais décomposé en ions S²⁻ et O²⁻ séparés. Bonne réponse : B.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Selon le tableau enseigné dans cette section, tous les sels ont un pH exactement égal à 7, sans aucune exception.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Il existe réellement des sels acides ou basiques (pH ≠ 7) — mais pour les besoins de l'examen du ministère, on <strong>simplifie</strong> en considérant tous les sels comme neutres. C'est une convention scolaire, pas une vérité chimique absolue.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux en toute rigueur : des sels acides ou basiques existent réellement. Mais pour l'examen du ministère, la convention est de traiter <strong>tous les sels comme neutres</strong> — une simplification pédagogique, pas une règle chimique universelle.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">D'après le tableau croisé (cation × anion), quelle combinaison produit un sel ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> H⁺ et OH⁻</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> H⁺ et un non-métal</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un métal (ou NH₄⁺) et OH⁻</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Un métal (ou NH₄⁺) et un non-métal (ou radical négatif)</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. H⁺ + OH⁻ → eau (A) ; H⁺ + non-métal → acide (B) ; métal/NH₄⁺ + OH⁻ → base (C). Il ne reste que <strong>métal (ou NH₄⁺) + non-métal (ou radical négatif)</strong> pour former un sel.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans le tableau croisé : H⁺+OH⁻ donne de l'eau, H⁺+non-métal donne un acide, métal/NH₄⁺+OH⁻ donne une base. La combinaison restante — <strong>métal (ou NH₄⁺) + non-métal (ou radical négatif)</strong> — donne un sel. Bonne réponse : D.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Svante Arrhenius a reçu le prix Nobel de chimie en 1903 pour quelle contribution ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La découverte de l'électron</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Sa théorie de la dissociation électrolytique</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> L'invention du détecteur de conductibilité électrique</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La découverte du pH</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Arrhenius a reçu le prix Nobel de chimie 1903 pour sa <strong>théorie de la dissociation électrolytique</strong> — l'idée que les composés ioniques se séparent en ions libres en solution, la base même de cette section.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est pour sa <strong>théorie de la dissociation électrolytique</strong> — l'explication de la façon dont les composés ioniques se séparent en ions en solution — qu'Arrhenius a reçu le prix Nobel de chimie en 1903.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q224"></div>
+          <button class="quiz-reset" id="reset-q224">↺ Recommencer</button>
+          </div>
         </div>
 
       </div>
@@ -749,18 +1326,349 @@
       </button>
       <div class="section-body">
 
-        <div class="note-box" style="background:#f0f6f7;">
-          <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Section en construction</span></div>
-          <p style="margin:0;">Le contenu détaillé de cette section sera ajouté dans une prochaine session. Voici pour l'instant le squelette prévu, selon la structure de Kaléidoscope.</p>
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#echelle-ph">Échelle pH</a>
+          <a href="#indicateurs">Indicateurs</a>
+          <a href="#ph-concentration">pH et [H⁺]</a>
+        </div>
+
+        <p>La section précédente a montré qu'un acide libère des ions H⁺ en solution, et qu'une base libère des ions OH⁻. Mais « libère des ions H⁺ » est une réponse qualitative — cette section répond à la question quantitative qui suit naturellement : <strong>combien</strong> d'ions H⁺, exactement, et comment le mesurer avec une seule échelle simple ? C'est exactement à ça que sert le <span class="kw">pH</span>.</p>
+
+        <div class="subsection" id="echelle-ph">
+          <div class="subsection-title">2.3.1 — L'échelle pH</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Le <strong>pH</strong> (potentiel d'hydrogène) est une échelle qui mesure le degré d'acidité ou de basicité d'une solution.</p>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Intervalle de pH</th><th>Nature de la solution</th></tr></thead>
+            <tbody>
+              <tr><td>[0, 7[</td><td><strong>Acide</strong></td></tr>
+              <tr><td>7</td><td><strong>Neutre</strong></td></tr>
+              <tr><td>]7, 14]</td><td><strong>Basique (ou alcalin)</strong></td></tr>
+            </tbody>
+          </table>
+
+          <p>Plus une valeur de pH s'éloigne de 7, plus elle est extrême. Par exemple, un pH de 6,6 est <strong>faiblement</strong> acide (tout juste sous 7), alors qu'un pH de 2,2 est <strong>fortement</strong> acide ; symétriquement, un pH de 7,2 est faiblement alcalin, alors qu'un pH de 12,8 est fortement alcalin.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>L'échelle pH est logarithmique</span></div>
+            Chaque unité de pH représente un facteur de <strong>10</strong> en acidité (ou en basicité) — pas un simple pas de 1. Une différence de 2 unités de pH représente donc un facteur de 10 × 10 = 100, une différence de 3 unités un facteur de 1000, et ainsi de suite.
+            <ul class="content-list" style="margin-top:10px;">
+              <li>pH 4 est <strong>100 fois</strong> plus acide que pH 6 (écart de 2 unités → 10² = 100)</li>
+              <li>pH 10 est <strong>1000 fois</strong> plus basique que pH 7 (écart de 3 unités → 10³ = 1000)</li>
+              <li>pH 5 est <strong>10 000 fois</strong> plus acide que pH 9 (écart de 4 unités → 10⁴ = 10 000)</li>
+            </ul>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Comparer deux pH
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le jus de citron a un pH d'environ 2. Le café noir a un pH d'environ 5. Le jus de citron est combien de fois plus acide que le café ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 3 fois plus acide</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 30 fois plus acide</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 1000 fois plus acide</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 100 000 fois plus acide</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> L'écart de pH est 5 − 2 = 3 unités. Sur une échelle logarithmique, chaque unité représente un facteur 10, donc 3 unités représentent 10³ = <strong>1000 fois</strong> plus acide. L'erreur la plus fréquente (choix A) consiste à traiter l'échelle comme si elle était linéaire — soustraire les pH sans les élever en exposant.</div>
+            </div>
+          </div>
+
+          <p style="margin-top:24px;">Le pH d'une solution n'est pas figé : une réaction bien connue permet de le ramener précisément à 7. C'est la <strong>neutralisation</strong> : un acide et une base réagissent ensemble pour former un sel et de l'eau, les ions H⁺ de l'acide se combinant directement aux ions OH⁻ de la base.</p>
+          <div class="formula">Acide + Base → Sel + Eau &nbsp;&nbsp;|&nbsp;&nbsp; H⁺ + OH⁻ → H₂O</div>
+          <p class="formula-caption">Pour atteindre exactement la neutralité (pH 7), il faut tenir compte à la fois de la <strong>force</strong>, de la <strong>concentration</strong> et de la <strong>quantité</strong> de l'acide et de la base — pas seulement de leurs volumes.</p>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;" id="indicateurs">Les indicateurs acido-basiques</div>
+          <p>Comment savoir, sans appareil de mesure, si une solution est acide ou basique ? On utilise un <strong>indicateur acido-basique</strong> : une substance qui change de couleur selon le pH du milieu où elle se trouve — un phénomène appelé <span class="kw">halochromisme</span>.</p>
+
+          <div class="def-box">
+            <div class="def-label">L'équilibre chimique derrière le changement de couleur</div>
+            <p>Un indicateur (noté ici InH) existe sous deux formes en équilibre, chacune d'une couleur différente :</p>
+          </div>
+          <div class="formula">InH ⇌ In⁻ + H⁺</div>
+          <ul class="content-list">
+            <li><strong>InH</strong> — la forme <strong>non ionisée</strong> de l'indicateur (un acide faible), d'une couleur spécifique</li>
+            <li><strong>In⁻</strong> — la forme <strong>ionisée</strong> (sa base conjuguée), d'une autre couleur spécifique</li>
+          </ul>
+          <p>Selon l'acidité du milieu, cet équilibre se déplace vers l'une ou l'autre des deux formes — favorisant une couleur, l'autre, ou un mélange des deux dans la zone de transition. Chaque indicateur a sa propre <span class="kw">zone de virage</span> (la plage de pH où le changement de couleur se produit), car ce sont tous des acides faibles de force différente.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple — Le bleu de bromophénol</span></div>
+            Cet indicateur est <strong>jaune</strong> dans une solution de pH entre 0 et 3,0, <strong>vert</strong> entre pH 3,0 et 4,6 (la zone de virage elle-même, où les deux formes coexistent), et <strong>bleu</strong> à partir de pH 4,6 jusqu'à 14.
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Indicateur</th><th>Changement de couleur</th><th>Zone de virage (pH)</th></tr></thead>
+            <tbody>
+              <tr><td>Orange de méthyle</td><td>Rouge → jaune</td><td>3,2 – 4,4</td></tr>
+              <tr><td>Bleu de bromophénol</td><td>Jaune → bleu</td><td>3,0 – 4,6</td></tr>
+              <tr><td>Rouge de méthyle</td><td>Rouge → jaune</td><td>4,8 – 6,2</td></tr>
+              <tr><td>Bleu de bromothymol</td><td>Jaune → bleu</td><td>6,0 – 7,6</td></tr>
+              <tr><td>Rouge de phénol</td><td>Jaune → rouge</td><td>6,4 – 8,2</td></tr>
+              <tr><td>Phénolphtaléine</td><td>Incolore → fuchsia</td><td>8,2 – 10,0</td></tr>
+              <tr><td>Carmin d'indigo</td><td>Bleu → jaune</td><td>12,0 – 14,0</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);">Note : certaines substances possèdent plusieurs zones de virage distinctes (plus d'un changement de couleur sur l'ensemble de l'échelle de pH).</p>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Lire un indicateur
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">On ajoute du rouge de phénol à une solution inconnue, et elle devient franchement rouge (pas orange, pas jaune). D'après le tableau ci-dessus, que peut-on conclure sur le pH de cette solution ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Le rouge de phénol passe du jaune au rouge, avec une zone de virage de 6,4 à 8,2. Une couleur <strong>franchement rouge</strong> (et non orangée, qui indiquerait qu'on est en pleine zone de virage) signifie qu'on est passé au-delà de cette zone : le pH est donc supérieur à <strong>8,2</strong>. On ne peut pas préciser une valeur exacte avec un seul indicateur — seulement une borne minimale.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="ph-concentration">
+          <div class="subsection-title">2.3.2 — Le pH et la concentration molaire en ions H⁺ <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+
+          <p>Le pH n'est pas qu'une échelle qualitative : c'est une valeur calculée directement à partir d'une concentration molaire (mol/L, section 2.1.3) — celle des ions H⁺ en solution.</p>
+
+          <div class="def-box">
+            <div class="def-label">Le point de départ : même l'eau pure contient des ions</div>
+            <p>L'eau se sépare naturellement, en très petite quantité, selon : <strong>H₂O ⇌ H⁺ + OH⁻</strong>. Dans un litre d'eau pure, cet équilibre donne exactement [H⁺] = [OH⁻] = <strong>10⁻⁷ mol/L</strong> — d'où le fait que l'eau pure est neutre (pH 7).</p>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:-8px;">(La notation [H⁺] signifie « concentration molaire de l'ion H⁺ » ; [OH⁻] se lit de la même façon.)</p>
+
+          <table class="data-table">
+            <thead><tr><th>Milieu</th><th>Comparaison de [H⁺] et [OH⁻]</th></tr></thead>
+            <tbody>
+              <tr><td>Acide</td><td>[H⁺] &gt; [OH⁻]</td></tr>
+              <tr><td>Neutre</td><td>[H⁺] = [OH⁻]</td></tr>
+              <tr><td>Basique (alcalin)</td><td>[H⁺] &lt; [OH⁻]</td></tr>
+            </tbody>
+          </table>
+
+          <p>Ces deux concentrations sont toujours liées de façon <strong>inverse</strong> : plus il y a d'ions H⁺, moins il y a d'ions OH⁻, et vice-versa. Si l'une des deux est multipliée par 10, l'autre est automatiquement divisée par 10 — par exemple, si [H⁺] = 10⁻⁶ mol/L, alors nécessairement [OH⁻] = 10⁻⁸ mol/L.</p>
+
+          <div class="formula">pH = −log[H⁺] &nbsp;&nbsp;|&nbsp;&nbsp; [H⁺] = 10⁻ᵖᴴ mol/L</div>
+          <div class="formula">pOH = −log[OH⁻] &nbsp;&nbsp;|&nbsp;&nbsp; [OH⁻] = 10⁻ᵖᴼᴴ mol/L</div>
+          <div class="formula">pH + pOH = 14 &nbsp;&nbsp;|&nbsp;&nbsp; [H⁺] × [OH⁻] = 10⁻¹⁴</div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+            <strong>Une solution a une concentration [H⁺] = 10⁻³ mol/L. Quels sont son pH, son pOH, et [OH⁻] ?</strong><br><br>
+            pH = −log(10⁻³) = <strong>3</strong> (une solution nettement acide)<br>
+            pOH = 14 − pH = 14 − 3 = <strong>11</strong><br>
+            [OH⁻] = 10⁻ᵖᴼᴴ = 10⁻¹¹ mol/L
+          </div>
+
+          <table class="data-table" style="font-size:12.5px;">
+            <thead><tr><th>[H⁺] (mol/L)</th><th>pH</th><th>[OH⁻] (mol/L)</th><th>pOH</th><th>Nature</th></tr></thead>
+            <tbody>
+              <tr><td>10⁰</td><td>0</td><td>10⁻¹⁴</td><td>14</td><td rowspan="7" style="text-align:center;vertical-align:middle;"><strong>Acide</strong><br>[H⁺] &gt; [OH⁻]</td></tr>
+              <tr><td>10⁻¹</td><td>1</td><td>10⁻¹³</td><td>13</td></tr>
+              <tr><td>10⁻²</td><td>2</td><td>10⁻¹²</td><td>12</td></tr>
+              <tr><td>10⁻³</td><td>3</td><td>10⁻¹¹</td><td>11</td></tr>
+              <tr><td>10⁻⁴</td><td>4</td><td>10⁻¹⁰</td><td>10</td></tr>
+              <tr><td>10⁻⁵</td><td>5</td><td>10⁻⁹</td><td>9</td></tr>
+              <tr><td>10⁻⁶</td><td>6</td><td>10⁻⁸</td><td>8</td></tr>
+              <tr style="background:#fdf9d8;"><td><strong>10⁻⁷</strong></td><td><strong>7</strong></td><td><strong>10⁻⁷</strong></td><td><strong>7</strong></td><td style="text-align:center;"><strong>Neutre</strong><br>[H⁺] = [OH⁻]</td></tr>
+              <tr><td>10⁻⁸</td><td>8</td><td>10⁻⁶</td><td>6</td><td rowspan="7" style="text-align:center;vertical-align:middle;"><strong>Basique</strong><br>[H⁺] &lt; [OH⁻]</td></tr>
+              <tr><td>10⁻⁹</td><td>9</td><td>10⁻⁵</td><td>5</td></tr>
+              <tr><td>10⁻¹⁰</td><td>10</td><td>10⁻⁴</td><td>4</td></tr>
+              <tr><td>10⁻¹¹</td><td>11</td><td>10⁻³</td><td>3</td></tr>
+              <tr><td>10⁻¹²</td><td>12</td><td>10⁻²</td><td>2</td></tr>
+              <tr><td>10⁻¹³</td><td>13</td><td>10⁻¹</td><td>1</td></tr>
+              <tr><td>10⁻¹⁴</td><td>14</td><td>10⁰</td><td>0</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12px;color:var(--muted);margin-top:-8px;">Dans chaque ligne : pH + pOH = 14, et [H⁺] × [OH⁻] = 10⁻¹⁴ — ces deux relations restent vraies peu importe la ligne du tableau.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Le lien entre l'exposant et le pH est <strong>inversé</strong> : plus l'exposant négatif de [H⁺] est <strong>grand</strong> (ex. : 10⁻¹²), plus le pH est <strong>élevé</strong> — donc plus la solution est <strong>basique</strong>, pas acide ! Il est facile de se tromper en supposant qu'un « gros exposant » signifie automatiquement « très acide ». Le raisonnement correct : un exposant très négatif signifie une concentration [H⁺] <strong>minuscule</strong> — donc peu d'ions H⁺ — donc <strong>peu acide</strong>.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — force de l'électrolyte et pH</span></div>
+            <p style="margin:0;">Attention à un piège : la <strong>concentration molaire</strong> d'un acide (mol/L de HA dissous, section 2.1.3) n'est pas la même chose que <strong>[H⁺]</strong>, la concentration réelle en ions H⁺ libérés. Ce sont deux acides <strong>forts</strong> qui produisent presque tout leur H⁺ (section 2.2.3) et se comportent presque comme prévu ; un acide <strong>faible</strong> à la même concentration molaire nominale libère beaucoup moins d'ions H⁺ réels — son pH est donc plus élevé (plus proche de 7) que celui d'un acide fort de même concentration. Par exemple, une solution de vinaigre (CH₃COOH, faible) à 1 mol/L aura un pH nettement plus proche de 7 qu'une solution de HCl (fort) à 1 mol/L, même si les deux ont la même concentration molaire de départ.</p>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un pH complet
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une solution a un pOH de 5. Quels sont son pH, [OH⁻], et [H⁺] ? La solution est-elle acide ou basique ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> pH = 5, [H⁺] = 10⁻⁵ mol/L — acide</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> pH = 9, [H⁺] = 10⁻⁹ mol/L — basique</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> pH = 9, [OH⁻] = 10⁻⁹ mol/L — basique</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> pH = 5, [OH⁻] = 10⁻⁵ mol/L — basique</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> pH = 14 − pOH = 14 − 5 = <strong>9</strong>. Puisque pOH = 5, [OH⁻] = 10⁻⁵ mol/L, et puisque pH = 9, [H⁺] = 10⁻⁹ mol/L. Un pH de 9 est supérieur à 7, donc la solution est <strong>basique</strong> — cohérent avec [OH⁻] (10⁻⁵) largement supérieure à [H⁺] (10⁻⁹).</div>
+            </div>
+          </div>
         </div>
 
         <div class="subsection">
-          <div class="subsection-title">2.3.1 — L'échelle pH</div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+          <div class="subsection-title">Synthèse — Section 2.3</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Échelle pH</strong></td><td>[0,7[ acide · 7 neutre · ]7,14] basique — échelle <strong>logarithmique</strong> (chaque unité = facteur 10)</td></tr>
+              <tr><td><strong>Neutralisation</strong></td><td>Acide + Base → Sel + Eau, via H⁺ + OH⁻ → H₂O</td></tr>
+              <tr><td><strong>Indicateurs</strong></td><td>Changent de couleur selon le pH (halochromisme) ; chacun a sa propre zone de virage</td></tr>
+              <tr><td><strong>pH et [H⁺]</strong></td><td>pH = −log[H⁺] · pH + pOH = 14 · [H⁺] × [OH⁻] = 10⁻¹⁴</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="subsection">
-          <div class="subsection-title">2.3.2 — Le pH et la concentration molaire en ions H⁺ <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
-          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+
+        <div class="quiz-block" data-quiz="q23">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Activités 2.3<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution a un pH de 5,5. De quelle nature est-elle ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Acide</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Neutre</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Basique</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Impossible à déterminer</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Tout pH dans l'intervalle [0, 7[ est <strong>acide</strong> ; 5,5 s'y trouve.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Un pH de 5,5 est inférieur à 7, donc dans l'intervalle [0, 7[ : la solution est <strong>acide</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">L'échelle de pH est linéaire : un pH de 4 est deux fois plus acide qu'un pH de 8.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. L'échelle de pH est <strong>logarithmique</strong> : un écart de 4 unités de pH (8 − 4 = 4) représente un facteur 10⁴ = <strong>10 000 fois</strong>, pas 2 fois.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — l'échelle est <strong>logarithmique</strong>, pas linéaire. Un écart de 4 unités de pH représente un facteur 10⁴ = <strong>10 000</strong>, bien plus que 2 fois.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le bleu de bromothymol devient bleu dans une solution testée. D'après le tableau des indicateurs, que peut-on dire du pH de cette solution ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Il est inférieur à 6,0</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Il est supérieur à 7,6</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Il est exactement 7</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Il est entre 6,0 et 7,6</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le bleu de bromothymol passe du jaune (acide) au bleu (basique) sur sa zone de virage de 6,0 à 7,6. Une couleur franchement bleue signifie qu'on est au-delà de cette zone, donc pH &gt; <strong>7,6</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le bleu de bromothymol est jaune sous pH 6,0 et bleu au-dessus de pH 7,6 (sa zone de virage). Une couleur franchement bleue indique donc un pH <strong>supérieur à 7,6</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution a [H⁺] = 10⁻⁹ mol/L. Quel est son pH ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> −9</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 9</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 5</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,000000001</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. pH = −log(10⁻⁹) = <strong>9</strong>. C'est simplement la valeur absolue de l'exposant de [H⁺] lorsque celle-ci est écrite comme une puissance de 10.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>pH = −log[H⁺] = −log(10⁻⁹) = <strong>9</strong>. Le signe négatif de la formule annule le signe négatif de l'exposant.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution a un pH de 4. Quelle est sa concentration [H⁺] ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 4 mol/L</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 10⁻⁴ mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 10⁴ mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 10⁻¹⁰ mol/L</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. [H⁺] = 10⁻ᵖᴴ = 10⁻⁴ mol/L.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>[H⁺] = 10⁻ᵖᴴ mol/L = 10⁻⁴ mol/L. Le pH lui-même n'est pas une concentration — c'est l'exposant (changé de signe) de la concentration exprimée en puissance de 10.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution a un pH de 3. Quel est son pOH ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 3</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 7</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 11</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 14</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. pH + pOH = 14, donc pOH = 14 − 3 = <strong>11</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La relation pH + pOH = <strong>14</strong> est toujours vraie. Ici : pOH = 14 − 3 = <strong>11</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une solution avec [H⁺] = 10⁻¹² mol/L est très acide, car son exposant (−12) est très négatif.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Un exposant très négatif signifie une [H⁺] <strong>minuscule</strong> (10⁻¹² est un nombre extrêmement petit) — donc <strong>peu</strong> d'ions H⁺, donc <strong>peu acide</strong> (en fait, pH = 12, nettement basique).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — piège classique. 10⁻¹² est un nombre <strong>minuscule</strong> : peu d'ions H⁺ signifie peu acide. Ici, pH = −log(10⁻¹²) = 12, donc la solution est nettement <strong>basique</strong>, pas acide.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution de HCl (acide fort) et une solution de CH₃COOH (acide faible) ont exactement la même concentration molaire (1 mol/L). Que peut-on dire de leurs pH respectifs ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Ils sont identiques, puisque la concentration molaire est la même</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le HCl a un pH plus bas (plus acide) que le CH₃COOH</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le CH₃COOH a un pH plus bas (plus acide) que le HCl</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucun des deux n'a de pH, car ce ne sont pas des bases</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le HCl, électrolyte fort, libère presque tout son H⁺ (≈ 100 % dissocié) ; le CH₃COOH, électrolyte faible, n'en libère qu'une infime fraction (≈ 1 %). À concentration molaire nominale égale, le HCl produit donc bien plus d'ions H⁺ réels — son pH est plus bas (plus acide).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La concentration molaire nominale n'est pas la même chose que [H⁺] réel. Le HCl (fort) se dissocie presque complètement, contrairement au CH₃COOH (faible, ≈ 1 % dissocié) — à concentration égale, le HCl produit donc beaucoup plus de H⁺ réel, et a donc un <strong>pH plus bas</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle réaction représente une neutralisation acido-basique complète ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> H⁺ + H⁺ → H₂</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> H⁺ + OH⁻ → H₂O</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> OH⁻ + OH⁻ → H₂O₂</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> H⁺ + H₂O → OH⁻</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La neutralisation combine directement les ions H⁺ de l'acide et OH⁻ de la base pour former de l'eau : <strong>H⁺ + OH⁻ → H₂O</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La neutralisation acido-basique se résume à <strong>H⁺ + OH⁻ → H₂O</strong> : les ions H⁺ (de l'acide) et OH⁻ (de la base) se combinent pour former de l'eau.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le phénomène par lequel un indicateur change de couleur selon le pH du milieu se nomme l'halochromisme.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'halochromisme est bien le terme technique désignant ce changement de couleur réversible en fonction du pH.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai — <strong>halochromisme</strong> est bien le terme qui désigne le changement de couleur d'une substance en fonction du pH du milieu.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q23"></div>
+          <button class="quiz-reset" id="reset-q23">↺ Recommencer</button>
+          </div>
         </div>
 
       </div>
