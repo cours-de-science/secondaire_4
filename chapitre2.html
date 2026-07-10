@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 2 — Les propriétés physiques des solutions | Science Sec. 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark:   #1a4a52;
+    --teal-mid:    #256472;
+    --teal-light:  #3a8fa0;
+    --yellow:      #c8d400;
+    --yellow-dim:  #a0aa00;
+    --orange:      #e07b30;
+    --bg:          #f4f3ee;
+    --surface:     #ffffff;
+    --text:        #1e2a2c;
+    --muted:       #5a6e72;
+    --border:      #d0d8d9;
+    --sidebar-w:   268px;
+    --mono:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: var(--sidebar-w); background: var(--teal-dark);
+    position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; display: flex; flex-direction: column;
+    z-index: 100; transition: transform .3s ease;
+  }
+  .sidebar-header { background: var(--yellow); padding: 20px 18px 16px; flex-shrink: 0; }
+  .sidebar-header .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); }
+  .sidebar-header .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 800; line-height: 1; color: var(--teal-dark); }
+  .sidebar-header .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--teal-dark); margin-top: 4px; }
+  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-light); padding: 20px 18px 8px; }
+  #sidebar nav ul { list-style: none; }
+  #sidebar nav ul li a { display: flex; align-items: flex-start; gap: 10px; padding: 9px 18px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); text-decoration: none; border-left: 3px solid transparent; transition: background .15s, color .15s, border-color .15s; line-height: 1.35; }
+  #sidebar nav ul li a:hover, #sidebar nav ul li a.active { background: rgba(255,255,255,.08); color: #fff; border-left-color: var(--yellow); }
+  #sidebar nav ul li a .num { font-family: var(--mono); font-size: 11px; color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+  .sidebar-footer { margin-top: auto; padding: 16px 18px; font-size: 11px; color: rgba(255,255,255,.3); border-top: 1px solid rgba(255,255,255,.1); }
+  .sidebar-footer button { background: none; border: none; cursor: pointer; font-size: 11px; color: rgba(255,255,255,.3); padding: 0; text-align: left; width: 100%; transition: color .15s; }
+  .sidebar-footer button:hover { color: rgba(255,255,255,.6); }
+  .attrib-popover { display: none; position: absolute; bottom: 60px; left: 14px; width: 230px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.18); padding: 14px 16px; font-size: 12px; color: #1e2a2c; line-height: 1.6; z-index: 200; }
+  .attrib-popover::after { content: ''; position: absolute; bottom: -7px; left: 20px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); box-shadow: 2px 2px 4px rgba(0,0,0,.08); }
+  .attrib-popover.visible { display: block; }
+
+  /* ── MAIN ── */
+  #main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 60%, var(--teal-light) 100%); padding: 60px 56px 48px; color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: '2'; position: absolute; right: 40px; top: -10px; font-family: 'Barlow Condensed', sans-serif; font-size: 260px; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; pointer-events: none; }
+  .hero .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; margin-bottom: 20px; }
+  .hero p { max-width: 600px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.82); }
+
+  /* Search */
+  .search-bar-wrap { background: var(--teal-dark); padding: 14px 56px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid var(--yellow); }
+  .search-bar-wrap label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.5); white-space: nowrap; letter-spacing: .06em; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; }
+  #search-input { flex: 1; max-width: 440px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 8px 14px; font-size: 14px; color: #fff; font-family: 'Inter', sans-serif; outline: none; transition: background .2s, border-color .2s; }
+  #search-input::placeholder { color: rgba(255,255,255,.4); }
+  #search-input:focus { background: rgba(255,255,255,.16); border-color: var(--yellow); }
+  #search-count { font-size: 12px; color: var(--yellow); font-family: var(--mono); min-width: 90px; }
+
+  /* Content */
+  .content { padding: 48px 56px 80px; max-width: 880px; }
+
+  /* Section cards */
+  .section-card { background: var(--surface); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section-toggle { width: 100%; background: none; border: none; cursor: pointer; padding: 0; text-align: left; display: block; }
+  .section-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface); transition: background .15s; border-bottom: 1px solid transparent; }
+  .section-toggle:hover .section-header, .section-toggle[aria-expanded="true"] .section-header { background: #f0f6f7; border-bottom-color: var(--border); }
+  .section-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 4px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--teal-dark); flex: 1; }
+  .section-badge { font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--orange); color: #fff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+  .chevron { width: 20px; height: 20px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; }
+  .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .section-body { display: none; padding: 28px 28px 32px; border-top: 2px solid var(--yellow); }
+  .section-body.open { display: block; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 32px; }
+  .subsection:last-child { margin-bottom: 0; }
+  .subsection-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; flex-shrink: 0; }
+
+  p { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul.content-list { padding-left: 20px; margin-bottom: 14px; }
+  ul.content-list li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+
+  /* Definition box */
+  .def-box { background: linear-gradient(135deg, #edf6f8, #f4fafb); border-left: 4px solid var(--teal-light); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; }
+  .def-box .def-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 6px; }
+  .def-box p { font-size: 14px; margin: 0 0 6px; color: var(--teal-dark); }
+  .def-box p:last-child { margin: 0; }
+  .def-box strong { color: var(--teal-dark); font-weight: 600; }
+
+  /* Note box */
+  .note-box { background: #fffbec; border-left: 4px solid var(--yellow-dim); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #3a3000; line-height: 1.65; }
+  .note-box .note-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .note-label .icon-sm { width: 13px; height: 13px; flex-shrink: 0; }
+  .note-bar { width: 100%; display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; padding: 0; text-align: left; font-family: inherit; color: inherit; }
+  .note-bar .chevron-n { margin-left: auto; width: 15px; height: 15px; transition: transform .2s; flex-shrink: 0; color: var(--yellow-dim); }
+  .note-bar[aria-expanded="true"] .chevron-n { transform: rotate(180deg); }
+  .note-body { display: none; margin-top: 8px; }
+  .note-bar[aria-expanded="true"] + .note-body { display: block; }
+
+  /* Formula */
+  .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
+  .formula-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 14px; }
+
+  /* Keyword */
+  .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+
+  /* Search highlight */
+  mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
+  mark.sh.current { background: #ff9d2e; box-shadow: 0 0 0 2px #ff9d2e; }
+
+  /* Rappel card */
+  .rappel-card { background: linear-gradient(120deg, var(--teal-dark), var(--teal-mid)); border-radius: 10px; padding: 24px 28px; color: rgba(255,255,255,.88); margin-bottom: 24px; }
+  .rappel-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--yellow); margin-bottom: 10px; }
+  .rappel-card p { color: rgba(255,255,255,.82); font-size: 14px; margin-bottom: 8px; }
+  .rappel-card p:last-child { margin-bottom: 0; }
+
+  /* Timeline for models */
+  .timeline { border-left: 3px solid var(--border); margin: 20px 0 20px 8px; padding-left: 24px; }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-light); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--teal-light); }
+  .timeline-item .year { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--teal-light); margin-bottom: 4px; }
+  .timeline-item .model-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .timeline-item p { font-size: 14px; margin-bottom: 6px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .data-table th { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+  .data-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f7f9f9; }
+  .data-table td strong { color: var(--teal-dark); }
+  .data-table tr.ion-key td { background: #fdf9d8; }
+  .data-table tr.ion-key td:nth-child(2), .data-table tr.ion-key td:nth-child(3) { font-weight: 700; color: var(--teal-dark); }
+  .data-table tr.ion-secondary td:nth-child(2), .data-table tr.ion-secondary td:nth-child(3) { font-weight: 600; }
+  .ion-freq-note { font-size: 13px; color: var(--text-soft, #5a6a6c); margin: -6px 0 14px; display: flex; align-items: center; gap: 6px; }
+  .ion-freq-note .dot-key { width: 10px; height: 10px; border-radius: 2px; background: #fdf9d8; border: 1px solid #e2d98a; display: inline-block; }
+
+  .ion-charge-wrap { overflow-x: auto; margin: 16px 0; }
+  .ion-charge-table { display: grid; grid-template-columns: repeat(8, minmax(82px, 1fr)); gap: 8px; min-width: 680px; }
+  .ion-fam { display: flex; flex-direction: column; align-items: center; border-radius: 8px; padding: 12px 6px 10px; text-align: center; border: 1px solid var(--border); background: var(--surface); }
+  .ion-fam-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--teal-dark); }
+  .ion-fam-name { font-size: 9.5px; line-height: 1.35; color: var(--muted); margin: 3px 0 7px; text-transform: uppercase; letter-spacing: .03em; min-height: 26px; display: flex; align-items: center; }
+  .ion-fam-ex { font-family: var(--mono); font-size: 11px; line-height: 1.35; color: var(--text); margin-bottom: 9px; min-height: 30px; display: flex; align-items: center; }
+  .ion-fam-charge { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 800; margin-top: auto; padding-top: 4px; }
+  .ion-cation { background: linear-gradient(160deg, #fff, #fdf1e7); border-color: #f0cda3; }
+  .ion-cation .ion-fam-charge { color: var(--orange); }
+  .ion-variable { background: #f7f9f9; }
+  .ion-variable .ion-fam-charge { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .ion-anion { background: linear-gradient(160deg, #fff, #eaf5f7); border-color: #bfe0e6; }
+  .ion-anion .ion-fam-charge { color: var(--teal-mid); }
+  .ion-neutral { background: var(--bg); border-style: dashed; }
+  .ion-neutral .ion-fam-charge { color: var(--muted); }
+  .ion-charge-legend { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+  .ion-charge-legend strong { color: var(--text); }
+
+  /* Particle badges */
+  .particle-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .particle-card { flex: 1; min-width: 140px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .particle-card .p-symbol { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--teal-dark); }
+  .particle-card .p-name { font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
+  .particle-card .p-charge { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .particle-card .p-mass { font-size: 12px; color: var(--muted); }
+
+  /* Couches table */
+  .couche-table { display: flex; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .couche-col { flex: 1; }
+  .couche-col .ch { padding: 8px 12px; text-align: center; font-size: 13px; }
+  .couche-col .ch.head { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .couche-col .ch:not(.head) { border-bottom: 1px solid var(--border); font-family: var(--mono); }
+  .couche-col .ch:last-child { border-bottom: none; }
+  .couche-col .ch:nth-child(even) { background: #f7f9f9; }
+
+  /* Trend arrows */
+  .trend-box { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .trend-item { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .trend-item .trend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-dark); margin-bottom: 8px; }
+  .trend-item .trend-dir { font-family: var(--mono); font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 4px; }
+  .trend-item p { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* Figures */
+  .fig-block { margin: 18px 0; background: #f8f9f9; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .fig-block img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 16px; background: #fff; }
+  .fig-block img[src$=".png"]:not([src*="images/"]) { display: none; } /* hide broken placeholders gracefully — remove once images added */
+  .fig-block figcaption { font-size: 12px; color: var(--muted); padding: 8px 14px 10px; border-top: 1px solid var(--border); line-height: 1.5; font-style: italic; }
+
+  /* Compare block (Démocrite vs Aristote) */
+  .compare-block { display: flex; gap: 2px; margin: 16px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .compare-col { flex: 1; padding: 16px 18px; }
+  .compare-col--a { background: linear-gradient(135deg, #edf6f8, #dff0f4); }
+  .compare-col--b { background: linear-gradient(135deg, #fff8ee, #fef0da); }
+  .compare-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 8px; }
+  .compare-col--b .compare-label { color: var(--orange); }
+  .compare-icon { font-size: 22px; margin-bottom: 8px; letter-spacing: 4px; }
+  .compare-col p { font-size: 13px; line-height: 1.6; margin: 0; color: var(--text); }
+
+  /* Back to top */
+  #to-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; background: var(--teal-dark); color: var(--yellow); border: 2px solid var(--yellow); border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 200; }
+  #to-top.visible { opacity: 1; pointer-events: auto; }
+
+  /* Mobile toggle */
+  #menu-toggle { display: none; position: fixed; top: 14px; left: 14px; z-index: 150; background: var(--teal-dark); border: 2px solid var(--yellow); color: var(--yellow); width: 40px; height: 40px; border-radius: 8px; font-size: 20px; cursor: pointer; align-items: center; justify-content: center; }
+
+  @media (max-width: 768px) {
+    #sidebar { transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #menu-toggle { display: flex; }
+    .hero { padding: 60px 24px 36px; }
+    .search-bar-wrap { padding: 12px 24px; }
+    .content { padding: 28px 20px 60px; }
+    .particle-grid { flex-direction: column; }
+  }
+
+  /* ── QUIZ ── */
+  .quiz-block { margin-top: 36px; margin-bottom: 32px; border-top: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow); padding-top: 24px; padding-bottom: 24px; }
+  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 10px; background: var(--teal-dark); border: none; border-radius: 10px; cursor: pointer; padding: 14px 18px; margin-bottom: 6px; text-align: left; transition: background .15s; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .quiz-block-bar:hover { background: var(--teal-mid); }
+  .quiz-block-bar .quiz-block-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-subtitle { font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; color: rgba(255,255,255,.72); margin-left: 2px; }
+  .quiz-block-bar .chevron-q { margin-left: auto; width: 20px; height: 20px; transition: transform .2s; flex-shrink: 0; color: #fff; }
+  .quiz-block-bar[aria-expanded="true"] .chevron-q { transform: rotate(180deg); }
+  .quiz-body { display: none; }
+  .quiz-block-bar[aria-expanded="true"] + .quiz-body { display: block; padding-top: 14px; }
+  .quiz-intro { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+  .quiz-score-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; color: var(--text-muted); }
+  .quiz-score-bar progress { flex: 1; height: 6px; border-radius: 3px; appearance: none; -webkit-appearance: none; }
+  .quiz-score-bar progress::-webkit-progress-bar { background: var(--border); border-radius: 3px; }
+  .quiz-score-bar progress::-webkit-progress-value { background: var(--teal-mid); border-radius: 3px; transition: width .4s; }
+
+  .quiz-q { background: var(--bg-alt); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; border: 1.5px solid var(--border); transition: border-color .2s; }
+  .quiz-q.answered { border-color: transparent; }
+  .quiz-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 6px; }
+  .quiz-q-text { font-size: 15px; font-weight: 500; color: var(--text-dark); line-height: 1.5; margin-bottom: 14px; }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: #fff; cursor: pointer; font-size: 14px; color: var(--text-dark); transition: background .15s, border-color .15s; text-align: left; width: 100%; line-height: 1.45; }
+  .quiz-option:hover:not(:disabled) { background: #f0f8f8; border-color: var(--teal-mid); }
+  .quiz-option .opt-letter { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-option.correct { background: #e8f8ef; border-color: #2da262; color: #1a6640; }
+  .quiz-option.correct .opt-letter { color: #2da262; }
+  .quiz-option.wrong { background: #fdecea; border-color: #d94f3d; color: #8b2218; }
+  .quiz-option.wrong .opt-letter { color: #d94f3d; }
+  .quiz-option.reveal { background: #e8f8ef; border-color: #2da262; color: #1a6640; opacity: .7; }
+  .quiz-option.reveal .opt-letter { color: #2da262; }
+
+  .quiz-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; line-height: 1.55; display: none; }
+  .quiz-feedback.show { display: flex; gap: 8px; align-items: flex-start; }
+  .quiz-feedback .icon-sm { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+  .quiz-feedback.ok { background: #e8f8ef; color: #1a6640; }
+  .quiz-feedback.ko { background: #fdecea; color: #8b2218; }
+  .quiz-result-msg { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; align-items: center; justify-content: center; gap: 8px; }
+  .quiz-result-msg.show { display: flex; }
+  .quiz-result-msg .icon-sm { width: 18px; height: 18px; flex-shrink: 0; }
+  .quiz-result-msg.great { background: #e8f8ef; color: #1a6640; }
+  .quiz-result-msg.good { background: #fdf6e3; color: #7a5c00; }
+  .quiz-result-msg.poor { background: #fdecea; color: #8b2218; }
+
+  .quiz-reset { margin-top: 20px; padding: 9px 20px; border-radius: 8px; border: 1.5px solid var(--teal-mid); background: #fff; color: var(--teal-dark); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; display: none; }
+  .quiz-reset:hover { background: #f0f8f8; }
+
+  /* === ACTIVITÉ SUGGÉRÉE === */
+  .quick-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #eef5f5; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; }
+  .quick-links-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-right: 2px; }
+  .quick-links a { font-size: 13px; font-weight: 600; color: var(--teal-dark); background: #fff; border: 1px solid var(--teal-light); border-radius: 20px; padding: 5px 13px; text-decoration: none; transition: background .15s, color .15s; }
+  .quick-links a:hover { background: var(--teal-dark); color: #fff; border-color: var(--teal-dark); }
+
+  .activity-block { margin: 22px 0; border: 1.5px solid var(--orange); border-radius: 10px; overflow: hidden; background: #fffaf4; }
+  .activity-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #fdeee0; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange); text-align: left; transition: background .15s; }
+  .activity-bar:hover { background: #fbe3cc; }
+  .icon-sm { display: inline-block; vertical-align: middle; width: 14px; height: 14px; flex-shrink: 0; }
+  .activity-bar .activity-icon { width: 16px; height: 16px; flex-shrink: 0; }
+  .activity-bar .chevron-a { margin-left: auto; width: 16px; height: 16px; transition: transform .2s; flex-shrink: 0; }
+  .activity-bar[aria-expanded="true"] .chevron-a { transform: rotate(180deg); }
+  .activity-content { display: none; padding: 16px 18px 18px; }
+  .activity-bar[aria-expanded="true"] + .activity-content { display: block; }
+  .activity-question { font-size: 14.5px; color: var(--text); line-height: 1.6; font-style: italic; }
+  .activity-hint-toggle { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--teal-mid); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
+  .activity-hint { display: none; margin-top: 8px; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 10px 12px; line-height: 1.55; }
+  .activity-hint.show { display: block; }
+</style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar" role="navigation" aria-label="Table des matières">
+  <div class="sidebar-header">
+    <div class="label">Science Sec. 4 · Chapitre</div>
+    <div class="chap-num">2</div>
+    <div class="chap-title">Les propriétés physiques des solutions</div>
+  </div>
+  <div class="toc-label">Table des matières</div>
+  <nav>
+    <ul>
+      <li><a href="#rappel" class="toc-link"><span class="num">—</span> Rappel</a></li>
+      <li><a href="#section-2-1" class="toc-link"><span class="num">2.1</span> La concentration</a></li>
+      <li><a href="#section-2-2" class="toc-link"><span class="num">2.2</span> Les électrolytes</a></li>
+      <li><a href="#section-2-3" class="toc-link"><span class="num">2.3</span> Le pH</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-footer">
+    <button onclick="document.getElementById('attrib-pop').classList.toggle('visible')" title="À propos de ce document" style="display:flex;align-items:center;gap:6px;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"/></svg> À propos de ce document</button>
+    <div class="attrib-popover" id="attrib-pop">
+      Matériel préparé par M. Raphaël Sylvestre Bouchard à l'aide des notes de cours de M. Bouchard (Collège Charlemagne, 2024–2025) et du manuel <em>Kaléidoscope</em>, Secondaire 4 (ERPI).
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main id="main">
+  <div class="hero">
+    <div class="eyebrow">Secondaire 4 — Science et technologie · Univers matériel</div>
+    <h1>Les propriétés physiques<br>des solutions</h1>
+    <p>Une solution, c'est bien plus qu'un simple mélange : sa concentration, sa capacité à conduire le courant électrique et son acidité se calculent et se mesurent précisément. Ce chapitre couvre la concentration (g/L, %, ppm, mol/L), les électrolytes et la dissociation ionique, ainsi que l'échelle du pH.</p>
+  </div>
+
+  <div class="search-bar-wrap">
+    <label for="search-input">🔍 Recherche rapide</label>
+    <input type="text" id="search-input" placeholder="Ex: concentration, ppm, électrolyte, pH…" oninput="doSearch(this.value)">
+    <span id="search-count"></span>
+  </div>
+
+  <div class="content">
+
+    <!-- RAPPEL -->
+    <div id="rappel" class="rappel-card">
+      <h2 style="display:flex;align-items:center;gap:8px;"><svg class="icon-sm" style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.2-7-12a7 7 0 1 1 14 0c0 4.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg> Rappel — Notions préalables (chapitre 1)</h2>
+      <p>• Une <strong>solution</strong> est un mélange homogène composé d'un <strong>soluté</strong> (la substance dissoute) et d'un <strong>solvant</strong> (la substance qui dissout, généralement l'eau) — vu en secondaire 3.</p>
+      <p>• La <strong>mole (mol)</strong> est l'unité de quantité de matière : 1 mol = 6,022 × 10²³ particules (le nombre d'Avogadro, Nₐ) — section 1.5.</p>
+      <p>• La <strong>masse molaire (M)</strong> relie la masse d'une substance à sa quantité de matière : <strong>n = m ÷ M</strong> — section 1.5.</p>
+      <p>• Les <strong>ions</strong> sont des atomes (ou groupes d'atomes) chargés électriquement, obtenus par transfert d'électrons — section 1.4.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 2.1 — LA CONCENTRATION                 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-2-1">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">2.1</span>
+          <span class="section-title">La concentration</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#concentration-g-l">g/L et %</a>
+          <a href="#concentration-ppm">ppm</a>
+          <a href="#concentration-molaire">Concentration molaire</a>
+        </div>
+
+        <p>Dissoudre une petite cuillère de sel dans un verre d'eau, ou dissoudre toute une boîte de sel dans le même verre : dans les deux cas, on obtient une <strong>solution</strong> de sel — mais évidemment pas la même. Ce qui distingue ces deux solutions, c'est leur <span class="kw">concentration</span> : la quantité de soluté présente par rapport à la quantité de solution. Cette section présente trois façons différentes d'exprimer une concentration, chacune adaptée à un contexte différent.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>La <strong>concentration (C)</strong> d'une solution est le rapport entre la <strong>quantité de soluté</strong> dissoute et la <strong>quantité de solution</strong> totale (soluté + solvant).</p>
+        </div>
+        <div class="subsection" id="concentration-g-l">
+          <div class="subsection-title">2.1.1 — La concentration en grammes par litre (g/L) et en pourcentage (%)</div>
+
+          <p>Il existe plusieurs unités pour exprimer une concentration ; le choix dépend surtout de l'état du soluté (solide ou liquide) et de l'ordre de grandeur de la quantité dissoute.</p>
+
+          <table class="data-table">
+            <thead><tr><th>Unité</th><th>Formule</th><th>Utilisée pour</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><strong>% (m/V)</strong></td><td>(masse soluté ÷ volume solution) × 100</td><td>Solutés <strong>solides</strong></td><td>10 % (m/V) = 10 g de soluté / 100 mL de solution</td></tr>
+              <tr><td><strong>% (V/V)</strong></td><td>(volume soluté ÷ volume solution) × 100</td><td>Solutés <strong>liquides</strong></td><td>12 % (V/V) = 12 mL de soluté / 100 mL de solution</td></tr>
+              <tr><td><strong>g/L</strong></td><td>masse soluté ÷ volume solution</td><td>Solutés <strong>solides</strong></td><td>0,3 g/L = 0,3 g de soluté / 1000 mL de solution</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Dans « % (m/V) », le <strong>V</strong> représente le volume de la <strong>solution au complet</strong> (soluté + solvant), pas seulement le volume du solvant. Une concentration de 15 % (m/V) signifie <strong>15 g de soluté pour 100 mL de solution</strong> — et non 100 g ni 100 mL de solvant seul. Attention aussi aux unités de volume : le calcul suppose toujours des millilitres pour le %, mais des litres pour le g/L — une conversion est souvent nécessaire avant de calculer.
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+            <strong>Quelle masse de NaCl se trouve dans 250 mL d'une solution à 8 % (m/V) ?</strong><br><br>
+            8 % (m/V) signifie 8 g de NaCl pour 100 mL de solution. Par proportion : 250 mL ÷ 100 mL = 2,5. Donc : 8 g × 2,5 = <strong>20 g de NaCl</strong>.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un % (V/V)
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une solution désinfectante contient 15 mL d'alcool dissous dans 200 mL de solution. Quel est son pourcentage (V/V) ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 15,0 %</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 7,5 %</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 75,0 %</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1,5 %</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> % (V/V) = (volume soluté ÷ volume solution) × 100 = (15 ÷ 200) × 100 = <strong>7,5 %</strong>. L'erreur A oublie de diviser par le volume de solution ; l'erreur C confond le rapport (15/200 = 0,075) avec son inverse.</div>
+            </div>
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">La dilution — C₁V₁ = C₂V₂</div>
+          <p>Diluer une solution, c'est y ajouter du solvant pour en <strong>diminuer la concentration</strong>, sans changer la quantité de soluté déjà présente. Comme la quantité de soluté reste constante avant et après, on peut établir une relation simple entre les concentrations et les volumes :</p>
+          <div class="formula">C₁V₁ = C₂V₂</div>
+          <p class="formula-caption">C₁, V₁ = concentration et volume avant dilution · C₂, V₂ = concentration et volume après dilution</p>
+          <p>Cette formule fonctionne avec <strong>n'importe quelle unité de concentration</strong> vue dans cette section (g/L, %, ppm, ou mol/L à la sous-section 2.1.3) — à condition d'utiliser la même unité des deux côtés de l'équation.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Conditions d'utilisation</span></div>
+            La formule C₁V₁ = C₂V₂ n'est valide que si (1) <strong>la quantité de soluté ne change pas</strong> (on ajoute seulement du solvant, on n'ajoute jamais de soluté supplémentaire) et (2) <strong>les mêmes unités</strong> de concentration et de volume sont utilisées des deux côtés.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Pourquoi cette formule fonctionne-t-elle ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Puisque C = quantité de soluté ÷ volume, on peut réécrire : quantité de soluté = C × V. En te basant là-dessus, explique pourquoi C₁V₁ = C₂V₂ lors d'une dilution.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+              <div class="activity-hint">Puisque quantité de soluté = C × V, et que la quantité de soluté reste <strong>identique</strong> avant et après la dilution (on n'ajoute que du solvant), on peut affirmer que C₁ × V₁ (quantité avant) = C₂ × V₂ (quantité après) — les deux expressions représentent la même quantité de soluté, simplement répartie dans un volume de solution différent.</div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+            <strong>On dilue 50 mL d'une solution de HCl à 12 mol/L. Quel volume final faut-il obtenir pour arriver à 2 mol/L ?</strong><br><br>
+            C₁V₁ = C₂V₂ → 12 mol/L × 50 mL = 2 mol/L × V₂ → V₂ = 600 ÷ 2 = <strong>300 mL</strong>. Il faut donc ajouter 300 − 50 = 250 mL de solvant (eau) à la solution initiale.
+          </div>
+        </div>
+
+        <div class="subsection" id="concentration-ppm">
+          <div class="subsection-title">2.1.2 — La concentration en parties par million (ppm)</div>
+
+          <p>Certaines concentrations sont si petites qu'elles seraient très peu pratiques à écrire en % ou en g/L — par exemple, la quantité de chlore dans l'eau d'une piscine, ou de plomb dans l'eau potable. C'est pour ces cas qu'on utilise les <span class="kw">parties par million (ppm)</span>.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p><strong>1 ppm = 1 g d'une substance / 1 000 000 g de solution</strong> (ou, de façon équivalente, 1 kg / 1 000 000 kg — mêmes unités au numérateur qu'au dénominateur).</p>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Raccourci pratique — quand le solvant est l'eau</span></div>
+            L'eau a une masse volumique d'environ 1 g/mL, donc 1 L de solution aqueuse diluée pèse environ 1000 g. Cela donne un raccourci très utile : 1 ppm × 1000 g = 1000 ÷ 1 000 000 g = 0,001 g = 1 mg. Autrement dit, <strong>si le solvant est de l'eau : 1 ppm = 1 mg/L</strong>. Attention : ce raccourci n'est valide que pour des solutions aqueuses diluées — la définition générale (masse/masse × 10⁶) reste toujours vraie, peu importe le solvant.
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+            <strong>Une eau contient 0,002 g de plomb par litre. Exprime cette concentration en ppm.</strong><br><br>
+            Puisque le solvant est l'eau : 1 ppm = 1 mg/L = 0,001 g/L. On a 0,002 g/L ÷ 0,001 g/L par ppm = <strong>2 ppm</strong>.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Pourquoi ne pas simplement utiliser le %?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une concentration de 2 ppm équivaut à 0,0002 %. Pourquoi les scientifiques préfèrent-ils écrire « 2 ppm » plutôt que « 0,0002 % » ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+              <div class="activity-hint">Écrire « 0,0002 % » oblige à compter des zéros après la virgule et augmente le risque d'erreur (oublier un zéro change la valeur par un facteur de 10). Le ppm ramène ces très petites concentrations à des nombres entiers simples à lire, à comparer et à communiquer — un peu comme on préfère dire « 3 km » plutôt que « 3000 m » pour une grande distance.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="concentration-molaire">
+          <div class="subsection-title">2.1.3 — La concentration molaire (mol/L) <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+
+          <p>Les trois unités précédentes (g/L, %, ppm) mesurent toutes une <strong>masse</strong> de soluté. Mais en chimie, ce qui compte souvent le plus, c'est le <strong>nombre de particules</strong> de soluté — pas leur masse. C'est pour cette raison qu'on utilise la <span class="kw">concentration molaire</span>, qui exprime directement le nombre de moles de soluté par litre de solution.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>concentration molaire (C)</strong> est le nombre de moles (n) d'une substance dissoutes par litre (L) de solution.</p>
+          </div>
+
+          <div class="formula">C = n ÷ V &nbsp;&nbsp;|&nbsp;&nbsp; n = C × V &nbsp;&nbsp;|&nbsp;&nbsp; V = n ÷ C</div>
+          <p class="formula-caption">C = concentration molaire (mol/L, aussi noté simplement M) · n = quantité de matière (mol) · V = volume de solution (L)</p>
+
+          <p>L'unité mol/L se note souvent simplement <strong>M</strong> (« molaire »). Ainsi, une solution « <strong>3 M</strong> » de glucose signifie qu'il y a 3 mol de glucose par litre de solution.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — combiner avec n = m ÷ M (section 1.5)</span></div>
+            <strong>Quelle est la concentration molaire d'une solution contenant 90,09 g de glucose (C₆H₁₂O₆) dissous dans 500 mL de solution ?</strong> (M(glucose) = 180,18 g/mol, comme calculé à la section 1.5)<br><br>
+            Étape 1 — Convertir la masse en moles : n = m ÷ M = 90,09 ÷ 180,18 = <strong>0,500 mol</strong><br>
+            Étape 2 — Convertir le volume en litres : 500 mL = <strong>0,500 L</strong><br>
+            Étape 3 — Concentration : C = n ÷ V = 0,500 ÷ 0,500 = <strong>1,00 mol/L (1,00 M)</strong>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            La formule C = n ÷ V exige que le volume soit en <strong>litres</strong>, jamais en millilitres. Oublier de convertir 500 mL en 0,500 L avant de diviser donnerait une concentration 1000 fois trop petite (0,001 mol/L au lieu de 1,00 mol/L) — toujours vérifier l'unité du volume avant de calculer.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Relier masse, moles et concentration
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Quelle masse de NaOH (M = 40,00 g/mol) faut-il dissoudre pour préparer 250 mL d'une solution à 2,00 mol/L ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 10,0 g</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 40,0 g</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 20,0 g</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 80,0 g</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> D'abord, n = C × V = 2,00 mol/L × 0,250 L = 0,500 mol. Ensuite, m = n × M = 0,500 mol × 40,00 g/mol = <strong>20,0 g</strong>. L'erreur A oublie de multiplier par la masse molaire ; l'erreur D confond 0,250 L avec 1 L (2,00 × 40,00 = 80,0, sans tenir compte du volume réel).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 2.1</div>
+          <table class="data-table">
+            <thead><tr><th>Unité</th><th>Formule</th><th>Mesure</th><th>Contexte typique</th></tr></thead>
+            <tbody>
+              <tr><td><strong>% (m/V) ou (V/V)</strong></td><td>(quantité soluté ÷ volume solution) × 100</td><td>Masse ou volume</td><td>Étiquettes de produits (ex. : vinaigre 5 %)</td></tr>
+              <tr><td><strong>g/L</strong></td><td>masse soluté ÷ volume solution</td><td>Masse</td><td>Concentrations modérées</td></tr>
+              <tr><td><strong>ppm</strong></td><td>masse soluté ÷ masse solution × 10⁶</td><td>Masse (très petites quantités)</td><td>Contaminants, chlore de piscine</td></tr>
+              <tr><td><strong>mol/L (M)</strong></td><td>n ÷ V</td><td>Nombre de particules</td><td>Réactions chimiques, stœchiométrie</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);">Quelle que soit l'unité, le principe reste le même : une concentration compare toujours <strong>combien de soluté</strong> se trouve dans <strong>combien de solution</strong>. Et la formule de dilution C₁V₁ = C₂V₂ (vue à la section 2.1.1) s'applique à ces quatre unités, à condition de garder la même unité des deux côtés.</p>
+        </div>
+
+        <div class="quiz-block" data-quiz="q21">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 2.1<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 11</span>
+            <progress class="quiz-progress" value="0" max="11"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une concentration de 15 % (m/V) signifie qu'il y a 15 g de soluté par 100 g de solution.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Le « V » dans % (m/V) représente un <strong>volume</strong> (mL), pas une masse. 15 % (m/V) signifie 15 g de soluté par 100 <strong>mL</strong> de solution, pas 100 g.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Le « V » de % (m/V) signifie <strong>volume</strong>, pas masse : 15 % (m/V) = 15 g de soluté / 100 mL de solution, et non 100 g de solution.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Combien de grammes de NaCl se trouvent dans 250 mL d'une solution à 8 % (m/V) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 20 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 8 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 200 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 8 % (m/V) = 8 g / 100 mL. Pour 250 mL : 8 × (250 ÷ 100) = 8 × 2,5 = <strong>20 g</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>8 % (m/V) = 8 g / 100 mL de solution. Pour 250 mL, on multiplie par le facteur d'échelle 250 ÷ 100 = 2,5 : 8 g × 2,5 = <strong>20 g</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution contient 15 mL d'éthanol dissous dans 200 mL de solution. Quel est son % (V/V) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 15,0 %</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 7,5 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 75,0 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 13,3 %</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. % (V/V) = (15 ÷ 200) × 100 = <strong>7,5 %</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>% (V/V) = (volume soluté ÷ volume solution) × 100 = (15 ÷ 200) × 100 = <strong>7,5 %</strong>. Le choix D inverse le rapport (200 ÷ 15).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une solution a une concentration de 10 % (m/V). À combien de g/L cela correspond-il ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 10 g/L</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 100 g/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 1 g/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1000 g/L</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 10 % (m/V) = 10 g / 100 mL. Il y a 10 portions de 100 mL dans 1 L (1000 mL), donc : 10 g × 10 = <strong>100 g/L</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>10 % (m/V) = 10 g / 100 mL. Puisque 1 L = 1000 mL = 10 × 100 mL, il faut multiplier par 10 : 10 g × 10 = <strong>100 g/L</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une eau contient 0,002 g de plomb par litre. Exprime cette concentration en ppm.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 2 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,2 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 20 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 200 ppm</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,002 g/L ÷ 0,001 g/L = <strong>2 ppm</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,002 g/L représente donc 0,002 ÷ 0,001 = <strong>2 ppm</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le raccourci « 1 ppm = 1 mg/L » est valide peu importe le solvant utilisé.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Ce raccourci suppose que la solution a une masse volumique d'environ 1 g/mL, ce qui n'est vrai que pour <strong>l'eau</strong> (solutions aqueuses diluées). La définition générale (masse/masse × 10⁶) reste toujours valide, peu importe le solvant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. « 1 ppm = 1 mg/L » n'est qu'un raccourci valable pour <strong>l'eau</strong>, dont la masse volumique est d'environ 1 g/mL. Avec un autre solvant, il faut revenir à la définition générale (masse de soluté ÷ masse de solution × 10⁶).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">On dilue 100 mL d'une solution à 6 mol/L jusqu'à un volume final de 600 mL. Quelle est la nouvelle concentration ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 1 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,6 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 6 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 3,6 mol/L</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C₁V₁ = C₂V₂ → 6 × 100 = C₂ × 600 → C₂ = 600 ÷ 600 = <strong>1 mol/L</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C₁V₁ = C₂V₂ → 6 mol/L × 100 mL = C₂ × 600 mL → C₂ = 600 ÷ 600 = <strong>1 mol/L</strong>. La quantité de soluté (6 × 100 = 600) doit rester la même des deux côtés.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Pour utiliser la formule C₁V₁ = C₂V₂, quelle condition doit absolument être respectée ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> La quantité de soluté doit rester constante</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Le volume de solvant doit rester constant</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La concentration doit être exprimée en mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Il faut ajouter du soluté supplémentaire</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La dilution n'ajoute que du solvant — la quantité de soluté (C × V) doit rester identique avant et après, sinon la formule ne s'applique pas.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La condition essentielle est que la <strong>quantité de soluté ne change pas</strong> — on ajoute seulement du solvant. La formule fonctionne avec n'importe quelle unité de concentration (pas seulement mol/L), tant qu'elle est la même des deux côtés.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la concentration molaire d'une solution contenant 90,09 g de glucose (M = 180,18 g/mol) dissous dans 500 mL de solution ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 1,00 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,50 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2,00 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,25 mol/L</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. n = m ÷ M = 90,09 ÷ 180,18 = 0,500 mol. C = n ÷ V = 0,500 mol ÷ 0,500 L = <strong>1,00 mol/L</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>D'abord convertir la masse en moles : n = m ÷ M = 90,09 ÷ 180,18 = 0,500 mol. Puis C = n ÷ V = 0,500 ÷ 0,500 (500 mL = 0,500 L) = <strong>1,00 mol/L</strong>. Le choix B oublie de diviser par le volume ; n'utiliser que n sans le diviser par V.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">L'abréviation « M » (comme dans « solution 3 M ») signifie exactement la même chose que mol/L.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. « M » est simplement l'abréviation usuelle de mol/L. Une solution « 3 M » est une solution à 3 mol/L.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Le symbole « M » (molaire) est une façon abrégée d'écrire mol/L : 3 M = 3 mol/L.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="10">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un rapport de laboratoire indique 3 ppm de chlore dans l'eau d'une piscine. Cela correspond à quelle quantité de chlore ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 3 mg par litre d'eau</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 3 g par litre d'eau</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 0,3 mg par litre d'eau</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 30 mg par litre d'eau</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dans l'eau, 1 ppm = 1 mg/L, donc 3 ppm = <strong>3 mg de chlore par litre d'eau</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans l'eau, le raccourci 1 ppm = 1 mg/L s'applique directement : 3 ppm = <strong>3 mg/L</strong>. Le choix B confond mg et g (facteur 1000).</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q21"></div>
+          <button class="quiz-reset" id="reset-q21">↺ Recommencer</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 2.2 — LES ÉLECTROLYTES (SQUELETTE)      -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-2-2">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">2.2</span>
+          <span class="section-title">Les électrolytes</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="note-box" style="background:#f0f6f7;">
+          <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Section en construction</span></div>
+          <p style="margin:0;">Le contenu détaillé de cette section (définitions, exemples, activités, exercices) sera ajouté dans une prochaine session. Voici pour l'instant le squelette prévu, selon la structure de Kaléidoscope.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">2.2.1 — La conductibilité électrique</div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">2.2.2 — La dissociation électrolytique</div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir (inclura l'outil « Vérifier la conductibilité électrique d'une solution aqueuse »).</p>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">2.2.3 — La force des électrolytes <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">2.2.4 — Les acides, les bases et les sels</div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 2.3 — LE PH (SQUELETTE)                 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-2-3">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">2.3</span>
+          <span class="section-title">Le pH</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="note-box" style="background:#f0f6f7;">
+          <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Section en construction</span></div>
+          <p style="margin:0;">Le contenu détaillé de cette section sera ajouté dans une prochaine session. Voici pour l'instant le squelette prévu, selon la structure de Kaléidoscope.</p>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">2.3.1 — L'échelle pH</div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">2.3.2 — Le pH et la concentration molaire en ions H⁺ <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+          <p style="color:var(--muted);font-style:italic;">🚧 Contenu à venir.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+// ── Toggle sections ────────────────────────────────────────
+function toggleSection(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  btn.parentElement.querySelector('.section-body').classList.toggle('open', !expanded);
+}
+
+// ── Toggle activités suggérées ─────────────────────────────
+function toggleActivity(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+function toggleHint(btn) {
+  const hint = btn.nextElementSibling;
+  hint.classList.toggle('show');
+  btn.textContent = hint.classList.contains('show') ? '▾ Cacher la piste de réponse' : '▸ Voir une piste de réponse';
+}
+
+// ── Toggle blocs d'exercices ────────────────────────────────
+function toggleQuiz(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Toggle bulles de note ────────────────────────────────────
+function toggleNote(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Sidebar active link ────────────────────────────────────
+const tocLinks = document.querySelectorAll('.toc-link');
+const sectionIds = ['rappel','section-2-1','section-2-2','section-2-3'];
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 130) current = id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('to-top').classList.toggle('visible', window.scrollY > 300);
+}, {passive: true});
+
+// ── Smooth scroll from TOC ─────────────────────────────────
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const toggle = target.querySelector('.section-toggle');
+    if (toggle && toggle.getAttribute('aria-expanded') === 'false') toggleSection(toggle);
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+// ── Search ─────────────────────────────────────────────────
+const contentEl = document.querySelector('.content');
+const originalHTML = contentEl.innerHTML;
+
+let lastQuery = '';
+let matchIndex = -1;
+
+function doSearch(query) {
+  contentEl.innerHTML = originalHTML;
+  const countEl = document.getElementById('search-count');
+  matchIndex = -1;
+  lastQuery = query;
+
+  if (!query.trim()) { countEl.textContent = ''; return 0; }
+
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  let count = 0;
+  nodes.forEach(node => {
+    if (!re.test(node.textContent)) return;
+    re.lastIndex = 0;
+    const span = document.createElement('span');
+    span.innerHTML = node.textContent.replace(re, m => { count++; return `<mark class="sh">${m}</mark>`; });
+    node.parentNode.replaceChild(span, node);
+  });
+
+  countEl.textContent = count ? `${count} résultat${count>1?'s':''}` : 'Aucun résultat';
+
+  document.querySelectorAll('.section-card').forEach(card => {
+    if (card.querySelector('mark.sh')) {
+      const t = card.querySelector('.section-toggle');
+      if (t && t.getAttribute('aria-expanded') === 'false') toggleSection(t);
+    }
+  });
+
+  return count;
+}
+
+function goToMatch(step) {
+  const marks = contentEl.querySelectorAll('mark.sh');
+  if (!marks.length) return;
+  if (matchIndex >= 0 && marks[matchIndex]) marks[matchIndex].classList.remove('current');
+  matchIndex = (matchIndex + step + marks.length) % marks.length;
+  const m = marks[matchIndex];
+  m.classList.add('current');
+  m.scrollIntoView({behavior:'smooth', block:'center'});
+  const countEl = document.getElementById('search-count');
+  countEl.textContent = `${matchIndex+1} / ${marks.length} résultats`;
+}
+
+function runSearchAndJump(query, step) {
+  if (query !== lastQuery || !contentEl.querySelector('mark.sh')) {
+    const count = doSearch(query);
+    if (count > 0) goToMatch(0);
+  } else {
+    goToMatch(step);
+  }
+}
+
+document.getElementById('search-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    runSearchAndJump(e.target.value, e.shiftKey ? -1 : 1);
+  }
+});
+
+// Ctrl+F → recherche interne
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    const inp = document.getElementById('search-input');
+    inp.focus(); inp.select();
+  }
+});
+
+// Fermer la bulle d'attribution au clic à l'extérieur
+document.addEventListener('click', e => {
+  const pop = document.getElementById('attrib-pop');
+  if (pop && !pop.contains(e.target) && !e.target.closest('.sidebar-footer button')) {
+    pop.classList.remove('visible');
+  }
+});
+
+// === MOTEUR DE QUIZ INTERACTIFS ===
+function initQuizBlock(block) {
+  const questions = Array.from(block.querySelectorAll('.quiz-q'));
+  const total = questions.length;
+  const scoreLabel = block.querySelector('.quiz-score-label');
+  const progressBar = block.querySelector('.quiz-progress');
+  const resultMsg = block.querySelector('.quiz-result-msg');
+  const resetBtn = block.querySelector('.quiz-reset');
+  progressBar.max = total; // synchronise toujours le max réel avec le nombre de questions présentes
+
+  function updateScore() {
+    const answered = questions.filter(q => q.classList.contains('answered'));
+    const correct = answered.filter(q => q.dataset.gotCorrect === 'true').length;
+    scoreLabel.textContent = `${correct} / ${total}`;
+    progressBar.value = answered.length;
+
+    if (answered.length === total) {
+      resultMsg.classList.add('show');
+      const pct = Math.round((correct / total) * 100);
+      resultMsg.classList.remove('great', 'good', 'poor');
+      const starIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z"/></svg>';
+      const upIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 13l3-3 2 2 3-3.5"/></svg>';
+      const bookIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 1-2-2Z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 0 2-2Z"/></svg>';
+      let icon, msg, variant;
+      if (pct === 100) { icon = starIcon; msg = `Parfait ! ${correct} / ${total} — la section est maîtrisée.`; variant = 'great'; }
+      else if (pct >= 70) { icon = upIcon; msg = `Bon travail : ${correct} / ${total}. Relis les explications des questions manquées.`; variant = 'good'; }
+      else { icon = bookIcon; msg = `${correct} / ${total} — il serait utile de revoir cette section avant de continuer.`; variant = 'poor'; }
+      resultMsg.classList.add(variant);
+      resultMsg.innerHTML = `${icon}<span>${msg}</span>`;
+      resetBtn.style.display = 'inline-block';
+    } else {
+      resultMsg.classList.remove('show', 'great', 'good', 'poor');
+      resetBtn.style.display = 'none';
+    }
+  }
+
+  questions.forEach(q => {
+    const options = Array.from(q.querySelectorAll('.quiz-option'));
+    const fbOk = q.querySelector('.quiz-feedback.ok');
+    const fbKo = q.querySelector('.quiz-feedback.ko');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (q.classList.contains('answered')) return; // déjà répondu
+
+        const isCorrect = opt.dataset.correct === 'true';
+        q.classList.add('answered');
+        q.dataset.gotCorrect = isCorrect ? 'true' : 'false';
+
+        options.forEach(o => {
+          o.disabled = true;
+          if (o.dataset.correct === 'true') {
+            o.classList.add(o === opt ? 'correct' : 'reveal');
+          } else if (o === opt) {
+            o.classList.add('wrong');
+          }
+        });
+
+        (isCorrect ? fbOk : fbKo).classList.add('show');
+        updateScore();
+      });
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    questions.forEach(q => {
+      q.classList.remove('answered');
+      delete q.dataset.gotCorrect;
+      q.querySelectorAll('.quiz-option').forEach(o => {
+        o.disabled = false;
+        o.classList.remove('correct', 'wrong', 'reveal');
+      });
+      q.querySelectorAll('.quiz-feedback').forEach(f => f.classList.remove('show'));
+    });
+    updateScore();
+  });
+
+  updateScore();
+}
+
+// === MOTEUR DE QCM AUTONOMES (activités suggérées avec choix cliquables) ===
+function initStandaloneMCQ(block) {
+  const options = Array.from(block.querySelectorAll('.quiz-option'));
+  let answered = false;
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (answered) return;
+      answered = true;
+      const isCorrect = opt.dataset.correct === 'true';
+      options.forEach(o => {
+        o.disabled = true;
+        if (o.dataset.correct === 'true') {
+          o.classList.add(o === opt ? 'correct' : 'reveal');
+        } else if (o === opt) {
+          o.classList.add('wrong');
+        }
+      });
+    });
+  });
+}
+
+document.querySelectorAll('.standalone-mcq').forEach(initStandaloneMCQ);
+
+document.querySelectorAll('.quiz-block').forEach(initQuizBlock);
+</script>
+</body>
+</html>
