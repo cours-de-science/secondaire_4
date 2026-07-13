@@ -486,7 +486,7 @@
 
             <div class="activity-block">
               <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
-                <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Activité suggérée — Vérification
+                <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ai-je bien suivi ? — Thomson
                 <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="activity-content">
@@ -549,8 +549,12 @@
               <ul class="content-list">
                 <li><strong>L'atome est principalement formé de vide.</strong></li>
                 <li>Il existe un <strong>noyau</strong> : dense (cause les fortes déviations), très petit (0,001 % touchent le noyau), et <strong>positif</strong> (les déviations faibles sont dues à la répulsion avec les particules alpha positives).</li>
-                <li>Les <strong>électrons négatifs</strong>, en nombre égal aux protons, circulent autour du noyau dans un espace ≈ 100 000 fois plus grand que le noyau. Ils ont tous le même niveau d'énergie (dans ce modèle).</li>
+                <li>Les <strong>électrons négatifs</strong> circulent autour de ce noyau dans un espace ≈ 100 000 fois plus grand que lui. Puisque l'atome est neutre, leur charge négative totale équilibre exactement la charge positive du noyau. Ils ont tous le même niveau d'énergie (dans ce modèle).</li>
               </ul>
+              <div class="note-box">
+                <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Attention à l'anachronisme</span></div>
+                En 1911, Rutherford sait que le noyau porte une charge positive globale — mais il ignore encore <strong>de quoi ce noyau est fait</strong>. L'idée que cette charge positive est portée par des particules appelées « protons » ne viendra que <strong>8 ans plus tard</strong>, avec la découverte du proton par... Rutherford lui-même, en 1919 (voir plus loin dans cette section). En 1911, on parle donc seulement d'une charge positive concentrée dans le noyau, pas encore de protons.
+              </div>
               <figure class="fig-block">
                 <img src="images/ch1/rutherford_experience.png" alt="Expérience de Rutherford : bombardement feuille d'or et trajectoires des particules alpha" loading="lazy">
                 <figcaption>Fig. 5 — L'expérience de la feuille d'or (1911) : la grande majorité des particules alpha passent sans déviation, prouvant que l'atome est essentiellement du vide avec un noyau central dense et positif.</figcaption>
@@ -611,9 +615,33 @@
             <div class="timeline-item">
               <div class="year">1919 — Ernest Rutherford</div>
               <div class="model-name">La découverte du proton</div>
-              <p>Le modèle de 1911 établissait que le noyau est dense et positif, sans dire de quoi il est fait. En 1919, Rutherford bombarde du gaz azote avec des particules alpha et observe l'éjection de particules — identiques, peu importe l'élément bombardé, à des <strong>noyaux d'hydrogène</strong>. Il en déduit que ce noyau d'hydrogène est un <strong>constituant fondamental commun à tous les noyaux</strong>, qu'il nomme <span class="kw">proton</span> l'année suivante (du grec <em>protos</em>, « premier »).</p>
+              <p>Le modèle de 1911 établissait que le noyau est dense et positif, sans dire de quoi il est fait. En 1919, Rutherford bombarde du gaz azote avec des particules alpha et observe l'éjection de particules identiques à des <strong>noyaux d'hydrogène</strong>. Pour vérifier qu'il ne s'agit pas d'une particularité propre à l'azote, lui et son collaborateur James Chadwick refont l'expérience avec d'autres éléments légers — <strong>bore, fluor, sodium, aluminium, phosphore</strong> — et observent chaque fois l'éjection du même type de noyau d'hydrogène. Cette universalité le convainc qu'il s'agit d'un <strong>constituant fondamental commun à tous les noyaux</strong>, qu'il nomme <span class="kw">proton</span> l'année suivante (du grec <em>protos</em>, « premier »).</p>
               <div class="formula">¹⁴₇N + ⁴₂He → ¹⁷₈O + ¹₁H</div>
               <p>C'est la <strong>première réaction nucléaire provoquée artificiellement</strong> par un humain (parfois appelée à tort « le premier atome divisé » — il s'agit plutôt d'une transmutation : un élément se change en un autre).</p>
+
+              <div class="note-box" style="background:#f0f6f7;">
+                <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+                  <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — Pourquoi de l'oxygène, et pas du fluor ?</span></div>
+                  <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="note-body">
+                  <p style="margin:0;">Bonne question à se poser : en 1919, on savait déjà que la particule alpha est un noyau d'<strong>hélium</strong> (Z = 2) — Rutherford et Thomas Royds l'avaient prouvé par spectroscopie dès 1908-1909, bien avant l'expérience de la feuille d'or. On savait aussi déjà, grâce aux travaux de Van den Broek (1911) et surtout de Moseley (1913, mesures directes par rayons X), que le numéro atomique d'un élément correspond exactement à la charge de son noyau. L'azote (N) avait donc déjà sa place bien établie à Z = 7 dans le tableau périodique.</p>
+                  <p style="margin:8px 0 0;">Si le noyau d'azote (Z = 7) <strong>absorbait simplement</strong> le noyau d'hélium (Z = 2) au complet, on s'attendrait à obtenir un noyau de charge 7 + 2 = 9, soit du <strong>fluor</strong> (Z = 9) — exactement le raisonnement le plus naturel à faire. Mais ce n'est pas ce qu'on observe : Rutherford détecte plutôt l'éjection d'un noyau d'hydrogène (un proton, Z = 1) en plus. Le noyau final n'a donc pas 9 protons, mais 9 − 1 = <strong>8 protons</strong> — c'est de l'<strong>oxygène</strong>, pas du fluor.</p>
+                  <p style="margin:8px 0 0;">Autrement dit : l'hélium n'est pas simplement « collé » au noyau d'azote. Il est d'abord absorbé en entier, formant un noyau instable de fluor-18 pendant une fraction de seconde, qui expulse aussitôt un proton pour redevenir stable — ce qui donne finalement de l'oxygène-17. C'est cette étape d'éjection, invisible sans l'expérience, qui explique l'écart avec l'intuition la plus simple.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="activity-block">
+              <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+                <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Prédire le produit d'une transmutation
+                <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="activity-content">
+                <p class="activity-question">En suivant le même raisonnement que pour l'azote : si on bombarde un noyau de carbone (Z = 6) avec une particule alpha (Z = 2), et qu'un proton (Z = 1) est éjecté par la suite, quel est le numéro atomique du noyau final ? De quel élément s'agit-il ?</p>
+                <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+                <div class="activity-hint">Bilan des charges : 6 (carbone) + 2 (hélium) − 1 (proton éjecté) = <strong>7</strong>. Le noyau final a 7 protons — c'est de l'<strong>azote</strong> (le même élément que Rutherford utilisait dans son expérience originale, mais obtenu ici dans l'autre sens !).</div>
+              </div>
             </div>
 
             <div class="timeline-item">
@@ -644,7 +672,7 @@
 
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Note du prof</span></div>
-            En secondaire 4, c'est le <strong>modèle de Rutherford-Bohr</strong> (avec les neutrons dans le noyau) qu'on utilise — le programme officiel l'appelle le <strong>« modèle atomique simplifié »</strong>. Le modèle quantique (nuage électronique) est vu au niveau universitaire.
+            Ce modèle n'est pas la version la plus à jour de la science : depuis les années 1920, la physique quantique propose un modèle plus précis (le <em>nuage électronique</em>, où la position exacte d'un électron n'est jamais connue, seulement une probabilité de présence). Ce modèle quantique est vu au niveau universitaire — le modèle simplifié suffit amplement pour comprendre et prédire le comportement chimique des éléments au secondaire.
           </div>
         </div>
 
@@ -3233,15 +3261,41 @@
 
           <div class="quiz-q" data-qi="9">
             <div class="quiz-q-label">Calcul</div>
-            <div class="quiz-q-text">Quelle est la charge de l'ion étain (Sn) dans le composé SnO₂ ?</div>
+            <div class="quiz-q-text">Quelle charge doit-on attribuer à l'étain (Sn) dans SnO₂ pour équilibrer les charges ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Sn²⁺</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Sn³⁺</button>
               <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Sn⁴⁺</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Sn⁸⁺</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'oxygène porte toujours −2. Avec 2 atomes de O, la charge négative totale est de −4. Un seul atome de Sn doit donc porter <strong>+4</strong> pour équilibrer : Sn⁴⁺. (Point supplémentaire : l'électronégativité de Sn est d'environ 1,96 contre 3,44 pour O, soit un écart d'environ 1,48 — sous le seuil de 1,7 utilisé dans ce cours pour l'ionique. SnO₂ a donc un caractère covalent significatif dans les faits ; on le traite ici comme ionique pour s'exercer au calcul de charge, comme le fait couramment la chimie de niveau secondaire.)</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>O est toujours −2 ; avec 2 O, ça fait −4 au total. Comme il n'y a qu'un seul atome de Sn, il doit porter cette charge en entier : Sn⁴⁺.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><div style="flex:1;">
+              <span>Exact. L'oxygène porte toujours −2. Avec 2 atomes de O, la charge négative totale est de −4. Un seul atome de Sn doit donc porter <strong>+4</strong> pour équilibrer : Sn⁴⁺.</span>
+              <div style="margin-top:8px;">
+                <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)" style="font-size:13px;">
+                  <span style="display:flex;align-items:center;gap:6px;font-weight:600;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Pour aller plus loin — SnO₂ est-il vraiment ionique ?</span>
+                  <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="note-body" style="font-weight:400;">
+                  <p style="margin:0;">Bonne question à se poser : Δχ(Sn–O) ≈ 3,44 − 1,96 ≈ <strong>1,48</strong>, sous le seuil de 1,7 utilisé dans ce cours pour l'ionique. Le calcul demandé ici est en fait un calcul de <strong>nombre d'oxydation</strong> — une convention de comptage qui reste valide peu importe le type de liaison réel, d'où la formulation prudente de la question (« quelle charge attribuer », plutôt que « quelle est la charge de l'ion »).</p>
+                  <p style="margin:8px 0 0;">SnO₂ forme bel et bien un <strong>réseau cristallin</strong> (structure rutile, chaque Sn entouré de 6 O), pas des molécules discrètes. Mais attention : un réseau cristallin <strong>ne prouve pas à lui seul</strong> qu'une liaison est ionique — des solides covalents à réseau géant existent aussi (le quartz SiO₂, le diamant), avec les mêmes points de fusion élevés et la même insolubilité dans l'eau. Cette propriété distingue seulement « réseau étendu » de « molécule isolée », pas ionique de covalent.</p>
+                  <p style="margin:8px 0 0;">Les études de structure électronique (calculs DFT) montrent d'ailleurs que la charge réelle portée par Sn est nettement <strong>inférieure</strong> à +4 — signe d'un caractère covalent significatif, malgré le « +4 » qu'on utilise par convention pour l'exercice.</p>
+                </div>
+              </div>
+            </div></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><div style="flex:1;">
+              <span>O est toujours −2 ; avec 2 O, ça fait −4 au total. Comme il n'y a qu'un seul atome de Sn, il doit porter cette charge en entier : Sn⁴⁺.</span>
+              <div style="margin-top:8px;">
+                <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)" style="font-size:13px;">
+                  <span style="display:flex;align-items:center;gap:6px;font-weight:600;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Pour aller plus loin — SnO₂ est-il vraiment ionique ?</span>
+                  <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="note-body" style="font-weight:400;">
+                  <p style="margin:0;">Bonne question à se poser : Δχ(Sn–O) ≈ 3,44 − 1,96 ≈ <strong>1,48</strong>, sous le seuil de 1,7 utilisé dans ce cours pour l'ionique. Le calcul demandé ici est en fait un calcul de <strong>nombre d'oxydation</strong> — une convention de comptage qui reste valide peu importe le type de liaison réel, d'où la formulation prudente de la question (« quelle charge attribuer », plutôt que « quelle est la charge de l'ion »).</p>
+                  <p style="margin:8px 0 0;">SnO₂ forme bel et bien un <strong>réseau cristallin</strong> (structure rutile, chaque Sn entouré de 6 O), pas des molécules discrètes. Mais attention : un réseau cristallin <strong>ne prouve pas à lui seul</strong> qu'une liaison est ionique — des solides covalents à réseau géant existent aussi (le quartz SiO₂, le diamant), avec les mêmes points de fusion élevés et la même insolubilité dans l'eau. Cette propriété distingue seulement « réseau étendu » de « molécule isolée », pas ionique de covalent.</p>
+                  <p style="margin:8px 0 0;">Les études de structure électronique (calculs DFT) montrent d'ailleurs que la charge réelle portée par Sn est nettement <strong>inférieure</strong> à +4 — signe d'un caractère covalent significatif, malgré le « +4 » qu'on utilise par convention pour l'exercice.</p>
+                </div>
+              </div>
+            </div></div>
           </div>
 
           <div class="quiz-q" data-qi="10">
