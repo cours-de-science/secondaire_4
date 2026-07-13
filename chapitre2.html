@@ -1696,6 +1696,25 @@
 
           <p>Plus une valeur de pH s'éloigne de 7, plus elle est extrême. Par exemple, un pH de 6,6 est <strong>faiblement</strong> acide (tout juste sous 7), alors qu'un pH de 2,2 est <strong>fortement</strong> acide ; symétriquement, un pH de 7,2 est faiblement alcalin, alors qu'un pH de 12,8 est fortement alcalin.</p>
 
+          <div style="background:#f8f9f9;border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin:18px 0;">
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:12px;">Figure — Le pH de quelques substances courantes</p>
+            <div style="height:14px;border-radius:7px;background:linear-gradient(to right, #c0392b 0%, #e67e22 20%, #f1c40f 38%, #d5f5e3 50%, #52be80 62%, #3498db 80%, #8e44ad 100%);margin-bottom:6px;"></div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:14px;"><span>0 — acide</span><span>7 — neutre</span><span>14 — basique</span></div>
+            <table class="data-table" style="font-size:12.5px;">
+              <thead><tr><th>Substance</th><th>pH approximatif</th><th>Substance</th><th>pH approximatif</th></tr></thead>
+              <tbody>
+                <tr><td>Acide gastrique</td><td>≈ 1,5</td><td>Lait</td><td>≈ 6,5</td></tr>
+                <tr><td>Jus de citron</td><td>≈ 2,2</td><td>Eau pure</td><td>7,0</td></tr>
+                <tr><td>Cola (boisson gazeuse)</td><td>2,5</td><td>Sang</td><td>≈ 7,4</td></tr>
+                <tr><td>Vinaigre</td><td>≈ 2,9</td><td>Eau de mer</td><td>≈ 8,2</td></tr>
+                <tr><td>Jus d'orange</td><td>3,5</td><td>Ammoniaque</td><td>11,5</td></tr>
+                <tr><td>Café</td><td>≈ 5,0</td><td>Chaux</td><td>12,5</td></tr>
+                <tr><td>Thé</td><td>≈ 5,5</td><td>Pluie acide</td><td>≈ 4,5</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:11.5px;color:var(--muted);margin-top:10px;margin-bottom:0;">Valeurs typiques, arrondies — le pH exact d'une substance donnée varie selon sa composition précise (ex. : le pH du café dépend de la torréfaction, celui du vinaigre de sa concentration en acide acétique).</p>
+          </div>
+
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>L'échelle pH est logarithmique</span></div>
             Chaque unité de pH représente un facteur de <strong>10</strong> en acidité (ou en basicité) — pas un simple pas de 1. Une différence de 2 unités de pH représente donc un facteur de 10 × 10 = 100, une différence de 3 unités un facteur de 1000, et ainsi de suite.
@@ -1799,6 +1818,17 @@
           <div class="formula">pH = −log[H⁺] &nbsp;&nbsp;|&nbsp;&nbsp; [H⁺] = 10⁻ᵖᴴ mol/L</div>
           <div class="formula">pOH = −log[OH⁻] &nbsp;&nbsp;|&nbsp;&nbsp; [OH⁻] = 10⁻ᵖᴼᴴ mol/L</div>
           <div class="formula">pH + pOH = 14 &nbsp;&nbsp;|&nbsp;&nbsp; [H⁺] × [OH⁻] = 10⁻¹⁴</div>
+
+          <div class="note-box">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Communauté scientifique — Søren Sørensen (1868-1939)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Chimiste danois, Søren Sørensen introduisit le concept de l'échelle pH en 1909 — un modèle resté célèbre pour sa simplicité d'utilisation. Le chimiste suédois Svante Arrhenius avait déjà montré, avant lui, l'existence d'un lien entre l'acidité (ou la basicité) d'une solution et sa concentration en ions H⁺ (ou OH⁻).</p>
+              <p style="margin:10px 0 0;">La contribution de Sørensen fut de formaliser ce lien en une relation mathématique précise, reliant directement le pH d'une solution à sa concentration en ions H⁺ — les mêmes formules <strong>pH = −log[H⁺]</strong> et <strong>[H⁺] = 10⁻ᵖᴴ</strong> utilisées plus haut dans cette section, plus d'un siècle plus tard.</p>
+            </div>
+          </div>
 
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
