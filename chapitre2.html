@@ -521,6 +521,24 @@
             L'eau a une masse volumique d'environ 1 g/mL, donc 1 L de solution aqueuse diluée pèse environ 1000 g. Cela donne un raccourci très utile : 1 ppm × 1000 g = 1000 ÷ 1 000 000 g = 0,001 g = 1 mg. Autrement dit, <strong>si le solvant est de l'eau : 1 ppm = 1 mg/L</strong>. Attention : ce raccourci n'est valide que pour des solutions aqueuses diluées — la définition générale (masse/masse × 10⁶) reste toujours vraie, peu importe le solvant.
           </div>
 
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — Le ppm compare-t-il des masses, ou une masse à un volume ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">La définition officielle du ppm compare toujours deux <strong>masses</strong> (m/m). Mais en pratique, pour une solution aqueuse, on l'utilise presque toujours comme un rapport <strong>masse/volume</strong> (m/V) — des mg de soluté par litre de solution, exactement comme dans le raccourci ci-dessus. C'est possible uniquement parce que l'eau a une masse volumique de 1 g/mL (1 kg/L) : dans ce cas précis, comparer une masse à un volume revient au même que comparer deux masses, puisque la masse et le volume de l'eau sont numériquement identiques (1 L ↔ 1 kg).</p>
+              <table class="data-table" style="margin-top:12px;">
+                <thead><tr><th>Type de mélange</th><th>Unités comparées</th><th>Exemple</th></tr></thead>
+                <tbody>
+                  <tr><td>Solide dans un solide (m/m)</td><td>mêmes unités</td><td>1 mg de contaminant dans 1 kg de sol</td></tr>
+                  <tr><td>Soluté dans une solution aqueuse (m/V)</td><td>unités différentes, mais équivalentes grâce à la densité de l'eau</td><td>1 mg de chlore dans 1 L d'eau</td></tr>
+                </tbody>
+              </table>
+              <p style="margin:10px 0 0;">Cette nuance n'a aucun impact sur les calculs de cette section — le raccourci 1 ppm = 1 mg/L reste toujours valide en solution aqueuse diluée — mais elle explique pourquoi on rencontre parfois le ppm écrit comme un rapport mg/L (plutôt que mg/kg) dans les analyses de laboratoire ou les normes environnementales, comme celle sur les nitrates vue dans l'activité plus bas.</p>
+            </div>
+          </div>
+
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
             <strong>Une eau contient 0,002 g de plomb par litre. Exprime cette concentration en ppm.</strong><br><br>
