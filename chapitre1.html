@@ -32,6 +32,8 @@
     z-index: 100; transition: transform .3s ease;
   }
   .sidebar-header { background: var(--yellow); padding: 20px 18px 16px; flex-shrink: 0; }
+  .back-to-index { display: flex; align-items: center; gap: 5px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: var(--teal-dark); text-decoration: none; opacity: .65; margin-bottom: 12px; transition: opacity .15s; }
+  .back-to-index:hover { opacity: 1; text-decoration: underline; }
   .sidebar-header .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); }
   .sidebar-header .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 800; line-height: 1; color: var(--teal-dark); }
   .sidebar-header .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--teal-dark); margin-top: 4px; }
@@ -301,6 +303,10 @@
 <!-- SIDEBAR -->
 <aside id="sidebar" role="navigation" aria-label="Table des matières">
   <div class="sidebar-header">
+    <a href="index.html" class="back-to-index" title="Retour à la table des matières du cours">
+      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Tous les chapitres
+    </a>
     <div class="label">Science Sec. 4 · Chapitre</div>
     <div class="chap-num">1</div>
     <div class="chap-title">L'organisation de la matière</div>
@@ -1017,12 +1023,12 @@
             Une unité de masse atomique correspond approximativement à la masse d'un proton <em>ou</em> d'un neutron. La masse d'un isotope (en u) est donc proche de son nombre de masse (nombre de nucléons). Seul le carbone-12 pèse <em>exactement</em> 12 u — les autres valeurs sont des mesures expérimentales légèrement différentes des entiers.
           </div>
 
-          <div class="activity-block" style="margin-top:14px;">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — Pourquoi 6p + 6n ≠ 12,000 u exactement ?
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="note-box" style="background:#f0f6f7;margin-top:14px;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — Pourquoi 6p + 6n ≠ 12,000 u exactement ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="activity-content" style="background:#f0f6f7;">
+            <div class="note-body">
               <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">Si on additionne les masses de 6 protons et 6 neutrons libres :</p>
               <ul style="font-size:14px;line-height:1.75;margin:0 0 10px;padding-left:20px;">
                 <li>6 protons → 6 × 1,0073 = <strong>6,0438 u</strong></li>
@@ -1033,12 +1039,12 @@
               <p style="font-size:14px;line-height:1.75;margin:0;">Selon la formule d'Einstein E = mc², lier des nucléons ensemble libère de l'énergie — et cette énergie libérée correspond à une perte de masse. Un noyau est un système <em>plus stable</em> que ses constituants séparés, et cette stabilité a un coût en masse. C'est exactement ce phénomène, l'<strong>énergie de liaison nucléaire</strong>, qui rend les noyaux atomiques stables.</p>
             </div>
           </div>
-          <div class="activity-block" style="margin-top:14px;">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour aller plus loin — Le Laboratoire Cavendish
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="note-box" style="background:#f0f6f7;margin-top:14px;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — Le Laboratoire Cavendish</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="activity-content" style="background:#f0f6f7;">
+            <div class="note-body">
               <p style="font-size:14px;line-height:1.7;margin:0;">Thomson, Rutherford et Chadwick ont tous trois travaillé au <strong>Laboratoire Cavendish</strong> de l'Université de Cambridge, en Angleterre — et tous trois ont reçu un prix Nobel (Thomson en physique en 1906, Chadwick en physique en 1935). C'est l'un des laboratoires les plus productifs de l'histoire de la physique : en moins de 40 ans, trois chercheurs du même endroit ont découvert l'électron, le noyau atomique et le neutron, réécrivant entièrement notre compréhension de la matière.</p>
               <p style="font-size:14px;line-height:1.7;margin:10px 0 0;"><strong>Anecdote :</strong> Rutherford, lui, a reçu son prix Nobel en 1908 — mais en <strong>chimie</strong>, pas en physique, pour ses travaux sur la désintégration des éléments radioactifs. Ironie savoureuse pour un homme qui se considérait avant tout physicien : lors du banquet Nobel, il aurait plaisanté en disant que la transformation la plus rapide qu'il ait observée était sa propre transformation, « en un instant, de physicien en chimiste ».</p>
             </div>
@@ -1398,12 +1404,12 @@
             <p style="margin-bottom:8px;">Les alcalins (1 électron de valence) cherchent à perdre cet électron pour ressembler au gaz noble précédent. Les halogènes (7 électrons de valence) cherchent à en gagner 1 pour ressembler au gaz noble suivant. Les deux groupes se « trouvent » donc parfaitement : l'alcalin cède son électron à l'halogène → les deux atteignent la stabilité d'un gaz noble → ils forment un <strong>sel ionique</strong>.</p>
             <p style="margin:0;">Exemple : Na (1 é de valence) + Cl (7 é de valence) → Na⁺ + Cl⁻ → <strong>NaCl</strong> (sel de table). Ce n'est pas un hasard — c'est exactement la logique de l'octet à l'œuvre.</p>
           </div>
-          <div class="activity-block" style="margin-top:14px;">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — Pourquoi les alcalins réagissent-ils si violemment avec l'eau ?
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="note-box" style="background:#f0f6f7;margin-top:14px;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — Pourquoi les alcalins réagissent-ils si violemment avec l'eau ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="activity-content" style="background:#f0f6f7;">
+            <div class="note-body">
               <p style="margin-bottom:10px;">Les métaux alcalins (Li, Na, K…) réagissent fortement avec l'eau pour deux raisons qui se combinent :</p>
               <p style="margin-bottom:8px;"><strong>1. Leur électron de valence est très facile à perdre.</strong> Avec un seul électron sur leur couche externe, très peu retenu par le noyau (faible énergie d'ionisation), les alcalins cherchent à s'en débarrasser. L'eau est parfaite pour accepter cet électron.</p>
               <p style="margin-bottom:8px;"><strong>2. La réaction libère du gaz H₂ et beaucoup de chaleur.</strong> La réaction générale est :</p>
@@ -2118,12 +2124,12 @@
             <figcaption>Fig. — Charge typique des ions selon leur position dans le tableau périodique (métaux de gauche → cations, non-métaux de droite → anions, gaz inertes → pas d'ions).</figcaption>
           </figure>
 
-          <div class="activity-block" style="margin-top:14px;">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — Le carbone et le silicium peuvent-ils vraiment former C⁴⁺/C⁴⁻ ?
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="note-box" style="background:#f0f6f7;margin-top:14px;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — Le carbone et le silicium peuvent-ils vraiment former C⁴⁺/C⁴⁻ ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="activity-content" style="background:#f0f6f7;">
+            <div class="note-body">
               <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">Le manuel Kaléidoscope présente un tableau qui prévoit, pour la famille IVA (C, Si), un ion possible <strong>X⁴⁺ ou X⁴⁻</strong> selon le même principe que les autres familles : 4 électrons de valence → perte ou gain de 4 électrons pour atteindre l'octet. Sur papier, c'est la suite logique du tableau. Dans les faits, c'est presque jamais ce qui se passe.</p>
               <p style="font-size:14px;line-height:1.75;margin:0 0 10px;">La raison : perdre ou gagner <strong>4 électrons</strong> coûte énormément d'énergie. Chaque électron arraché (ou ajouté) à un atome devient de plus en plus difficile à retirer (ou de moins en moins favorable à ajouter) que le précédent. Pour un ion 1+ ou 1−, ce coût reste raisonnable ; rendu à 4+ ou 4−, il devient prohibitif. Le carbone et le silicium « choisissent » donc presque toujours une option beaucoup plus économe : <strong>partager</strong> leurs 4 électrons de valence avec d'autres atomes via 4 liaisons covalentes, plutôt que de les transférer en bloc. C'est pourquoi CH₄, CO₂, SiH₄ et SiCl₄ existent, mais pas de sels solides faits d'ions C⁴⁺, C⁴⁻, Si⁴⁺ ou Si⁴⁻.</p>
               <p style="font-size:14px;line-height:1.75;margin:0;"><strong>Un piège classique :</strong> le SiO₂ (silice — le sable, le quartz) a une formule qui ressemble à un composé ionique obtenu par chassé-croisé. Mais Si (χ ≈ 1,8) et O (χ ≈ 3,4) donnent une différence d'électronégativité d'environ <strong>1,6</strong> — sous le seuil de 1,7, donc une liaison covalente (polaire). SiO₂ est en réalité un <strong>solide covalent géant</strong> : chaque atome de Si est lié par covalence à 4 atomes d'O dans un immense réseau cristallin tridimensionnel — pas un réseau ionique comme NaCl, même si son aspect (solide cristallin, point de fusion très élevé) y ressemble beaucoup.</p>
@@ -3362,12 +3368,12 @@
             La mole est en fait la quantité exacte de particules nécessaire pour <strong>convertir une masse exprimée en u (unités de masse atomique, microscopique) en une masse exprimée en g (grammes, mesurable au laboratoire)</strong>. Si un seul atome de carbone 12 pèse 12 u, alors une <strong>mole</strong> d'atomes de carbone 12 pèse exactement <strong>12 g</strong> — c'est cette équivalence qui rend la mole si utile : elle relie le monde invisible des atomes à ce qu'on peut peser sur une balance.
           </div>
 
-          <div class="activity-block" style="margin-top:14px;">
-            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)" style="background:#f0f6f7;color:var(--teal-dark);border:none;">
-              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Pour les curieux — La mole, une unité du système international (SI)
-              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="note-box" style="background:#f0f6f7;margin-top:14px;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — La mole, une unité du système international (SI)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="activity-content" style="background:#f0f6f7;">
+            <div class="note-body">
               <p style="font-size:14px;line-height:1.75;margin:0 0 12px;">Le <strong>système international d'unités (SI)</strong> est le système d'unités le plus largement utilisé dans le monde. Il comporte <strong>sept unités de base</strong> — et la mole en fait partie, aux côtés d'unités bien plus familières comme le mètre ou la seconde :</p>
               <div class="particle-grid">
                 <div class="particle-card"><div class="p-symbol">m</div><div class="p-name">mètre</div><div class="p-charge">longueur</div></div>
