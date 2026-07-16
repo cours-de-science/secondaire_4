@@ -598,9 +598,9 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Quelle masse de KNO₃ faut-il dissoudre pour obtenir 400 mL d'une solution à 5 % (m/V) ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 20 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 80 g</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 5 g</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 80 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 20 g</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 2 g</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 5 % (m/V) = 5 g / 100 mL. Pour 400 mL : 5 × (400 ÷ 100) = 5 × 4 = <strong>20 g</strong>.</span></div>
@@ -622,10 +622,10 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Une eau contient 0,015 g de fer dissous par litre. Exprime cette concentration en ppm.</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 15 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 0,015 ppm</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 1,5 ppm</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 150 ppm</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,015 ppm</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> 15 ppm</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,015 g/L ÷ 0,001 g/L = <strong>15 ppm</strong>.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans l'eau, 1 ppm = 0,001 g/L. 0,015 ÷ 0,001 = <strong>15 ppm</strong>.</span></div>
@@ -716,6 +716,35 @@
 
           <div class="activity-block">
             <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application (difficile) — Trouver la masse molaire soi-même
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Quelle est la concentration molaire d'une solution préparée en dissolvant 37,5 g de nitrate de potassium (KNO₃) dans 600 mL de solution ? (Cette fois, la masse molaire n'est pas donnée — calcule-la d'abord à partir du tableau périodique, comme à la section 1.5.)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Étape 1 — Masse molaire : M(KNO₃) = M(K) + M(N) + 3 × M(O) = 39,10 + 14,01 + 3 × 16,00 = 39,10 + 14,01 + 48,00 = <strong>101,11 g/mol</strong>.<br><br>
+              Étape 2 — Quantité de matière : n = m ÷ M = 37,5 ÷ 101,11 ≈ <strong>0,371 mol</strong>.<br><br>
+              Étape 3 — Concentration : C = n ÷ V = 0,371 ÷ 0,600 ≈ <strong>0,618 mol/L</strong>.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application (difficile) — La question à l'envers : combien de grammes peser ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Un technicien de laboratoire doit préparer 750 mL d'une solution de chlorure de calcium (CaCl₂) à une concentration de 1,5 mol/L. Quelle masse de CaCl₂ (en grammes) doit-il peser ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Cette fois, on part de la concentration pour remonter à la masse — l'inverse de d'habitude.<br><br>
+              Étape 1 — Masse molaire : M(CaCl₂) = M(Ca) + 2 × M(Cl) = 40,08 + 2 × 35,45 = 40,08 + 70,90 = <strong>110,98 g/mol</strong>.<br><br>
+              Étape 2 — Quantité de matière nécessaire : n = C × V = 1,5 mol/L × 0,750 L = <strong>1,125 mol</strong>.<br><br>
+              Étape 3 — Masse à peser : m = n × M = 1,125 × 110,98 ≈ <strong>124,9 g</strong>.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
               <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Relier masse, moles et concentration
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -739,12 +768,13 @@
             <thead><tr><th>Unité</th><th>Formule</th><th>Mesure</th><th>Contexte typique</th></tr></thead>
             <tbody>
               <tr><td><strong>% (m/V) ou (V/V)</strong></td><td>(quantité soluté ÷ volume solution) × 100</td><td>Masse ou volume</td><td>Étiquettes de produits (ex. : vinaigre 5 %)</td></tr>
+              <tr><td><strong>% (m/m)</strong></td><td>(masse soluté ÷ masse <em>totale</em> solution) × 100</td><td>Masse sur masse (aucun volume)</td><td>Alliages, mélanges solides, concentrés</td></tr>
               <tr><td><strong>g/L</strong></td><td>masse soluté ÷ volume solution</td><td>Masse</td><td>Concentrations modérées</td></tr>
               <tr><td><strong>ppm</strong></td><td>masse soluté ÷ masse solution × 10⁶</td><td>Masse (très petites quantités)</td><td>Contaminants, chlore de piscine</td></tr>
               <tr><td><strong>mol/L (M)</strong></td><td>n ÷ V</td><td>Nombre de particules</td><td>Réactions chimiques, stœchiométrie</td></tr>
             </tbody>
           </table>
-          <p style="font-size:13px;color:var(--muted);">Quelle que soit l'unité, le principe reste le même : une concentration compare toujours <strong>combien de soluté</strong> se trouve dans <strong>combien de solution</strong>. Et la formule de dilution C₁V₁ = C₂V₂ (vue à la section 2.1.1) s'applique à ces quatre unités, à condition de garder la même unité des deux côtés.</p>
+          <p style="font-size:13px;color:var(--muted);">Quelle que soit l'unité, le principe reste le même : une concentration compare toujours <strong>combien de soluté</strong> se trouve dans <strong>combien de solution</strong>. La formule de dilution C₁V₁ = C₂V₂ (vue à la section 2.1.1) s'applique à % (m/V), % (V/V), g/L et mol/L, à condition de garder la même unité des deux côtés — sauf pour le % (m/m), qui se traite plutôt avec C₁ × m<sub>totale,1</sub> = C₂ × m<sub>totale,2</sub> (voir l'activité de réflexion plus haut), puisqu'il ne contient aucun volume dans sa définition.</p>
 
           <div class="activity-block">
             <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
@@ -790,10 +820,10 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Combien de grammes de NaCl se trouvent dans 250 mL d'une solution à 8 % (m/V) ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 20 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 200 g</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 8 g</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2 g</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 200 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> 20 g</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 8 % (m/V) = 8 g / 100 mL. Pour 250 mL : 8 × (250 ÷ 100) = 8 × 2,5 = <strong>20 g</strong>.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>8 % (m/V) = 8 g / 100 mL de solution. Pour 250 mL, on multiplie par le facteur d'échelle 250 ÷ 100 = 2,5 : 8 g × 2,5 = <strong>20 g</strong>.</span></div>
@@ -817,8 +847,8 @@
             <div class="quiz-q-text">Une solution a une concentration de 10 % (m/V). À combien de g/L cela correspond-il ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 10 g/L</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 100 g/L</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 1 g/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 1 g/L</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 100 g/L</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1000 g/L</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 10 % (m/V) = 10 g / 100 mL. Il y a 10 portions de 100 mL dans 1 L (1000 mL), donc : 10 g × 10 = <strong>100 g/L</strong>.</span></div>
@@ -827,15 +857,15 @@
 
           <div class="quiz-q" data-qi="4">
             <div class="quiz-q-label">Choix multiple</div>
-            <div class="quiz-q-text">Une eau contient 0,002 g de plomb par litre. Exprime cette concentration en ppm.</div>
+            <div class="quiz-q-text">Une eau contient 0,024 g d'arsenic par litre. Exprime cette concentration en ppm.</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 2 ppm</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,2 ppm</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 20 ppm</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 200 ppm</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 24 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2,4 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 240 ppm</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,24 ppm</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,002 g/L ÷ 0,001 g/L = <strong>2 ppm</strong>.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,002 g/L représente donc 0,002 ÷ 0,001 = <strong>2 ppm</strong>.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,024 g/L ÷ 0,001 g/L = <strong>24 ppm</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Dans l'eau, 1 ppm = 1 mg/L = 0,001 g/L. 0,024 g/L représente donc 0,024 ÷ 0,001 = <strong>24 ppm</strong>.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="5">
@@ -877,15 +907,15 @@
 
           <div class="quiz-q" data-qi="8">
             <div class="quiz-q-label">Choix multiple</div>
-            <div class="quiz-q-text">Quelle est la concentration molaire d'une solution contenant 90,09 g de glucose (M = 180,18 g/mol) dissous dans 500 mL de solution ?</div>
+            <div class="quiz-q-text">Quelle est la concentration molaire d'une solution contenant 80,00 g de NaOH (M = 40,00 g/mol) dissous dans 4,00 L de solution ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 1,00 mol/L</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,50 mol/L</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2,00 mol/L</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,25 mol/L</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 0,500 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2,00 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 4,00 mol/L</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,250 mol/L</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. n = m ÷ M = 90,09 ÷ 180,18 = 0,500 mol. C = n ÷ V = 0,500 mol ÷ 0,500 L = <strong>1,00 mol/L</strong>.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>D'abord convertir la masse en moles : n = m ÷ M = 90,09 ÷ 180,18 = 0,500 mol. Puis C = n ÷ V = 0,500 ÷ 0,500 (500 mL = 0,500 L) = <strong>1,00 mol/L</strong>. Le choix B oublie de diviser par le volume ; n'utiliser que n sans le diviser par V.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. n = m ÷ M = 80,00 ÷ 40,00 = 2,00 mol. C = n ÷ V = 2,00 mol ÷ 4,00 L = <strong>0,500 mol/L</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>D'abord convertir la masse en moles : n = m ÷ M = 80,00 ÷ 40,00 = 2,00 mol. Puis C = n ÷ V = 2,00 ÷ 4,00 = <strong>0,500 mol/L</strong>. Le choix B (2,00) s'arrête à n, sans diviser par le volume.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="9">
@@ -968,7 +998,7 @@
           <a href="#abs">Acides, bases, sels</a>
         </div>
 
-        <p>Un fil de cuivre conduit le courant électrique grâce à ses électrons libres, qui se déplacent facilement d'un atome à l'autre dans le réseau métallique. L'eau pure, elle, n'a pas d'électrons libres — et pourtant, plonges-y une pincée de sel et une pile, et le courant se met à circuler. Ce n'est donc pas la même sorte de « courant » : dans une solution, ce sont des <strong>ions</strong> qui transportent les charges, pas des électrons. Cette section explique comment et pourquoi, et pourquoi certaines solutions conduisent beaucoup mieux que d'autres.</p>
+        <p>Un fil de cuivre conduit le courant électrique grâce à ses électrons libres, qui se déplacent facilement d'un atome à l'autre dans le réseau métallique. L'eau pure, elle, n'a pas d'électrons libres — et pourtant, plonges-y une pincée de sel et une pile, et le courant se met à circuler. Ce n'est donc pas la même sorte de « courant » : dans une solution, ce sont des <strong>ions</strong> qui transportent les charges, pas des électrons. Cette section explique comment, et pourquoi certaines solutions conduisent beaucoup mieux que d'autres.</p>
 
         <div class="subsection" id="conductibilite">
           <div class="subsection-title">2.2.1 — La conductibilité électrique</div>
@@ -996,7 +1026,7 @@
 
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Reconnaître un électrolyte à partir de sa formule</span></div>
-            Un électrolyte est formé d'atomes <strong>métalliques</strong> (ou d'hydrogène) <strong>et</strong> non métalliques — c'est le cas du chlorure de sodium (NaCl). Un non-électrolyte, lui, est constitué <strong>uniquement</strong> d'atomes non métalliques — c'est le cas du saccharose, ou sucre de table (C₁₂H₂₂O₁₁). Ce repère rapide fonctionne bien pour la grande majorité des cas, mais reste une <em>tendance générale</em> plutôt qu'une garantie absolue — la seule façon de savoir avec certitude reste de tester la conductibilité (voir l'Outil 1) ou d'identifier le type de liaison (chapitre 1, section 1.4).
+            Un électrolyte est formé d'atomes <strong>métalliques</strong> (ou d'hydrogène) <strong>et</strong> non métalliques — c'est le cas du chlorure de sodium (NaCl). Un non-électrolyte, lui, est constitué <strong>uniquement</strong> d'atomes non métalliques — c'est le cas du saccharose, ou sucre de table (C₁₂H₂₂O₁₁). Ce repère rapide fonctionne bien pour la grande majorité des cas, mais reste une <em>tendance générale</em> plutôt qu'une garantie absolue — la seule façon de savoir avec certitude reste de <a href="#outil-dce" onclick="var t=document.getElementById('outil-dce');var sec=t.closest('.section-card');var btn=sec.querySelector('.section-toggle');if(btn&amp;&amp;btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">tester la conductibilité</a> ou d'identifier le type de liaison (chapitre 1, section 1.4).
           </div>
 
           <div class="activity-block">
@@ -1016,6 +1046,11 @@
           <div class="subsection-title">2.2.2 — La dissociation électrolytique</div>
 
           <p>Que se passe-t-il, exactement, quand on dissout une substance dans l'eau ? La réponse dépend entièrement du <strong>type de liaison</strong> de cette substance (chapitre 1, section 1.4) — et c'est là que se joue la différence entre un électrolyte et un non-électrolyte.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Avant de commencer — les indices d'état : (s), (aq), (l), (g)</span></div>
+            Dans les équations qui suivent, les indices entre parenthèses précisent l'<strong>état physique</strong> de chaque substance : solide (s), aqueux — dissous dans l'eau (aq), liquide (l) ou gazeux (g). Remarque que <strong>l'eau elle-même n'apparaît jamais</strong> dans ces équations : puisqu'elle n'est pas un réactif à proprement parler (elle ne se transforme pas, elle sert seulement de solvant), on ne l'écrit pas, même si c'est elle qui rend la dissociation possible.
+          </div>
 
           <div class="def-box">
             <div class="def-label">Définition</div>
@@ -1039,11 +1074,6 @@
               <tr><td><strong>Exemple</strong></td><td>KCl, NaCl, tous les ABS</td><td>Glucose, sucrose, éthanol</td></tr>
             </tbody>
           </table>
-
-          <div class="note-box">
-            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Les indices d'état : (s), (aq), (l), (g)</span></div>
-            Dans une équation de dissociation, les indices entre parenthèses précisent l'<strong>état physique</strong> de chaque substance : solide (s), aqueux — dissous dans l'eau (aq), liquide (l) ou gazeux (g). Remarque que <strong>l'eau elle-même n'apparaît jamais</strong> dans l'équation : puisqu'elle n'est pas un réactif à proprement parler (elle ne se transforme pas, elle sert seulement de solvant), on ne l'écrit pas, même si c'est elle qui rend la dissociation possible.
-          </div>
 
           <div class="subsection-title" style="margin-top:26px;font-size:15px;">Écrire une équation de dissociation équilibrée</div>
           <p>Écrire une équation de dissociation électrolytique demande de respecter deux équilibres à la fois : le nombre d'atomes de chaque élément, <strong>et</strong> la neutralité électrique totale (la somme des charges doit toujours égaler zéro, comme le composé de départ). Voici la méthode, appliquée au trioxyde de dialuminium (Al₂O₃) :</p>
@@ -1167,9 +1197,9 @@
             <div class="quiz-q-text">Un cristal de KI (iodure de potassium) parfaitement sec est posé sur la table. Pourquoi ne conduit-il pas le courant électrique, même s'il est fait d'ions K⁺ et I⁻ ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Parce qu'il ne contient pas de charges</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Parce que les ions sont figés dans le réseau cristallin et ne peuvent pas se déplacer</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Parce que KI est un composé covalent</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Parce qu'il n'y a pas d'électrode disponible</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Parce que KI est un composé covalent</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Parce que les ions sont figés dans le réseau cristallin et ne peuvent pas se déplacer</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Les charges (K⁺ et I⁻) sont bel et bien présentes — c'est la condition de <strong>mobilité</strong> qui manque : dans un solide ionique intact, les ions sont verrouillés en place.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>KI est bien ionique (métal + non-métal) et contient bien des charges. Ce qui manque, c'est la <strong>mobilité</strong> : dans le solide, les ions K⁺ et I⁻ sont figés dans le réseau cristallin et ne peuvent pas se déplacer pour transporter un courant.</span></div>
@@ -1242,9 +1272,9 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">L'eau de source (embouteillée) contient de petites quantités de sels minéraux dissous. L'eau distillée, elle, n'en contient pratiquement aucun. Laquelle des deux allumera le plus l'ampoule d'un DCE ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> L'eau de source, car elle contient plus d'ions</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Les deux allumeront l'ampoule également, l'eau étant toujours conductrice</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> L'eau distillée, car elle est plus pure</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Les deux allumeront l'ampoule également, l'eau étant toujours conductrice</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> L'eau de source, car elle contient plus d'ions</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucune des deux, l'eau ne conduit jamais le courant</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La conductibilité dépend de la <strong>quantité d'ions présents</strong>, pas de la « pureté » en soi. L'eau de source contient des sels minéraux dissous (donc des ions) ; l'eau distillée, presque exempte d'ions, conduit très mal le courant.</span></div>
@@ -1355,8 +1385,8 @@
             <div class="quiz-q-text">Le vinaigre (solution de CH₃COOH) ne se dissocie qu'à environ 2 %. Quel type d'électrolyte est-il ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Électrolyte fort</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Électrolyte faible</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Non-électrolyte</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Non-électrolyte</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Électrolyte faible</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Impossible à déterminer</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. À seulement 2 % de dissociation (bien en dessous du seuil de 25 %), le vinaigre est un <strong>électrolyte faible</strong> — bien qu'il conduise quand même un peu le courant, contrairement à un non-électrolyte qui n'en produirait aucun.</span></div>
@@ -1391,10 +1421,10 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Un composé se dissocie à 90 % en ions lorsqu'il est dissous dans l'eau. Comment le classe-t-on ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Électrolyte fort</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un mélange homogène</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Électrolyte faible</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Non-électrolyte</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un mélange homogène</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Électrolyte fort</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 90 % est très au-dessus du seuil de 25 % qui distingue faible de fort — même si ce n'est pas exactement 100 %, un tel taux de dissociation classe la substance comme un <strong>électrolyte fort</strong>.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>90 % de dissociation est très largement au-dessus du seuil de 25 % — c'est un <strong>électrolyte fort</strong> (le seuil de « fort » n'exige pas exactement 100 %, seulement un taux très élevé).</span></div>
@@ -1572,10 +1602,10 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Une solution rougit le papier de tournesol et a un goût aigre. De quelle famille s'agit-il probablement ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Un acide</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un non-électrolyte</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Une base</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un sel</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un non-électrolyte</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Un acide</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rougir le tournesol et avoir un goût aigre sont deux propriétés caractéristiques des <strong>acides</strong> (pH &lt; 7).</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Rougir le tournesol (pas le bleuir) et avoir un goût aigre (pas amer) sont des propriétés d'<strong>acide</strong>, pas de base ni de sel.</span></div>
@@ -1610,9 +1640,9 @@
             <div class="quiz-q-text">D'après la théorie d'Arrhenius présentée dans cette section, comment définit-on formellement une base ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Une substance qui a un goût amer</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Une substance qui libère des ions OH⁻ en solution</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Une substance qui contient un métal</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Une substance dont le pH est exactement 7</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Une substance qui contient un métal</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Une substance qui libère des ions OH⁻ en solution</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La définition d'Arrhenius est basée sur les <strong>ions produits en solution</strong> : une base libère des OH⁻. Le goût amer est une conséquence observable, pas la définition elle-même.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La définition d'Arrhenius se base sur les ions produits, pas sur les propriétés sensorielles ou le pH d'un sel : une base est une substance qui libère des ions <strong>OH⁻</strong> en solution.</span></div>
@@ -1968,9 +1998,9 @@
             <div class="quiz-q-label">Choix multiple</div>
             <div class="quiz-q-text">Une solution a un pH de 5,5. De quelle nature est-elle ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Acide</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Basique</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Neutre</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Basique</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Acide</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Impossible à déterminer</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Tout pH dans l'intervalle [0, 7[ est <strong>acide</strong> ; 5,5 s'y trouve.</span></div>
@@ -1993,8 +2023,8 @@
             <div class="quiz-q-text">Le bleu de bromothymol devient bleu dans une solution testée. D'après le tableau des indicateurs, que peut-on dire du pH de cette solution ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Il est inférieur à 6,0</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Il est supérieur à 7,6</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Il est exactement 7</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Il est exactement 7</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Il est supérieur à 7,6</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Il est entre 6,0 et 7,6</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le bleu de bromothymol passe du jaune (acide) au bleu (basique) sur sa zone de virage de 6,0 à 7,6. Une couleur franchement bleue signifie qu'on est au-delà de cette zone, donc pH &gt; <strong>7,6</strong>.</span></div>
@@ -2006,9 +2036,9 @@
             <div class="quiz-q-text">Une solution a [H⁺] = 10⁻⁹ mol/L. Quel est son pH ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> −9</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 9</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,000000001</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 5</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,000000001</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> 9</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. pH = −log(10⁻⁹) = <strong>9</strong>. C'est simplement la valeur absolue de l'exposant de [H⁺] lorsque celle-ci est écrite comme une puissance de 10.</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>pH = −log[H⁺] = −log(10⁻⁹) = <strong>9</strong>. Le signe négatif de la formule annule le signe négatif de l'exposant.</span></div>
@@ -2056,9 +2086,9 @@
             <div class="quiz-q-text">Une solution de HCl (acide fort) et une solution de CH₃COOH (acide faible) ont exactement la même concentration molaire (1 mol/L). Que peut-on dire de leurs pH respectifs ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Ils sont identiques, puisque la concentration molaire est la même</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le HCl a un pH plus bas (plus acide) que le CH₃COOH</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Aucun des deux n'a de pH, car ce ne sont pas des bases</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le CH₃COOH a un pH plus bas (plus acide) que le HCl</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucun des deux n'a de pH, car ce ne sont pas des bases</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Le HCl a un pH plus bas (plus acide) que le CH₃COOH</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le HCl, électrolyte fort, libère presque tout son H⁺ (≈ 100 % dissocié) ; le CH₃COOH, électrolyte faible, n'en libère qu'une infime fraction (≈ 2 %). À concentration molaire nominale égale, le HCl produit donc bien plus d'ions H⁺ réels — son pH est plus bas (plus acide).</span></div>
             <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La concentration molaire nominale n'est pas la même chose que [H⁺] réel. Le HCl (fort) se dissocie presque complètement, contrairement au CH₃COOH (faible, ≈ 2 % dissocié) — à concentration égale, le HCl produit donc beaucoup plus de H⁺ réel, et a donc un <strong>pH plus bas</strong>.</span></div>
