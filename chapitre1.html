@@ -117,6 +117,8 @@
 
   /* Keyword */
   .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .nuclide { display: inline-flex; align-items: center; font-weight: 700; }
+  .nuclide .nuclide-stack { display: inline-flex; flex-direction: column; align-items: flex-end; font-size: .62em; line-height: 1.05; margin-right: 2px; font-weight: 700; }
 
   /* Search highlight */
   mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
@@ -622,7 +624,7 @@
               <div class="year">1919 — Ernest Rutherford</div>
               <div class="model-name">La découverte du proton</div>
               <p>Le modèle de 1911 établissait que le noyau est dense et positif, sans dire de quoi il est fait. En 1919, Rutherford bombarde du gaz azote avec des particules alpha et observe l'éjection de particules identiques à des <strong>noyaux d'hydrogène</strong>. Pour vérifier qu'il ne s'agit pas d'une particularité propre à l'azote, lui et son collaborateur James Chadwick refont l'expérience avec d'autres éléments légers — <strong>bore, fluor, sodium, aluminium, phosphore</strong> — et observent chaque fois l'éjection du même type de noyau d'hydrogène. Cette universalité le convainc qu'il s'agit d'un <strong>constituant fondamental commun à tous les noyaux</strong>, qu'il nomme <span class="kw">proton</span> l'année suivante (du grec <em>protos</em>, « premier »).</p>
-              <div class="formula">¹⁴₇N + ⁴₂He → ¹⁷₈O + ¹₁H</div>
+              <div class="formula"><span class="nuclide"><span class="nuclide-stack"><span>14</span><span>7</span></span>N</span> + <span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span> → <span class="nuclide"><span class="nuclide-stack"><span>17</span><span>8</span></span>O</span> + <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>1</span></span>H</span></div>
               <p>C'est la <strong>première réaction nucléaire provoquée artificiellement</strong> par un humain (parfois appelée à tort « le premier atome divisé » — il s'agit plutôt d'une transmutation : un élément se change en un autre).</p>
 
               <div class="note-box" style="background:#f0f6f7;">
@@ -772,7 +774,7 @@
                      alt="Configuration atomique simplifiée du lithium-7 : noyau 3p⁺ 4n⁰, 2 couches avec 2 et 1 électrons"
                      style="width:100%; max-width:300px;">
                 <figcaption style="font-size:13px; color:var(--muted); margin-top:6px;">
-                  <strong>Configuration atomique simplifiée</strong> — ⁷₃Li<br>Le noyau précise 3 p⁺ et 4 n⁰. Les couches indiquent la répartition des électrons : 2 — 1.
+                  <strong>Configuration atomique simplifiée</strong> — <span class="nuclide"><span class="nuclide-stack"><span>7</span><span>3</span></span>Li</span><br>Le noyau précise 3 p⁺ et 4 n⁰. Les couches indiquent la répartition des électrons : 2 — 1.
                 </figcaption>
               </figure>
             </div>
@@ -843,8 +845,8 @@
             <li><strong>X</strong> = symbole de l'élément</li>
           </ul>
 
-          <p>Exemple : <strong>¹²₆C</strong> → A=12, Z=6 → 6 protons, 6 neutrons (12−6), 6 électrons (atome neutre).</p>
-          <p>Autre exemple : <strong>¹⁴₆C</strong> (carbone-14) → même Z=6 (toujours du carbone), mais A=14 → 8 neutrons. C'est un <strong>isotope</strong> du carbone-12.</p>
+          <p>Exemple : <strong><span class="nuclide"><span class="nuclide-stack"><span>12</span><span>6</span></span>C</span></strong> → A=12, Z=6 → 6 protons, 6 neutrons (12−6), 6 électrons (atome neutre).</p>
+          <p>Autre exemple : <strong><span class="nuclide"><span class="nuclide-stack"><span>14</span><span>6</span></span>C</span></strong> (carbone-14) → même Z=6 (toujours du carbone), mais A=14 → 8 neutrons. C'est un <strong>isotope</strong> du carbone-12.</p>
 
           <p>En ST (secondaire 4), on représente l'atome par sa <strong>configuration atomique (simplifiée)</strong> en plaçant les électrons sur les couches autour d'un noyau indiquant p⁺ et n⁰.</p>
           <div class="note-box">
@@ -1069,7 +1071,7 @@
             <p><strong>Isotopes :</strong> variétés du même atome (même Z, même nombre de protons) qui diffèrent uniquement par leur <strong>nombre de neutrons</strong>, et donc par leur nombre de masse A.</p>
           </div>
           <p>Les isotopes d'un même élément ont les <strong>mêmes propriétés chimiques</strong> (même nombre d'électrons de valence), mais pas la même masse.</p>
-          <p><strong>Exemple — Lithium :</strong> ⁶₃Li (3p, 3n) et ⁷₃Li (3p, 4n). Les deux ont 3 électrons.</p>
+          <p><strong>Exemple — Lithium :</strong> <span class="nuclide"><span class="nuclide-stack"><span>6</span><span>3</span></span>Li</span> (3p, 3n) et <span class="nuclide"><span class="nuclide-stack"><span>7</span><span>3</span></span>Li</span> (3p, 4n). Les deux ont 3 électrons.</p>
           <figure style="text-align:center; margin: 16px 0 20px;">
             <img src="images/ch1/lithium_isotopes.png"
                  alt="Comparaison des isotopes du lithium : Li-6 (3p, 3n, 3e⁻) et Li-7 (3p, 4n, 3e⁻) — mêmes couches électroniques, neutron supplémentaire dans Li-7"
@@ -1081,7 +1083,7 @@
           <p>Chaque isotope a une <span class="kw">abondance relative</span> (%) différente dans la nature. Les isotopes les plus stables sont généralement les plus abondants.</p>
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple — Carbone-14 et datation radioactive</span></div>
-            <p style="margin-bottom:8px;">Le carbone-14 (⁶₁₄C) contient 6 protons et 8 neutrons. Il est produit naturellement dans la haute atmosphère par les rayons cosmiques, et les organismes vivants l'incorporent en permanence — dans la même proportion que dans l'air — tant qu'ils respirent ou se nourrissent.</p>
+            <p style="margin-bottom:8px;">Le carbone-14 (<span class="nuclide"><span class="nuclide-stack"><span>14</span><span>6</span></span>C</span>) contient 6 protons et 8 neutrons. Il est produit naturellement dans la haute atmosphère par les rayons cosmiques, et les organismes vivants l'incorporent en permanence — dans la même proportion que dans l'air — tant qu'ils respirent ou se nourrissent.</p>
             <p style="margin-bottom:0;">À la mort d'un organisme, l'apport en C-14 s'arrête. Le C-14 étant radioactif, il se désintègre à un rythme connu et constant (sa demi-vie est de 5 730 ans). En mesurant la proportion de C-14 restante dans un échantillon organique (os, bois, charbon…) et en comparant avec la proportion actuelle dans l'atmosphère, on peut calculer depuis combien de temps l'organisme est mort. C'est le principe de la <strong>datation au carbone-14</strong>.</p>
           </div>
         </div>
