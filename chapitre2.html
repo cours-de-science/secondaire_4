@@ -114,6 +114,9 @@
   /* Formula */
   .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
   .formula-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 14px; }
+  .charge-check { border-collapse: collapse; margin: 12px auto; font-family: var(--mono); font-size: 14px; color: var(--yellow); background: var(--teal-dark); border-radius: 8px; overflow: hidden; }
+  .charge-check td { padding: 7px 16px; text-align: center; white-space: nowrap; }
+  .charge-check tr:last-child td { font-weight: 700; border-top: 1px solid rgba(255,255,255,.25); }
 
   /* Keyword */
   .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
@@ -1092,13 +1095,34 @@
           <div class="note-box" style="background:#f0f6f7;">
             <div class="note-label" style="color:var(--teal-dark);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Technique — Vérifier rapidement la neutralité</span></div>
             <p style="margin:0;">Une façon rapide de vérifier qu'une équation de dissociation est bien équilibrée : dresser une petite table à 4 lignes, comme à l'étape 5 ci-dessus.</p>
-            <div class="formula" style="font-size:14px;margin:10px 0;">NaCl<sub>(s)</sub> → Na⁺<sub>(aq)</sub> + Cl⁻<sub>(aq)</sub><br>0 &nbsp;&nbsp;→&nbsp;&nbsp; 1 × 1⁺ &nbsp;&nbsp;+&nbsp;&nbsp; 1 × 1⁻<br>0 &nbsp;&nbsp;→&nbsp;&nbsp; +1 &nbsp;&nbsp;+&nbsp;&nbsp; (−1)<br>0 &nbsp;&nbsp;→&nbsp;&nbsp; <strong>0</strong></div>
+            <table class="charge-check">
+              <tbody>
+                <tr><td>NaCl<sub>(s)</sub></td><td>→</td><td>Na⁺<sub>(aq)</sub></td><td>+</td><td>Cl⁻<sub>(aq)</sub></td></tr>
+                <tr><td>0</td><td>→</td><td>1 × 1⁺</td><td>+</td><td>1 × 1⁻</td></tr>
+                <tr><td>0</td><td>→</td><td>+1</td><td>+</td><td>(−1)</td></tr>
+                <tr><td>0</td><td>→</td><td colspan="3">0</td></tr>
+              </tbody>
+            </table>
             <p style="margin:0;">Le composé de départ est toujours neutre (charge 0) — si la somme des charges des produits ne tombe pas exactement à 0, il y a une erreur dans les indices à corriger.</p>
           </div>
 
           <p>Voici deux autres exemples, avec la vérification de neutralité :</p>
-          <div class="formula" style="font-size:14px;">MgBr₂<sub>(s)</sub> → Mg²⁺<sub>(aq)</sub> + 2 Br⁻<sub>(aq)</sub><br>0 &nbsp;→&nbsp; 1 × 2⁺ &nbsp;+&nbsp; 2 × 1⁻<br>0 &nbsp;→&nbsp; +2 &nbsp;+&nbsp; (−2)<br>0 &nbsp;→&nbsp; <strong>0</strong> ✓</div>
-          <div class="formula" style="font-size:14px;">Na₃PO₄<sub>(s)</sub> → 3 Na⁺<sub>(aq)</sub> + PO₄³⁻<sub>(aq)</sub><br>0 &nbsp;→&nbsp; 3 × 1⁺ &nbsp;+&nbsp; 1 × 3⁻<br>0 &nbsp;→&nbsp; +3 &nbsp;+&nbsp; (−3)<br>0 &nbsp;→&nbsp; <strong>0</strong> ✓</div>
+          <table class="charge-check">
+            <tbody>
+              <tr><td>MgBr₂<sub>(s)</sub></td><td>→</td><td>Mg²⁺<sub>(aq)</sub></td><td>+</td><td>2 Br⁻<sub>(aq)</sub></td></tr>
+              <tr><td>0</td><td>→</td><td>1 × 2⁺</td><td>+</td><td>2 × 1⁻</td></tr>
+              <tr><td>0</td><td>→</td><td>+2</td><td>+</td><td>(−2)</td></tr>
+              <tr><td>0</td><td>→</td><td colspan="3">0 ✓</td></tr>
+            </tbody>
+          </table>
+          <table class="charge-check">
+            <tbody>
+              <tr><td>Na₃PO₄<sub>(s)</sub></td><td>→</td><td>3 Na⁺<sub>(aq)</sub></td><td>+</td><td>PO₄³⁻<sub>(aq)</sub></td></tr>
+              <tr><td>0</td><td>→</td><td>3 × 1⁺</td><td>+</td><td>1 × 3⁻</td></tr>
+              <tr><td>0</td><td>→</td><td>+3</td><td>+</td><td>(−3)</td></tr>
+              <tr><td>0</td><td>→</td><td colspan="3">0 ✓</td></tr>
+            </tbody>
+          </table>
           <p class="formula-caption">Remarque : dans Na₃PO₄, l'ion polyatomique PO₄³⁻ (phosphate) reste toujours intact comme un tout — jamais décomposé en P et O séparés.</p>
 
           <div class="activity-block">
