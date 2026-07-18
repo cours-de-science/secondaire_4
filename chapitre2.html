@@ -996,7 +996,7 @@
           <span class="quick-links-label">Aller à :</span>
           <a href="#conductibilite">Conductibilité</a>
           <a href="#dissociation">Dissociation</a>
-          <a href="#outil-dce">Outil — DCE</a>
+          <a href="#verif-conductibilite">Vérifier la conductibilité</a>
           <a href="#force-electrolytes">Force des électrolytes</a>
           <a href="#abs">Acides, bases, sels</a>
         </div>
@@ -1029,7 +1029,7 @@
 
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Reconnaître un électrolyte à partir de sa formule</span></div>
-            Un électrolyte est formé d'atomes <strong>métalliques</strong> (ou d'hydrogène) <strong>et</strong> non métalliques — c'est le cas du chlorure de sodium (NaCl). Un non-électrolyte, lui, est constitué <strong>uniquement</strong> d'atomes non métalliques — c'est le cas du saccharose, ou sucre de table (C₁₂H₂₂O₁₁). Ce repère rapide fonctionne bien pour la grande majorité des cas, mais reste une <em>tendance générale</em> plutôt qu'une garantie absolue — la seule façon de savoir avec certitude reste de <a href="#outil-dce" onclick="var t=document.getElementById('outil-dce');var sec=t.closest('.section-card');var btn=sec.querySelector('.section-toggle');if(btn&amp;&amp;btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">tester la conductibilité</a> ou d'identifier le type de liaison (chapitre 1, section 1.4).
+            Un électrolyte est formé d'atomes <strong>métalliques</strong> (ou d'hydrogène) <strong>et</strong> non métalliques — c'est le cas du chlorure de sodium (NaCl). Un non-électrolyte, lui, est constitué <strong>uniquement</strong> d'atomes non métalliques — c'est le cas du saccharose, ou sucre de table (C₁₂H₂₂O₁₁). Ce repère rapide fonctionne bien pour la grande majorité des cas, mais reste une <em>tendance générale</em> plutôt qu'une garantie absolue — la seule façon de savoir avec certitude reste de <a href="#verif-conductibilite" onclick="var t=document.getElementById('verif-conductibilite');var sec=t.closest('.section-card');var btn=sec.querySelector('.section-toggle');if(btn&amp;&amp;btn.getAttribute('aria-expanded')==='false')btn.click();setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),80);return false;" style="color:var(--teal-mid);font-weight:600;">tester la conductibilité</a> ou d'identifier le type de liaison (chapitre 1, section 1.4).
           </div>
 
           <div class="activity-block">
@@ -1057,26 +1057,27 @@
 
           <div class="def-box">
             <div class="def-label">Définition</div>
-            <p>La <strong>dissociation électrolytique</strong> (ou dissolution électrolytique, ou dissolution ionique) est le processus par lequel une substance dissoute dans l'eau se sépare en ions libres. Ce sont les substances à liaisons <strong>ioniques</strong> — les acides, les bases et les sels (ABS) — qui subissent ce type de dissolution.</p>
+            <p>La <strong>dissociation électrolytique</strong> (ou dissolution électrolytique, ou dissolution ionique) est le processus par lequel une substance dissoute dans l'eau se sépare en ions libres. C'est le cas des <strong>bases</strong> et des <strong>sels</strong>, qui sont généralement des composés à liaison <strong>ionique</strong>. Les <strong>acides</strong> font exception : la plupart (HCl, CH₃COOH...) sont en fait des molécules <strong>covalentes</strong>, qui réagissent avec l'eau pour libérer des ions H⁺ plutôt que de simplement séparer des ions déjà présents — un processus qu'on distingue parfois sous le nom d'<strong>ionisation</strong>. Le résultat final est le même : la substance devient un électrolyte, peu importe son type de liaison de départ.</p>
           </div>
           <div class="formula" style="font-size:14px;">KCl<sub>(s)</sub> → K⁺<sub>(aq)</sub> + Cl⁻<sub>(aq)</sub></div>
 
           <div class="def-box">
             <div class="def-label">Définition</div>
-            <p>La <strong>dissolution moléculaire</strong> est le processus par lequel une substance dissoute dans l'eau reste intacte — la molécule ne se sépare pas en ions. Ce sont les substances à liaisons <strong>covalentes</strong> (comme le glucose) qui subissent ce type de dissolution.</p>
+            <p>La <strong>dissolution moléculaire</strong> est le processus par lequel une substance dissoute dans l'eau reste intacte — la molécule ne se sépare pas en ions. C'est le cas de la <strong>plupart</strong> des substances à liaisons covalentes (comme le glucose) — à l'exception des acides, qui sont eux aussi covalents mais s'ionisent tout de même au contact de l'eau (voir ci-dessus).</p>
           </div>
           <div class="formula" style="font-size:14px;">C₆H₁₂O₆<sub>(s)</sub> → C₆H₁₂O₆<sub>(aq)</sub></div>
 
           <table class="data-table">
             <thead><tr><th></th><th>Dissociation électrolytique</th><th>Dissolution moléculaire</th></tr></thead>
             <tbody>
-              <tr><td><strong>Type de liaison</strong></td><td>Ionique</td><td>Covalente</td></tr>
-              <tr><td><strong>Ce qui se passe</strong></td><td>Le composé se sépare en ions libres</td><td>La molécule reste intacte, entourée d'eau</td></tr>
+              <tr><td><strong>Type de liaison</strong></td><td>Ionique (bases, sels) — ou covalente pour les acides*</td><td>Covalente</td></tr>
+              <tr><td><strong>Ce qui se passe</strong></td><td>Le composé se sépare en ions libres (ou réagit avec l'eau pour en former, dans le cas d'un acide)</td><td>La molécule reste intacte, entourée d'eau</td></tr>
               <tr><td><strong>Produit-elle des ions ?</strong></td><td>Oui</td><td>Non</td></tr>
               <tr><td><strong>Conduit-elle le courant ?</strong></td><td>Oui — c'est un électrolyte</td><td>Non — c'est un non-électrolyte</td></tr>
-              <tr><td><strong>Exemple</strong></td><td>KCl, NaCl, tous les ABS</td><td>Glucose, sucrose, éthanol</td></tr>
+              <tr><td><strong>Exemple</strong></td><td>KCl, NaCl, bases et sels — et les acides (HCl, CH₃COOH...)</td><td>Glucose, sucrose, éthanol</td></tr>
             </tbody>
           </table>
+          <p class="formula-caption" style="text-align:left;">* Les acides sont l'exception à retenir : ce sont des molécules <strong>covalentes</strong>, pas ioniques — mais elles produisent quand même des ions en solution, donc elles se comportent comme des électrolytes. Ne pas confondre le <strong>type de liaison</strong> d'un composé (ionique ou covalent) avec son <strong>comportement en solution</strong> (électrolyte ou non-électrolyte) : ce sont deux idées liées, mais distinctes.</p>
 
           <div class="subsection-title" style="margin-top:26px;font-size:15px;">Écrire une équation de dissociation équilibrée</div>
           <p>Écrire une équation de dissociation électrolytique demande de respecter deux équilibres à la fois : le nombre d'atomes de chaque élément, <strong>et</strong> la neutralité électrique totale (la somme des charges doit toujours égaler zéro, comme le composé de départ). Voici la méthode, appliquée au trioxyde de dialuminium (Al₂O₃) :</p>
@@ -1155,8 +1156,8 @@
           </div>
         </div>
 
-        <div class="outil-box" id="outil-dce">
-          <div class="outil-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4M15 2v4"/><rect x="5" y="6" width="14" height="14" rx="2"/><path d="M9 12h2v4H9zM13 10h2v6h-2z"/></svg><span>Outil 1 — Vérifier la conductibilité électrique d'une solution aqueuse</span></div>
+        <div class="outil-box" id="verif-conductibilite">
+          <div class="outil-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4M15 2v4"/><rect x="5" y="6" width="14" height="14" rx="2"/><path d="M9 12h2v4H9zM13 10h2v6h-2z"/></svg><span>Méthode — Vérifier la conductibilité électrique d'une solution aqueuse</span></div>
 
           <p style="margin-bottom:4px;">Comment savoir, concrètement, si une solution conduit le courant — et à quel point ? On utilise un <strong>détecteur de conductibilité électrique (DCE)</strong>.</p>
 
