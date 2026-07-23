@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 3 — Les transformations chimiques et nucléaires | Science Sec. 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark:   #1a4a52;
+    --teal-mid:    #256472;
+    --teal-light:  #3a8fa0;
+    --yellow:      #c8d400;
+    --yellow-dim:  #a0aa00;
+    --orange:      #e07b30;
+    --bg:          #f4f3ee;
+    --surface:     #ffffff;
+    --text:        #1e2a2c;
+    --muted:       #5a6e72;
+    --border:      #d0d8d9;
+    --sidebar-w:   268px;
+    --mono:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: var(--sidebar-w); background: var(--teal-dark);
+    position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; display: flex; flex-direction: column;
+    z-index: 100; transition: transform .3s ease;
+  }
+  .sidebar-header { background: var(--yellow); padding: 20px 18px 16px; flex-shrink: 0; }
+  .back-to-index { display: flex; align-items: center; gap: 5px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: var(--teal-dark); text-decoration: none; opacity: .65; margin-bottom: 12px; transition: opacity .15s; }
+  .back-to-index:hover { opacity: 1; text-decoration: underline; }
+  .sidebar-header .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); }
+  .sidebar-header .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 800; line-height: 1; color: var(--teal-dark); }
+  .sidebar-header .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--teal-dark); margin-top: 4px; }
+  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-light); padding: 20px 18px 8px; }
+  #sidebar nav ul { list-style: none; }
+  #sidebar nav ul li a { display: flex; align-items: flex-start; gap: 10px; padding: 9px 18px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); text-decoration: none; border-left: 3px solid transparent; transition: background .15s, color .15s, border-color .15s; line-height: 1.35; }
+  #sidebar nav ul li a:hover, #sidebar nav ul li a.active { background: rgba(255,255,255,.08); color: #fff; border-left-color: var(--yellow); }
+  #sidebar nav ul li a .num { font-family: var(--mono); font-size: 11px; color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+  .sidebar-footer { margin-top: auto; padding: 16px 18px; font-size: 11px; color: rgba(255,255,255,.3); border-top: 1px solid rgba(255,255,255,.1); }
+  .sidebar-footer button { background: none; border: none; cursor: pointer; font-size: 11px; color: rgba(255,255,255,.3); padding: 0; text-align: left; width: 100%; transition: color .15s; }
+  .sidebar-footer button:hover { color: rgba(255,255,255,.6); }
+  .attrib-popover { display: none; position: absolute; bottom: 60px; left: 14px; width: 230px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.18); padding: 14px 16px; font-size: 12px; color: #1e2a2c; line-height: 1.6; z-index: 200; }
+  .attrib-popover::after { content: ''; position: absolute; bottom: -7px; left: 20px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); box-shadow: 2px 2px 4px rgba(0,0,0,.08); }
+  .attrib-popover.visible { display: block; }
+
+  /* ── MAIN ── */
+  #main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 60%, var(--teal-light) 100%); padding: 60px 56px 48px; color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: '3'; position: absolute; right: 40px; top: -10px; font-family: 'Barlow Condensed', sans-serif; font-size: 260px; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; pointer-events: none; }
+  .hero .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; margin-bottom: 20px; }
+  .hero p { max-width: 600px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.82); }
+
+  /* Search */
+  .search-bar-wrap { background: var(--teal-dark); padding: 14px 56px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid var(--yellow); }
+  .search-bar-wrap label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.5); white-space: nowrap; letter-spacing: .06em; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; }
+  #search-input { flex: 1; max-width: 440px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 8px 14px; font-size: 14px; color: #fff; font-family: 'Inter', sans-serif; outline: none; transition: background .2s, border-color .2s; }
+  #search-input::placeholder { color: rgba(255,255,255,.4); }
+  #search-input:focus { background: rgba(255,255,255,.16); border-color: var(--yellow); }
+  #search-count { font-size: 12px; color: var(--yellow); font-family: var(--mono); min-width: 90px; }
+
+  /* Content */
+  .content { padding: 48px 56px 80px; max-width: 880px; }
+
+  /* Section cards */
+  .section-card { background: var(--surface); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section-toggle { width: 100%; background: none; border: none; cursor: pointer; padding: 0; text-align: left; display: block; }
+  .section-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface); transition: background .15s; border-bottom: 1px solid transparent; }
+  .section-toggle:hover .section-header, .section-toggle[aria-expanded="true"] .section-header { background: #f0f6f7; border-bottom-color: var(--border); }
+  .section-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 4px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--teal-dark); flex: 1; }
+  .section-badge { font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--orange); color: #fff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+  .chevron { width: 20px; height: 20px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; }
+  .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .section-body { display: none; padding: 28px 28px 32px; border-top: 2px solid var(--yellow); }
+  .section-body.open { display: block; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 32px; }
+  .subsection:last-child { margin-bottom: 0; }
+  .subsection-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; flex-shrink: 0; }
+
+  p { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul.content-list { padding-left: 20px; margin-bottom: 14px; }
+  ul.content-list li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+
+  /* Definition box */
+  .def-box { background: linear-gradient(135deg, #edf6f8, #f4fafb); border-left: 4px solid var(--teal-light); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; }
+  .def-box .def-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 6px; }
+  .def-box p { font-size: 14px; margin: 0 0 6px; color: var(--teal-dark); }
+  .def-box p:last-child { margin: 0; }
+  .def-box strong { color: var(--teal-dark); font-weight: 600; }
+
+  /* Note box */
+  .note-box { background: #fffbec; border-left: 4px solid var(--yellow-dim); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #3a3000; line-height: 1.65; }
+  .note-box .note-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .note-label .icon-sm { width: 13px; height: 13px; flex-shrink: 0; }
+  .note-bar { width: 100%; display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; padding: 0; text-align: left; font-family: inherit; color: inherit; }
+  .note-bar .chevron-n { margin-left: auto; width: 15px; height: 15px; transition: transform .2s; flex-shrink: 0; color: var(--yellow-dim); }
+  .note-bar[aria-expanded="true"] .chevron-n { transform: rotate(180deg); }
+  .note-body { display: none; margin-top: 8px; }
+  .note-bar[aria-expanded="true"] + .note-body { display: block; }
+
+  /* Formula */
+  .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
+  .formula-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 14px; }
+  .charge-check { border-collapse: collapse; margin: 12px auto; font-family: var(--mono); font-size: 14px; color: var(--yellow); background: var(--teal-dark); border-radius: 8px; overflow: hidden; }
+  .charge-check td { padding: 7px 16px; text-align: center; white-space: nowrap; }
+  .charge-check tr:last-child td { font-weight: 700; border-top: 1px solid rgba(255,255,255,.25); }
+
+  /* Keyword */
+  .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+
+  /* Search highlight */
+  mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
+  mark.sh.current { background: #ff9d2e; box-shadow: 0 0 0 2px #ff9d2e; }
+
+  /* Rappel card */
+  .rappel-card { background: linear-gradient(120deg, var(--teal-dark), var(--teal-mid)); border-radius: 10px; padding: 24px 28px; color: rgba(255,255,255,.88); margin-bottom: 24px; }
+  .rappel-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--yellow); margin-bottom: 10px; }
+  .rappel-card p { color: rgba(255,255,255,.82); font-size: 14px; margin-bottom: 8px; }
+  .rappel-card p:last-child { margin-bottom: 0; }
+
+  /* Timeline for models */
+  .timeline { border-left: 3px solid var(--border); margin: 20px 0 20px 8px; padding-left: 24px; }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-light); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--teal-light); }
+  .timeline-item .year { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--teal-light); margin-bottom: 4px; }
+  .timeline-item .model-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .timeline-item p { font-size: 14px; margin-bottom: 6px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .data-table th { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+  .data-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f7f9f9; }
+  .data-table td strong { color: var(--teal-dark); }
+  .data-table tr.ion-key td { background: #fdf9d8; }
+  .data-table tr.ion-key td:nth-child(2), .data-table tr.ion-key td:nth-child(3) { font-weight: 700; color: var(--teal-dark); }
+  .data-table tr.ion-secondary td:nth-child(2), .data-table tr.ion-secondary td:nth-child(3) { font-weight: 600; }
+  .ion-freq-note { font-size: 13px; color: var(--text-soft, #5a6a6c); margin: -6px 0 14px; display: flex; align-items: center; gap: 6px; }
+  .ion-freq-note .dot-key { width: 10px; height: 10px; border-radius: 2px; background: #fdf9d8; border: 1px solid #e2d98a; display: inline-block; }
+
+  .ion-charge-wrap { overflow-x: auto; margin: 16px 0; }
+  .ion-charge-table { display: grid; grid-template-columns: repeat(8, minmax(82px, 1fr)); gap: 8px; min-width: 680px; }
+  .ion-fam { display: flex; flex-direction: column; align-items: center; border-radius: 8px; padding: 12px 6px 10px; text-align: center; border: 1px solid var(--border); background: var(--surface); }
+  .ion-fam-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--teal-dark); }
+  .ion-fam-name { font-size: 9.5px; line-height: 1.35; color: var(--muted); margin: 3px 0 7px; text-transform: uppercase; letter-spacing: .03em; min-height: 26px; display: flex; align-items: center; }
+  .ion-fam-ex { font-family: var(--mono); font-size: 11px; line-height: 1.35; color: var(--text); margin-bottom: 9px; min-height: 30px; display: flex; align-items: center; }
+  .ion-fam-charge { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 800; margin-top: auto; padding-top: 4px; }
+  .ion-cation { background: linear-gradient(160deg, #fff, #fdf1e7); border-color: #f0cda3; }
+  .ion-cation .ion-fam-charge { color: var(--orange); }
+  .ion-variable { background: #f7f9f9; }
+  .ion-variable .ion-fam-charge { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .ion-anion { background: linear-gradient(160deg, #fff, #eaf5f7); border-color: #bfe0e6; }
+  .ion-anion .ion-fam-charge { color: var(--teal-mid); }
+  .ion-neutral { background: var(--bg); border-style: dashed; }
+  .ion-neutral .ion-fam-charge { color: var(--muted); }
+  .ion-charge-legend { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+  .ion-charge-legend strong { color: var(--text); }
+
+  /* Particle badges */
+  .particle-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .particle-card { flex: 1; min-width: 140px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .particle-card .p-symbol { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--teal-dark); }
+  .particle-card .p-name { font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
+  .particle-card .p-charge { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .particle-card .p-mass { font-size: 12px; color: var(--muted); }
+
+  /* Couches table */
+  .couche-table { display: flex; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .couche-col { flex: 1; }
+  .couche-col .ch { padding: 8px 12px; text-align: center; font-size: 13px; }
+  .couche-col .ch.head { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .couche-col .ch:not(.head) { border-bottom: 1px solid var(--border); font-family: var(--mono); }
+  .couche-col .ch:last-child { border-bottom: none; }
+  .couche-col .ch:nth-child(even) { background: #f7f9f9; }
+
+  /* Trend arrows */
+  .trend-box { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .trend-item { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .trend-item .trend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-dark); margin-bottom: 8px; }
+  .trend-item .trend-dir { font-family: var(--mono); font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 4px; }
+  .trend-item p { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* Figures */
+  .fig-block { margin: 18px 0; background: #f8f9f9; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .fig-block img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 16px; background: #fff; }
+  .fig-block img[src$=".png"]:not([src*="images/"]) { display: none; } /* hide broken placeholders gracefully — remove once images added */
+  .fig-block figcaption { font-size: 12px; color: var(--muted); padding: 8px 14px 10px; border-top: 1px solid var(--border); line-height: 1.5; font-style: italic; }
+
+  /* Compare block (Démocrite vs Aristote) */
+  .compare-block { display: flex; gap: 2px; margin: 16px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .compare-col { flex: 1; padding: 16px 18px; }
+  .compare-col--a { background: linear-gradient(135deg, #edf6f8, #dff0f4); }
+  .compare-col--b { background: linear-gradient(135deg, #fff8ee, #fef0da); }
+  .compare-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 8px; }
+  .compare-col--b .compare-label { color: var(--orange); }
+  .compare-icon { font-size: 22px; margin-bottom: 8px; letter-spacing: 4px; }
+  .compare-col p { font-size: 13px; line-height: 1.6; margin: 0; color: var(--text); }
+
+  /* Back to top */
+  #to-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; background: var(--teal-dark); color: var(--yellow); border: 2px solid var(--yellow); border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 200; }
+  #to-top.visible { opacity: 1; pointer-events: auto; }
+
+  /* Mobile toggle */
+  #menu-toggle { display: none; position: fixed; top: 14px; left: 14px; z-index: 150; background: var(--teal-dark); border: 2px solid var(--yellow); color: var(--yellow); width: 40px; height: 40px; border-radius: 8px; font-size: 20px; cursor: pointer; align-items: center; justify-content: center; }
+
+  @media (max-width: 768px) {
+    #sidebar { transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #menu-toggle { display: flex; }
+    .hero { padding: 60px 24px 36px; }
+    .search-bar-wrap { padding: 12px 24px; }
+    .content { padding: 28px 20px 60px; }
+    .particle-grid { flex-direction: column; }
+  }
+
+  /* ── QUIZ ── */
+  .quiz-block { margin-top: 36px; margin-bottom: 32px; border-top: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow); padding-top: 24px; padding-bottom: 24px; }
+  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 10px; background: var(--teal-dark); border: none; border-radius: 10px; cursor: pointer; padding: 14px 18px; margin-bottom: 6px; text-align: left; transition: background .15s; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .quiz-block-bar:hover { background: var(--teal-mid); }
+  .quiz-block-bar .quiz-block-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-subtitle { font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; color: rgba(255,255,255,.72); margin-left: 2px; }
+  .quiz-block-bar .chevron-q { margin-left: auto; width: 20px; height: 20px; transition: transform .2s; flex-shrink: 0; color: #fff; }
+  .quiz-block-bar[aria-expanded="true"] .chevron-q { transform: rotate(180deg); }
+  .quiz-body { display: none; }
+  .quiz-block-bar[aria-expanded="true"] + .quiz-body { display: block; padding-top: 14px; }
+  .quiz-intro { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+  .quiz-score-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; color: var(--text-muted); }
+  .quiz-score-bar progress { flex: 1; height: 6px; border-radius: 3px; appearance: none; -webkit-appearance: none; }
+  .quiz-score-bar progress::-webkit-progress-bar { background: var(--border); border-radius: 3px; }
+  .quiz-score-bar progress::-webkit-progress-value { background: var(--teal-mid); border-radius: 3px; transition: width .4s; }
+
+  .quiz-q { background: var(--bg-alt); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; border: 1.5px solid var(--border); transition: border-color .2s; }
+  .quiz-q.answered { border-color: transparent; }
+  .quiz-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 6px; }
+  .quiz-q-text { font-size: 15px; font-weight: 500; color: var(--text-dark); line-height: 1.5; margin-bottom: 14px; }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: #fff; cursor: pointer; font-size: 14px; color: var(--text-dark); transition: background .15s, border-color .15s; text-align: left; width: 100%; line-height: 1.45; }
+  .quiz-option:hover:not(:disabled) { background: #f0f8f8; border-color: var(--teal-mid); }
+  .quiz-option .opt-letter { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-option.correct { background: #e8f8ef; border-color: #2da262; color: #1a6640; }
+  .quiz-option.correct .opt-letter { color: #2da262; }
+  .quiz-option.wrong { background: #fdecea; border-color: #d94f3d; color: #8b2218; }
+  .quiz-option.wrong .opt-letter { color: #d94f3d; }
+  .quiz-option.reveal { background: #e8f8ef; border-color: #2da262; color: #1a6640; opacity: .7; }
+  .quiz-option.reveal .opt-letter { color: #2da262; }
+
+  .quiz-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; line-height: 1.55; display: none; }
+  .quiz-feedback.show { display: flex; gap: 8px; align-items: flex-start; }
+  .quiz-feedback .icon-sm { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+  .quiz-feedback.ok { background: #e8f8ef; color: #1a6640; }
+  .quiz-feedback.ko { background: #fdecea; color: #8b2218; }
+  .quiz-result-msg { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; align-items: center; justify-content: center; gap: 8px; }
+  .quiz-result-msg.show { display: flex; }
+  .quiz-result-msg .icon-sm { width: 18px; height: 18px; flex-shrink: 0; }
+  .quiz-result-msg.great { background: #e8f8ef; color: #1a6640; }
+  .quiz-result-msg.good { background: #fdf6e3; color: #7a5c00; }
+  .quiz-result-msg.poor { background: #fdecea; color: #8b2218; }
+
+  .quiz-reset { margin-top: 20px; padding: 9px 20px; border-radius: 8px; border: 1.5px solid var(--teal-mid); background: #fff; color: var(--teal-dark); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; display: none; }
+  .quiz-reset:hover { background: #f0f8f8; }
+
+  /* === ACTIVITÉ SUGGÉRÉE === */
+  .quick-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #eef5f5; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; }
+  .quick-links-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-right: 2px; }
+  .quick-links a { font-size: 13px; font-weight: 600; color: var(--teal-dark); background: #fff; border: 1px solid var(--teal-light); border-radius: 20px; padding: 5px 13px; text-decoration: none; transition: background .15s, color .15s; }
+  .quick-links a:hover { background: var(--teal-dark); color: #fff; border-color: var(--teal-dark); }
+
+  .activity-block { margin: 22px 0; border: 1.5px solid var(--orange); border-radius: 10px; overflow: hidden; background: #fffaf4; }
+  .activity-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #fdeee0; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange); text-align: left; transition: background .15s; }
+  .activity-bar:hover { background: #fbe3cc; }
+  .icon-sm { display: inline-block; vertical-align: middle; width: 14px; height: 14px; flex-shrink: 0; }
+  .activity-bar .activity-icon { width: 16px; height: 16px; flex-shrink: 0; }
+  .activity-bar .chevron-a { margin-left: auto; width: 16px; height: 16px; transition: transform .2s; flex-shrink: 0; }
+  .activity-bar[aria-expanded="true"] .chevron-a { transform: rotate(180deg); }
+  .activity-content { display: none; padding: 16px 18px 18px; }
+  .activity-bar[aria-expanded="true"] + .activity-content { display: block; }
+  .activity-question { font-size: 14.5px; color: var(--text); line-height: 1.6; font-style: italic; }
+  .activity-hint-toggle { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--teal-mid); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
+  .activity-hint { display: none; margin-top: 8px; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 10px 12px; line-height: 1.55; }
+  .activity-hint.show { display: block; }
+
+  /* Outil (procédure expérimentale / appareil) */
+  .outil-box { background: linear-gradient(135deg, #eef7f1, #f6fbf7); border: 1.5px solid #6fae87; border-radius: 10px; padding: 20px 24px; margin: 22px 0; }
+  .outil-box .outil-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: #217a4a; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .outil-box .outil-label .icon-sm { width: 16px; height: 16px; }
+  .outil-subhead { font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #217a4a; margin: 16px 0 7px; }
+  .outil-subhead:first-of-type { margin-top: 0; }
+  .outil-box ul.outil-list, .outil-box ol.outil-list { padding-left: 20px; margin: 0 0 4px; }
+  .outil-box ul.outil-list li, .outil-box ol.outil-list li { font-size: 14px; line-height: 1.65; margin-bottom: 6px; color: var(--text); }
+  .outil-safety { background: #fff4f0; border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 9px 13px; margin-top: 12px; font-size: 13px; color: #7a3a15; line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar" role="navigation" aria-label="Table des matières">
+  <div class="sidebar-header">
+    <a href="index.html" class="back-to-index" title="Retour à la table des matières du cours">
+      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Tous les chapitres
+    </a>
+    <div class="label">Science Sec. 4 · Chapitre</div>
+    <div class="chap-num">3</div>
+    <div class="chap-title">Les transformations chimiques et nucléaires</div>
+  </div>
+  <div class="toc-label">Table des matières</div>
+  <nav>
+    <ul>
+      <li><a href="#rappel" class="toc-link"><span class="num">—</span> Rappel</a></li>
+      <li><a href="#section-3-1" class="toc-link"><span class="num">3.1</span> Les transformations chimiques</a></li>
+      <li><a href="#section-3-2" class="toc-link"><span class="num">3.2</span> Les transformations nucléaires</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-footer">
+    <button onclick="document.getElementById('attrib-pop').classList.toggle('visible')" title="À propos de ce document" style="display:flex;align-items:center;gap:6px;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"/></svg> À propos de ce document</button>
+    <div class="attrib-popover" id="attrib-pop">
+      Matériel préparé par M. Raphaël Sylvestre Bouchard à l'aide des notes de cours de M. Bouchard (Collège Charlemagne, 2024–2025) et du manuel <em>Kaléidoscope</em>, Secondaire 4 (ERPI).
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main id="main">
+  <div class="hero">
+    <div class="eyebrow">Secondaire 4 — Science et technologie · Univers matériel</div>
+    <h1>Les transformations<br>chimiques et nucléaires</h1>
+    <p>Toute transformation de la matière ne se vaut pas : une transformation physique change seulement la forme ou l'état d'une substance, alors qu'une transformation chimique — ou une transformation nucléaire — donne naissance à quelque chose de véritablement nouveau. Ce chapitre explore d'abord comment représenter et prédire les transformations chimiques (la conservation de la masse, l'écriture et le balancement des équations, la stœchiométrie, les réactions endothermiques et exothermiques, puis quelques grandes catégories de réactions), avant de se tourner vers les transformations nucléaires (stabilité, radioactivité, fission et fusion).</p>
+  </div>
+
+  <div class="search-bar-wrap">
+    <label for="search-input">🔍 Recherche rapide</label>
+    <input type="text" id="search-input" placeholder="Ex: conservation de la masse, balancement, coefficient…" oninput="doSearch(this.value)">
+    <span id="search-count"></span>
+  </div>
+
+  <div class="content">
+
+    <!-- RAPPEL -->
+    <div id="rappel" class="rappel-card">
+      <h2 style="display:flex;align-items:center;gap:8px;"><svg class="icon-sm" style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.2-7-12a7 7 0 1 1 14 0c0 4.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg> Rappel — Notions préalables</h2>
+      <p>• Une <strong>transformation physique</strong> change la forme, l'état ou l'apparence d'une substance sans changer sa nature : les mêmes molécules sont présentes avant et après (ex. : faire fondre un glaçon) — vu en secondaire 3.</p>
+      <p>• Une <strong>transformation chimique</strong> transforme une ou plusieurs substances de départ en de nouvelles substances, différentes de celles de départ — vu en secondaire 3.</p>
+      <p>• Un <strong>atome</strong> est la plus petite particule d'un élément ; une <strong>molécule</strong> est un assemblage d'atomes liés par des liaisons chimiques — chapitre 1, sections 1.1 et 1.4.</p>
+      <p>• La <strong>mole (mol)</strong> est l'unité de quantité de matière (1 mol = 6,022 × 10²³ particules) et se relie à la masse par la masse molaire : <strong>n = m ÷ M</strong> — section 1.5.</p>
+    </div>
+
+    <p>Ce chapitre distingue deux grandes catégories de transformations, en plus de la transformation physique déjà connue : les <strong>transformations chimiques</strong> (section 3.1), où les atomes se réarrangent sans changer de nature, et les <strong>transformations nucléaires</strong> (section 3.2), où c'est le noyau même des atomes qui se transforme. Le tableau suivant situe ces trois types de transformations les uns par rapport aux autres.</p>
+
+    <table class="data-table">
+      <thead><tr><th></th><th>Transformation physique</th><th>Transformation chimique</th><th>Transformation nucléaire</th></tr></thead>
+      <tbody>
+        <tr><td><strong>De nouveaux atomes sont-ils créés ?</strong></td><td>Non</td><td>Non</td><td>Oui</td></tr>
+        <tr><td><strong>De nouvelles molécules sont-elles créées ?</strong></td><td>Non</td><td>Oui (presque toujours)</td><td>—</td></tr>
+        <tr><td><strong>La transformation est-elle réversible ?</strong></td><td>Oui, généralement</td><td>Cela dépend de la réaction</td><td>Possible, selon le cas</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">Exemple de transformation physique : faire fondre un glaçon — ce sont toujours des molécules d'H₂O avant et après, seul leur arrangement (solide → liquide) a changé. Ce chapitre explore les deux colonnes de droite : d'abord les transformations chimiques (section 3.1), puis les transformations nucléaires (section 3.2).</p>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 3.1 — LES TRANSFORMATIONS CHIMIQUES     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-3-1">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">3.1</span>
+          <span class="section-title">Les transformations chimiques</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#conservation-masse">Conservation de la masse</a>
+          <a href="#balancement-equations">Balancement des équations</a>
+          <a href="#stoechiometrie">Stœchiométrie</a>
+          <a href="#endo-exothermique">Endo/exothermique</a>
+          <a href="#exemples-transformations">Exemples de transformations</a>
+        </div>
+
+        <p>Une transformation chimique obéit à deux grandes lois : la conservation de la matière (dont la masse) et la conservation de l'énergie. Pour bien étudier une transformation chimique, il faut donc être capable de la représenter par une <strong>équation chimique</strong> qui respecte ces deux lois. Cette section commence par la plus fondamentale des deux : la conservation de la masse.</p>
+
+        <!-- ═══ 3.1.1 — CONSERVATION DE LA MASSE ═══ -->
+        <div class="subsection" id="conservation-masse">
+          <div class="subsection-title">3.1.1 — La loi de la conservation de la masse</div>
+
+          <p>Lors d'une réaction chimique, les substances de départ — les <span class="kw">réactifs</span> — se réorganisent pour former de nouvelles substances — les <span class="kw">produits</span>. Concrètement, les liaisons qui unissent les atomes des molécules de réactifs se brisent, puis les atomes se réunissent autrement pour former de nouvelles liaisons : ce sont ces nouvelles molécules qui constituent les produits. Aucun atome n'est détruit ni créé au passage — seule leur organisation change.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>loi de la conservation de la masse</strong> (aussi appelée loi de la conservation de la matière, ou loi de la conservation des atomes) stipule qu'au cours d'une transformation chimique, la <strong>masse totale des réactifs est toujours égale à la masse totale des produits</strong>.</p>
+            <p style="margin-top:8px;">Cette loi a été formulée par le chimiste français <strong>Antoine Lavoisier</strong> (1743-1794), qui l'a résumée dans une formule restée célèbre : « Rien ne se perd, rien ne se crée, tout se transforme. »</p>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — conservation des atomes, mais pas nécessairement des molécules</span></div>
+            La loi de Lavoisier garantit que le <strong>nombre d'atomes</strong> de chaque élément reste identique avant et après une réaction — mais rien n'oblige le <strong>nombre total de molécules</strong> à rester le même. Par exemple, dans 2 H₂ + O₂ → 2 H₂O, il y a <strong>3 molécules</strong> du côté des réactifs (2 H₂ + 1 O₂) mais seulement <strong>2 molécules</strong> du côté des produits (2 H₂O) : le nombre de molécules a changé (3 → 2), alors que le nombre d'atomes (4 atomes de H et 2 atomes de O) est resté rigoureusement le même des deux côtés.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Communauté scientifique — Antoine Lavoisier et l'apport de la balance</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">L'usage de la balance remonte à l'Antiquité, mais les instruments de mesure ont longtemps manqué de précision. À la fin du XVIII<sup>e</sup> siècle, le chimiste français Antoine Lavoisier fut parmi les premiers à intégrer systématiquement des <strong>balances de très haute précision</strong> — les plus perfectionnées de son époque — dans ses expériences.</p>
+              <p style="margin:10px 0 0;">En pesant soigneusement les réactifs et les produits avant et après chaque réaction, Lavoisier put démontrer que la masse totale ne variait jamais d'une réaction chimique à l'autre. Cette rigueur expérimentale, plutôt inhabituelle pour l'époque, lui permit d'énoncer la loi de la conservation de la masse — l'un des actes fondateurs de la chimie moderne, qui a valu à Lavoisier le titre de « père de la chimie moderne ».</p>
+            </div>
+          </div>
+
+          <p>La figure suivante illustre cette loi à l'aide d'un exemple concret : la combustion de l'acétylène (C₂H₂), un gaz utilisé notamment dans les chalumeaux de soudage.</p>
+
+          <div style="background:#f8f9f9;border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin:18px 0;">
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:12px;">Figure — Le bilan de masse lors de la combustion de l'acétylène (C₂H₂)</p>
+            <div class="formula">2 C₂H₂<sub>(g)</sub> + 5 O₂<sub>(g)</sub> → 4 CO₂<sub>(g)</sub> + 2 H₂O<sub>(g)</sub></div>
+            <table class="data-table" style="margin-top:0;">
+              <thead><tr><th>Substance</th><th>Quantité</th><th>Masse molaire</th><th>Masse totale</th></tr></thead>
+              <tbody>
+                <tr><td>C₂H₂ (réactif)</td><td>2 mol</td><td>26,04 g/mol</td><td>52,08 g</td></tr>
+                <tr><td>O₂ (réactif)</td><td>5 mol</td><td>32,00 g/mol</td><td>160,00 g</td></tr>
+                <tr><td>CO₂ (produit)</td><td>4 mol</td><td>44,01 g/mol</td><td>176,04 g</td></tr>
+                <tr><td>H₂O (produit)</td><td>2 mol</td><td>18,02 g/mol</td><td>36,04 g</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-bottom:0;">Masse totale des réactifs : 52,08 g + 160,00 g = <strong>212,08 g</strong>. Masse totale des produits : 176,04 g + 36,04 g = <strong>212,08 g</strong>. Les deux valeurs sont rigoureusement identiques — exactement ce que prédit la loi de la conservation de la masse. Remarque aussi que le nombre d'atomes de chaque élément (C, H, O) est également conservé, comme il se doit.</p>
+          </div>
+
+          <p>La loi de la conservation de la masse permet aussi de <strong>déduire</strong> la masse d'un réactif ou d'un produit qu'on ne connaît pas, à condition de connaître toutes les autres masses en jeu — comme dans l'exemple résolu ci-dessous.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+            <strong>On utilise une certaine quantité de carbonate de calcium (CaCO₃) pour neutraliser 14,6 kg de chlorure d'hydrogène (HCl). La réaction produit 22,2 kg de dichlorure de calcium (CaCl₂), 3,6 kg d'eau (H₂O) et 8,8 kg de dioxyde de carbone (CO₂). Quelle masse de carbonate de calcium a été utilisée ?</strong><br><br>
+            Équation de la réaction : 2 HCl<sub>(aq)</sub> + CaCO₃<sub>(s)</sub> → CaCl₂<sub>(aq)</sub> + H₂O<sub>(l)</sub> + CO₂<sub>(g)</sub><br><br>
+            Par la loi de la conservation de la masse : masse des réactifs = masse des produits<br>
+            14,6 kg + m(CaCO₃) = 22,2 kg + 3,6 kg + 8,8 kg<br>
+            14,6 kg + m(CaCO₃) = 34,6 kg<br>
+            m(CaCO₃) = 34,6 kg − 14,6 kg = <strong>20,0 kg</strong><br><br>
+            La neutralisation de 14,6 kg de chlorure d'hydrogène a donc nécessité <strong>20,0 kg</strong> de carbonate de calcium.
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Pour additionner ou soustraire des masses dans un calcul de conservation de la masse, elles doivent toutes être exprimées dans la <strong>même unité</strong> (par exemple, toutes en kg, ou toutes en g). Convertir avant de calculer — pas après.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Une bûche qui brûle semble « perdre » de la masse
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Quand une bûche de bois brûle complètement dans un feu de camp, les cendres qui restent pèsent beaucoup moins lourd que la bûche de départ. Est-ce que cela contredit la loi de la conservation de la masse ? Explique.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir une piste de réponse</button>
+              <div class="activity-hint">Non, cela ne contredit pas la loi — c'est une question de <strong>système fermé ou non</strong>. La combustion du bois consomme aussi du dioxygène (O₂) de l'air (un réactif qu'on oublie facilement, puisqu'il est invisible), et produit du dioxyde de carbone (CO₂) et de la vapeur d'eau (H₂O) qui s'échappent dans l'atmosphère plutôt que de rester dans les cendres. Si on pouvait peser <strong>tous</strong> les produits — les cendres <em>et</em> les gaz échappés — leur masse totale serait exactement égale à la masse du bois de départ additionnée à celle de l'oxygène consommé. Les cendres à elles seules ne représentent donc qu'une fraction des produits réels de la réaction.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Trouver la masse manquante
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le bicarbonate de soude (NaHCO₃) réagit avec le vinaigre (CH₃COOH) selon l'équation NaHCO₃ + CH₃COOH → CH₃COONa + H₂O + CO₂. On fait réagir 8,4 g de NaHCO₃ avec 6,0 g de CH₃COOH. La réaction produit 8,2 g d'acétate de sodium (CH₃COONa) et 1,8 g d'eau. Quelle masse de CO₂ est produite ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1,8 g</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 10,0 g</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 4,4 g</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 14,4 g</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> Masse totale des réactifs : 8,4 g + 6,0 g = 14,4 g. Masse déjà connue des produits : 8,2 g + 1,8 g = 10,0 g. Masse manquante (CO₂) : 14,4 g − 10,0 g = <strong>4,4 g</strong>. L'erreur D oublie de soustraire — elle ne fait que rapporter la masse totale des réactifs.</div>
+            </div>
+          </div>
+
+          <p style="margin-top:20px;">Maintenant qu'on connaît la loi qui régit toute réaction chimique, il reste à voir comment l'appliquer concrètement en écrivant des équations chimiques qui la respectent — c'est l'objet de la section suivante.</p>
+        </div>
+
+        <div class="quiz-block" data-quiz="q311">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — 3.1.1 La conservation de la masse<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Selon la loi de Lavoisier, la masse totale des réactifs est toujours égale à la masse totale des produits, lors d'une transformation chimique.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est exactement l'énoncé de la loi de la conservation de la masse : « rien ne se perd, rien ne se crée, tout se transforme ».</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai — c'est précisément ce qu'énonce la loi de Lavoisier : la masse totale des réactifs égale toujours la masse totale des produits.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Dans une réaction chimique, le nombre total de molécules doit obligatoirement rester le même avant et après la réaction.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Seul le nombre d'<strong>atomes</strong> de chaque élément doit être conservé. Dans 2 H₂ + O₂ → 2 H₂O, il y a 3 molécules de réactifs mais seulement 2 molécules de produit — le nombre de molécules a changé, pas le nombre d'atomes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La loi de Lavoisier garantit la conservation des <strong>atomes</strong>, pas nécessairement du nombre de molécules : 2 H₂ + O₂ → 2 H₂O passe de 3 molécules à 2, tout en conservant parfaitement les atomes (4 H et 2 O des deux côtés).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">25 g de méthane (CH₄) réagissent avec 100 g de dioxygène (O₂). La réaction produit 55 g de dioxyde de carbone (CO₂) et une certaine masse d'eau. Quelle est la masse d'eau produite ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 45 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 70 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 125 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 30 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Masse des réactifs : 25 + 100 = 125 g. Masse d'eau = 125 − 55 = <strong>70 g</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Masse totale des réactifs : 25 g + 100 g = 125 g. Cette masse doit se retrouver entièrement dans les produits : 125 − 55 (CO₂) = <strong>70 g</strong> d'eau.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Qui a formulé la loi de la conservation de la masse ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> John Dalton</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Antoine Lavoisier</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Ernest Rutherford</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Dimitri Mendeleïev</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est le chimiste français Antoine Lavoisier (1743-1794) qui a formulé cette loi, en s'appuyant sur des mesures de masse d'une précision inhabituelle pour son époque.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est Antoine Lavoisier. Dalton (postulats atomiques), Rutherford (noyau) et Mendeleïev (tableau périodique) ont chacun des contributions majeures, mais vues au chapitre 1 — pas celle-ci.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Lavoisier a utilisé des balances peu précises, ce qui a nui à la qualité de ses conclusions.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Lavoisier utilisait au contraire les balances les <strong>plus précises</strong> disponibles à son époque — c'est justement cette précision qui lui a permis de détecter que la masse se conservait toujours.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Lavoisier a justement utilisé les balances les plus précises de son époque, avec une rigueur inhabituelle pour l'époque — c'est ce qui a rendu possible la découverte de la loi.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une bûche de bois brûle complètement ; les cendres restantes pèsent nettement moins que la bûche de départ. Quelle est la meilleure explication, compatible avec la loi de la conservation de la masse ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Une partie de la masse a été détruite par le feu</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> La loi ne s'applique pas à la combustion</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Des gaz produits par la réaction se sont échappés dans l'air</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Le bois pesait déjà moins que les cendres avant de brûler</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La combustion produit du CO₂ et de la vapeur d'eau qui s'échappent dans l'atmosphère — ils font partie des produits, même si on ne les voit pas rester sur place. En comptant tout (cendres + gaz + le dioxygène de l'air consommé), la masse totale est bel et bien conservée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La masse n'est jamais détruite. Ce qui se passe : la combustion produit des gaz (CO₂, vapeur d'eau) qui s'échappent dans l'air — ils sont des produits réels de la réaction, simplement invisibles une fois dispersés. La masse totale (cendres + gaz + oxygène consommé) reste conservée.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">On fait réagir 5,0 g de fer (Fe) avec du soufre (S). La réaction produit 8,0 g de sulfure de fer (FeS), sans qu'il ne reste de réactif en excès. Quelle masse de soufre a été utilisée ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 8,0 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 13,0 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 3,0 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1,6 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Masse des réactifs = masse des produits : 5,0 g + m(S) = 8,0 g → m(S) = 8,0 − 5,0 = <strong>3,0 g</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La masse des réactifs (Fe + S) doit égaler la masse du produit (FeS) : 5,0 + m(S) = 8,0 g, donc m(S) = 8,0 − 5,0 = <strong>3,0 g</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Pour vérifier numériquement la loi de la conservation de la masse, toutes les masses utilisées dans le calcul doivent être exprimées avec la même unité.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Additionner des kg avec des g sans convertir fausserait complètement le calcul — toujours convertir vers une seule unité commune avant d'appliquer la loi.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Mélanger des unités (kg et g, par exemple) sans convertir donnerait un résultat numériquement faux, même si la loi elle-même reste toujours valide.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q311"></div>
+          <button class="quiz-reset" id="reset-q311">↺ Recommencer</button>
+          </div>
+        </div>
+
+        <!-- ═══ 3.1.2 — BALANCEMENT DES ÉQUATIONS ═══ -->
+        <div class="subsection" id="balancement-equations">
+          <div class="subsection-title">3.1.2 — Le balancement des équations chimiques</div>
+
+          <p>Pour appliquer la loi de la conservation de la masse à une réaction chimique, il faut d'abord savoir l'écrire correctement sous forme d'une <span class="kw">équation chimique</span> : une représentation symbolique d'une réaction, où les réactifs et les produits sont désignés par leur formule chimique.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Une <strong>équation chimique</strong> représente symboliquement une réaction chimique. Les <strong>réactifs</strong> sont les substances qui interagissent entre elles ; ils sont toujours placés au <em>début</em> de l'équation — c'est-à-dire avant la flèche. Les <strong>produits</strong>, les substances qui en résultent, sont placés après la flèche.</p>
+          </div>
+
+          <p><strong>Exemple :</strong> CH₄ + 2 O₂ → CO₂ + 2 H₂O. Ici, le méthane (CH₄) et le dioxygène (O₂) sont les réactifs ; le dioxyde de carbone (CO₂) et l'eau (H₂O) sont les produits.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>La réversibilité d'une réaction chimique</span></div>
+            La plupart des réactions chimiques sont, en principe, <strong>réversibles</strong> : la photosynthèse et la respiration cellulaire (aérobique) en sont un bon exemple, puisque l'une est essentiellement l'inverse de l'autre (6 CO₂ + 6 H₂O + énergie → C₆H₁₂O₆ + 6 O₂ pour la photosynthèse ; C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + énergie pour la respiration). Une flèche double <strong>⇌</strong> — déjà rencontrée au chapitre 2 pour les électrolytes faibles — peut signaler cette réversibilité. D'autres réactions, comme la <strong>combustion vive</strong>, sont pratiquement irréversibles : une fois le bois brûlé en cendres, on ne peut pas simplement inverser la réaction pour redonner du bois et du dioxygène.
+          </div>
+
+          <p>Le <span class="kw">modèle particulaire</span> permet de visualiser une équation chimique atome par atome, pour bien voir que la loi de la conservation de la masse est respectée — c'est exactement ce que montrait la figure de la combustion de l'acétylène à la section précédente. Voici un exemple encore plus simple, la formation de l'eau : 2 H₂ + O₂ → 2 H₂O.</p>
+
+          <div class="def-box">
+            <div class="def-label">Équation squelette et équation balancée</div>
+            <p>Une équation qui ne respecte pas la loi de la conservation de la masse — c'est-à-dire que le nombre d'atomes de chaque élément n'est pas le même des deux côtés — est appelée une <strong>équation squelette</strong>. Pour la rendre conforme à la loi, il faut la <strong>balancer</strong> (l'équilibrer).</p>
+          </div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Le <strong>balancement (l'équilibre) des équations chimiques</strong> consiste à ajouter des <strong>coefficients</strong> — des nombres entiers, les plus petits possible — devant les formules chimiques des réactifs et des produits, de façon à respecter la loi de la conservation de la masse.</p>
+          </div>
+
+          <p>Les coefficients indiquent le nombre de molécules (ou de moles) présentes avant et après la réaction. Une équation balancée respecte toujours la loi de la conservation des atomes et de la masse — même si le nombre total de molécules diffère avant et après, comme on l'a vu à la section 3.1.1.</p>
+
+          <p>Voici l'équation squelette de la combustion de l'octane (C₈H₁₈, un composant de l'essence), suivie de sa version balancée :</p>
+
+          <table class="data-table">
+            <thead><tr><th>Élément</th><th>Équation squelette<br>C₈H₁₈ + O₂ → CO₂ + H₂O</th><th>Équation balancée<br>2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O</th></tr></thead>
+            <tbody>
+              <tr><td><strong>C</strong> (réactifs vs produits)</td><td>8 ≠ 1 ✗</td><td>16 = 16 ✓</td></tr>
+              <tr><td><strong>H</strong> (réactifs vs produits)</td><td>18 ≠ 2 ✗</td><td>36 = 36 ✓</td></tr>
+              <tr><td><strong>O</strong> (réactifs vs produits)</td><td>2 ≠ 3 ✗</td><td>50 = 50 ✓</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);">Dans l'équation squelette, le nombre d'atomes de chaque élément diffère entre les réactifs et les produits — elle viole la loi de la conservation de la masse. Une fois balancée à l'aide des coefficients 2, 25, 16 et 18, chaque élément est parfaitement équilibré des deux côtés.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Règles à respecter lors du balancement</span></div>
+            <p style="margin:0 0 8px;">Lorsqu'on balance une équation chimique, il ne faut <strong>jamais</strong> :</p>
+            <ul class="content-list" style="margin-bottom:8px;">
+              <li>Inscrire le coefficient <strong>1</strong> devant une formule — il est toujours sous-entendu.</li>
+              <li><strong>Modifier les indices</strong> des formules chimiques (le nombre d'atomes à l'intérieur d'une molécule) — cela changerait complètement l'identité de la substance. Par exemple, transformer H₂O en H₂O₂ ne « balance » rien : cela remplace l'eau par le peroxyde d'hydrogène, une substance entièrement différente !</li>
+              <li><strong>Ajouter ou retirer</strong> des substances (des atomes) qui n'étaient pas prévues dans les réactifs ou dans les produits.</li>
+            </ul>
+            <p style="margin:0;">Il faut aussi toujours utiliser des coefficients <strong>entiers</strong>, réduits à leur plus petite valeur possible.</p>
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Exemple A — La réaction entre le magnésium et l'acide chlorhydrique</div>
+          <p>Le magnésium métallique réagit avec l'acide chlorhydrique (HCl) pour produire du dichlorure de magnésium et du dihydrogène gazeux — une réaction facile à observer en laboratoire, car elle produit un bouillonnement visible.</p>
+          <table class="data-table">
+            <thead><tr><th>Étape</th><th>Action</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Écrire l'équation squelette.</td><td>Mg<sub>(s)</sub> + HCl<sub>(aq)</sub> → MgCl₂<sub>(aq)</sub> + H₂<sub>(g)</sub></td></tr>
+              <tr><td>2</td><td>Compter les atomes de chaque élément de part et d'autre.</td><td>Mg : 1 vs 1 ✓ &nbsp;|&nbsp; H : 1 vs 2 ✗ &nbsp;|&nbsp; Cl : 1 vs 2 ✗</td></tr>
+              <tr><td>3</td><td>Balancer l'hydrogène en ajoutant un coefficient devant HCl (1 atome de H dans HCl, 2 dans H₂ : il faut donc 2 HCl).</td><td>Mg<sub>(s)</sub> + <u>2</u> HCl<sub>(aq)</sub> → MgCl₂<sub>(aq)</sub> + H₂<sub>(g)</sub></td></tr>
+              <tr><td>4</td><td>Vérifier le chlore : le coefficient 2 devant HCl a balancé le chlore par la même occasion (effet secondaire pratique, puisque MgCl₂ contient déjà 2 atomes de Cl).</td><td>Cl : 2 vs 2 ✓</td></tr>
+              <tr><td>5</td><td>Confirmer que tous les éléments sont équilibrés.</td><td>Mg : 1 = 1 ✓ &nbsp; H : 2 = 2 ✓ &nbsp; Cl : 2 = 2 ✓</td></tr>
+            </tbody>
+          </table>
+          <div class="formula">Mg<sub>(s)</sub> + 2 HCl<sub>(aq)</sub> → MgCl₂<sub>(aq)</sub> + H₂<sub>(g)</sub></div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Exemple B — La réaction entre l'hydrazine et le tétraoxyde de diazote</div>
+          <p>L'hydrazine (N₂H₄) et le tétraoxyde de diazote (N₂O₄) réagissent violemment au contact l'un de l'autre, sans même avoir besoin d'une étincelle pour s'enflammer — une propriété si utile qu'on utilise justement ce couple comme <strong>propergol hypergolique</strong> dans les moteurs de certains engins spatiaux (notamment les propulseurs de manœuvre de nombreux satellites et sondes), puisqu'un système d'allumage n'est pas nécessaire en orbite.</p>
+          <table class="data-table">
+            <thead><tr><th>Étape</th><th>Action</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Écrire l'équation squelette.</td><td>N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → N₂<sub>(g)</sub> + H₂O<sub>(g)</sub></td></tr>
+              <tr><td>2</td><td>Balancer d'abord l'élément le moins fréquent dans l'équation (ici, l'oxygène) : 4 atomes de O dans N₂O₄, 1 seul dans H₂O.</td><td>N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → N₂<sub>(g)</sub> + <u>4</u> H₂O<sub>(g)</sub></td></tr>
+              <tr><td>3</td><td>Balancer ensuite l'hydrogène : 4 atomes de H dans N₂H₄, 8 atomes de H dans 4 H₂O — il faut donc doubler N₂H₄.</td><td><u>2</u> N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → N₂<sub>(g)</sub> + 4 H₂O<sub>(g)</sub></td></tr>
+              <tr><td>4</td><td>Balancer enfin l'azote, en dernier : 6 atomes de N dans les réactifs (4 dans 2 N₂H₄, 2 dans N₂O₄), donc 3 N₂ sont nécessaires du côté des produits.</td><td>2 N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → <u>3</u> N₂<sub>(g)</sub> + 4 H₂O<sub>(g)</sub></td></tr>
+              <tr><td>5</td><td>Vérifier que chaque élément est équilibré.</td><td>N : 6 = 6 ✓ &nbsp; H : 8 = 8 ✓ &nbsp; O : 4 = 4 ✓</td></tr>
+            </tbody>
+          </table>
+          <div class="formula">2 N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → 3 N₂<sub>(g)</sub> + 4 H₂O<sub>(g)</sub></div>
+          <p class="formula-caption">Astuce de méthode : commencer par l'atome qui apparaît le moins souvent dans l'équation (ici, l'oxygène) simplifie souvent le travail.</p>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Exemple C — La combustion de l'octane (avec un coefficient fractionnaire)</div>
+          <p>Parfois, la façon la plus simple d'arriver à une équation balancée passe temporairement par un <strong>coefficient fractionnaire</strong>, qu'on élimine ensuite en multipliant toute l'équation par un nombre entier.</p>
+          <table class="data-table">
+            <thead><tr><th>Étape</th><th>Action</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Écrire l'équation squelette.</td><td>C₈H₁₈<sub>(g)</sub> + O₂<sub>(g)</sub> → CO₂<sub>(g)</sub> + H₂O<sub>(g)</sub></td></tr>
+              <tr><td>2</td><td>Commencer par la molécule la plus complexe (C₈H₁₈), en gardant la molécule simple (O₂) pour la fin. Balancer le carbone : 8 atomes de C dans C₈H₁₈ → 8 CO₂.</td><td>C₈H₁₈<sub>(g)</sub> + O₂<sub>(g)</sub> → <u>8</u> CO₂<sub>(g)</sub> + H₂O<sub>(g)</sub></td></tr>
+              <tr><td>3</td><td>Balancer l'hydrogène : 18 atomes de H dans C₈H₁₈ → 9 H₂O.</td><td>C₈H₁₈<sub>(g)</sub> + O₂<sub>(g)</sub> → 8 CO₂<sub>(g)</sub> + <u>9</u> H₂O<sub>(g)</sub></td></tr>
+              <tr><td>4</td><td>Balancer enfin l'oxygène : les produits contiennent 25 atomes de O au total (16 dans 8 CO₂, 9 dans 9 H₂O). Puisque O₂ n'apporte que 2 atomes à la fois, il faut le coefficient 25/2.</td><td>C₈H₁₈<sub>(g)</sub> + <u>25/2</u> O₂<sub>(g)</sub> → 8 CO₂<sub>(g)</sub> + 9 H₂O<sub>(g)</sub></td></tr>
+              <tr><td>5</td><td>Cette équation respecte déjà la loi de la conservation de la masse, mais 25/2 n'est pas un entier. On multiplie donc toute l'équation par 2 pour obtenir des coefficients entiers.</td><td>2 C₈H₁₈<sub>(g)</sub> + 25 O₂<sub>(g)</sub> → 16 CO₂<sub>(g)</sub> + 18 H₂O<sub>(g)</sub></td></tr>
+            </tbody>
+          </table>
+          <div class="formula">2 C₈H₁₈<sub>(g)</sub> + 25 O₂<sub>(g)</sub> → 16 CO₂<sub>(g)</sub> + 18 H₂O<sub>(g)</sub></div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Pourquoi ne pas simplement changer les indices ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">L'équation squelette H₂ + O₂ → H₂O n'est pas balancée. Un élève propose de la « corriger » en changeant l'eau pour H₂O₂. Pourquoi cette approche est-elle incorrecte, même si elle semble balancer l'oxygène ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Changer un <strong>indice</strong> (le petit chiffre à l'intérieur d'une formule) change l'identité chimique de la substance elle-même. H₂O₂ n'est pas de l'eau — c'est du <strong>peroxyde d'hydrogène</strong>, une substance complètement différente avec ses propres propriétés. Balancer une équation ne doit jamais changer <em>quelles</em> substances sont présentes, seulement <em>combien</em> de molécules de chacune sont présentes — c'est pour cette raison qu'on ajoute des coefficients (devant les formules), jamais qu'on modifie les indices (à l'intérieur des formules).</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Balancer la combustion du propane
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le propane (C₃H₈), utilisé notamment dans les barbecues, brûle selon l'équation squelette C₃H₈ + O₂ → CO₂ + H₂O. Balance cette équation en suivant la même méthode que pour l'octane (carbone, puis hydrogène, puis oxygène en dernier).</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Carbone : 3 atomes de C dans C₃H₈ → 3 CO₂. Hydrogène : 8 atomes de H dans C₃H₈ → 4 H₂O. Oxygène : les produits contiennent maintenant 6 + 4 = <strong>10</strong> atomes de O (6 dans 3 CO₂, 4 dans 4 H₂O), donc il faut 5 O₂. Comme 5 est déjà entier, aucune multiplication supplémentaire n'est nécessaire.<br><br>Équation balancée : <strong>C₃H₈<sub>(g)</sub> + 5 O₂<sub>(g)</sub> → 3 CO₂<sub>(g)</sub> + 4 H₂O<sub>(g)</sub></strong>.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Balancer la formation de l'oxyde de fer
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le fer rouille au contact du dioxygène de l'air selon l'équation squelette Fe + O₂ → Fe₂O₃. Quelle est l'équation balancée ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Fe + O₂ → Fe₂O₃</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2 Fe + 2 O₂ → 2 Fe₂O₃</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 4 Fe + 3 O₂ → 2 Fe₂O₃</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4 Fe + 6 O₂ → 4 Fe₂O₃</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> Fe₂O₃ contient 2 Fe et 3 O. Pour balancer l'oxygène (3 par unité de Fe₂O₃) avec O₂ (2 par molécule), le plus petit commun multiple de 2 et 3 est 6 : il faut donc 3 O₂ et 2 Fe₂O₃ (2 × 3 = 6 O des deux côtés). Le fer suit : 2 × 2 = 4 Fe. Équation balancée : <strong>4 Fe + 3 O₂ → 2 Fe₂O₃</strong>. Le choix D n'est pas incorrect mathématiquement, mais ses coefficients (4, 6, 4) ne sont pas réduits à leur plus petite valeur entière — ils sont tous divisibles par 2, ce qui redonne justement le choix C.</div>
+            </div>
+          </div>
+
+        <div class="quiz-block" data-quiz="q312">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — 3.1.2 Le balancement des équations<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une équation squelette respecte toujours la loi de la conservation de la masse.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. C'est justement la définition contraire : une équation squelette ne respecte <strong>pas</strong> la loi de la conservation de la masse — le nombre d'atomes de chaque élément diffère entre réactifs et produits, tant qu'elle n'est pas balancée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Une équation squelette est justement une équation qui <strong>ne respecte pas encore</strong> la loi de la conservation de la masse — c'est pour ça qu'il faut la balancer.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la différence entre un coefficient et un indice dans une équation chimique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Le coefficient indique le nombre de molécules ; l'indice indique le nombre d'atomes à l'intérieur d'une molécule</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Ce sont deux mots pour désigner exactement la même chose</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le coefficient se trouve à l'intérieur de la formule, l'indice devant</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Seul l'indice peut être modifié pour balancer une équation</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le coefficient (devant la formule) indique combien de molécules sont présentes ; l'indice (à l'intérieur de la formule) indique combien d'atomes composent chaque molécule. Seul le coefficient peut être ajusté pour balancer une équation.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le coefficient (devant la formule, ex. le « 2 » dans 2 H₂O) indique le nombre de molécules ; l'indice (à l'intérieur, ex. le « 2 » dans H₂O) indique le nombre d'atomes par molécule. On ne balance jamais en touchant à l'indice.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">On peut écrire explicitement le coefficient 1 devant une formule chimique, pour être plus clair.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Par convention, le coefficient 1 est toujours sous-entendu et ne s'écrit jamais devant une formule chimique.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Le coefficient 1 ne s'écrit jamais explicitement — son absence signifie déjà « 1 molécule », par convention.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle est l'équation balancée de la combustion de l'aluminium : Al + O₂ → Al₂O₃ ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Al + O₂ → Al₂O₃</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2 Al + 3 O₂ → Al₂O₃</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 4 Al + 3 O₂ → 2 Al₂O₃</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4 Al + 6 O₂ → 4 Al₂O₃</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Même méthode que pour l'oxyde de fer : Al₂O₃ contient 2 Al et 3 O ; le PPCM entre 3 (O dans Al₂O₃) et 2 (O dans O₂) est 6, donc 3 O₂ et 2 Al₂O₃, ce qui impose 4 Al. Vérification : Al 4=4 ✓, O 6=6 ✓.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Al₂O₃ contient 2 Al et 3 O. Pour équilibrer l'oxygène entre Al₂O₃ (3 par unité) et O₂ (2 par molécule), le plus petit commun multiple est 6 : donc 3 O₂ et 2 Al₂O₃, ce qui donne 4 Al. Bonne réponse : <strong>4 Al + 3 O₂ → 2 Al₂O₃</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Transformer H₂O en H₂O₂ pour « balancer » plus facilement l'oxygène d'une équation est une méthode acceptable.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Modifier un indice change l'identité de la substance : H₂O₂ est du peroxyde d'hydrogène, pas de l'eau. Balancer une équation ne doit jamais changer les substances présentes, seulement leur nombre (via les coefficients).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une erreur classique. H₂O₂ (peroxyde d'hydrogène) est une substance différente de H₂O (eau) : changer un indice change l'identité chimique elle-même, ce qui n'est jamais permis lors d'un balancement.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Pourquoi le couple hydrazine (N₂H₄) / tétraoxyde de diazote (N₂O₄) est-il utilisé comme carburant dans certains engins spatiaux ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Parce qu'il est très peu coûteux à produire</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Parce que le mélange s'enflamme spontanément, sans avoir besoin d'une source d'allumage externe</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Parce qu'il ne produit aucun gaz lors de la réaction</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Parce qu'il reste stable à très haute température seulement</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est un propergol dit « hypergolique » : les deux substances s'enflamment au simple contact l'une de l'autre, sans étincelle ni allumeur — un net avantage pour un moteur qui doit se rallumer en orbite.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La raison est que ce mélange est <strong>hypergolique</strong> : les deux substances réagissent et s'enflamment dès qu'elles entrent en contact, sans nécessiter d'étincelle. Très pratique pour un moteur qui doit pouvoir se rallumer à répétition en orbite.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">En balançant C₈H₁₈ + O₂ → CO₂ + H₂O, on obtient d'abord C₈H₁₈ + 25/2 O₂ → 8 CO₂ + 9 H₂O. Que faut-il faire ensuite ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Arrondir 25/2 à 13</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Laisser l'équation ainsi, un coefficient fractionnaire est acceptable</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Multiplier toute l'équation par 2 pour éliminer la fraction</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Diviser toute l'équation par 2</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Une équation balancée doit avoir des coefficients <strong>entiers</strong>. Multiplier toute l'équation par 2 donne 2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O — tous les coefficients sont maintenant entiers, et les rapports entre eux restent identiques.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Un coefficient fractionnaire n'est pas une forme finale acceptable — il faut multiplier <strong>toute</strong> l'équation par 2 (le dénominateur de la fraction) pour obtenir des coefficients entiers : 2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La flèche double (⇌) dans une équation chimique indique généralement que la réaction est réversible.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est la même notation déjà rencontrée au chapitre 2 pour la dissociation des électrolytes faibles — un équilibre qui se produit dans les deux sens à la fois.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La flèche double ⇌ signale un équilibre chimique qui se déroule dans les deux directions à la fois — la même notation vue au chapitre 2 pour les électrolytes faibles.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Laquelle de ces réactions est pratiquement irréversible ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La photosynthèse</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> La respiration cellulaire</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> La combustion vive du bois</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Toutes les réactions chimiques sont réversibles</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Une fois le bois transformé en cendres, en CO₂ et en vapeur d'eau, il n'y a pas de retour en arrière possible dans les conditions ordinaires — contrairement à la photosynthèse et à la respiration, qui sont l'inverse l'une de l'autre.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La combustion vive (comme celle du bois) est pratiquement irréversible. La photosynthèse et la respiration cellulaire, elles, sont l'inverse l'une de l'autre — un bon exemple de réversibilité à l'échelle globale.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle est la somme de tous les coefficients de l'équation balancée du propane, C₃H₈<sub>(g)</sub> + O₂<sub>(g)</sub> → CO₂<sub>(g)</sub> + H₂O<sub>(g)</sub> ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 10</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 13</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 16</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 21</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'équation balancée est C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O (coefficient 1 sous-entendu devant C₃H₈). Somme : 1 + 5 + 3 + 4 = <strong>13</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>L'équation balancée est C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O. En comptant le coefficient sous-entendu de 1 devant C₃H₈ : 1 + 5 + 3 + 4 = <strong>13</strong>.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q312"></div>
+          <button class="quiz-reset" id="reset-q312">↺ Recommencer</button>
+          </div>
+        </div>
+        </div>
+
+        <!-- ═══ 3.1.3 — STŒCHIOMÉTRIE (SQUELETTE) ═══ -->
+        <div class="subsection" id="stoechiometrie">
+          <div class="subsection-title">3.1.3 — La stœchiométrie <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : l'étude des rapports entre les quantités de réactifs et de produits d'une réaction (rapports stœchiométriques tirés des coefficients balancés), et les calculs de quantités de matière (moles, masses) à partir d'une équation balancée.</p>
+        </div>
+
+        <!-- ═══ 3.1.4 — ENDO/EXOTHERMIQUE (SQUELETTE) ═══ -->
+        <div class="subsection" id="endo-exothermique">
+          <div class="subsection-title">3.1.4 — Les réactions endothermiques et exothermiques <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : l'énergie d'activation (Eₐ), le bilan énergétique d'une réaction, et la distinction entre les réactions endothermiques (gain d'énergie, bilan du côté des réactifs) et exothermiques (perte d'énergie, bilan du côté des produits), avec des diagrammes d'énergie et des exemples chiffrés.</p>
+        </div>
+
+        <!-- ═══ 3.1.5 — EXEMPLES DE TRANSFORMATIONS (SQUELETTE) ═══ -->
+        <div class="subsection" id="exemples-transformations">
+          <div class="subsection-title">3.1.5 — Des exemples de transformations chimiques</div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : quelques grandes catégories de réactions chimiques — l'oxydation et la combustion (le triangle du feu : combustible, comburant, point d'ignition), la neutralisation acidobasique et les sels qui en résultent — ainsi qu'une problématique environnementale liée à l'activité humaine et aux changements climatiques.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 3.2 — LES TRANSFORMATIONS NUCLÉAIRES    -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-3-2">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">3.2</span>
+          <span class="section-title">Les transformations nucléaires</span>
+          <span class="section-badge">STE</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <div class="quick-links">
+          <span class="quick-links-label">Aller à :</span>
+          <a href="#stabilite-nucleaire">Stabilité nucléaire</a>
+          <a href="#radioactivite">Radioactivité</a>
+          <a href="#fission-fusion">Fission et fusion</a>
+        </div>
+
+        <p>Contrairement aux transformations chimiques, où seuls les électrons de valence sont en jeu et où les noyaux atomiques restent parfaitement intacts, une <strong>transformation nucléaire</strong> touche directement le noyau de l'atome : elle peut carrément transformer un élément en un autre, ce qu'aucune réaction chimique ne peut faire. Cette section explore ce que signifie la stabilité d'un noyau, comment un noyau instable se désintègre spontanément (la radioactivité), et comment on peut aussi transformer des noyaux de façon provoquée, par fission ou par fusion.</p>
+
+        <!-- ═══ 3.2.1 — STABILITÉ NUCLÉAIRE (SQUELETTE) ═══ -->
+        <div class="subsection" id="stabilite-nucleaire">
+          <div class="subsection-title">3.2.1 — La stabilité nucléaire</div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : le rapport neutrons/protons, la zone de stabilité nucléaire, et ce qui distingue un noyau stable d'un noyau instable (radioactif).</p>
+        </div>
+
+        <!-- ═══ 3.2.2 — RADIOACTIVITÉ (SQUELETTE) ═══ -->
+        <div class="subsection" id="radioactivite">
+          <div class="subsection-title">3.2.2 — La radioactivité</div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : la désintégration radioactive spontanée, les rayonnements alpha, bêta et gamma (déjà rencontrés au chapitre 1 lors de leur découverte par Rutherford), les équations de désintégration nucléaire, et la notion de demi-vie.</p>
+        </div>
+
+        <!-- ═══ 3.2.3 — FISSION ET FUSION (SQUELETTE) ═══ -->
+        <div class="subsection" id="fission-fusion">
+          <div class="subsection-title">3.2.3 — La fission et la fusion nucléaires</div>
+          <p style="color:var(--muted);font-style:italic;">Contenu à venir : la fission nucléaire (centrales nucléaires, réaction en chaîne), la fusion nucléaire (le mécanisme qui alimente les étoiles, la recherche en énergie de fusion), et une comparaison des deux processus.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+// ── Toggle sections ────────────────────────────────────────
+function toggleSection(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  btn.parentElement.querySelector('.section-body').classList.toggle('open', !expanded);
+}
+
+// ── Toggle activités suggérées ─────────────────────────────
+function toggleActivity(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+function toggleHint(btn) {
+  const hint = btn.nextElementSibling;
+  hint.classList.toggle('show');
+  btn.textContent = hint.classList.contains('show') ? '▾ Cacher la piste de réponse' : '▸ Voir une piste de réponse';
+}
+
+// ── Toggle blocs d'exercices ────────────────────────────────
+function toggleQuiz(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Toggle bulles de note ────────────────────────────────────
+function toggleNote(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Sidebar active link ────────────────────────────────────
+const tocLinks = document.querySelectorAll('.toc-link');
+const sectionIds = ['rappel','section-3-1','section-3-2'];
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 130) current = id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('to-top').classList.toggle('visible', window.scrollY > 300);
+}, {passive: true});
+
+// ── Smooth scroll from TOC ─────────────────────────────────
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const toggle = target.querySelector('.section-toggle');
+    if (toggle && toggle.getAttribute('aria-expanded') === 'false') toggleSection(toggle);
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+// ── Search ─────────────────────────────────────────────────
+const contentEl = document.querySelector('.content');
+const originalHTML = contentEl.innerHTML;
+
+let lastQuery = '';
+let matchIndex = -1;
+
+function doSearch(query) {
+  contentEl.innerHTML = originalHTML;
+  const countEl = document.getElementById('search-count');
+  matchIndex = -1;
+  lastQuery = query;
+
+  if (!query.trim()) { countEl.textContent = ''; return 0; }
+
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  let count = 0;
+  nodes.forEach(node => {
+    if (!re.test(node.textContent)) return;
+    re.lastIndex = 0;
+    const span = document.createElement('span');
+    span.innerHTML = node.textContent.replace(re, m => { count++; return `<mark class="sh">${m}</mark>`; });
+    node.parentNode.replaceChild(span, node);
+  });
+
+  countEl.textContent = count ? `${count} résultat${count>1?'s':''}` : 'Aucun résultat';
+
+  document.querySelectorAll('.section-card').forEach(card => {
+    if (card.querySelector('mark.sh')) {
+      const t = card.querySelector('.section-toggle');
+      if (t && t.getAttribute('aria-expanded') === 'false') toggleSection(t);
+    }
+  });
+
+  return count;
+}
+
+function goToMatch(step) {
+  const marks = contentEl.querySelectorAll('mark.sh');
+  if (!marks.length) return;
+  if (matchIndex >= 0 && marks[matchIndex]) marks[matchIndex].classList.remove('current');
+  matchIndex = (matchIndex + step + marks.length) % marks.length;
+  const m = marks[matchIndex];
+  m.classList.add('current');
+  m.scrollIntoView({behavior:'smooth', block:'center'});
+  const countEl = document.getElementById('search-count');
+  countEl.textContent = `${matchIndex+1} / ${marks.length} résultats`;
+}
+
+function runSearchAndJump(query, step) {
+  if (query !== lastQuery || !contentEl.querySelector('mark.sh')) {
+    const count = doSearch(query);
+    if (count > 0) goToMatch(0);
+  } else {
+    goToMatch(step);
+  }
+}
+
+document.getElementById('search-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    runSearchAndJump(e.target.value, e.shiftKey ? -1 : 1);
+  }
+});
+
+// Ctrl+F → recherche interne
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    const inp = document.getElementById('search-input');
+    inp.focus(); inp.select();
+  }
+});
+
+// Fermer la bulle d'attribution au clic à l'extérieur
+document.addEventListener('click', e => {
+  const pop = document.getElementById('attrib-pop');
+  if (pop && !pop.contains(e.target) && !e.target.closest('.sidebar-footer button')) {
+    pop.classList.remove('visible');
+  }
+});
+
+// === MOTEUR DE QUIZ INTERACTIFS ===
+function initQuizBlock(block) {
+  const questions = Array.from(block.querySelectorAll('.quiz-q'));
+  const total = questions.length;
+  const scoreLabel = block.querySelector('.quiz-score-label');
+  const progressBar = block.querySelector('.quiz-progress');
+  const resultMsg = block.querySelector('.quiz-result-msg');
+  const resetBtn = block.querySelector('.quiz-reset');
+  progressBar.max = total; // synchronise toujours le max réel avec le nombre de questions présentes
+
+  function updateScore() {
+    const answered = questions.filter(q => q.classList.contains('answered'));
+    const correct = answered.filter(q => q.dataset.gotCorrect === 'true').length;
+    scoreLabel.textContent = `${correct} / ${total}`;
+    progressBar.value = answered.length;
+
+    if (answered.length === total) {
+      resultMsg.classList.add('show');
+      const pct = Math.round((correct / total) * 100);
+      resultMsg.classList.remove('great', 'good', 'poor');
+      const starIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z"/></svg>';
+      const upIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 13l3-3 2 2 3-3.5"/></svg>';
+      const bookIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 1-2-2Z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 0 2-2Z"/></svg>';
+      let icon, msg, variant;
+      if (pct === 100) { icon = starIcon; msg = `Parfait ! ${correct} / ${total} — la section est maîtrisée.`; variant = 'great'; }
+      else if (pct >= 70) { icon = upIcon; msg = `Bon travail : ${correct} / ${total}. Relis les explications des questions manquées.`; variant = 'good'; }
+      else { icon = bookIcon; msg = `${correct} / ${total} — il serait utile de revoir cette section avant de continuer.`; variant = 'poor'; }
+      resultMsg.classList.add(variant);
+      resultMsg.innerHTML = `${icon}<span>${msg}</span>`;
+      resetBtn.style.display = 'inline-block';
+    } else {
+      resultMsg.classList.remove('show', 'great', 'good', 'poor');
+      resetBtn.style.display = 'none';
+    }
+  }
+
+  questions.forEach(q => {
+    const options = Array.from(q.querySelectorAll('.quiz-option'));
+    const fbOk = q.querySelector('.quiz-feedback.ok');
+    const fbKo = q.querySelector('.quiz-feedback.ko');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (q.classList.contains('answered')) return; // déjà répondu
+
+        const isCorrect = opt.dataset.correct === 'true';
+        q.classList.add('answered');
+        q.dataset.gotCorrect = isCorrect ? 'true' : 'false';
+
+        options.forEach(o => {
+          o.disabled = true;
+          if (o.dataset.correct === 'true') {
+            o.classList.add(o === opt ? 'correct' : 'reveal');
+          } else if (o === opt) {
+            o.classList.add('wrong');
+          }
+        });
+
+        (isCorrect ? fbOk : fbKo).classList.add('show');
+        updateScore();
+      });
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    questions.forEach(q => {
+      q.classList.remove('answered');
+      delete q.dataset.gotCorrect;
+      q.querySelectorAll('.quiz-option').forEach(o => {
+        o.disabled = false;
+        o.classList.remove('correct', 'wrong', 'reveal');
+      });
+      q.querySelectorAll('.quiz-feedback').forEach(f => f.classList.remove('show'));
+    });
+    updateScore();
+  });
+
+  updateScore();
+}
+
+// === MOTEUR DE QCM AUTONOMES (activités suggérées avec choix cliquables) ===
+function initStandaloneMCQ(block) {
+  const options = Array.from(block.querySelectorAll('.quiz-option'));
+  let answered = false;
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (answered) return;
+      answered = true;
+      const isCorrect = opt.dataset.correct === 'true';
+      options.forEach(o => {
+        o.disabled = true;
+        if (o.dataset.correct === 'true') {
+          o.classList.add(o === opt ? 'correct' : 'reveal');
+        } else if (o === opt) {
+          o.classList.add('wrong');
+        }
+      });
+    });
+  });
+}
+
+document.querySelectorAll('.standalone-mcq').forEach(initStandaloneMCQ);
+
+document.querySelectorAll('.quiz-block').forEach(initQuizBlock);
+</script>
+</body>
+</html>
