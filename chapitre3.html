@@ -359,11 +359,25 @@
     <!-- RAPPEL -->
     <div id="rappel" class="rappel-card">
       <h2 style="display:flex;align-items:center;gap:8px;"><svg class="icon-sm" style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.2-7-12a7 7 0 1 1 14 0c0 4.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg> Rappel — Notions préalables</h2>
-      <p>• Une <strong>transformation physique</strong> change la forme, l'état ou l'apparence d'une substance sans changer sa nature : les mêmes molécules sont présentes avant et après (ex. : faire fondre un glaçon) — vu en secondaire 3.</p>
-      <p>• Une <strong>transformation chimique</strong> transforme une ou plusieurs substances de départ en de nouvelles substances, différentes de celles de départ — vu en secondaire 3.</p>
+      <p>• Un <strong>changement chimique</strong> (ou transformation chimique) est une transformation qui modifie la nature d'une substance : elle crée des molécules différentes, possédant de nouvelles propriétés — vu en secondaire 3.</p>
+      <p>• Comme les molécules sont trop petites pour être observées directement, on reconnaît un changement chimique à l'aide d'<strong>indices observables</strong> (voir le tableau ci-dessous), et non en voyant littéralement les molécules se transformer.</p>
       <p>• Un <strong>atome</strong> est la plus petite particule d'un élément ; une <strong>molécule</strong> est un assemblage d'atomes liés par des liaisons chimiques — chapitre 1, sections 1.1 et 1.4.</p>
       <p>• La <strong>mole (mol)</strong> est l'unité de quantité de matière (1 mol = 6,022 × 10²³ particules) et se relie à la masse par la masse molaire : <strong>n = m ÷ M</strong> — section 1.5.</p>
     </div>
+
+    <p>Comme les molécules ne sont pas observables à l'œil nu, il faut toujours se demander : la matière a-t-elle changé ? Possède-t-elle de nouvelles propriétés ? Le tableau suivant présente les principaux indices qui permettent de reconnaître un changement chimique.</p>
+
+    <table class="data-table">
+      <thead><tr><th>Indice observable</th><th>Exemple</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Changement de couleur</strong></td><td>Le papier de tournesol devient bleu au contact d'une base (voir aussi le chapitre 2, section 2.2.4).</td></tr>
+        <tr><td><strong>Dégagement de gaz ou effervescence</strong><br><span style="font-size:12px;color:var(--muted);">(production de gaz dans un liquide)</span></td><td>Une pastille antiacide produit des bulles de dioxyde de carbone (CO₂) dans l'eau :<br>HCl<sub>(aq)</sub> + NaHCO₃<sub>(aq)</sub> → NaCl<sub>(aq)</sub> + H₂O<sub>(l)</sub> + CO₂<sub>(g)</sub></td></tr>
+        <tr><td><strong>Dégagement ou absorption de chaleur</strong></td><td>La cuisson des aliments demande (absorbe) de la chaleur. <em>(Voir la section 3.1.4 — réactions endothermiques et exothermiques.)</em></td></tr>
+        <tr><td><strong>Émission de lumière</strong></td><td>Une luciole brille dans le noir par <strong>bioluminescence</strong> : dans son abdomen, la luciférine réagit avec le dioxygène de l'air — une réaction catalysée par la luciférase — ce qui dégage de l'énergie lumineuse.</td></tr>
+        <tr><td><strong>Formation d'un précipité</strong></td><td>Le mélange d'une solution de chlorure de sodium (NaCl) et d'une solution de nitrate d'argent (AgNO₃) forme un précipité solide, le chlorure d'argent (AgCl) :<br>NaCl<sub>(aq)</sub> + AgNO₃<sub>(aq)</sub> → AgCl<sub>(s)</sub> + NaNO₃<sub>(aq)</sub></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--muted);">Le chlorure d'argent (AgCl) formé ici est le même composé déjà rencontré au chapitre 2 (section 2.2.3) comme exemple d'un électrolyte fort malgré sa très faible solubilité — c'est justement cette faible solubilité qui le fait précipiter (rester solide) plutôt que de rester dissous.</p>
 
     <p>Ce chapitre distingue deux grandes catégories de transformations, en plus de la transformation physique déjà connue : les <strong>transformations chimiques</strong> (section 3.1), où les atomes se réarrangent sans changer de nature, et les <strong>transformations nucléaires</strong> (section 3.2), où c'est le noyau même des atomes qui se transforme. Le tableau suivant situe ces trois types de transformations les uns par rapport aux autres.</p>
 
@@ -376,6 +390,7 @@
       </tbody>
     </table>
     <p style="font-size:13px;color:var(--muted);">Exemple de transformation physique : faire fondre un glaçon — ce sont toujours des molécules d'H₂O avant et après, seul leur arrangement (solide → liquide) a changé. Ce chapitre explore les deux colonnes de droite : d'abord les transformations chimiques (section 3.1), puis les transformations nucléaires (section 3.2).</p>
+
 
     <!-- ══════════════════════════════════════════════ -->
     <!-- SECTION 3.1 — LES TRANSFORMATIONS CHIMIQUES     -->
@@ -890,10 +905,274 @@
         </div>
         </div>
 
-        <!-- ═══ 3.1.3 — STŒCHIOMÉTRIE (SQUELETTE) ═══ -->
+        <!-- ═══ 3.1.3 — STŒCHIOMÉTRIE ═══ -->
         <div class="subsection" id="stoechiometrie">
           <div class="subsection-title">3.1.3 — La stœchiométrie <span style="font-size:11px;background:var(--orange);color:#fff;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">STE</span></div>
-          <p style="color:var(--muted);font-style:italic;">Contenu à venir : l'étude des rapports entre les quantités de réactifs et de produits d'une réaction (rapports stœchiométriques tirés des coefficients balancés), et les calculs de quantités de matière (moles, masses) à partir d'une équation balancée.</p>
+
+          <p>Une fois qu'on sait écrire une équation chimique balancée, on peut aller plus loin : prévoir la <strong>quantité</strong> de réactifs nécessaire pour réaliser une réaction, ou prédire la <strong>quantité</strong> de produits qui en résultera. Ces calculs — qu'on appelle <span class="kw">calculs stœchiométriques</span> — servent aussi, entre autres, à déterminer la quantité d'énergie produite ou absorbée par une réaction (voir la section 3.1.4).</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>stœchiométrie</strong> est l'étude des rapports entre les quantités de matière (réactifs et produits) qui participent à une transformation chimique.</p>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Le rapport stœchiométrique</span></div>
+            <p style="margin:0 0 8px;">Les coefficients d'une équation balancée donnent directement un <strong>rapport stœchiométrique</strong> entre deux substances — c'est-à-dire le rapport fixe dans lequel elles réagissent ou se forment, peu importe l'échelle à laquelle la réaction se produit. Prenons la photosynthèse :</p>
+            <div class="formula" style="font-size:14px;">6 CO₂<sub>(g)</sub> + 6 H₂O<sub>(l)</sub> → C₆H₁₂O₆<sub>(aq)</sub> + 6 O₂<sub>(g)</sub></div>
+            <p style="margin:8px 0;">Le rapport stœchiométrique entre le CO₂ et le C₆H₁₂O₆ est de <strong>6 : 1</strong> — pour chaque molécule (ou mole) de glucose produite, il aura toujours fallu exactement 6 molécules (ou moles) de CO₂, peu importe l'ampleur de la réaction :</p>
+            <ul class="content-list" style="margin-bottom:0;">
+              <li>6 mol de CO₂ → 1 mol de C₆H₁₂O₆ (rapport 6:1)</li>
+              <li>18 mol de CO₂ → 3 mol de C₆H₁₂O₆ (rapport 18:3, qui se simplifie toujours en 6:1)</li>
+              <li>0,3 mol de CO₂ → 0,05 mol de C₆H₁₂O₆ (rapport 0,3:0,05, qui se simplifie encore en 6:1)</li>
+            </ul>
+          </div>
+
+          <p style="margin-top:-4px;font-size:13px;color:var(--muted);">Une équation balancée utilise toujours les coefficients entiers les plus petits possible (section 3.1.2), mais rien n'empêche de représenter la <em>même</em> réaction avec d'autres coefficients — même des valeurs plus petites que 1 — tant que tous les rapports stœchiométriques entre les substances restent respectés.</p>
+
+          <p>Une équation balancée peut donc se lire de trois façons différentes, selon ce qu'on souhaite calculer : en <strong>molécules</strong>, en <strong>moles</strong>, ou en <strong>masse</strong>. Le tableau suivant illustre ces trois lectures à l'aide de la combustion du méthane (CH₄).</p>
+
+          <div class="formula">CH₄<sub>(g)</sub> + 2 O₂<sub>(g)</sub> → CO₂<sub>(g)</sub> + 2 H₂O<sub>(g)</sub></div>
+
+          <table class="data-table">
+            <thead><tr><th>Lecture</th><th>CH₄</th><th>O₂</th><th>CO₂</th><th>H₂O</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nombre de molécules</strong></td><td>1 molécule</td><td>2 molécules</td><td>1 molécule</td><td>2 molécules</td></tr>
+              <tr><td><strong>Quantité de matière</strong></td><td>1 mol</td><td>2 mol</td><td>1 mol</td><td>2 mol</td></tr>
+              <tr><td><strong>Masse</strong></td><td>16,05 g</td><td>64,00 g</td><td>44,01 g</td><td>36,04 g</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);">Masses molaires utilisées : M(CH₄) = 12,01 + 4(1,01) = 16,05 g/mol · M(O₂) = 32,00 g/mol, donc 2 mol = 64,00 g · M(CO₂) = 12,01 + 2(16,00) = 44,01 g/mol · M(H₂O) = 2(1,01) + 16,00 = 18,02 g/mol, donc 2 mol = 36,04 g. Remarque que 16,05 + 64,00 = 80,05 g = 44,01 + 36,04 — la masse est toujours conservée (section 3.1.1), peu importe la lecture choisie.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Méthode générale — résoudre un calcul stœchiométrique</span></div>
+            <ol class="outil-list" style="padding-left:20px;margin:0;">
+              <li style="margin-bottom:6px;">Balancer l'équation chimique, si ce n'est pas déjà fait (section 3.1.2).</li>
+              <li style="margin-bottom:6px;">Si la quantité donnée est une <strong>masse</strong>, la convertir en <strong>moles</strong> à l'aide de la masse molaire (n = m ÷ M, section 1.5).</li>
+              <li style="margin-bottom:6px;">Utiliser le <strong>rapport molaire</strong> tiré des coefficients de l'équation balancée pour trouver le nombre de moles de la substance recherchée.</li>
+              <li>Si la question demande une <strong>masse</strong>, reconvertir le résultat de moles vers grammes (m = n × M).</li>
+            </ol>
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Exemple A — Un calcul mole à mole</div>
+          <p>La combustion du butane gazeux (C₄H₁₀) — le gaz des briquets et des bonbonnes de camping — est représentée par l'équation C₄H₁₀<sub>(g)</sub> + O₂<sub>(g)</sub> → CO₂<sub>(g)</sub> + H₂O<sub>(g)</sub>. Une bonbonne de camping contient 107 mol de butane. Combien de moles de dioxygène (O₂) faut-il pour brûler tout le butane de cette bonbonne ?</p>
+
+          <table class="data-table">
+            <thead><tr><th>Étape</th><th>Action</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Balancer l'équation chimique.</td><td>2 C₄H₁₀<sub>(g)</sub> + 13 O₂<sub>(g)</sub> → 8 CO₂<sub>(g)</sub> + 10 H₂O<sub>(g)</sub></td></tr>
+              <tr><td>2</td><td>Écrire le rapport molaire entre le C₄H₁₀ (donné) et le O₂ (recherché), tiré des coefficients.</td><td>2 mol C₄H₁₀ : 13 mol O₂</td></tr>
+              <tr><td>3</td><td>Établir la proportion avec la quantité connue (107 mol de C₄H₁₀) et isoler l'inconnue.</td><td>13 mol O₂ ⁄ 2 mol C₄H₁₀ = <em>n</em>(O₂) ⁄ 107 mol C₄H₁₀</td></tr>
+              <tr><td>4</td><td>Calculer.</td><td><em>n</em>(O₂) = (13 × 107) ⁄ 2 = 1391 ⁄ 2 = <strong>695,5 mol</strong></td></tr>
+            </tbody>
+          </table>
+          <p>Il faut donc <strong>695,5 mol</strong> de dioxygène pour brûler complètement le butane contenu dans la bonbonne.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Les coefficients d'une équation balancée donnent un rapport <strong>molaire</strong> (un rapport de <em>moles</em>), jamais un rapport de <strong>masse</strong> directement. Il est tentant de croire que « 2 mol de C₄H₁₀ pour 13 mol de O₂ » implique automatiquement une proportion identique en grammes — ce n'est pas le cas, puisque chaque substance a sa propre masse molaire. Pour convertir un rapport molaire en un rapport de masse, il faut toujours passer par les moles (voir l'exemple B ci-dessous).
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Exemple B — Un calcul masse à masse</div>
+          <p>La stœchiométrie sert aussi à trouver la <strong>masse</strong> d'un réactif ou d'un produit, à partir de la masse d'une autre substance de la réaction. Le trichlorure de phosphoryle (POCl₃) peut être préparé selon l'équation PCl₃ + O₂ → POCl₃. Quelle masse de POCl₃ obtient-on en faisant réagir 582,2 g de trichlorure de phosphore (PCl₃) avec un excès de dioxygène ?</p>
+
+          <table class="data-table">
+            <thead><tr><th>Étape</th><th>Action</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Balancer l'équation chimique.</td><td>2 PCl₃ + O₂ → 2 POCl₃</td></tr>
+              <tr><td>2</td><td>Convertir la masse donnée de PCl₃ en une masse « de référence », à l'aide des masses molaires et des coefficients (M(PCl₃) = 137,32 g/mol ; M(POCl₃) = 153,32 g/mol).</td><td>2 mol PCl₃ = 274,64 g &nbsp;↔&nbsp; 2 mol POCl₃ = 306,64 g</td></tr>
+              <tr><td>3</td><td>Établir la proportion entre cette référence et la masse donnée, puis isoler l'inconnue.</td><td>306,64 g POCl₃ ⁄ 274,64 g PCl₃ = <em>m</em>(POCl₃) ⁄ 582,2 g PCl₃</td></tr>
+              <tr><td>4</td><td>Calculer.</td><td><em>m</em>(POCl₃) = (306,64 × 582,2) ⁄ 274,64 ≈ <strong>650,0 g</strong></td></tr>
+            </tbody>
+          </table>
+          <p>La réaction produit donc environ <strong>650,0 g</strong> de trichlorure de phosphoryle (POCl₃).</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pourquoi un « excès » de dioxygène ?</span></div>
+            L'énoncé précise qu'on utilise un <strong>excès</strong> de O₂ — c'est-à-dire plus de O₂ que nécessaire. Cela garantit que <strong>tout</strong> le PCl₃ pourra réagir, sans qu'il n'en reste faute de dioxygène disponible. C'est donc bien la quantité de PCl₃ (582,2 g) qui détermine la quantité de produit formé, et c'est pour cela que le calcul stœchiométrique part de cette substance plutôt que du O₂, dont la quantité exacte n'a pas besoin d'être connue.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calcul mole à mole
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">L'ammoniac (NH₃), utilisé notamment pour fabriquer des engrais, est synthétisé industriellement selon le procédé Haber-Bosch : N₂<sub>(g)</sub> + 3 H₂<sub>(g)</sub> → 2 NH₃<sub>(g)</sub>. Combien de moles de NH₃ peut-on produire à partir de 5 mol de N₂ (avec un excès de H₂) ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 5 mol</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 7,5 mol</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 10 mol</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 15 mol</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> Le rapport molaire entre N₂ et NH₃ est de 1 : 2 (tiré des coefficients). Pour 5 mol de N₂ : <em>n</em>(NH₃) = 5 mol × (2 mol NH₃ ⁄ 1 mol N₂) = <strong>10 mol</strong>.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calcul masse à masse
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Le magnésium métallique, utilisé notamment dans les feux d'artifice (chapitre 1, section 1.3), brûle dans le dioxygène selon 2 Mg<sub>(s)</sub> + O₂<sub>(g)</sub> → 2 MgO<sub>(s)</sub>. Quelle masse de MgO (M = 40,31 g/mol) obtient-on en brûlant complètement 24,31 g de Mg (M = 24,31 g/mol) dans un excès de dioxygène ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Étape 1 — Convertir la masse de Mg en moles : <em>n</em>(Mg) = 24,31 g ÷ 24,31 g/mol = <strong>1,000 mol</strong>.<br><br>Étape 2 — Rapport molaire Mg : MgO = 2 : 2 = 1 : 1, donc <em>n</em>(MgO) = <strong>1,000 mol</strong>.<br><br>Étape 3 — Convertir en masse : <em>m</em>(MgO) = 1,000 mol × 40,31 g/mol = <strong>40,31 g</strong>.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Retour sur le propergol du chapitre précédent
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">À la section 3.1.2, on a balancé l'équation du propergol hypergolique utilisé dans certains engins spatiaux : 2 N₂H₄<sub>(l)</sub> + N₂O₄<sub>(l)</sub> → 3 N₂<sub>(g)</sub> + 4 H₂O<sub>(g)</sub>. Si un moteur consomme 50 mol d'hydrazine (N₂H₄), combien de moles de tétraoxyde de diazote (N₂O₄) sont consommées, et combien de moles de diazote (N₂) sont produites ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Rapport N₂H₄ : N₂O₄ = 2 : 1, donc <em>n</em>(N₂O₄) = 50 mol × (1 ⁄ 2) = <strong>25 mol</strong>.<br><br>Rapport N₂H₄ : N₂ = 2 : 3, donc <em>n</em>(N₂) = 50 mol × (3 ⁄ 2) = <strong>75 mol</strong>.</div>
+            </div>
+          </div>
+
+        <div class="quiz-block" data-quiz="q313">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — 3.1.3 La stœchiométrie<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La stœchiométrie permet de prévoir la quantité de réactifs nécessaires à une réaction, ou de prédire la quantité de produits qui en résultera.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est précisément le rôle des calculs stœchiométriques : prévoir des quantités de réactifs ou de produits à partir des rapports molaires d'une équation balancée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La stœchiométrie sert justement à prévoir les quantités de réactifs nécessaires et à prédire les quantités de produits formés.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Le rapport stœchiométrique entre le CO₂ et le glucose (C₆H₁₂O₆) lors de la photosynthèse est de 6 : 1. Si 24 mol de CO₂ réagissent, combien de moles de glucose se forment ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 6 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 24 mol</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 4 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 144 mol</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le rapport 6:1 signifie que pour chaque 6 mol de CO₂, il se forme 1 mol de glucose : 24 ÷ 6 = <strong>4 mol</strong> de glucose.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le rapport stœchiométrique 6:1 (CO₂:glucose) reste constant : 24 mol de CO₂ ÷ 6 = <strong>4 mol</strong> de glucose.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le rapport stœchiométrique entre deux substances change selon l'ampleur de la réaction (par exemple, si on utilise 6 mol ou 18 mol de réactif).</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Le rapport stœchiométrique reste toujours le même, peu importe l'échelle : 6 mol → 1 mol, 18 mol → 3 mol, 0,3 mol → 0,05 mol — tous ces rapports se simplifient en 6:1.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Un rapport stœchiométrique est fixe — il ne dépend jamais de l'échelle de la réaction. Multiplier ou diviser toutes les quantités par le même facteur ne change pas le rapport entre elles.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans le tableau des trois lectures de l'équation CH₄ + 2 O₂ → CO₂ + 2 H₂O, quelle lecture donne directement 16,05 g pour le méthane ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le nombre de molécules</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> La quantité de matière (moles)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> La masse</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucune de ces réponses</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La lecture en <strong>masse</strong> convertit chaque coefficient molaire en grammes à l'aide de la masse molaire : 1 mol de CH₄ × 16,05 g/mol = 16,05 g.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est la lecture en <strong>masse</strong> : 1 mol de CH₄ correspond à 16,05 g, une fois converti à l'aide de la masse molaire (M(CH₄) = 12,01 + 4 × 1,01 = 16,05 g/mol).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Les coefficients d'une équation balancée donnent directement un rapport de masse entre les substances.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Les coefficients donnent un rapport <strong>molaire</strong>. Pour obtenir un rapport de masse, il faut d'abord convertir chaque quantité en grammes à l'aide de sa propre masse molaire.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une erreur fréquente. Les coefficients donnent un rapport de <strong>moles</strong>, pas de masse. Chaque substance a sa propre masse molaire, donc le rapport de masse est presque toujours différent du rapport molaire.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Selon 2 C₄H₁₀<sub>(g)</sub> + 13 O₂<sub>(g)</sub> → 8 CO₂<sub>(g)</sub> + 10 H₂O<sub>(g)</sub>, combien de moles de CO₂ se forment à partir de 20 mol de C₄H₁₀ ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 20 mol</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 80 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 32,5 mol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 130 mol</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rapport molaire C₄H₁₀:CO₂ = 2:8 = 1:4. <em>n</em>(CO₂) = 20 mol × 4 = <strong>80 mol</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le rapport molaire C₄H₁₀:CO₂ tiré des coefficients est 2:8, soit 1:4. Donc <em>n</em>(CO₂) = 20 mol × 4 = <strong>80 mol</strong>. Le choix D (130) correspond au calcul pour O₂, pas pour CO₂.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Selon 2 Mg<sub>(s)</sub> + O₂<sub>(g)</sub> → 2 MgO<sub>(s)</sub> (M(Mg) = 24,31 g/mol ; M(MgO) = 40,31 g/mol), quelle masse de MgO obtient-on à partir de 48,62 g de Mg (avec un excès de O₂) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 48,62 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 40,31 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 80,62 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 161,24 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. <em>n</em>(Mg) = 48,62 ÷ 24,31 = 2,000 mol. Rapport Mg:MgO = 2:2 = 1:1, donc <em>n</em>(MgO) = 2,000 mol. <em>m</em>(MgO) = 2,000 × 40,31 = <strong>80,62 g</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>D'abord convertir en moles : 48,62 g ÷ 24,31 g/mol = 2,000 mol de Mg. Le rapport molaire Mg:MgO est 1:1, donc 2,000 mol de MgO, ce qui donne 2,000 × 40,31 g/mol = <strong>80,62 g</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la première étape à effectuer pour résoudre un calcul stœchiométrique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Convertir toutes les quantités en grammes</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> S'assurer que l'équation chimique est balancée</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Calculer la masse molaire de chaque substance</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Identifier le réactif en excès</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Sans une équation balancée, les coefficients ne représentent pas les bons rapports molaires — tout calcul stœchiométrique doit donc commencer par vérifier (ou effectuer) le balancement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Il faut d'abord s'assurer que l'<strong>équation est balancée</strong> — les coefficients d'une équation squelette ne donnent pas les bons rapports molaires. Les conversions de masse et de moles viennent ensuite.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans l'exemple B (PCl₃ + O₂ → POCl₃), l'énoncé précise qu'on utilise un excès de dioxygène. Que signifie cette précision ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le dioxygène ne participe pas à la réaction</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Tout le PCl₃ pourra réagir, puisqu'il ne manquera jamais de O₂</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La masse de O₂ doit être ajoutée à celle du PCl₃ dans le calcul</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La réaction est incomplète</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un excès de O₂ garantit qu'il y en aura toujours assez pour réagir avec tout le PCl₃ présent — c'est donc la quantité de PCl₃ qui détermine la quantité de produit formé.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Un excès de O₂ signifie qu'il y en a plus que nécessaire : tout le PCl₃ pourra donc réagir sans jamais manquer de dioxygène. C'est pour cela que le calcul part de la quantité de PCl₃, pas de celle de O₂.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">On convertit une masse en moles avant d'utiliser un rapport molaire, car les coefficients d'une équation chimique comparent des nombres de particules (via les moles), pas des grammes.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Une réaction chimique se déroule entre des particules (atomes, molécules) — les coefficients balancés comptent ces particules via les moles (section 1.5), pas via leur masse. La conversion m ↔ n est donc indispensable.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Les coefficients d'une équation balancée reflètent un nombre de particules (via les moles) qui réagissent ensemble — pas une masse. C'est pourquoi on doit toujours passer par les moles pour relier deux masses entre elles.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q313"></div>
+          <button class="quiz-reset" id="reset-q313">↺ Recommencer</button>
+          </div>
+        </div>
+
         </div>
 
         <!-- ═══ 3.1.4 — ENDO/EXOTHERMIQUE (SQUELETTE) ═══ -->
