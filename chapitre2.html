@@ -1572,6 +1572,16 @@
             </div>
           </div>
 
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — attention aux molécules organiques qui « ressemblent » à un ABS</span></div>
+            <p style="margin:0 0 8px;">Les règles de reconnaissance ci-dessus visent des composés <strong>inorganiques</strong> simples. Certaines molécules organiques (bâties autour du carbone) peuvent tromper l'œil si on applique ces règles machinalement, sans vérifier <em>chacune</em> des deux conditions :</p>
+            <ul class="content-list" style="margin-bottom:8px;">
+              <li><strong>Le méthanol (CH₃OH)</strong> se termine bien par OH — mais CH₃ n'est <strong>ni un métal ni le groupe NH₄⁺</strong>, donc la première condition n'est pas respectée. Le méthanol n'est <strong>pas une base</strong> : c'est un alcool, une molécule organique covalente qui se dissout dans l'eau sans se dissocier en ions (comme le glucose, section 2.2.2) — un non-électrolyte, pas une base.</li>
+              <li><strong>L'éthane (C₂H₆)</strong> contient des atomes d'hydrogène, mais ceux-ci ne sont <strong>pas placés au début</strong> de la formule (le signe d'un acide) — ils sont plutôt liés directement au carbone, comme dans tous les hydrocarbures. L'éthane est simplement un hydrocarbure covalent neutre, sans lien avec la famille des acides, malgré la présence de H dans sa formule.</li>
+            </ul>
+            <p style="margin:0;">Contraste utile : l'acide acétique (CH₃COOH, vu plus haut) <strong>est</strong> un acide malgré son H final, parce que ce H fait partie d'un groupe <strong>COOH</strong> reconnaissable et ionisable. Le méthanol n'a pas ce groupe — son OH final n'a pas le même comportement. Retenir : une formule organique qui semble « correspondre » à un motif acide ou base mérite un second regard.</p>
+          </div>
+
           <div class="subsection-title" style="margin-top:26px;font-size:15px;">Les types d'acides, de bases et de sels</div>
           <table class="data-table">
             <thead><tr><th>Famille</th><th>Propriétés</th><th>Types (avec exemples)</th></tr></thead>
@@ -1913,8 +1923,19 @@
             <li><strong>InH</strong> — la forme <strong>non ionisée</strong> de l'indicateur (avant qu'il ne perde son H⁺), d'une couleur spécifique</li>
             <li><strong>In⁻</strong> — la forme <strong>ionisée</strong> (ce qu'il reste une fois le H⁺ parti), d'une autre couleur spécifique</li>
           </ul>
-          <p>Comme pour tout équilibre, c'est le milieu qui détermine de quel côté il penche : en milieu <strong>acide</strong> (beaucoup de H⁺ déjà présents dans la solution), l'équilibre est repoussé vers la gauche — la forme InH domine, et sa couleur l'emporte. En milieu <strong>basique</strong> (peu de H⁺), l'équilibre est tiré vers la droite — c'est In⁻ qui domine. Chaque indicateur a sa propre <span class="kw">zone de virage</span> (la plage de pH où le changement de couleur se produit), car ce sont tous des acides faibles de force différente.</p>
+          <p>Comme pour tout équilibre, c'est le milieu qui détermine de quel côté il penche : en milieu <strong>acide</strong> (beaucoup de H⁺ déjà présents dans la solution), l'équilibre est repoussé vers la gauche — la forme InH domine, et sa couleur l'emporte. En milieu <strong>basique</strong> (peu de H⁺), l'équilibre est tiré vers la droite — c'est In⁻ qui domine. Chaque indicateur a sa propre <span class="kw">zone de virage</span> (la plage de pH où le changement de couleur se produit), car ce sont tous des acides faibles de force différente. <em>(Curieux de savoir d'où viennent ces H⁺ — même dans une eau parfaitement neutre ? Voir la section 2.3.2, un peu plus loin.)</em></p>
           <p style="margin-top:8px;"><strong>Deux précisions importantes :</strong> (1) le changement de couleur n'est jamais instantané à un pH précis — c'est une <strong>transition progressive</strong> sur toute la zone de virage, à mesure que la proportion des deux formes évolue graduellement (voir l'exemple du bleu de bromophénol ci-dessous, où la zone de virage produit une couleur intermédiaire, le vert). (2) Puisqu'il s'agit d'un véritable équilibre chimique, le changement est aussi <strong>réversible</strong> dans les deux sens : une solution jaune qui devient bleue quand on y ajoute une base redevient jaune si on y ajoute ensuite assez d'acide pour ramener le pH sous la zone de virage.</p>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — Perdre un H⁺ change-t-il vraiment l'indicateur en une autre substance ?</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Pas vraiment. InH et In⁻ restent essentiellement la <strong>même molécule</strong> — un indicateur est une molécule organique relativement complexe, et lui retirer un seul H⁺ ne brise pas son squelette ni ne la transforme en une substance totalement différente. Ce qui change, c'est la <strong>répartition des électrons</strong> autour de la molécule une fois ce H⁺ parti.</p>
+              <p style="margin:10px 0 0;">Or, la couleur d'une molécule dépend justement de la façon dont ses électrons absorbent la lumière : une répartition différente des électrons absorbe une couleur différente, donc en montre une différente à l'œil. Un peu comme une même lampe qui changerait de teinte selon l'intensité du courant qui la traverse — ce n'est pas le proton lui-même qui est « coloré », ce sont les électrons, réarrangés selon sa présence ou son absence, qui déterminent la couleur perçue.</p>
+            </div>
+          </div>
 
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple — Le bleu de bromophénol</span></div>
@@ -1974,7 +1995,12 @@
           <div class="formula">pOH = −log[OH⁻] &nbsp;&nbsp;|&nbsp;&nbsp; [OH⁻] = 10⁻ᵖᴼᴴ mol/L</div>
           <div class="formula">pH + pOH = 14 &nbsp;&nbsp;|&nbsp;&nbsp; [H⁺] × [OH⁻] = 10⁻¹⁴</div>
 
-          <p style="font-size:13px;color:var(--muted);">Attention à ne pas imaginer le pH comme le résultat d'un calcul « équilibrant » [H⁺] et [OH⁻] : le pH se définit et se calcule uniquement à partir de <strong>[H⁺]</strong> (pH = −log[H⁺]). La relation [H⁺] × [OH⁻] = 10⁻¹⁴ sert seulement, une fois le pH connu, à retrouver [OH⁻] si besoin — elle ne fait pas partie du calcul du pH lui-même.</p>
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Pas besoin de savoir calculer un logarithme</span></div>
+            Le symbole <strong>log</strong> désigne un logarithme — une opération mathématique vue seulement au secondaire 5 ou au collégial. Bonne nouvelle : il n'est <strong>jamais nécessaire de calculer un logarithme</strong> dans ce cours. Puisque [H⁺] s'exprime toujours comme une puissance de 10 exacte (10⁻¹, 10⁻⁷, 10⁻¹²…), le pH correspond tout simplement à l'<strong>opposé de l'exposant</strong> : si [H⁺] = 10⁻ⁿ mol/L, alors pH = <em>n</em>. Il suffit de lire l'exposant et d'en changer le signe — aucune calculatrice scientifique n'est requise.
+          </div>
+
+          <p style="font-size:13px;color:var(--muted);">Attention à ne pas imaginer le pH comme le résultat d'un calcul « équilibrant » [H⁺] et [OH⁻] : le pH se définit et se calcule uniquement à partir de <strong>[H⁺]</strong> (pH = −log[H⁺], c'est-à-dire l'opposé de l'exposant de [H⁺]). La relation [H⁺] × [OH⁻] = 10⁻¹⁴ sert seulement, une fois le pH connu, à retrouver [OH⁻] si besoin — elle ne fait pas partie du calcul du pH lui-même.</p>
 
           <div class="note-box">
             <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
@@ -1990,7 +2016,7 @@
           <div class="note-box">
             <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
             <strong>Une solution a une concentration [H⁺] = 10⁻³ mol/L. Quels sont son pH, son pOH, et [OH⁻] ?</strong><br><br>
-            pH = −log(10⁻³) = <strong>3</strong> (une solution nettement acide)<br>
+            Puisque [H⁺] = 10⁻³ mol/L, le pH correspond à l'opposé de l'exposant : pH = <strong>3</strong> (une solution nettement acide)<br>
             pOH = 14 − pH = 14 − 3 = <strong>11</strong><br>
             [OH⁻] = 10⁻ᵖᴼᴴ = 10⁻¹¹ mol/L
           </div>
@@ -2122,8 +2148,8 @@
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 5</button>
               <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> 9</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. pH = −log(10⁻⁹) = <strong>9</strong>. C'est simplement la valeur absolue de l'exposant de [H⁺] lorsque celle-ci est écrite comme une puissance de 10.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>pH = −log[H⁺] = −log(10⁻⁹) = <strong>9</strong>. Le signe négatif de la formule annule le signe négatif de l'exposant.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Puisque [H⁺] = 10⁻⁹ mol/L, le pH correspond à l'opposé de l'exposant : pH = <strong>9</strong>. Pas besoin de calculer un logarithme — il suffit de changer le signe de l'exposant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Puisque [H⁺] = 10⁻⁹ mol/L, le pH correspond à l'opposé de l'exposant (le signe contraire de −9) : pH = <strong>9</strong>.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="4">
@@ -2160,7 +2186,7 @@
               <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Un exposant très négatif signifie une [H⁺] <strong>minuscule</strong> (10⁻¹² est un nombre extrêmement petit) — donc <strong>peu</strong> d'ions H⁺, donc <strong>peu acide</strong> (en fait, pH = 12, nettement basique).</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — piège classique. 10⁻¹² est un nombre <strong>minuscule</strong> : peu d'ions H⁺ signifie peu acide. Ici, pH = −log(10⁻¹²) = 12, donc la solution est nettement <strong>basique</strong>, pas acide.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — piège classique. 10⁻¹² est un nombre <strong>minuscule</strong> : peu d'ions H⁺ signifie peu acide. Ici, [H⁺] = 10⁻¹² mol/L, donc pH = 12 (l'opposé de l'exposant), ce qui est nettement <strong>basique</strong>, pas acide.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="7">
