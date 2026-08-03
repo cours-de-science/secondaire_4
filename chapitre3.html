@@ -2872,10 +2872,691 @@
           </div>
         </div>
 
-        <!-- ═══ 3.2.3 — FISSION ET FUSION (SQUELETTE) ═══ -->
+        <!-- ═══ 3.2.3 — FISSION ET FUSION ═══ -->
         <div class="subsection" id="fission-fusion">
           <div class="subsection-title">3.2.3 — La fission et la fusion nucléaires</div>
-          <p style="color:var(--muted);font-style:italic;">Contenu à venir : la fission nucléaire (centrales nucléaires, réaction en chaîne), la fusion nucléaire (le mécanisme qui alimente les étoiles, la recherche en énergie de fusion), et une comparaison des deux processus.</p>
+
+          <p>La désintégration radioactive vue à la section 3.2.2 est toujours <strong>spontanée</strong> : un noyau instable éjecte de lui-même une petite particule (α ou β) ou de l'énergie (γ), sans qu'on ait besoin de le provoquer. Il existe cependant deux autres transformations nucléaires, beaucoup plus spectaculaires, qui libèrent des quantités d'énergie phénoménales — au point d'alimenter à la fois des centrales électriques et des étoiles. Ces deux phénomènes, la fission et la fusion, sont exploités par les technologies développées par la physique nucléaire pour produire de l'énergie ; celle-ci sert le plus souvent à des fins civiles (électricité), mais peut aussi, historiquement, servir à des fins militaires (armes nucléaires).</p>
+
+          <div class="subsection-title" style="margin-top:0;font-size:15px;">La fission nucléaire</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>fission nucléaire</strong> est un phénomène qui correspond à la division d'un noyau atomique lourd (un noyau qui contient beaucoup de nucléons) en des noyaux plus légers.</p>
+          </div>
+
+          <p>Ce phénomène peut se produire spontanément, mais on le provoque presque toujours <strong>artificiellement</strong>, en bombardant un noyau lourd avec des neutrons. Le combustible le plus utilisé est l'uranium 235, un noyau si volumineux (Z = 92, largement au-delà de la limite de 83 vue à la section 3.2.1) qu'il est déjà instable par nature. Lorsqu'il absorbe un neutron supplémentaire, ce noyau devient encore plus instable et se scinde presque aussitôt en deux noyaux plus légers — typiquement du baryum 141 et du krypton 92 — tout en libérant à la fois une énergie considérable et, fait crucial pour la suite, <strong>trois nouveaux neutrons</strong>.</p>
+
+          <figure class="fig-block" style="margin-top:10px;">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 560" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
+                <title>Fission nucléaire d'un noyau d'uranium 235</title>
+                <desc>Schéma en deux temps. Avant : un neutron s'approche d'un noyau d'uranium 235, représenté par un gros amas stylisé de protons orange et de neutrons gris (le nombre de points est réduit pour la clarté ; il ne représente pas littéralement les 235 nucléons). Après : ce noyau s'est scindé en un noyau de baryum 141 et un noyau de krypton 92, plus petits, projetant trois neutrons et libérant de l'énergie.</desc>
+                <defs>
+                  <marker id="arrow-fis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                </defs>
+
+                <text x="30" y="26" font-size="12.5" font-weight="700" fill="var(--muted)" letter-spacing="0.06em">AVANT</text>
+
+                <!-- neutron incident -->
+                <circle cx="55" cy="150" r="9" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="55" y="127" text-anchor="middle" font-size="12" fill="#555">¹₀n</text>
+                <line x1="68" y1="150" x2="152" y2="150" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-fis)"/>
+                <text x="108" y="140" text-anchor="middle" font-size="10.5" fill="#666" font-style="italic">absorption</text>
+
+                <!-- U-235 nucleus (stylized cluster) -->
+                <circle cx="186.2" cy="104.9" r="5.4" fill="#e07b30"/>
+              <circle cx="282.8" cy="170.5" r="5.4" fill="#e07b30"/>
+              <circle cx="179.5" cy="145.1" r="5.4" fill="#e07b30"/>
+              <circle cx="257.3" cy="160.7" r="5.4" fill="#e07b30"/>
+              <circle cx="254.2" cy="143.4" r="5.4" fill="#e07b30"/>
+              <circle cx="212.1" cy="111.7" r="5.4" fill="#e07b30"/>
+              <circle cx="194.0" cy="131.1" r="5.4" fill="#e07b30"/>
+              <circle cx="240.9" cy="169.2" r="5.4" fill="#e07b30"/>
+              <circle cx="178.0" cy="158.5" r="5.4" fill="#e07b30"/>
+              <circle cx="276.1" cy="116.3" r="5.4" fill="#e07b30"/>
+              <circle cx="222.6" cy="191.0" r="5.4" fill="#e07b30"/>
+              <circle cx="243.8" cy="147.9" r="5.4" fill="#e07b30"/>
+              <circle cx="170.3" cy="140.5" r="5.4" fill="#e07b30"/>
+              <circle cx="204.7" cy="119.8" r="5.4" fill="#e07b30"/>
+              <circle cx="263.6" cy="97.0" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="225.5" cy="115.6" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="209.0" cy="204.5" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="234.5" cy="101.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="196.2" cy="160.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="247.6" cy="158.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="244.9" cy="98.1" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="218.8" cy="172.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="273.5" cy="156.2" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="219.9" cy="135.9" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="231.8" cy="198.9" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="251.9" cy="123.0" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="281.4" cy="134.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="177.7" cy="176.8" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="214.5" cy="145.2" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="198.2" cy="175.5" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="191.9" cy="141.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="250.8" cy="194.7" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="273.0" cy="166.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="190.2" cy="184.7" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="191.6" cy="197.1" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="251.7" cy="171.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+
+                <text x="230" y="252" text-anchor="middle" font-size="19" font-weight="700" fill="#1a4a52">²³⁵₉₂U</text>
+                <text x="230" y="272" text-anchor="middle" font-size="11.5" fill="#666">noyau lourd et déjà instable (Z = 92 &gt; 83)</text>
+
+                <line x1="20" y1="298" x2="660" y2="298" stroke="#d0d8d9" stroke-width="1"/>
+                <text x="30" y="322" font-size="12.5" font-weight="700" fill="var(--muted)" letter-spacing="0.06em">APRÈS</text>
+
+                <!-- Ba-141 fragment -->
+                <circle cx="122.1" cy="418.6" r="5.0" fill="#e07b30"/>
+              <circle cx="147.2" cy="402.5" r="5.0" fill="#e07b30"/>
+              <circle cx="151.3" cy="440.2" r="5.0" fill="#e07b30"/>
+              <circle cx="152.6" cy="414.0" r="5.0" fill="#e07b30"/>
+              <circle cx="137.8" cy="444.6" r="5.0" fill="#e07b30"/>
+              <circle cx="173.7" cy="397.8" r="5.0" fill="#e07b30"/>
+              <circle cx="167.8" cy="422.0" r="5.0" fill="#e07b30"/>
+              <circle cx="188.1" cy="405.7" r="5.0" fill="#e07b30"/>
+              <circle cx="161.1" cy="435.6" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="125.7" cy="400.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="142.5" cy="427.1" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="176.1" cy="415.0" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="120.1" cy="408.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="179.5" cy="428.9" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="152.5" cy="385.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="171.3" cy="432.9" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="154.8" cy="394.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="126.2" cy="384.7" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="167.9" cy="410.1" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="154.5" cy="429.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="167.6" cy="382.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+                <text x="150" y="472" text-anchor="middle" font-size="17" font-weight="700" fill="#1a4a52">¹⁴¹₅₆Ba</text>
+                <text x="150" y="490" text-anchor="middle" font-size="11" fill="#666">baryum-141</text>
+
+                <!-- Kr-92 fragment -->
+                <circle cx="336.3" cy="407.3" r="4.8" fill="#e07b30"/>
+              <circle cx="338.8" cy="384.5" r="4.8" fill="#e07b30"/>
+              <circle cx="323.8" cy="412.2" r="4.8" fill="#e07b30"/>
+              <circle cx="371.8" cy="420.8" r="4.8" fill="#e07b30"/>
+              <circle cx="337.0" cy="424.9" r="4.8" fill="#e07b30"/>
+              <circle cx="362.3" cy="389.9" r="4.8" fill="#e07b30"/>
+              <circle cx="375.6" cy="401.6" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="355.7" cy="423.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="348.9" cy="399.2" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="325.4" cy="401.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="335.0" cy="398.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="346.0" cy="419.5" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="348.6" cy="435.0" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="365.8" cy="411.4" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+              <circle cx="367.0" cy="432.5" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+                <text x="350" y="463" text-anchor="middle" font-size="17" font-weight="700" fill="#1a4a52">⁹²₃₆Kr</text>
+                <text x="350" y="481" text-anchor="middle" font-size="11" fill="#666">krypton-92</text>
+
+                <!-- 3 ejected neutrons -->
+                <line x1="255" y1="368" x2="300" y2="345" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
+                <circle cx="308" cy="340" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="308" y="320" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+
+                <line x1="262" y1="392" x2="320" y2="400" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
+                <circle cx="332" cy="402" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="332" y="422" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+
+                <line x1="240" y1="410" x2="255" y2="460" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
+                <circle cx="258" cy="470" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="258" y="490" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+
+                <!-- energy burst -->
+                <g transform="translate(560,395) scale(2.1) translate(-12,-11)">
+                  <path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z" fill="#f4b400"/>
+                </g>
+                <text x="595" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — La fission nucléaire de l'uranium 235 : un neutron absorbé déstabilise le noyau, qui se scinde en baryum-141 et krypton-92, en éjectant trois neutrons et une grande quantité d'énergie. (Amas stylisés : le nombre de points ne représente pas littéralement chacun des 235 nucléons.)</figcaption>
+          </figure>
+
+          <div class="formula">²³⁵₉₂U + ¹₀n → ¹⁴¹₅₆Ba + ⁹²₃₆Kr + 3 ¹₀n + Énergie</div>
+          <p class="formula-caption">Un seul neutron « absorbé » suffit à déstabiliser le noyau d'uranium 235 au point de provoquer sa scission immédiate.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — vérifier la conservation de A et de Z</span></div>
+            Comme pour toute équation nucléaire (section 3.2.2), la somme des nombres de masse (A) et la somme des numéros atomiques (Z) doivent être égales de chaque côté de la flèche.<br><br>
+            A : 235 + 1 = <strong>236</strong> (gauche) &nbsp;↔&nbsp; 141 + 92 + 3(1) = 141 + 92 + 3 = <strong>236</strong> (droite) ✓<br>
+            Z : 92 + 0 = <strong>92</strong> (gauche) &nbsp;↔&nbsp; 56 + 36 + 3(0) = 56 + 36 = <strong>92</strong> (droite) ✓
+          </div>
+
+          <p style="margin-top:18px;">Ce qui rend cette réaction si puissante, ce sont justement ces trois neutrons éjectés à chaque fission. Si chacun d'eux va provoquer, à son tour, la fission d'un autre noyau d'uranium 235, le nombre de fissions — et donc la quantité d'énergie libérée — <strong>croît de façon exponentielle</strong> d'une génération à l'autre. C'est ce qu'on appelle une <span class="kw">réaction en chaîne</span>.</p>
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px 16px;margin:16px 0;">
+            <div style="text-align:center;background:#fff;border:2px solid var(--teal-light);border-radius:10px;padding:10px 14px;min-width:78px;">
+              <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal-dark);">1</div>
+              <div style="font-size:10.5px;color:var(--muted);margin-top:2px;">neutron initial</div>
+            </div>
+            <div style="font-family:var(--mono);font-size:15px;color:var(--orange);font-weight:700;">→</div>
+            <div style="text-align:center;background:#fff;border:2px solid var(--teal-light);border-radius:10px;padding:10px 14px;min-width:78px;">
+              <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal-dark);">3</div>
+              <div style="font-size:10.5px;color:var(--muted);margin-top:2px;">neutrons (gén. 1)</div>
+            </div>
+            <div style="font-family:var(--mono);font-size:15px;color:var(--orange);font-weight:700;">→</div>
+            <div style="text-align:center;background:#fff;border:2px solid var(--teal-light);border-radius:10px;padding:10px 14px;min-width:78px;">
+              <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal-dark);">9</div>
+              <div style="font-size:10.5px;color:var(--muted);margin-top:2px;">neutrons (gén. 2)</div>
+            </div>
+            <div style="font-family:var(--mono);font-size:15px;color:var(--orange);font-weight:700;">→</div>
+            <div style="text-align:center;background:#fff;border:2px solid var(--teal-light);border-radius:10px;padding:10px 14px;min-width:78px;">
+              <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal-dark);">27</div>
+              <div style="font-size:10.5px;color:var(--muted);margin-top:2px;">neutrons (gén. 3)</div>
+            </div>
+            <div style="font-family:var(--mono);font-size:15px;color:var(--orange);font-weight:700;">→</div>
+            <div style="text-align:center;background:#fff;border:2px dashed var(--border);border-radius:10px;padding:10px 14px;min-width:60px;color:var(--muted);font-size:18px;">…</div>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:-6px;">Sans contrôle, le nombre de fissions triple à chaque génération. Dans une centrale nucléaire, des barres de contrôle absorbent une partie des neutrons libérés pour ne laisser qu'une seule fission se poursuivre par fission précédente en moyenne — la réaction en chaîne devient alors stable plutôt qu'incontrôlée.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Les centrales nucléaires</span></div>
+            Une centrale nucléaire est une usine qui produit de l'électricité à partir de l'énergie dégagée par la fission contrôlée de noyaux radioactifs (le plus souvent de l'uranium 235). La chaleur libérée par la réaction en chaîne chauffe un fluide ; cette énergie calorifique est ensuite transformée en énergie mécanique (une turbine), puis en énergie électrique acheminée dans le réseau. Au Canada, les centrales nucléaires produisent de l'électricité depuis le début des années 1960 ; on évalue à environ <strong>15 %</strong> leur contribution à l'énergie électrique totale produite au pays.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — une énergie phénoménale, pour une masse infime</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">La quantité d'énergie libérée par la fission d'à peine <strong>1 g</strong> d'uranium 235 correspond à l'énergie dégagée par la combustion de <strong>2,7 tonnes</strong> de charbon. C'est cette densité énergétique extraordinaire — des millions de fois supérieure, masse pour masse, à celle d'une réaction chimique comme la combustion (section 3.1.4) — qui rend l'énergie nucléaire si attrayante, et qui explique pourquoi une quantité d'uranium relativement modeste suffit à alimenter une centrale entière pendant des mois.</p>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Une autre fission de l'uranium 235
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">L'uranium 235 ne se scinde pas toujours de la même façon : selon le neutron qui l'atteint, il peut produire différentes paires de noyaux. Une autre fission bien connue produit du xénon 140 et du strontium 94 : <br><br>²³⁵₉₂U + ¹₀n → ¹⁴⁰₅₄Xe + ⁹⁴₃₈Sr + ? ¹₀n + Énergie<br><br>Combien de neutrons (?) doivent être libérés pour que l'équation soit balancée ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On isole d'abord A : 235 + 1 = 236 à gauche. À droite : 140 + 94 + ?(1) = 234 + ?. Pour que 234 + ? = 236, il faut ? = <strong>2</strong>.<br><br>Vérification avec Z : gauche 92 + 0 = 92 ; droite 54 + 38 + 2(0) = 92 ✓. Cette fission libère donc <strong>2 neutrons</strong> plutôt que 3 — le nombre de neutrons libérés dépend de la paire de noyaux produite, mais il y en a presque toujours plus d'un, ce qui permet la réaction en chaîne.</div>
+            </div>
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">La fusion nucléaire</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>fusion nucléaire</strong> est un phénomène qui correspond à l'assemblage de deux noyaux atomiques légers de sorte à en former un seul, plus lourd — un peu comme si la fission se déroulait à l'envers.</p>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Pourquoi des températures aussi extrêmes ? (rappel — section 3.2.1)</span></div>
+            Pour que deux noyaux fusionnent, il faut d'abord les rapprocher suffisamment pour que la <strong>force nucléaire</strong> (attraction, mais de très courte portée) prenne le dessus sur la <strong>force de répulsion électrique</strong> qui existe naturellement entre deux noyaux — tous deux chargés positivement (section 3.2.1). Rapprocher deux noyaux à une distance aussi infime exige une énergie cinétique immense, qu'on n'atteint qu'à des températures de l'ordre de <strong>plusieurs millions de degrés Celsius</strong>. C'est pour cette raison que les réactions de fusion sont très difficiles à produire sur Terre, alors qu'elles surviennent naturellement dans les étoiles, comme le Soleil, où la température et la pression sont suffisamment élevées.
+          </div>
+
+          <figure class="fig-block" style="margin-top:10px;">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 380" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
+                <title>Fusion nucléaire du deutérium et du tritium</title>
+                <desc>Un noyau de tritium (un proton, deux neutrons) et un noyau de deutérium (un proton, un neutron) s'approchent l'un de l'autre et fusionnent, produisant un noyau d'hélium 4 (deux protons, deux neutrons), un neutron libre, et une grande quantité d'énergie.</desc>
+                <defs>
+                  <marker id="arrow-fus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                </defs>
+
+                <!-- Tritium (1p + 2n) -->
+                <circle cx="131" cy="99" r="13" fill="#e07b30"/>
+                <circle cx="149" cy="99" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <circle cx="140" cy="118" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="140" y="151" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">³₁H</text>
+                <text x="140" y="168" text-anchor="middle" font-size="11.5" fill="#666">Tritium</text>
+
+                <!-- Deutérium (1p + 1n) -->
+                <circle cx="131" cy="261" r="13" fill="#e07b30"/>
+                <circle cx="149" cy="261" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="140" y="291" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">²₁H</text>
+                <text x="140" y="308" text-anchor="middle" font-size="11.5" fill="#666">Deutérium</text>
+
+                <!-- arrows converging -->
+                <line x1="172" y1="115" x2="315" y2="175" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
+                <line x1="172" y1="245" x2="315" y2="188" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
+
+                <!-- energy burst at center -->
+                <circle cx="340" cy="182" r="30" fill="#fff4d6" opacity="0.85"/>
+                <g transform="translate(340,182) scale(2.3) translate(-12,-11)">
+                  <path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z" fill="#f4b400"/>
+                </g>
+
+                <!-- arrows diverging -->
+                <line x1="365" y1="170" x2="530" y2="105" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
+                <line x1="365" y1="195" x2="530" y2="255" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
+
+                <!-- Neutron output -->
+                <circle cx="558" cy="99" r="14" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="558" y="132" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">¹₀n</text>
+                <text x="558" y="149" text-anchor="middle" font-size="11.5" fill="#666">Neutron</text>
+
+                <!-- Hélium-4 output (2p+2n) -->
+                <circle cx="548" cy="252" r="12" fill="#e07b30"/>
+                <circle cx="568" cy="252" r="12" fill="#e07b30"/>
+                <circle cx="548" cy="270" r="12" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <circle cx="568" cy="270" r="12" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
+                <text x="558" y="299" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">⁴₂He</text>
+                <text x="558" y="316" text-anchor="middle" font-size="11.5" fill="#666">Hélium</text>
+
+                <text x="450" y="180" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — La fusion nucléaire de deux isotopes de l'hydrogène : le deutérium (²₁H) et le tritium (³₁H) fusionnent pour former un noyau d'hélium 4 (⁴₂He, une particule alpha), en libérant un neutron et une grande quantité d'énergie.</figcaption>
+          </figure>
+
+          <div class="formula">²₁H + ³₁H → ⁴₂He + ¹₀n + Énergie</div>
+          <p class="formula-caption">La fusion du deutérium et du tritium — deux isotopes de l'hydrogène — produit un noyau d'hélium 4 (une particule alpha) et un neutron, avec un dégagement d'énergie considérable.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — vérifier la conservation de A et de Z</span></div>
+            A : 2 + 3 = <strong>5</strong> (gauche) &nbsp;↔&nbsp; 4 + 1 = <strong>5</strong> (droite) ✓<br>
+            Z : 1 + 1 = <strong>2</strong> (gauche) &nbsp;↔&nbsp; 2 + 0 = <strong>2</strong> (droite) ✓
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+            Ne pas confondre : la fusion nucléaire libère une énergie <strong>encore plus grande</strong> que la fission, et non moins grande — et elle est aussi écologiquement plus propre, puisqu'elle génère beaucoup moins de déchets radioactifs. Ce qui la rend si difficile à exploiter n'est donc pas un manque d'intérêt énergétique, mais bien la contrainte technique des températures extrêmes nécessaires pour l'amorcer.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — reproduire le Soleil sur Terre</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Puisque la fusion nucléaire produirait une énergie abondante, propre et pratiquement sans déchets radioactifs de longue durée, plusieurs pays collaborent depuis des décennies pour tenter de la reproduire de façon contrôlée sur Terre. Le projet international le plus avancé, <strong>ITER</strong> (en construction dans le sud de la France), utilise de puissants champs magnétiques pour confiner un plasma chauffé à plus de 150 millions de degrés Celsius — environ dix fois la température du cœur du Soleil — sans qu'aucun matériau solide n'ait à entrer en contact direct avec lui. Contrairement aux centrales à fission, aucune centrale à fusion ne produit encore d'électricité à l'échelle commerciale : la technologie reste, encore aujourd'hui, au stade de la recherche.</p>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Une autre réaction de fusion
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Deux noyaux de deutérium peuvent aussi fusionner directement entre eux (sans tritium), selon l'équation suivante :<br><br>²₁H + ²₁H → ³₂He + ?<br><br>Quelle particule manque du côté droit pour que l'équation soit balancée ? (Indice : cette particule n'a pas de charge.)</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">A : 2 + 2 = 4 à gauche. À droite, l'hélium-3 compte déjà pour 3, il manque donc 1 en A. Z : 1 + 1 = 2 à gauche ; l'hélium-3 compte déjà pour 2, il manque donc 0 en Z. Une particule avec A = 1 et Z = 0, sans charge : c'est un <strong>neutron (¹₀n)</strong>.<br><br>²₁H + ²₁H → ³₂He + ¹₀n. Vérification : A : 2+2=4 ↔ 3+1=4 ✓. Z : 1+1=2 ↔ 2+0=2 ✓.</div>
+            </div>
+          </div>
+
+          <div class="subsection-title" style="margin-top:28px;font-size:15px;">Fission et fusion : deux processus opposés</div>
+
+          <div class="compare-block">
+            <div class="compare-col compare-col--a">
+              <div class="compare-label">Fission</div>
+              <div class="compare-icon">⚛ → ⚫⚫</div>
+              <p><strong>Un</strong> noyau lourd se <strong>divise</strong> en noyaux plus légers · provoquée par l'absorption d'un neutron · réaction en chaîne · base des centrales nucléaires actuelles</p>
+            </div>
+            <div class="compare-col compare-col--b">
+              <div class="compare-label">Fusion</div>
+              <div class="compare-icon">⚫⚫ → ⚛</div>
+              <p><strong>Deux</strong> noyaux légers s'<strong>assemblent</strong> en un noyau plus lourd · exige des températures de plusieurs millions de °C · se produit naturellement dans les étoiles · encore au stade expérimental sur Terre</p>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Critère</th><th>Fission</th><th>Fusion</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Noyaux impliqués</strong></td><td>Un seul noyau lourd (ex. : ²³⁵U)</td><td>Deux noyaux légers (ex. : isotopes de l'hydrogène)</td></tr>
+              <tr><td><strong>Résultat</strong></td><td>Deux noyaux plus légers + neutrons</td><td>Un seul noyau plus lourd + parfois un neutron</td></tr>
+              <tr><td><strong>Énergie libérée</strong></td><td>Très grande</td><td>Encore plus grande</td></tr>
+              <tr><td><strong>Déchets radioactifs</strong></td><td>Quantité significative</td><td>Très peu</td></tr>
+              <tr><td><strong>Conditions nécessaires</strong></td><td>Bombardement de neutrons</td><td>Températures de plusieurs millions de °C</td></tr>
+              <tr><td><strong>Où ça se produit</strong></td><td>Centrales nucléaires (Terre)</td><td>Étoiles (Soleil) ; recherche expérimentale sur Terre</td></tr>
+            </tbody>
+          </table>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion de synthèse — Trois façons de transformer un noyau
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">La section 3.2 a présenté trois façons différentes de transformer un noyau : la désintégration radioactive (3.2.2), la fission et la fusion (3.2.3). Pour chacune, indique si elle implique un ou deux noyaux de départ, et si elle est généralement spontanée ou provoquée.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">
+                <strong>Désintégration radioactive</strong> (α, β, γ) : <strong>un seul</strong> noyau instable de départ, qui éjecte une petite particule ; le phénomène est toujours <strong>spontané</strong> — c'est justement la définition d'un noyau radioactif (section 3.2.2).<br><br>
+                <strong>Fission</strong> : <strong>un seul</strong> gros noyau de départ, qui se divise en deux noyaux plus légers ; peut être spontanée, mais est presque toujours <strong>provoquée</strong> artificiellement (bombardement de neutrons).<br><br>
+                <strong>Fusion</strong> : <strong>deux</strong> noyaux légers de départ, qui s'assemblent en un seul ; nécessite des conditions extrêmes (température), donc toujours <strong>provoquée</strong> — que ce soit par la gravité écrasante d'une étoile ou par la technologie humaine.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-block" data-quiz="q323">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — 3.2.3 La fission et la fusion nucléaires<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La fission nucléaire correspond à la division d'un noyau lourd en noyaux plus légers.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est la définition même de la fission : un noyau atomique lourd (beaucoup de nucléons) se divise en noyaux plus légers, en libérant de l'énergie.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La fission divise un seul noyau lourd (comme l'uranium 235) en deux noyaux plus légers, en libérant de l'énergie et des neutrons.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Qu'est-ce qui provoque généralement la fission d'un noyau d'uranium 235 ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le refroidissement extrême du noyau</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> L'absorption d'un neutron</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> L'émission d'un rayonnement gamma</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La perte d'un électron</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Lorsqu'un noyau d'uranium 235 absorbe un neutron supplémentaire, il devient encore plus instable et se scinde presque aussitôt — c'est ainsi que la fission est provoquée artificiellement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est l'<strong>absorption d'un neutron</strong> qui déstabilise suffisamment le noyau d'uranium 235 pour provoquer sa fission presque immédiate.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer cette équation de fission : ²³⁵₉₂U + ¹₀n → ¹⁴¹₅₆Ba + ⁹²₃₆Kr + ? ¹₀n + Énergie ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1 neutron</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2 neutrons</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 3 neutrons</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4 neutrons</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. A : 235 + 1 = 236 à gauche. À droite : 141 + 92 = 233, il manque donc 3 pour atteindre 236 → <strong>3 neutrons</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>A : 235 + 1 = 236 (gauche). 141 + 92 = 233 (droite, sans les neutrons) ; il manque 236 − 233 = <strong>3</strong> pour équilibrer — donc 3 neutrons.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une réaction en chaîne se produit parce que les neutrons libérés par une fission peuvent provoquer d'autres fissions.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Chaque fission libère plusieurs neutrons, qui peuvent chacun provoquer une nouvelle fission — le nombre de fissions croît alors de façon exponentielle, d'où le terme « réaction en chaîne ».</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Les neutrons libérés par une fission peuvent provoquer d'autres fissions, qui libèrent à leur tour d'autres neutrons — une croissance exponentielle qu'on appelle réaction en chaîne.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Comment décrit-on le mieux la fusion nucléaire ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un noyau lourd se divise en deux noyaux plus légers</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Deux noyaux légers s'assemblent en un seul noyau plus lourd</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un noyau éjecte spontanément une particule alpha</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un électron est capturé par le noyau</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La fusion assemble deux noyaux atomiques légers pour en former un seul plus lourd — l'inverse de la fission.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La description A correspond à la fission (l'inverse). La fusion, elle, <strong>assemble deux noyaux légers</strong> pour en former un seul, plus lourd.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La fusion nucléaire nécessite des températures extrêmement basses pour se produire.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La fusion exige au contraire des températures extrêmement <strong>élevées</strong> (plusieurs millions de degrés Celsius), pour que les noyaux aient assez d'énergie pour vaincre leur répulsion électrique mutuelle.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La fusion nécessite des températures extrêmement <strong>élevées</strong>, pas basses — de l'ordre de plusieurs millions de degrés Celsius, comme au cœur du Soleil.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Pourquoi la fusion nucléaire est-elle si difficile à réaliser sur Terre ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Parce que les noyaux légers sont radioactifs</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Parce qu'il faut vaincre la répulsion électrique entre deux noyaux positifs</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Parce que les neutrons produits sont instables</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Parce que l'hydrogène n'existe pas naturellement sur Terre</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Deux noyaux sont tous deux chargés positivement et se repoussent électriquement (section 3.2.1). Il faut une énergie cinétique énorme — donc une température extrême — pour les rapprocher assez pour que la force nucléaire prenne le dessus.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est la <strong>répulsion électrique</strong> entre deux noyaux positifs (section 3.2.1) qui rend la fusion difficile : il faut une température extrême pour leur donner assez d'énergie cinétique pour se rapprocher malgré cette répulsion.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle particule manque pour balancer cette équation de fusion : ²₁H + ³₁H → ⁴₂He + ? + Énergie ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un proton</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un neutron</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un électron</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Une particule alpha</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. A : 2+3=5 à gauche ; l'hélium-4 compte pour 4, il manque donc 1. Z : 1+1=2 à gauche ; l'hélium compte déjà pour 2, il manque donc 0. Une particule avec A=1 et Z=0 est un <strong>neutron</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>En isolant A et Z : il manque 1 en A et 0 en Z par rapport à l'hélium-4 déjà présent. C'est exactement la signature d'un <strong>neutron (¹₀n)</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La fusion nucléaire libère moins d'énergie que la fission nucléaire.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La fusion libère au contraire une énergie <strong>encore plus grande</strong> que la fission — et elle génère aussi moins de déchets radioactifs.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La fusion produit une énergie <strong>encore plus grande</strong> que la fission, tout en étant écologiquement plus propre (moins de déchets radioactifs).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Où la fusion nucléaire se produit-elle naturellement ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Dans les centrales nucléaires actuelles</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Dans le cœur des étoiles, comme le Soleil</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Dans les gisements naturels d'uranium</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Nulle part ; elle est toujours artificielle</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Les températures et pressions extrêmes qui règnent au cœur des étoiles, comme le Soleil, permettent à la fusion de s'y produire naturellement — des conditions très difficiles à reproduire sur Terre.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Les centrales nucléaires actuelles exploitent la <strong>fission</strong>, pas la fusion. La fusion se produit naturellement dans le <strong>cœur des étoiles</strong>, comme le Soleil, où règnent des températures de plusieurs millions de degrés.</span></div>
+          </div>
+
+
+          <div class="quiz-result-msg" id="result-q323"></div>
+          <button class="quiz-reset" id="reset-q323">↺ Recommencer</button>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 3.2</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Stabilité nucléaire</strong></td><td>La force nucléaire (attraction, courte portée) doit l'emporter sur la répulsion électrique entre protons ; rapport N/Z proche de 1 chez les atomes légers ; Z &gt; 83 → toujours instable</td></tr>
+              <tr><td><strong>Radioactivité</strong></td><td>Désintégration spontanée d'un noyau instable (α, β, γ) ; dans une équation nucléaire, ce sont A et Z qui se conservent — pas le nombre d'atomes d'un élément (transmutation)</td></tr>
+              <tr><td><strong>Demi-vie</strong></td><td>Temps nécessaire pour que la moitié d'un échantillon se désintègre ; décroissance exponentielle, N = N₀ × (½)ⁿ, jamais nulle</td></tr>
+              <tr><td><strong>Fission nucléaire</strong></td><td>Un noyau lourd se divise en noyaux plus légers, généralement provoquée (bombardement de neutrons) ; libère de l'énergie et des neutrons supplémentaires → réaction en chaîne ; base des centrales nucléaires</td></tr>
+              <tr><td><strong>Fusion nucléaire</strong></td><td>Deux noyaux légers s'assemblent en un noyau plus lourd ; exige des températures extrêmes pour vaincre la répulsion électrique ; se produit naturellement dans les étoiles ; libère encore plus d'énergie que la fission, avec moins de déchets</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quiz-block" data-quiz="q32">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 3.2<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Un retour sur l'ensemble de la section 3.2. Clique sur une réponse pour la valider.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 13</span>
+            <progress class="quiz-progress" value="0" max="13"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Le sodium-23 (Z = 11) compte 12 neutrons. Quel est son rapport N/Z, et ce noyau est-il stable ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> N/Z ≈ 1,09 — stable</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> N/Z ≈ 1,09 — instable</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> N/Z ≈ 0,92 — stable</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> N/Z ≈ 1,09 — impossible à déterminer sans mesure</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. N/Z = 12 ÷ 11 ≈ <strong>1,09</strong>. Puisque Z = 11 &lt; 20, un rapport aussi proche de 1 indique un noyau <strong>stable</strong> (section 3.2.1) — c'est bien le cas : le sodium-23 est le seul isotope stable du sodium.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>N/Z = 12 ÷ 11 ≈ 1,09. Chez les atomes légers (Z &lt; 20), un rapport proche de 1 signale un noyau <strong>stable</strong> — c'est le cas ici.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un noyau dont le numéro atomique est Z = 90 est automatiquement instable, peu importe son rapport N/Z.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Dès que Z dépasse 83, le noyau est considéré instable (donc radioactif), quel que soit son rapport N/Z — la force nucléaire, de courte portée, n'arrive plus à contrebalancer la répulsion électrique entre un aussi grand nombre de protons (section 3.2.1).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Au-delà de Z = 83, la règle vue à la section 3.2.1 s'applique sans exception : le noyau est <strong>toujours instable</strong>, peu importe son nombre de neutrons.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel type de rayonnement radioactif correspond à l'éjection d'un noyau d'hélium (2 protons + 2 neutrons) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Alpha (α)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Bêta (β)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Gamma (γ)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucun de ces rayonnements</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le rayonnement alpha correspond exactement à l'éjection d'un noyau d'hélium (⁴₂He), ce qui diminue A de 4 et Z de 2 (section 3.2.2).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le rayonnement <strong>alpha (α)</strong> — un noyau d'hélium (⁴₂He) éjecté par le noyau instable, comme vu à la section 3.2.2.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un échantillon de 60 g d'un isotope (demi-vie = 10 jours) est conservé pendant 30 jours. Quelle masse en reste-t-il ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 30 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 20 g</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 7,5 g</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0 g</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 30 jours ÷ 10 jours = 3 demi-vies. N = 60 × (½)³ = 60 × 0,125 = <strong>7,5 g</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Nombre de demi-vies : 30 ÷ 10 = 3. N = 60 g × (½)³ = <strong>7,5 g</strong>. Le choix D oublie que la décroissance est exponentielle : la quantité ne devient jamais exactement nulle.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Le potassium-40 (⁴⁰₁₉K) se désintègre par émission bêta (β⁻). Quel noyau est produit ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> ³⁶₁₇Cl</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> ⁴⁰₂₀Ca</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> ⁴⁴₂₁Sc</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> ⁴⁰₁₈Ar</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. En émission bêta, A reste 40 et Z augmente de 1 (un neutron devient un proton) : Z = 19 + 1 = 20, soit le <strong>calcium</strong> (Ca). ⁴⁰₂₀Ca.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>En émission bêta (section 3.2.2), A ne change pas (reste 40) mais Z <strong>augmente de 1</strong> : 19 + 1 = 20, qui correspond au calcium. Bonne réponse : ⁴⁰₂₀Ca.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Dans une équation nucléaire, c'est le nombre d'atomes de chaque élément qui se conserve, exactement comme dans une équation chimique.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Une équation nucléaire change l'identité de l'élément (transmutation) — ce qui se conserve, ce sont les sommes du nombre de masse (A) et du numéro atomique (Z), pas le nombre d'atomes d'un élément précis.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une différence essentielle avec la chimie (section 3.1). En nucléaire, l'élément change ; ce sont <strong>A et Z</strong> qui doivent s'équilibrer de chaque côté.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel phénomène correspond à la division d'un noyau lourd, généralement provoquée par l'absorption d'un neutron ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La désintégration alpha</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> La fusion nucléaire</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> La fission nucléaire</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> L'émission gamma</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La fission nucléaire divise un noyau lourd en noyaux plus légers, presque toujours provoquée par l'absorption d'un neutron (section 3.2.3).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est la <strong>fission nucléaire</strong> : un noyau lourd se divise en noyaux plus légers, typiquement après avoir absorbé un neutron.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer ²³⁵₉₂U + ¹₀n → ⁹⁵₃₈Sr + ¹³⁹₅₄Xe + ? ¹₀n + Énergie ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 2</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 3</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. A : 235 + 1 = 236 à gauche. 95 + 139 = 234 à droite (sans les neutrons) ; il manque 236 − 234 = <strong>2</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>A : 235+1=236 (gauche) ; 95+139=234 (droite, sans neutrons). Il manque 236−234=<strong>2</strong> neutrons pour équilibrer — un rappel que le nombre de neutrons libérés dépend de la paire de noyaux produite (pas toujours 3, comme dans l'exemple du baryum/krypton).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel phénomène nécessite des températures de plusieurs millions de degrés Celsius et se produit naturellement dans les étoiles ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La fission nucléaire</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> La fusion nucléaire</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La désintégration bêta</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La désintégration gamma</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La fusion assemble deux noyaux légers, mais seulement à des températures extrêmes, atteintes naturellement dans le cœur des étoiles comme le Soleil.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est la <strong>fusion nucléaire</strong> : elle exige des températures de plusieurs millions de degrés pour vaincre la répulsion électrique entre noyaux, des conditions réunies naturellement dans les étoiles.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La fission et la fusion libèrent toutes les deux de l'énergie parce qu'elles amènent les noyaux vers une configuration plus stable.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un noyau très lourd (fission) et deux noyaux très légers (fusion) sont tous deux moins stables que les noyaux de masse intermédiaire qu'ils produisent — c'est ce gain de stabilité, dans les deux cas, qui libère de l'énergie.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Que ce soit en divisant un noyau très lourd (fission) ou en assemblant deux noyaux très légers (fusion), le ou les noyaux obtenus sont plus stables que ceux de départ — et c'est ce gain de stabilité qui se traduit en énergie libérée.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="10">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Combien de noyaux de départ sont impliqués dans une réaction de fusion typique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un seul</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Deux</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Trois</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Cela varie toujours, sans schéma fixe</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La fusion assemble <strong>deux</strong> noyaux légers en un seul — contrairement à la fission, qui part d'un seul noyau lourd.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La fusion part toujours de <strong>deux</strong> noyaux légers (comme le deutérium et le tritium), qui s'assemblent en un seul noyau plus lourd.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="11">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Le carbone-14 se désintègre par émission bêta, avec une demi-vie de 5 730 ans. Après 11 460 ans, quelle fraction de l'échantillon original de carbone-14 subsiste ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 50 %</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 25 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 12,5 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0 %</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 11 460 ÷ 5 730 = 2 demi-vies. (½)² = <strong>25 %</strong> — exactement l'exemple de la datation au carbone 14 vu à la section 3.2.2.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>11 460 ans ÷ 5 730 ans = 2 demi-vies écoulées. Après 2 demi-vies : 100 % → 50 % → <strong>25 %</strong>. Le choix D oublie que la décroissance ne devient jamais exactement nulle.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="12">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La désintégration radioactive, la fission et la fusion sont toutes les trois des phénomènes strictement spontanés, qu'on ne peut jamais provoquer artificiellement.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Seule la désintégration radioactive est strictement spontanée. La fission est presque toujours provoquée artificiellement (bombardement de neutrons), et la fusion exige des conditions extrêmes qu'on cherche activement à recréer (centrales, recherche comme ITER).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Seule la <strong>désintégration radioactive</strong> est toujours spontanée. La <strong>fission</strong> est presque toujours provoquée (bombardement de neutrons), et la <strong>fusion</strong> exige qu'on recrée artificiellement des conditions extrêmes.</span></div>
+          </div>
+
+
+          <div class="quiz-result-msg" id="result-q32"></div>
+          <button class="quiz-reset" id="reset-q32">↺ Recommencer</button>
+          </div>
         </div>
 
       </div>
