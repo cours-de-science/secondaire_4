@@ -375,7 +375,7 @@
 
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- SECTION 4.1 — MASSE ET POIDS (SQUELETTE)        -->
+    <!-- SECTION 4.1 — MASSE ET POIDS               -->
     <!-- ══════════════════════════════════════════════ -->
     <div class="section-card" id="section-4-1">
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
@@ -387,7 +387,338 @@
         </div>
       </button>
       <div class="section-body">
-        <p style="color:var(--muted);font-style:italic;">Contenu à venir : la distinction entre la masse (quantité de matière, en kg) et le poids (une force, en N), la relation P = mg, et l'intensité du champ gravitationnel selon l'astre.</p>
+
+        <p>Jusqu'ici, l'énergie a été abordée de façon plutôt qualitative — chimique, électrique, thermique... Pour la quantifier précisément dans les sections qui suivent, il faut d'abord clarifier deux notions qu'on confond facilement dans le langage courant : la <strong>masse</strong> et le <strong>poids</strong> d'un corps.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>La <strong>masse (m)</strong> d'un corps correspond à la quantité de matière que ce corps contient.</p>
+        </div>
+        <p>Dans le système international d'unités (SI), la masse se mesure en <strong>kilogrammes (kg)</strong>. La masse d'un corps est donc une caractéristique <strong>propre à ce corps</strong> : elle est indépendante de l'endroit où ce corps se trouve. Une pomme a la même masse sur Terre, sur la Lune, ou en apesanteur dans une navette spatiale.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>Le <strong>poids</strong> d'un corps correspond à la <strong>force gravitationnelle</strong> exercée sur ce corps par une planète ou un astre. On représente le poids — ou la force gravitationnelle — par le symbole <strong>F<sub>g</sub></strong>.</p>
+        </div>
+        <p>Comme toutes les forces, le poids se mesure en <strong>newtons (N)</strong>, et non en kilogrammes.</p>
+
+        <div class="note-box">
+          <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — « combien pèses-tu ? »</span></div>
+            Dans le langage courant, on confond presque toujours masse et poids. Répondre « 55 kg » à la question « combien pèses-tu ? » est, à proprement parler, une erreur de vocabulaire : un kilogramme est une unité de <strong>masse</strong>, pas de poids. Ce qu'on appelle familièrement « peser » un objet avec un pèse-personne mesure en réalité sa masse (en kg) ; le véritable poids de cet objet, une force en newtons, ne s'obtient qu'avec un dynamomètre, ou en calculant F<sub>g</sub> = mg.
+        </div>
+
+        <p>Le poids (F<sub>g</sub>) se mesure à l'aide d'un <strong>dynamomètre</strong>. Il dépend à la fois de la masse du corps et de l'<strong>intensité du champ gravitationnel</strong> à l'endroit où il se trouve. Le poids d'un corps peut être évalué à l'aide de l'équation suivante :</p>
+
+        <div class="formula">F<sub>g</sub> = mg</div>
+        <p class="formula-caption">F<sub>g</sub> = poids (N) · m = masse (kg) · g = intensité du champ gravitationnel (N/kg)</p>
+
+        <p>L'intensité du champ gravitationnel (g) dépend de l'endroit où l'on se trouve dans l'Univers — elle n'a donc rien d'une constante universelle. <strong>À la surface de la Terre, g vaut environ 9,8 N/kg.</strong></p>
+
+          <figure class="fig-block" style="margin-top:10px;">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 360" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
+                <title>Même masse, poids différent — Terre et Mars</title>
+                <desc>Un même robot, de masse 1025 kilogrammes, est représenté sur Terre et sur Mars. Sa masse reste identique dans les deux cas, mais son poids est beaucoup plus grand sur Terre, où l'intensité du champ gravitationnel est plus élevée, que sur Mars.</desc>
+                <defs>
+                  <marker id="arrow-grav" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666"/></marker>
+                </defs>
+
+                <!-- divider -->
+                <line x1="340" y1="20" x2="340" y2="340" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+
+                <!-- ===== TERRE (left) ===== -->
+                <text x="170" y="34" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" letter-spacing="0.04em" fill="#1a4a52">TERRE</text>
+
+                <!-- ground -->
+                <path d="M20,260 Q170,240 320,260 L320,270 L20,270 Z" fill="#dfe8e4"/>
+                <line x1="20" y1="260" x2="320" y2="260" stroke="#3a8fa0" stroke-width="2"/>
+
+                <!-- rover -->
+                <g transform="translate(170,225)">
+                  <rect x="-30" y="-14" width="60" height="26" rx="5" fill="#256472"/>
+                  <circle cx="-20" cy="16" r="10" fill="#1a4a52"/>
+                  <circle cx="20" cy="16" r="10" fill="#1a4a52"/>
+                  <line x1="0" y1="-14" x2="0" y2="-32" stroke="#256472" stroke-width="3"/>
+                  <circle cx="0" cy="-36" r="5" fill="#c8d400"/>
+                </g>
+
+                <!-- gravity arrow, long/thick = strong g -->
+                <line x1="170" y1="120" x2="170" y2="195" stroke="#666" stroke-width="3.5" marker-end="url(#arrow-grav)"/>
+                <text x="188" y="160" font-size="12.5" fill="#555">g</text>
+
+                <rect x="90" y="55" width="160" height="26" rx="13" fill="#eef5f5" stroke="var(--border)"/>
+                <text x="170" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a52">m = 1025 kg</text>
+
+                <text x="170" y="105" text-anchor="middle" font-size="12" fill="#666">g ≈ 9,8 N/kg</text>
+
+                <rect x="80" y="285" width="180" height="30" rx="15" fill="#1a4a52"/>
+                <text x="170" y="304" text-anchor="middle" font-size="14" font-weight="700" fill="#c8d400">Fg = 10 045 N</text>
+
+                <!-- ===== MARS (right) ===== -->
+                <text x="510" y="34" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" letter-spacing="0.04em" fill="#b0562f">MARS</text>
+
+                <path d="M360,260 Q510,244 660,260 L660,270 L360,270 Z" fill="#f3e2d6"/>
+                <line x1="360" y1="260" x2="660" y2="260" stroke="#e07b30" stroke-width="2"/>
+
+                <g transform="translate(510,225)">
+                  <rect x="-30" y="-14" width="60" height="26" rx="5" fill="#256472"/>
+                  <circle cx="-20" cy="16" r="10" fill="#1a4a52"/>
+                  <circle cx="20" cy="16" r="10" fill="#1a4a52"/>
+                  <line x1="0" y1="-14" x2="0" y2="-32" stroke="#256472" stroke-width="3"/>
+                  <circle cx="0" cy="-36" r="5" fill="#c8d400"/>
+                </g>
+
+                <!-- shorter/thinner arrow = weaker g -->
+                <line x1="510" y1="163" x2="510" y2="195" stroke="#666" stroke-width="2" marker-end="url(#arrow-grav)"/>
+                <text x="524" y="182" font-size="12.5" fill="#555">g</text>
+
+                <rect x="430" y="55" width="160" height="26" rx="13" fill="#eef5f5" stroke="var(--border)"/>
+                <text x="510" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a52">m = 1025 kg</text>
+
+                <text x="510" y="105" text-anchor="middle" font-size="12" fill="#666">g ≈ 3,7 N/kg</text>
+
+                <rect x="420" y="285" width="180" height="30" rx="15" fill="#1a4a52"/>
+                <text x="510" y="304" text-anchor="middle" font-size="14" font-weight="700" fill="#c8d400">Fg = 3 813 N</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Le robot <em>Perseverance</em> a la même masse (1025 kg) sur Terre et sur Mars — la masse ne dépend pas du lieu. Son poids, lui, varie beaucoup : environ 2,6 fois plus grand sur Terre, où l'intensité du champ gravitationnel est plus élevée.</figcaption>
+          </figure>
+
+        <div class="note-box">
+          <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu</span></div>
+          <strong>Un filet de saumon a une masse de 150 g. Quel est son poids à la surface de la Terre ?</strong><br><br>
+          <em>Données :</em> m = 150 g · g = 9,8 N/kg · F<sub>g</sub> = ?<br><br>
+          <em>Étape 1 — Convertir la masse en kilogrammes</em> (l'équation exige des kg, jamais des g) :<br>
+          m = 150 g × (1 kg ÷ 1000 g) = <strong>0,150 kg</strong><br><br>
+          <em>Étape 2 — Évaluer le poids :</em><br>
+          F<sub>g</sub> = mg = 0,150 kg × 9,8 N/kg = <strong>1,47 N</strong><br><br>
+          Le poids du filet de saumon est de <strong>1,47 N</strong>.
+        </div>
+
+        <div class="note-box">
+          <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente</span></div>
+          Comme dans l'exemple ci-dessus, une masse donnée en grammes doit toujours être convertie en <strong>kilogrammes</strong> avant d'être utilisée dans F<sub>g</sub> = mg — sans quoi le résultat serait 1000 fois trop grand. C'est le même réflexe qu'avec n = m ÷ M à la section 1.5, ou C = n ÷ V à la section 2.1.3 : toujours vérifier l'unité avant de calculer.
+        </div>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un poids
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Un sac d'école a une masse de 4,5 kg. Quel est son poids à la surface de la Terre (g = 9,8 N/kg) ?</p>
+            <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 4,5 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 9,8 N</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 44,1 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,46 N</button>
+            </div>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint"><strong>Bonne réponse : C.</strong> La masse est déjà en kilogrammes, donc aucune conversion n'est nécessaire. F<sub>g</sub> = mg = 4,5 kg × 9,8 N/kg = <strong>44,1 N</strong>. L'erreur D inverse le calcul (4,5 ÷ 9,8) plutôt que de multiplier.</div>
+          </div>
+        </div>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application (à l'envers) — Retrouver la masse à partir du poids
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Un dynamomètre indique qu'une caisse a un poids de 245 N à la surface de la Terre (g = 9,8 N/kg). Quelle est la masse de cette caisse ?</p>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint">On isole m dans F<sub>g</sub> = mg : m = F<sub>g</sub> ÷ g = 245 N ÷ 9,8 N/kg = <strong>25 kg</strong>.<br><br>Vérification : 25 kg × 9,8 N/kg = 245 N ✓.</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="background:#f0f6f7;">
+          <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+            <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — l'intensité du champ gravitationnel ailleurs dans l'Univers</span></div>
+            <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="note-body">
+            <p style="margin:0 0 10px;">Plus un astre est massif (et plus sa matière est concentrée près de sa surface), plus son champ gravitationnel est intense. Voici quelques valeurs approximatives :</p>
+            <table class="data-table" style="margin:0;">
+              <thead><tr><th>Astre</th><th>g (N/kg)</th><th>Poids d'une masse de 70 kg</th></tr></thead>
+              <tbody>
+                <tr><td>Lune</td><td>≈ 1,6</td><td>≈ 112 N</td></tr>
+                <tr><td>Mars</td><td>≈ 3,7</td><td>≈ 259 N</td></tr>
+                <tr><td>Terre</td><td>≈ 9,8</td><td>≈ 686 N</td></tr>
+                <tr><td>Jupiter</td><td>≈ 24,8</td><td>≈ 1736 N</td></tr>
+                <tr><td>Soleil (surface)</td><td>≈ 274</td><td>≈ 19 180 N</td></tr>
+              </tbody>
+            </table>
+            <p style="margin:10px 0 0;">Une même personne de 70 kg aurait donc six fois moins de poids sur la Lune que sur Terre — d'où les célèbres sauts spectaculaires des astronautes d'Apollo — mais près de 28 fois plus de poids à la surface du Soleil. Sa <strong>masse</strong>, elle, resterait de 70 kg partout.</p>
+          </div>
+        </div>
+
+        <div class="note-box" style="background:#f0f6f7;">
+          <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+            <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — les astronautes en orbite sont-ils vraiment en apesanteur ?</span></div>
+            <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="note-body">
+            <p style="margin:0;">Contrairement à une idée répandue, la gravité terrestre n'a <strong>pratiquement pas diminué</strong> à l'altitude où orbite la Station spatiale internationale (environ 400 km) : g y vaut encore près de 8,7 N/kg, soit environ 89 % de sa valeur au sol. Les astronautes ne flottent donc pas parce que la gravité serait absente, mais parce que la station et eux-mêmes sont continuellement <strong>en chute libre</strong> autour de la Terre — ils tombent constamment, mais avancent aussi assez vite horizontalement pour toujours « manquer » la Terre, ce qui les fait orbiter plutôt que s'écraser. Cette absence de contact avec une surface qui les retiendrait donne l'illusion d'un poids nul, qu'on appelle <strong>apesanteur apparente</strong> — et non une véritable absence de poids.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Flash Science — La livre</span></div>
+          Au Canada, l'unité de mesure officielle de la masse est le <strong>kilogramme</strong>, même s'il arrive qu'on utilise encore la livre (lb) dans le langage courant. Depuis 1983, les épiciers canadiens sont tenus d'afficher les prix des produits au kilogramme (ou pour 100 g), bien qu'ils puissent aussi afficher les prix à la livre. Aux États-Unis, la livre demeure l'unité de mesure <em>officielle</em> de la masse. Une livre correspond à environ <strong>0,454 kg</strong>.
+        </div>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Même masse, poids différent
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Un(e) élève affirme : « Si mon poids diminue quand je vais sur la Lune, c'est que j'ai perdu de la matière en voyageant. » Explique pourquoi ce raisonnement est incorrect, en utilisant les notions de cette section.</p>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint">Ce raisonnement confond masse et poids. La <strong>masse</strong> de l'élève (la quantité de matière qui le compose) ne change pas en voyageant vers la Lune — aucune matière n'est perdue. Ce qui change, c'est l'<strong>intensité du champ gravitationnel</strong> (g), beaucoup plus faible sur la Lune (≈ 1,6 N/kg) que sur Terre (≈ 9,8 N/kg). Puisque F<sub>g</sub> = mg, une même masse m multipliée par un g plus petit donne un poids F<sub>g</sub> plus petit — sans que rien n'ait été « perdu ».</div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 4.1</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Masse (m)</strong></td><td>Quantité de matière ; en kilogrammes (kg) ; propre au corps, ne dépend pas du lieu</td></tr>
+              <tr><td><strong>Poids (F<sub>g</sub>)</strong></td><td>Force gravitationnelle exercée sur le corps ; en newtons (N) ; mesuré au dynamomètre ; varie selon le lieu</td></tr>
+              <tr><td><strong>Relation</strong></td><td>F<sub>g</sub> = mg, où g = intensité du champ gravitationnel (N/kg) — sur Terre, g ≈ 9,8 N/kg</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!-- QUIZ 4.1 -->
+        <div class="quiz-block" data-quiz="q41">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 4.1<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 9</span>
+            <progress class="quiz-progress" value="0" max="9"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La masse d'un objet reste la même peu importe l'endroit où il se trouve dans l'Univers.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La masse est une caractéristique propre au corps (sa quantité de matière) — elle ne dépend pas du lieu. C'est le <strong>poids</strong>, et non la masse, qui varie d'un endroit à l'autre.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La masse ne change pas selon le lieu — c'est le <strong>poids</strong> (la force gravitationnelle) qui varie, puisqu'il dépend de g.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle unité correspond correctement au poids d'un objet ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le kilogramme (kg)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le newton (N)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le joule (J)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Le gramme (g)</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le poids est une force, donc il se mesure en <strong>newtons (N)</strong> — jamais en kilogrammes, qui est l'unité de la masse.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le kilogramme et le gramme mesurent la <strong>masse</strong>. Le poids, une force, se mesure en <strong>newtons (N)</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quel est le poids d'un objet de 12 kg à la surface de la Terre (g = 9,8 N/kg) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1,22 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 12 N</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 117,6 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 9,8 N</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. F<sub>g</sub> = mg = 12 kg × 9,8 N/kg = <strong>117,6 N</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>F<sub>g</sub> = mg = 12 kg × 9,8 N/kg = <strong>117,6 N</strong>. Le choix A divise plutôt que de multiplier.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Une plume a une masse de 3 g. Quel est son poids à la surface de la Terre (g = 9,8 N/kg) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 29,4 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 3,27 N</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 0,0294 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,306 N</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. On convertit d'abord : m = 3 g = 0,003 kg. F<sub>g</sub> = mg = 0,003 × 9,8 = <strong>0,0294 N</strong>. Le choix A oublie complètement la conversion des grammes en kilogrammes.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Il faut d'abord convertir en kg : 3 g = 0,003 kg. Puis F<sub>g</sub> = 0,003 × 9,8 = <strong>0,0294 N</strong>. Oublier cette conversion (choix A) donne un résultat 1000 fois trop grand.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un dynamomètre indique 88,2 N pour un objet, à la surface de la Terre (g = 9,8 N/kg). Quelle est la masse de cet objet ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 864,4 kg</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 9 kg</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 78,4 kg</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 98 kg</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. m = F<sub>g</sub> ÷ g = 88,2 ÷ 9,8 = <strong>9 kg</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>On isole m dans F<sub>g</sub> = mg : m = F<sub>g</sub> ÷ g = 88,2 ÷ 9,8 = <strong>9 kg</strong>. Le choix A multiplie plutôt que de diviser.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Sur la Lune, une roche aurait la même masse que sur Terre, mais un poids plus faible.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La masse ne change pas ; seule l'intensité du champ gravitationnel (g) diminue sur la Lune (≈ 1,6 N/kg contre ≈ 9,8 N/kg sur Terre), ce qui réduit le poids (F<sub>g</sub> = mg) sans changer la masse.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. La masse (quantité de matière) ne dépend jamais du lieu. Le poids, lui, diminue sur la Lune parce que g y est plus faible.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel instrument sert à mesurer directement le poids d'un objet ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Une balance à plateaux</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un dynamomètre</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un thermomètre</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un baromètre</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le <strong>dynamomètre</strong> mesure directement une force — comme le poids — en newtons. Une balance, elle, mesure plutôt une masse en la comparant à des masses connues.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le <strong>dynamomètre</strong> qui mesure une force (comme le poids) en newtons. La balance mesure une masse, pas un poids.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Les astronautes en orbite autour de la Terre flottent parce que la gravité terrestre y est nulle.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. À l'altitude de la Station spatiale internationale, g vaut encore environ 89 % de sa valeur au sol. Les astronautes flottent parce qu'ils sont en <strong>chute libre continue</strong> autour de la Terre, pas parce que la gravité serait absente.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La gravité reste presque aussi forte en orbite basse (≈ 89 % de sa valeur au sol). L'« apesanteur » ressentie vient plutôt du fait que la station et ses occupants sont continuellement en <strong>chute libre</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Au Canada, quelle est l'unité de mesure officielle de la masse ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La livre (lb)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le kilogramme (kg)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le newton (N)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La tonne uniquement</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le <strong>kilogramme</strong> est l'unité officielle au Canada, même si la livre reste parfois utilisée dans le langage courant. Aux États-Unis, c'est plutôt la livre qui demeure l'unité officielle.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le <strong>kilogramme</strong>. La livre (≈ 0,454 kg) est encore utilisée dans le langage courant au Canada, mais ce n'est pas l'unité officielle — contrairement aux États-Unis.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q41"></div>
+          <button class="quiz-reset" id="reset-q41">↺ Recommencer</button>
+          </div>
+        </div>
       </div>
     </div>
 
