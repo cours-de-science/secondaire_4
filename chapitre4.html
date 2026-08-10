@@ -723,7 +723,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- SECTION 4.2 — LE TRAVAIL (SQUELETTE)            -->
+    <!-- SECTION 4.2 — LE TRAVAIL                        -->
     <!-- ══════════════════════════════════════════════ -->
     <div class="section-card" id="section-4-2">
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
@@ -735,11 +735,408 @@
         </div>
       </button>
       <div class="section-body">
-        <p style="color:var(--muted);font-style:italic;">Contenu à venir :</p>
-        <ul class="content-list" style="color:var(--muted);font-style:italic;">
-          <li>4.2.1 — La relation entre le travail, la force et le déplacement (W = Fd)</li>
-          <li>4.2.2 — La force efficace (la composante d'une force qui produit réellement un travail)</li>
-        </ul>
+
+        <p>En physique, le mot « <strong>travail</strong> » n'a pas toujours le sens qu'on lui donne dans la vie de tous les jours. Une personne ou une machine effectue un travail, au sens physique du terme, seulement si elle exerce une force qui <strong>déplace réellement un objet</strong>. Le simple fait de maintenir un objet en place, même avec beaucoup d'effort, ne constitue pas un travail.</p>
+
+        <figure class="fig-block">
+          <div style="background:#fff;padding:16px;">
+            <svg width="100%" viewBox="0 0 1100 660" role="img" style="max-width:640px;display:block;margin:0 auto;font-family:'Inter',sans-serif;">
+              <title>Un travail implique le déplacement d'un objet — l'haltérophile</title>
+              <desc>Un haltérophile est représenté dans deux situations. En A, il soulève une charge du sol jusqu'au-dessus de sa tête : la charge se déplace, donc un travail est effectué. En B, il maintient la même charge immobile au-dessus de sa tête : la charge ne se déplace pas, donc aucun travail n'est effectué, même si l'effort musculaire est important.</desc>
+              <defs>
+                <marker id="arrow-ds2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1a4a52"/></marker>
+              </defs>
+
+              <image href="images/fig-42-haltero.png" x="0" y="0" width="1100" height="600"/>
+
+              <!-- badges A / B -->
+              <rect x="35" y="35" width="30" height="30" rx="6" fill="#e07b30"/>
+              <text x="50" y="56" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" fill="#fff">A</text>
+              <rect x="725" y="35" width="30" height="30" rx="6" fill="#e07b30"/>
+              <text x="740" y="56" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="18" font-weight="800" fill="#fff">B</text>
+
+              <!-- displacement arrow, panel A -->
+              <line x1="665" y1="550" x2="665" y2="95" stroke="#1a4a52" stroke-width="4" marker-end="url(#arrow-ds2)"/>
+              <text x="681" y="330" font-size="20" font-weight="700" fill="#1a4a52">Δs</text>
+
+              <!-- panel B — no displacement -->
+              <text x="1000" y="300" text-anchor="middle" font-size="18" font-weight="600" fill="#666">Δs = 0</text>
+
+              <!-- pills -->
+              <rect x="252" y="616" width="200" height="32" rx="16" fill="#1a4a52"/>
+              <text x="352" y="637" text-anchor="middle" font-size="15" font-weight="700" fill="#c8d400">✓ Travail effectué</text>
+
+              <rect x="795" y="616" width="200" height="32" rx="16" fill="#e07b30"/>
+              <text x="895" y="637" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">✗ Aucun travail</text>
+            </svg>
+          </div>
+          <figcaption>Fig. — L'haltérophile en A effectue un travail : la charge se déplace du sol jusqu'au-dessus de sa tête. En B, il ne fait que maintenir la même charge immobile en équilibre : puisqu'il n'y a pas de déplacement (Δs = 0), aucun travail n'est effectué, même si l'effort musculaire nécessaire pour la retenir est réel.</figcaption>
+        </figure>
+
+        <p>Le travail est en réalité un <strong>transfert d'énergie</strong> — cette idée sera précisée à la section 4.3.</p>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Pousser sur un mur
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Une personne pousse de toutes ses forces sur un mur pendant plusieurs minutes. Le mur ne bouge pas d'un millimètre, mais la personne est épuisée à la fin. Effectue-t-elle un travail, au sens physique du terme ? Explique.</p>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint">Non. Peu importe l'intensité de la force exercée, s'il n'y a <strong>aucun déplacement</strong> (Δs = 0) du mur, aucun travail n'est effectué au sens physique du terme — le résultat de W = FΔs est nul dès que Δs = 0. L'épuisement de la personne s'explique par une dépense d'énergie <em>musculaire</em> (chimique, transformée en chaleur à l'intérieur du corps), mais cette énergie n'est pas transférée au mur sous forme de travail mécanique.</div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">4.2.1 — La relation entre le travail, la force et le déplacement</div>
+
+          <p>Quand un corps subit un déplacement (Δs) sous l'effet d'une force constante (F) qui est <strong>parallèle au déplacement</strong>, le travail (W) effectué par cette force est égal au produit de cette force et de ce déplacement.</p>
+
+          <div class="formula">W = FΔs</div>
+          <p class="formula-caption">W = travail (J) · F = force (N) · Δs = déplacement, ou variation de position (m)</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — Une force parallèle au déplacement</span></div>
+            <strong>Une déménageuse pousse une boîte sur le sol sur une distance de 5 m, en exerçant une force constante de 200 N parallèlement au sol. Quel est le travail effectué par la déménageuse sur la boîte ?</strong><br><br>
+            <em>Données :</em> F = 200 N · Δs = 5 m · W = ?<br><br>
+            <em>Calcul :</em><br>
+            W = FΔs = 200 N × 5 m = <strong>1000 J</strong><br><br>
+            Le travail effectué par la déménageuse sur la boîte est de <strong>1000 J</strong>.
+          </div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 1100 600" role="img" style="max-width:640px;display:block;margin:0 auto;font-family:'Inter',sans-serif;">
+                <title>Une force parallèle au déplacement — la déménageuse</title>
+                <desc>Une déménageuse pousse une boîte sur le sol en exerçant une force de 200 newtons parallèle au déplacement de 5 mètres de la boîte.</desc>
+                <defs>
+                  <marker id="arrow-f3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e07b30"/></marker>
+                  <marker id="arrow-ds3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1a4a52"/></marker>
+                </defs>
+
+                <image href="images/fig-42-demenageuse.png" x="0" y="0" width="1100" height="600"/>
+
+                <!-- force arrow F, in the clear space above the box -->
+                <line x1="560" y1="150" x2="615" y2="150" stroke="#e07b30" stroke-width="4.5" marker-end="url(#arrow-f3)"/>
+                <text x="588" y="128" text-anchor="middle" font-size="20" font-weight="700" fill="#e07b30">F = 200 N</text>
+
+                <!-- displacement arrow below -->
+                <line x1="650" y1="565" x2="800" y2="565" stroke="#1a4a52" stroke-width="4" marker-end="url(#arrow-ds3)"/>
+                <text x="725" y="588" text-anchor="middle" font-size="18" font-weight="700" fill="#1a4a52">Déplacement (Δs = 5 m)</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — La force exercée par la déménageuse (F) est parallèle au déplacement (Δs) de la boîte : le travail se calcule directement avec W = FΔs.</figcaption>
+          </figure>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un travail
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Un travailleur tire une caisse sur 8 m, en exerçant une force constante de 130 N parallèle au sol. Quel est le travail effectué sur la caisse ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 16,25 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 138 J</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 1040 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 122 J</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : C.</strong> W = FΔs = 130 N × 8 m = <strong>1040 J</strong>. Le choix A divise plutôt que de multiplier ; le choix B additionne les deux valeurs.</div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — confondre newtons et joules</span></div>
+            Le travail (W) se mesure en <strong>joules (J)</strong>, jamais en newtons (N). Le newton est l'unité de la <strong>force</strong> qui produit le travail, pas celle du travail lui-même — un peu comme le prix total d'un achat (en dollars) n'a pas la même unité que le prix unitaire (en dollars par article).
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">4.2.2 — La force efficace</div>
+
+          <p>La relation W = FΔs suppose que la force est parallèle au déplacement. Or ce n'est pas toujours le cas : lorsque la force n'est pas parallèle au déplacement, seule la <strong>composante de la force qui est parallèle au déplacement</strong> effectue réellement un travail. Cette composante s'appelle la <strong>force efficace (F<sub>eff</sub>)</strong>.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Quand un travail est effectué sur un corps, la <strong>force efficace (F<sub>eff</sub>)</strong> correspond à la composante de la force qui est parallèle au déplacement du corps.</p>
+          </div>
+          <p>Comme toutes les forces, la force efficace se mesure en <strong>newtons (N)</strong>.</p>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 1100 600" role="img" style="max-width:640px;display:block;margin:0 auto;font-family:'Inter',sans-serif;">
+                <title>La force efficace — un traîneau tiré en angle</title>
+                <desc>Une personne tire un traîneau à l'aide d'une corde qui forme un angle avec le sol. Un encart montre le triangle rectangle formé par la force F (l'hypoténuse), la force efficace Feff (la cathète parallèle au déplacement) et une ligne pointillée verticale (l'autre cathète).</desc>
+                <defs>
+                  <marker id="arrow-f4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e07b30"/></marker>
+                  <marker id="arrow-feff4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#256472"/></marker>
+                  <marker id="arrow-ds4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5a6e72"/></marker>
+                </defs>
+
+                <image href="images/fig-42-traineau.png" x="0" y="0" width="1100" height="600"/>
+
+                <!-- force arrow F, traced along the rope, offset slightly for visibility -->
+                <line x1="673" y1="470" x2="233" y2="177" stroke="#e07b30" stroke-width="5" marker-end="url(#arrow-f4)"/>
+                <text x="464" y="298" text-anchor="middle" font-size="20" font-weight="700" fill="#e07b30">F</text>
+
+                <!-- displacement arrow -->
+                <line x1="700" y1="555" x2="850" y2="555" stroke="#5a6e72" stroke-width="4" marker-end="url(#arrow-ds4)"/>
+                <text x="775" y="580" text-anchor="middle" font-size="18" font-weight="700" fill="#5a6e72">Déplacement (Δs)</text>
+
+                <!-- inset circle, zoomed vector triangle -->
+                <circle cx="900" cy="150" r="105" fill="#f7f9f9" stroke="#d0d8d9" stroke-width="1.5"/>
+                <line x1="800" y1="150" x2="975" y2="150" stroke="#bcc7c8" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <!-- Feff (horizontal, teal) -->
+                <line x1="825" y1="150" x2="950" y2="150" stroke="#256472" stroke-width="4" marker-end="url(#arrow-feff4)"/>
+                <text x="887" y="175" text-anchor="middle" font-size="16" font-weight="700" fill="#256472">F<tspan baseline-shift="sub" font-size="11">eff</tspan></text>
+
+                <!-- vertical dashed leg -->
+                <line x1="950" y1="150" x2="950" y2="70" stroke="#9aa8aa" stroke-width="2" stroke-dasharray="4,3"/>
+
+                <!-- right angle marker -->
+                <rect x="936" y="136" width="14" height="14" fill="none" stroke="#9aa8aa" stroke-width="1.5"/>
+
+                <!-- hypotenuse F (diagonal, orange) -->
+                <line x1="825" y1="150" x2="950" y2="65" stroke="#e07b30" stroke-width="4" marker-end="url(#arrow-f4)"/>
+                <text x="905" y="95" text-anchor="middle" font-size="17" font-weight="700" fill="#e07b30">F</text>
+
+                <text x="900" y="28" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="700" letter-spacing="0.04em" fill="#1a4a52">COMPOSANTE EFFICACE</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — La force (F) exercée forme un angle non nul avec le déplacement (Δs) du traîneau. Dans l'encart : la force F constitue l'hypoténuse d'un triangle rectangle dont l'une des cathètes est parallèle au déplacement — cette cathète correspond à la force efficace (F<sub>eff</sub>).</figcaption>
+          </figure>
+
+          <p>Pour évaluer la composante efficace d'une force :</p>
+          <ul class="content-list">
+            <li>on trace une flèche orientée dans la même direction que la force ;</li>
+            <li>on trace ensuite un triangle rectangle dont cette flèche constitue l'<strong>hypoténuse*</strong> et dont l'une des <strong>cathètes**</strong> est parallèle au déplacement du corps étudié ;</li>
+            <li>la cathète du triangle qui est parallèle au déplacement du corps correspond à la <strong>force efficace</strong>.</li>
+          </ul>
+          <p style="font-size:13px;color:var(--muted);margin-top:-6px;">* Hypoténuse : côté d'un triangle rectangle opposé à l'angle droit.<br>** Cathète : chacun des côtés adjacents à l'hypoténuse.</p>
+
+          <p>Lorsque la force exercée est <strong>parallèle au mouvement</strong>, la force efficace est égale à la force appliquée (F<sub>eff</sub> = F). Lorsque la force exercée <strong>n'est pas parallèle</strong> au déplacement, la force efficace est plus petite que la force exercée (F<sub>eff</sub> &lt; F).</p>
+
+          <p>Puisque seule la composante efficace de la force contribue au travail effectué sur un corps, l'équation W = FΔs devient :</p>
+
+          <div class="formula">W = F<sub>eff</sub>Δs</div>
+          <p class="formula-caption">W = travail (J) · F<sub>eff</sub> = force efficace (N) · Δs = déplacement (m)</p>
+
+          <p>Le travail correspond à la contribution qu'une force apporte au déplacement d'un corps : plus le travail est grand, plus la force contribue réellement à ce déplacement.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — Une force non parallèle au déplacement</span></div>
+            <strong>Une fille pousse une tondeuse sur une distance de 7,5 m vers le haut d'une pente légère, en exerçant une force constante de 80 N parallèle au manche de la tondeuse. Si la force efficace exercée par la fille sur la tondeuse est de 60 N, quel est le travail effectué par la fille sur la tondeuse ?</strong><br><br>
+            <em>Données :</em> F<sub>eff</sub> = 60 N · Δs = 7,5 m · W = ?<br><br>
+            <em>Calcul :</em><br>
+            W = F<sub>eff</sub>Δs = 60 N × 7,5 m = <strong>450 J</strong><br><br>
+            Le travail effectué par la fille sur la tondeuse est de <strong>450 J</strong>. Notons que la force réellement exercée (80 N) n'est <strong>pas</strong> utilisée directement dans ce calcul : seule sa composante efficace (60 N) contribue au travail, puisque la force n'est pas parallèle au déplacement.
+          </div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 1100 645" role="img" style="max-width:640px;display:block;margin:0 auto;font-family:'Inter',sans-serif;">
+                <title>La force efficace — une tondeuse poussée sur une pente légère</title>
+                <desc>Une fille pousse une tondeuse vers le haut d'une pente légère. La force qu'elle exerce est parallèle au manche, donc non parallèle au déplacement de la tondeuse. Un encart montre le triangle rectangle formé par la force F, la force efficace Feff et une ligne pointillée verticale.</desc>
+                <defs>
+                  <marker id="arrow-f5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e07b30"/></marker>
+                  <marker id="arrow-feff5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#256472"/></marker>
+                  <marker id="arrow-ds5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5a6e72"/></marker>
+                </defs>
+
+                <image href="images/fig-42-tondeuse.png" x="0" y="0" width="1100" height="600"/>
+
+                <!-- force arrow F, traced along the handle -->
+                <line x1="490" y1="205" x2="670" y2="420" stroke="#e07b30" stroke-width="5" marker-end="url(#arrow-f5)"/>
+                <text x="560" y="180" text-anchor="middle" font-size="20" font-weight="700" fill="#e07b30">F = 80 N</text>
+
+                <!-- displacement arrow, in the margin below the illustration -->
+                <line x1="60" y1="617" x2="220" y2="617" stroke="#5a6e72" stroke-width="4" marker-end="url(#arrow-ds5)"/>
+                <text x="140" y="638" text-anchor="middle" font-size="18" font-weight="700" fill="#5a6e72">Déplacement (Δs = 7,5 m)</text>
+
+                <!-- inset circle -->
+                <circle cx="880" cy="150" r="105" fill="#f7f9f9" stroke="#d0d8d9" stroke-width="1.5"/>
+                <line x1="780" y1="150" x2="955" y2="150" stroke="#bcc7c8" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <line x1="805" y1="150" x2="930" y2="150" stroke="#256472" stroke-width="4" marker-end="url(#arrow-feff5)"/>
+                <text x="867" y="175" text-anchor="middle" font-size="16" font-weight="700" fill="#256472">F<tspan baseline-shift="sub" font-size="11">eff</tspan> = 60 N</text>
+
+                <line x1="930" y1="150" x2="930" y2="75" stroke="#9aa8aa" stroke-width="2" stroke-dasharray="4,3"/>
+                <rect x="917" y="137" width="13" height="13" fill="none" stroke="#9aa8aa" stroke-width="1.5"/>
+
+                <line x1="805" y1="150" x2="930" y2="75" stroke="#e07b30" stroke-width="4" marker-end="url(#arrow-f5)"/>
+                <text x="885" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#e07b30">F = 80 N</text>
+
+                <text x="880" y="28" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="700" letter-spacing="0.04em" fill="#1a4a52">COMPOSANTE EFFICACE</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Puisque la force exercée par la fille (parallèle au manche) n'est pas parallèle au déplacement de la tondeuse, il faut utiliser la force efficace (F<sub>eff</sub> = 60 N) — et non F = 80 N — pour évaluer le travail effectué.</figcaption>
+          </figure>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Utiliser la force efficace
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une force efficace de 25 N agit sur un traîneau qui se déplace de 6 m. Quel est le travail effectué par cette force ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 150 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 31 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 19 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4,17 J</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : A.</strong> W = F<sub>eff</sub>Δs = 25 N × 6 m = <strong>150 J</strong>. Puisque la force efficace est déjà donnée, il suffit de l'utiliser directement dans W = F<sub>eff</sub>Δs, sans autre conversion.</div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — utiliser F au lieu de F<sub>eff</sub></span></div>
+            Dès qu'une force n'est pas exactement parallèle au déplacement, utiliser F directement dans W = FΔs <strong>surestime</strong> le travail réellement effectué. Il faut toujours vérifier si la force et le déplacement sont parallèles avant de choisir l'équation : si oui, W = FΔs ; sinon, W = F<sub>eff</sub>Δs, avec F<sub>eff</sub> &lt; F.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour les curieux — le lien avec la trigonométrie</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">La méthode géométrique du triangle rectangle (tracer l'hypoténuse et la cathète parallèle au déplacement) revient, pour qui connaît la trigonométrie, à calculer F<sub>eff</sub> = F × cos θ, où θ est l'angle entre la force et le déplacement. Quand θ = 0° (force parallèle au déplacement), cos 0° = 1, donc F<sub>eff</sub> = F — ce qui confirme bien que la relation W = FΔs n'est qu'un cas particulier de W = F<sub>eff</sub>Δs. Cette formule avec le cosinus n'est pas exigée dans ce cours ; elle n'est présentée ici qu'à titre de complément.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 4.2</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Travail (W)</strong></td><td>Transfert d'énergie qui a lieu quand une force déplace réellement un corps ; se mesure en joules (J) ; aucun travail si Δs = 0, même si une force est exercée</td></tr>
+              <tr><td><strong>Force parallèle au déplacement</strong></td><td>W = FΔs</td></tr>
+              <tr><td><strong>Force efficace (F<sub>eff</sub>)</strong></td><td>Composante de la force parallèle au déplacement, en newtons (N) ; F<sub>eff</sub> = F si la force est parallèle au déplacement, sinon F<sub>eff</sub> &lt; F</td></tr>
+              <tr><td><strong>Force non parallèle au déplacement</strong></td><td>W = F<sub>eff</sub>Δs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUIZ 4.2 -->
+        <div class="quiz-block" data-quiz="q42">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 4.2<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 8</span>
+            <progress class="quiz-progress" value="0" max="8"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Une personne qui maintient une boîte immobile dans les airs, sans la déplacer, effectue un travail au sens physique du terme.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Sans déplacement (Δs = 0), il n'y a aucun travail au sens physique — même si l'effort exercé est réel et épuisant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Un travail exige un <strong>déplacement</strong> (W = FΔs). Sans déplacement, Δs = 0 et donc W = 0, peu importe l'intensité de la force exercée.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans quelle unité se mesure le travail (W) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le newton (N)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le joule (J)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le mètre (m)</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Le newton-mètre carré (N·m²)</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le travail se mesure en <strong>joules (J)</strong>. Le newton (N) est l'unité de la force, pas du travail.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Le travail se mesure en <strong>joules (J)</strong>. Le newton (N) mesure une force, pas un travail.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quel est le travail effectué par une force constante de 150 N, parallèle au déplacement, sur une distance de 4 m ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 37,5 J</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 600 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 154 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 600 N</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. W = FΔs = 150 N × 4 m = <strong>600 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>W = FΔs = 150 N × 4 m = <strong>600 J</strong>. Le choix D donne la bonne valeur numérique, mais avec la mauvaise unité (le travail se mesure en joules, pas en newtons).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Si une force n'est pas parallèle au déplacement d'un corps, elle produit toujours le même travail qu'une force de même intensité qui serait parallèle à ce déplacement.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Quand la force n'est pas parallèle au déplacement, seule sa composante efficace (F<sub>eff</sub> &lt; F) contribue au travail — le résultat est donc plus petit que si toute la force était parallèle au déplacement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Une force non parallèle au déplacement produit <strong>moins</strong> de travail, puisque seule sa force efficace (F<sub>eff</sub> &lt; F) est utilisée dans le calcul.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Comment définit-on la force efficace (F<sub>eff</sub>) ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La force totale exercée sur le corps, peu importe sa direction</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> La composante de la force parallèle au déplacement du corps</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La composante de la force perpendiculaire au déplacement du corps</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La force nécessaire pour immobiliser complètement le corps</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La force efficace est la <strong>composante de la force parallèle au déplacement</strong> — c'est elle, et non la force totale, qui produit réellement le travail.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La force efficace est la <strong>composante de la force parallèle au déplacement</strong> du corps — la composante perpendiculaire, elle, ne contribue à aucun travail.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Une force efficace de 45 N agit sur un objet qui se déplace de 10 m. Quel est le travail effectué ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 4,5 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 55 J</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 450 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 450 N</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. W = F<sub>eff</sub>Δs = 45 N × 10 m = <strong>450 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>W = F<sub>eff</sub>Δs = 45 N × 10 m = <strong>450 J</strong>. Le choix D donne la bonne valeur, mais avec l'unité du travail (le joule), pas celle de la force.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Que devient l'équation W = FΔs lorsque la force exercée n'est pas parallèle au déplacement du corps ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> L'équation ne change pas : on utilise toujours F directement</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> W = F<sub>eff</sub>Δs, où F<sub>eff</sub> est la composante de F parallèle au déplacement</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> W = F + Δs</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucun travail ne peut être calculé dans ce cas</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Quand la force n'est pas parallèle au déplacement, on utilise <strong>W = F<sub>eff</sub>Δs</strong>, où F<sub>eff</sub> est la composante de la force parallèle au déplacement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>L'équation devient <strong>W = F<sub>eff</sub>Δs</strong> — on ne peut plus utiliser F directement, seule sa composante parallèle au déplacement (F<sub>eff</sub>) compte.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Quand la force exercée est exactement parallèle au déplacement, la force efficace est égale à la force exercée.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Quand F et Δs sont parallèles, la composante de F parallèle au déplacement est F elle-même : F<sub>eff</sub> = F.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai. Si la force est déjà parallèle au déplacement, sa composante parallèle est la force complète : F<sub>eff</sub> = F.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q42"></div>
+          <button class="quiz-reset" id="reset-q42">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
