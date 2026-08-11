@@ -2351,7 +2351,7 @@
                 <line x1="440" y1="34" x2="440" y2="316" stroke="#e2e2e2" stroke-width="1"/>
 
                 <!-- Panneau 1 : Carbone-12 -->
-                <text x="110" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52">¹²₆C</text>
+                <text x="110" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52"><span class="nuclide"><span class="nuclide-stack"><span>12</span><span>6</span></span>C</span></text>
                 <text x="110" y="70" text-anchor="middle" font-size="11.5" fill="#666">(carbone-12)</text>
                 <circle cx="110" cy="150" r="11" fill="#e07b30"/>
                 <circle cx="130" cy="142" r="11" fill="#e07b30"/>
@@ -2370,7 +2370,7 @@
                 <text x="110" y="264" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#1a6640">Stable</text>
 
                 <!-- Panneau 2 : Carbone-13 -->
-                <text x="330" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52">¹³₆C</text>
+                <text x="330" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52"><span class="nuclide"><span class="nuclide-stack"><span>13</span><span>6</span></span>C</span></text>
                 <text x="330" y="70" text-anchor="middle" font-size="11.5" fill="#666">(carbone-13)</text>
                 <circle cx="330" cy="150" r="11" fill="#e07b30"/>
                 <circle cx="350" cy="142" r="11" fill="#e07b30"/>
@@ -2390,7 +2390,7 @@
                 <text x="330" y="264" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#1a6640">Stable</text>
 
                 <!-- Panneau 3 : Carbone-14 -->
-                <text x="550" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52">¹⁴₆C</text>
+                <text x="550" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#1a4a52"><span class="nuclide"><span class="nuclide-stack"><span>14</span><span>6</span></span>C</span></text>
                 <text x="550" y="70" text-anchor="middle" font-size="11.5" fill="#666">(carbone-14)</text>
                 <circle cx="550" cy="150" r="11" fill="#e07b30"/>
                 <circle cx="570" cy="142" r="11" fill="#e07b30"/>
@@ -2588,7 +2588,7 @@
 
           <div class="quiz-q" data-qi="8">
             <div class="quiz-q-label">Vrai ou faux</div>
-            <div class="quiz-q-text">Le tritium (³₁H), un isotope de l'hydrogène, est radioactif même si son numéro atomique (Z = 1) est extrêmement petit.</div>
+            <div class="quiz-q-text">Le tritium (<span class="nuclide"><span class="nuclide-stack"><span>3</span><span>1</span></span>H</span>), un isotope de l'hydrogène, est radioactif même si son numéro atomique (Z = 1) est extrêmement petit.</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
@@ -2857,8 +2857,8 @@
               <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
               <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Dans une équation nucléaire, l'élément change (transmutation) — ce qui se conserve, ce sont plutôt les sommes du nombre de masse (A) et du numéro atomique (Z) de chaque côté.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une différence essentielle avec la chimie. Une équation nucléaire change l'identité de l'élément ; ce sont les sommes de A et de Z qui restent égales de chaque côté, pas le nombre d'atomes d'un élément précis.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Dans une équation nucléaire, l'élément change (transmutation) — ce qui se conserve, ce sont plutôt les sommes du nombre de masse (A) et du numéro atomique (Z) de chaque côté de la flèche. Attention à la nuance : ce n'est pas le Z du noyau lui-même qui reste fixe — en désintégration bêta, par exemple, il augmente ou diminue de 1 (voir la question suivante). C'est la somme <strong>totale</strong> qui s'équilibre, parce que la particule éjectée compte elle aussi (Z = −1 pour un électron, +1 pour un positron).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une différence essentielle avec la chimie. Une équation nucléaire change l'identité de l'élément ; ce sont les sommes de A et de Z qui restent égales de chaque côté (pas le nombre d'atomes d'un élément précis). Nuance importante : le Z du <strong>noyau</strong> change bel et bien en désintégration bêta — c'est la somme incluant la particule éjectée (Z = −1 ou +1) qui s'équilibre.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="1">
@@ -2871,20 +2871,20 @@
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Ni A ni Z ne changent</button>
             </div>
             <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Une particule alpha est un noyau d'hélium (2 protons + 2 neutrons) : A diminue donc de 4 (2+2), et Z diminue de 2 (les 2 protons emportés).</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Une particule alpha (⁴₂He) emporte 2 protons et 2 neutrons : A diminue de 4, Z diminue de 2. Le choix B décrit plutôt une désintégration bêta.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Une particule alpha (<span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span>) emporte 2 protons et 2 neutrons : A diminue de 4, Z diminue de 2. Le choix B décrit plutôt une désintégration bêta.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="2">
             <div class="quiz-q-label">Choix multiple</div>
-            <div class="quiz-q-text">Le thorium-234 (Z = 90) se désintègre par émission bêta. Quel est le noyau produit ?</div>
+            <div class="quiz-q-text">L'iode-131 (Z = 53), utilisé notamment en médecine nucléaire pour traiter certains troubles de la thyroïde, se désintègre par émission bêta. Quel est le noyau produit ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un noyau avec Z = 88 (comme une désintégration alpha)</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un noyau avec Z = 91, même A = 234</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un noyau avec Z = 89, A = 230</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un noyau avec Z = 51 (comme une désintégration alpha)</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Un noyau avec Z = 54, même A = 131</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Un noyau avec Z = 52, A = 127</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Le même noyau, sans aucun changement</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Lors d'une désintégration bêta, A ne change pas (234) et Z augmente de 1 (90 + 1 = 91, le protactinium) — un neutron s'est transformé en proton.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Lors d'une désintégration bêta, A reste inchangé (234) et Z <strong>augmente</strong> de 1 (90 → 91) — un neutron devient un proton, ce qui libère un électron.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Lors d'une désintégration bêta, A ne change pas (131) et Z augmente de 1 (53 + 1 = 54, le xénon) — un neutron s'est transformé en proton.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Lors d'une désintégration bêta, A reste inchangé (131) et Z <strong>augmente</strong> de 1 (53 → 54) — un neutron devient un proton, ce qui libère un électron. Bonne réponse : le xénon-131.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="3">
@@ -3005,7 +3005,7 @@
         <div class="subsection" id="fission-fusion">
           <div class="subsection-title">3.2.3 — La fission et la fusion nucléaires</div>
 
-          <p>La désintégration radioactive vue à la section 3.2.2 est toujours <strong>spontanée</strong> : un noyau instable éjecte de lui-même une petite particule (α ou β) ou de l'énergie (γ), sans qu'on ait besoin de le provoquer. Il existe cependant deux autres transformations nucléaires, beaucoup plus spectaculaires, qui libèrent des quantités d'énergie phénoménales — au point d'alimenter à la fois des centrales électriques et des étoiles. Ces deux phénomènes, la fission et la fusion, sont exploités par les technologies développées par la physique nucléaire pour produire de l'énergie ; celle-ci sert le plus souvent à des fins civiles (électricité), mais peut aussi, historiquement, servir à des fins militaires (armes nucléaires).</p>
+          <p>La désintégration radioactive vue à la section 3.2.2 est toujours <strong>spontanée</strong> : un noyau instable éjecte de lui-même une petite particule (α ou β) ou de l'énergie (γ), sans qu'on ait besoin de le provoquer. Il existe cependant deux autres transformations nucléaires, beaucoup plus spectaculaires, qui libèrent des quantités d'énergie phénoménales. La <strong>fission</strong> alimente déjà les centrales nucléaires actuelles ; la <strong>fusion</strong>, elle, alimente les étoiles — dont notre Soleil — mais reste, sur Terre, au stade expérimental plutôt que commercial (on y revient plus loin). Ces deux phénomènes sont néanmoins tous deux étudiés et exploités par la physique nucléaire, le plus souvent à des fins civiles (production d'électricité, recherche), mais aussi, historiquement, à des fins militaires (armes nucléaires).</p>
 
           <div class="subsection-title" style="margin-top:0;font-size:15px;">La fission nucléaire</div>
 
@@ -3020,131 +3020,200 @@
             <div style="background:#fff;padding:16px;">
               <svg width="100%" viewBox="0 0 680 560" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
                 <title>Fission nucléaire d'un noyau d'uranium 235</title>
-                <desc>Schéma en deux temps. Avant : un neutron s'approche d'un noyau d'uranium 235, représenté par un gros amas stylisé de protons orange et de neutrons gris (le nombre de points est réduit pour la clarté ; il ne représente pas littéralement les 235 nucléons). Après : ce noyau s'est scindé en un noyau de baryum 141 et un noyau de krypton 92, plus petits, projetant trois neutrons et libérant de l'énergie.</desc>
+                <desc>Schéma en deux temps. Avant : un neutron s'approche d'un noyau d'uranium 235, représenté par un amas dense de sphères — orange pour les protons, grises pour les neutrons (le nombre de sphères est réduit pour la clarté ; il ne représente pas littéralement les 235 nucléons). Après : ce noyau s'est scindé en un noyau de baryum 141 et un noyau de krypton 92, plus petits, projetant trois neutrons et libérant de l'énergie.</desc>
                 <defs>
                   <marker id="arrow-fis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                  <radialGradient id="protonGrad" cx="35%" cy="30%" r="75%">
+                    <stop offset="0%" stop-color="#f7ad68"/>
+                    <stop offset="55%" stop-color="#e07b30"/>
+                    <stop offset="100%" stop-color="#b0601f"/>
+                  </radialGradient>
+                  <radialGradient id="neutronGrad" cx="35%" cy="30%" r="75%">
+                    <stop offset="0%" stop-color="#f6f6f6"/>
+                    <stop offset="55%" stop-color="#d6d6d6"/>
+                    <stop offset="100%" stop-color="#a4a4a4"/>
+                  </radialGradient>
+                  <filter id="nucleusShadow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#1a2e33" flood-opacity="0.22"/>
+                  </filter>
+                  <radialGradient id="energyGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff3c4" stop-opacity="0.9"/>
+                    <stop offset="55%" stop-color="#ffe28a" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#ffe28a" stop-opacity="0"/>
+                  </radialGradient>
                 </defs>
 
                 <text x="30" y="26" font-size="12.5" font-weight="700" fill="var(--muted)" letter-spacing="0.06em">AVANT</text>
 
                 <!-- neutron incident -->
-                <circle cx="55" cy="150" r="9" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="55" y="127" text-anchor="middle" font-size="12" fill="#555">¹₀n</text>
-                <line x1="68" y1="150" x2="152" y2="150" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-fis)"/>
-                <text x="108" y="140" text-anchor="middle" font-size="10.5" fill="#666" font-style="italic">absorption</text>
+                <circle cx="55" cy="152" r="9" fill="url(#neutronGrad)" stroke="#999" stroke-width="0.5"/>
+                <foreignObject x="27" y="115" width="56" height="24">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:12px;color:#555;font-weight:400;"><span class="nuclide-stack" style="font-weight:400;"><span>1</span><span>0</span></span>n</span>
+                  </div>
+                </foreignObject>
+                <line x1="68" y1="152" x2="152" y2="152" stroke="#666" stroke-width="1.8" marker-end="url(#arrow-fis)"/>
+                <text x="108" y="142" text-anchor="middle" font-size="10.5" fill="#666" font-style="italic">absorption</text>
 
-                <!-- U-235 nucleus (stylized cluster) -->
-                <circle cx="186.2" cy="104.9" r="5.4" fill="#e07b30"/>
-              <circle cx="282.8" cy="170.5" r="5.4" fill="#e07b30"/>
-              <circle cx="179.5" cy="145.1" r="5.4" fill="#e07b30"/>
-              <circle cx="257.3" cy="160.7" r="5.4" fill="#e07b30"/>
-              <circle cx="254.2" cy="143.4" r="5.4" fill="#e07b30"/>
-              <circle cx="212.1" cy="111.7" r="5.4" fill="#e07b30"/>
-              <circle cx="194.0" cy="131.1" r="5.4" fill="#e07b30"/>
-              <circle cx="240.9" cy="169.2" r="5.4" fill="#e07b30"/>
-              <circle cx="178.0" cy="158.5" r="5.4" fill="#e07b30"/>
-              <circle cx="276.1" cy="116.3" r="5.4" fill="#e07b30"/>
-              <circle cx="222.6" cy="191.0" r="5.4" fill="#e07b30"/>
-              <circle cx="243.8" cy="147.9" r="5.4" fill="#e07b30"/>
-              <circle cx="170.3" cy="140.5" r="5.4" fill="#e07b30"/>
-              <circle cx="204.7" cy="119.8" r="5.4" fill="#e07b30"/>
-              <circle cx="263.6" cy="97.0" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="225.5" cy="115.6" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="209.0" cy="204.5" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="234.5" cy="101.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="196.2" cy="160.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="247.6" cy="158.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="244.9" cy="98.1" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="218.8" cy="172.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="273.5" cy="156.2" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="219.9" cy="135.9" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="231.8" cy="198.9" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="251.9" cy="123.0" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="281.4" cy="134.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="177.7" cy="176.8" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="214.5" cy="145.2" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="198.2" cy="175.5" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="191.9" cy="141.3" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="250.8" cy="194.7" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="273.0" cy="166.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="190.2" cy="184.7" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="191.6" cy="197.1" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="251.7" cy="171.4" r="5.4" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
+                <!-- U-235 nucleus (dense hex-packed sphere cluster) -->
+                <g filter="url(#nucleusShadow)">
+                <circle cx="217.8" cy="152.6" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="242.4" cy="130.7" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="255.0" cy="152.7" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="224.3" cy="162.3" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="260.8" cy="162.4" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="211.9" cy="119.3" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="205.1" cy="173.4" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="211.2" cy="184.4" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="217.2" cy="130.4" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="211.3" cy="141.7" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="236.5" cy="141.8" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="224.3" cy="141.9" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="249.1" cy="140.6" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="249.4" cy="120.1" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="211.8" cy="163.0" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="205.2" cy="129.8" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="243.0" cy="173.8" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="223.4" cy="118.8" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="255.6" cy="174.5" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="191.7" cy="152.5" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="236.1" cy="118.9" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="248.5" cy="163.3" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="199.2" cy="162.2" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="261.5" cy="140.5" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="224.1" cy="184.3" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="192.9" cy="131.0" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="255.1" cy="131.0" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="242.3" cy="151.4" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="230.2" cy="129.6" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="204.5" cy="151.9" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="249.0" cy="184.1" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="229.3" cy="196.0" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="229.7" cy="152.7" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="236.9" cy="162.7" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="236.2" cy="184.6" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="198.9" cy="141.3" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="230.1" cy="173.9" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="268.3" cy="152.0" r="5.6" fill="url(#neutronGrad)"/>
+                <circle cx="229.9" cy="108.9" r="5.6" fill="url(#protonGrad)"/>
+                <circle cx="217.1" cy="173.4" r="5.6" fill="url(#neutronGrad)"/>
+                </g>
 
-                <text x="230" y="252" text-anchor="middle" font-size="19" font-weight="700" fill="#1a4a52">²³⁵₉₂U</text>
-                <text x="230" y="272" text-anchor="middle" font-size="11.5" fill="#666">noyau lourd et déjà instable (Z = 92 &gt; 83)</text>
+                <foreignObject x="150" y="208" width="160" height="32">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:19px;color:#1a4a52;"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span>
+                  </div>
+                </foreignObject>
+                <text x="230" y="250" text-anchor="middle" font-size="11.5" fill="#666">noyau lourd et déjà instable (Z = 92 &gt; 83)</text>
 
-                <line x1="20" y1="298" x2="660" y2="298" stroke="#d0d8d9" stroke-width="1"/>
-                <text x="30" y="322" font-size="12.5" font-weight="700" fill="var(--muted)" letter-spacing="0.06em">APRÈS</text>
+                <line x1="20" y1="276" x2="660" y2="276" stroke="#d0d8d9" stroke-width="1"/>
+                <text x="30" y="300" font-size="12.5" font-weight="700" fill="var(--muted)" letter-spacing="0.06em">APRÈS</text>
 
                 <!-- Ba-141 fragment -->
-                <circle cx="122.1" cy="418.6" r="5.0" fill="#e07b30"/>
-              <circle cx="147.2" cy="402.5" r="5.0" fill="#e07b30"/>
-              <circle cx="151.3" cy="440.2" r="5.0" fill="#e07b30"/>
-              <circle cx="152.6" cy="414.0" r="5.0" fill="#e07b30"/>
-              <circle cx="137.8" cy="444.6" r="5.0" fill="#e07b30"/>
-              <circle cx="173.7" cy="397.8" r="5.0" fill="#e07b30"/>
-              <circle cx="167.8" cy="422.0" r="5.0" fill="#e07b30"/>
-              <circle cx="188.1" cy="405.7" r="5.0" fill="#e07b30"/>
-              <circle cx="161.1" cy="435.6" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="125.7" cy="400.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="142.5" cy="427.1" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="176.1" cy="415.0" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="120.1" cy="408.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="179.5" cy="428.9" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="152.5" cy="385.5" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="171.3" cy="432.9" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="154.8" cy="394.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="126.2" cy="384.7" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="167.9" cy="410.1" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="154.5" cy="429.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="167.6" cy="382.3" r="5.0" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-                <text x="150" y="472" text-anchor="middle" font-size="17" font-weight="700" fill="#1a4a52">¹⁴¹₅₆Ba</text>
+                <g filter="url(#nucleusShadow)">
+                <circle cx="138.3" cy="394.9" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="143.4" cy="383.5" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="156.5" cy="384.3" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="138.5" cy="414.8" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="156.1" cy="445.4" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="131.8" cy="404.4" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="149.3" cy="414.4" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="168.0" cy="425.1" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="161.9" cy="415.6" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="149.4" cy="394.1" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="144.4" cy="404.7" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="155.3" cy="404.8" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="149.4" cy="435.0" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="167.5" cy="404.1" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="131.5" cy="425.5" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="125.8" cy="415.6" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="143.4" cy="425.1" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="156.2" cy="425.2" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="162.0" cy="435.1" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="174.0" cy="414.8" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="143.8" cy="445.2" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="126.1" cy="395.0" r="5.3" fill="url(#neutronGrad)"/>
+                <circle cx="137.6" cy="435.9" r="5.3" fill="url(#protonGrad)"/>
+                <circle cx="161.2" cy="394.4" r="5.3" fill="url(#protonGrad)"/>
+                </g>
+                <foreignObject x="70" y="452" width="160" height="30">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:17px;color:#1a4a52;"><span class="nuclide-stack"><span>141</span><span>56</span></span>Ba</span>
+                  </div>
+                </foreignObject>
                 <text x="150" y="490" text-anchor="middle" font-size="11" fill="#666">baryum-141</text>
 
                 <!-- Kr-92 fragment -->
-                <circle cx="336.3" cy="407.3" r="4.8" fill="#e07b30"/>
-              <circle cx="338.8" cy="384.5" r="4.8" fill="#e07b30"/>
-              <circle cx="323.8" cy="412.2" r="4.8" fill="#e07b30"/>
-              <circle cx="371.8" cy="420.8" r="4.8" fill="#e07b30"/>
-              <circle cx="337.0" cy="424.9" r="4.8" fill="#e07b30"/>
-              <circle cx="362.3" cy="389.9" r="4.8" fill="#e07b30"/>
-              <circle cx="375.6" cy="401.6" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="355.7" cy="423.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="348.9" cy="399.2" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="325.4" cy="401.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="335.0" cy="398.3" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="346.0" cy="419.5" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="348.6" cy="435.0" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="365.8" cy="411.4" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-              <circle cx="367.0" cy="432.5" r="4.8" fill="#d8d8d8" stroke="#999" stroke-width="0.4"/>
-                <text x="350" y="463" text-anchor="middle" font-size="17" font-weight="700" fill="#1a4a52">⁹²₃₆Kr</text>
-                <text x="350" y="481" text-anchor="middle" font-size="11" fill="#666">krypton-92</text>
+                <g filter="url(#nucleusShadow)">
+                <circle cx="355.8" cy="417.9" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="333.5" cy="417.2" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="361.3" cy="388.1" r="5.0" fill="url(#protonGrad)"/>
+                <circle cx="367.2" cy="397.9" r="5.0" fill="url(#protonGrad)"/>
+                <circle cx="339.3" cy="408.0" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="350.4" cy="388.9" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="349.8" cy="407.5" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="344.7" cy="397.7" r="5.0" fill="url(#protonGrad)"/>
+                <circle cx="366.7" cy="417.7" r="5.0" fill="url(#protonGrad)"/>
+                <circle cx="333.7" cy="398.5" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="355.7" cy="398.5" r="5.0" fill="url(#protonGrad)"/>
+                <circle cx="327.5" cy="408.0" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="344.2" cy="417.6" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="361.3" cy="408.5" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="350.3" cy="426.8" r="5.0" fill="url(#neutronGrad)"/>
+                <circle cx="338.8" cy="388.7" r="5.0" fill="url(#protonGrad)"/>
+                </g>
+                <foreignObject x="280" y="441" width="140" height="30">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:17px;color:#1a4a52;"><span class="nuclide-stack"><span>92</span><span>36</span></span>Kr</span>
+                  </div>
+                </foreignObject>
+                <text x="350" y="479" text-anchor="middle" font-size="11" fill="#666">krypton-92</text>
 
                 <!-- 3 ejected neutrons -->
                 <line x1="255" y1="368" x2="300" y2="345" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
-                <circle cx="308" cy="340" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="308" y="320" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+                <circle cx="308" cy="340" r="8" fill="url(#neutronGrad)" stroke="#999" stroke-width="0.5"/>
+                <foreignObject x="283" y="309" width="50" height="22">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:11px;color:#555;font-weight:400;"><span class="nuclide-stack" style="font-weight:400;"><span>1</span><span>0</span></span>n</span>
+                  </div>
+                </foreignObject>
 
                 <line x1="262" y1="392" x2="320" y2="400" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
-                <circle cx="332" cy="402" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="332" y="422" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+                <circle cx="332" cy="402" r="8" fill="url(#neutronGrad)" stroke="#999" stroke-width="0.5"/>
+                <foreignObject x="307" y="411" width="50" height="22">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:11px;color:#555;font-weight:400;"><span class="nuclide-stack" style="font-weight:400;"><span>1</span><span>0</span></span>n</span>
+                  </div>
+                </foreignObject>
 
                 <line x1="240" y1="410" x2="255" y2="460" stroke="#666" stroke-width="1.4" marker-end="url(#arrow-fis)"/>
-                <circle cx="258" cy="470" r="8" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="258" y="490" text-anchor="middle" font-size="11" fill="#555">¹₀n</text>
+                <circle cx="258" cy="470" r="8" fill="url(#neutronGrad)" stroke="#999" stroke-width="0.5"/>
+                <foreignObject x="233" y="479" width="50" height="22">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:11px;color:#555;font-weight:400;"><span class="nuclide-stack" style="font-weight:400;"><span>1</span><span>0</span></span>n</span>
+                  </div>
+                </foreignObject>
 
-                <!-- energy burst -->
-                <g transform="translate(560,395) scale(2.1) translate(-12,-11)">
-                  <path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z" fill="#f4b400"/>
+                <!-- energy burst: glow + radiating rays + bright core -->
+                <circle cx="560" cy="395" r="32" fill="url(#energyGlow)"/>
+                <g stroke="#e8a900" stroke-width="3.2" stroke-linecap="round">
+                  <line x1="572" y1="395" x2="584" y2="395"/>
+                  <line x1="568.5" y1="403.5" x2="577" y2="412"/>
+                  <line x1="560" y1="407" x2="560" y2="419"/>
+                  <line x1="551.5" y1="403.5" x2="543" y2="412"/>
+                  <line x1="548" y1="395" x2="536" y2="395"/>
+                  <line x1="551.5" y1="386.5" x2="543" y2="378"/>
+                  <line x1="560" y1="383" x2="560" y2="371"/>
+                  <line x1="568.5" y1="386.5" x2="577" y2="378"/>
                 </g>
-                <text x="595" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
+                <circle cx="560" cy="395" r="9" fill="#ffd23f" stroke="#e8a900" stroke-width="1"/>
+                <text x="560" y="445" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
               </svg>
             </div>
-            <figcaption>Fig. — La fission nucléaire de l'uranium 235 : un neutron absorbé déstabilise le noyau, qui se scinde en baryum-141 et krypton-92, en éjectant trois neutrons et une grande quantité d'énergie. (Amas stylisés : le nombre de points ne représente pas littéralement chacun des 235 nucléons.)</figcaption>
+            <figcaption>Fig. — La fission nucléaire de l'uranium 235 : un neutron absorbé déstabilise le noyau, qui se scinde en baryum-141 et krypton-92, en éjectant trois neutrons et une grande quantité d'énergie. (Amas stylisés : le nombre de sphères ne représente pas littéralement chacun des 235 nucléons.)</figcaption>
           </figure>
 
-          <div class="formula">²³⁵₉₂U + ¹₀n → ¹⁴¹₅₆Ba + ⁹²₃₆Kr + 3 ¹₀n + Énergie</div>
+          <div class="formula"><span class="nuclide"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span> + <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span> → <span class="nuclide"><span class="nuclide-stack"><span>141</span><span>56</span></span>Ba</span> + <span class="nuclide"><span class="nuclide-stack"><span>92</span><span>36</span></span>Kr</span> + 3 <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span> + Énergie</div>
           <p class="formula-caption">Un seul neutron « absorbé » suffit à déstabiliser le noyau d'uranium 235 au point de provoquer sa scission immédiate.</p>
 
           <div class="note-box">
@@ -3202,7 +3271,7 @@
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="activity-content">
-              <p class="activity-question">L'uranium 235 ne se scinde pas toujours de la même façon : selon le neutron qui l'atteint, il peut produire différentes paires de noyaux. Une autre fission bien connue produit du xénon 140 et du strontium 94 : <br><br>²³⁵₉₂U + ¹₀n → ¹⁴⁰₅₄Xe + ⁹⁴₃₈Sr + ? ¹₀n + Énergie<br><br>Combien de neutrons (?) doivent être libérés pour que l'équation soit balancée ?</p>
+              <p class="activity-question">L'uranium 235 ne se scinde pas toujours de la même façon : selon le neutron qui l'atteint, il peut produire différentes paires de noyaux. Une autre fission bien connue produit du xénon 140 et du strontium 94 : <br><br><span class="nuclide"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span> + <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span> → <span class="nuclide"><span class="nuclide-stack"><span>140</span><span>54</span></span>Xe</span> + <span class="nuclide"><span class="nuclide-stack"><span>94</span><span>38</span></span>Sr</span> + ? <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span> + Énergie<br><br>Combien de neutrons (?) doivent être libérés pour que l'équation soit balancée ?</p>
               <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
               <div class="activity-hint">On isole d'abord A : 235 + 1 = 236 à gauche. À droite : 140 + 94 + ?(1) = 234 + ?. Pour que 234 + ? = 236, il faut ? = <strong>2</strong>.<br><br>Vérification avec Z : gauche 92 + 0 = 92 ; droite 54 + 38 + 2(0) = 92 ✓. Cette fission libère donc <strong>2 neutrons</strong> plutôt que 3 — le nombre de neutrons libérés dépend de la paire de noyaux produite, mais il y en a presque toujours plus d'un, ce qui permet la réaction en chaîne.</div>
             </div>
@@ -3227,55 +3296,104 @@
                 <desc>Un noyau de tritium (un proton, deux neutrons) et un noyau de deutérium (un proton, un neutron) s'approchent l'un de l'autre et fusionnent, produisant un noyau d'hélium 4 (deux protons, deux neutrons), un neutron libre, et une grande quantité d'énergie.</desc>
                 <defs>
                   <marker id="arrow-fus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+                  <radialGradient id="protonGrad2" cx="35%" cy="30%" r="75%">
+                    <stop offset="0%" stop-color="#f7ad68"/>
+                    <stop offset="55%" stop-color="#e07b30"/>
+                    <stop offset="100%" stop-color="#b0601f"/>
+                  </radialGradient>
+                  <radialGradient id="neutronGrad2" cx="35%" cy="30%" r="75%">
+                    <stop offset="0%" stop-color="#f6f6f6"/>
+                    <stop offset="55%" stop-color="#d6d6d6"/>
+                    <stop offset="100%" stop-color="#a4a4a4"/>
+                  </radialGradient>
+                  <filter id="nucleusShadow2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#1a2e33" flood-opacity="0.22"/>
+                  </filter>
+                  <radialGradient id="energyGlow2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff3c4" stop-opacity="0.9"/>
+                    <stop offset="55%" stop-color="#ffe28a" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#ffe28a" stop-opacity="0"/>
+                  </radialGradient>
                 </defs>
 
                 <!-- Tritium (1p + 2n) -->
-                <circle cx="131" cy="99" r="13" fill="#e07b30"/>
-                <circle cx="149" cy="99" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <circle cx="140" cy="118" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="140" y="151" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">³₁H</text>
+                <g filter="url(#nucleusShadow2)">
+                <circle cx="131" cy="99" r="13" fill="url(#protonGrad2)"/>
+                <circle cx="149" cy="99" r="13" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                <circle cx="140" cy="118" r="13" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                </g>
+                <foreignObject x="95" y="132" width="90" height="28">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:16px;color:#1a4a52;"><span class="nuclide-stack"><span>3</span><span>1</span></span>H</span>
+                  </div>
+                </foreignObject>
                 <text x="140" y="168" text-anchor="middle" font-size="11.5" fill="#666">Tritium</text>
 
                 <!-- Deutérium (1p + 1n) -->
-                <circle cx="131" cy="261" r="13" fill="#e07b30"/>
-                <circle cx="149" cy="261" r="13" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="140" y="291" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">²₁H</text>
+                <g filter="url(#nucleusShadow2)">
+                <circle cx="131" cy="261" r="13" fill="url(#protonGrad2)"/>
+                <circle cx="149" cy="261" r="13" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                </g>
+                <foreignObject x="95" y="272" width="90" height="28">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:16px;color:#1a4a52;"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span>
+                  </div>
+                </foreignObject>
                 <text x="140" y="308" text-anchor="middle" font-size="11.5" fill="#666">Deutérium</text>
 
                 <!-- arrows converging -->
                 <line x1="172" y1="115" x2="315" y2="175" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
                 <line x1="172" y1="245" x2="315" y2="188" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
 
-                <!-- energy burst at center -->
-                <circle cx="340" cy="182" r="30" fill="#fff4d6" opacity="0.85"/>
-                <g transform="translate(340,182) scale(2.3) translate(-12,-11)">
-                  <path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z" fill="#f4b400"/>
+                <!-- energy burst: glow + radiating rays + bright core -->
+                <circle cx="340" cy="182" r="32" fill="url(#energyGlow2)"/>
+                <g stroke="#e8a900" stroke-width="3.2" stroke-linecap="round">
+                  <line x1="352" y1="182" x2="364" y2="182"/>
+                  <line x1="348.5" y1="190.5" x2="357" y2="199"/>
+                  <line x1="340" y1="194" x2="340" y2="206"/>
+                  <line x1="331.5" y1="190.5" x2="323" y2="199"/>
+                  <line x1="328" y1="182" x2="316" y2="182"/>
+                  <line x1="331.5" y1="173.5" x2="323" y2="165"/>
+                  <line x1="340" y1="170" x2="340" y2="158"/>
+                  <line x1="348.5" y1="173.5" x2="357" y2="165"/>
                 </g>
+                <circle cx="340" cy="182" r="9" fill="#ffd23f" stroke="#e8a900" stroke-width="1"/>
+                <text x="340" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
 
                 <!-- arrows diverging -->
                 <line x1="365" y1="170" x2="530" y2="105" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
                 <line x1="365" y1="195" x2="530" y2="255" stroke="#666" stroke-width="1.6" marker-end="url(#arrow-fus)"/>
 
                 <!-- Neutron output -->
-                <circle cx="558" cy="99" r="14" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="558" y="132" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">¹₀n</text>
+                <g filter="url(#nucleusShadow2)">
+                <circle cx="558" cy="99" r="14" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                </g>
+                <foreignObject x="513" y="113" width="90" height="28">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:16px;color:#1a4a52;"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span>
+                  </div>
+                </foreignObject>
                 <text x="558" y="149" text-anchor="middle" font-size="11.5" fill="#666">Neutron</text>
 
                 <!-- Hélium-4 output (2p+2n) -->
-                <circle cx="548" cy="252" r="12" fill="#e07b30"/>
-                <circle cx="568" cy="252" r="12" fill="#e07b30"/>
-                <circle cx="548" cy="270" r="12" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <circle cx="568" cy="270" r="12" fill="#d8d8d8" stroke="#999" stroke-width="0.8"/>
-                <text x="558" y="299" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4a52">⁴₂He</text>
+                <g filter="url(#nucleusShadow2)">
+                <circle cx="548" cy="252" r="12" fill="url(#protonGrad2)"/>
+                <circle cx="568" cy="252" r="12" fill="url(#protonGrad2)"/>
+                <circle cx="548" cy="270" r="12" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                <circle cx="568" cy="270" r="12" fill="url(#neutronGrad2)" stroke="#999" stroke-width="0.5"/>
+                </g>
+                <foreignObject x="513" y="280" width="90" height="28">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;justify-content:center;align-items:center;height:100%;font-family:'Inter',sans-serif;">
+                    <span class="nuclide" style="font-size:16px;color:#1a4a52;"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span>
+                  </div>
+                </foreignObject>
                 <text x="558" y="316" text-anchor="middle" font-size="11.5" fill="#666">Hélium</text>
-
-                <text x="450" y="180" text-anchor="middle" font-size="13" font-weight="700" fill="#8a6d00">+ Énergie</text>
               </svg>
             </div>
-            <figcaption>Fig. — La fusion nucléaire de deux isotopes de l'hydrogène : le deutérium (²₁H) et le tritium (³₁H) fusionnent pour former un noyau d'hélium 4 (⁴₂He, une particule alpha), en libérant un neutron et une grande quantité d'énergie.</figcaption>
+            <figcaption>Fig. — La fusion nucléaire de deux isotopes de l'hydrogène : le deutérium (<span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span>) et le tritium (<span class="nuclide"><span class="nuclide-stack"><span>3</span><span>1</span></span>H</span>) fusionnent pour former un noyau d'hélium 4 (<span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span>, une particule alpha), en libérant un neutron et une grande quantité d'énergie.</figcaption>
           </figure>
 
-          <div class="formula">²₁H + ³₁H → ⁴₂He + ¹₀n + Énergie</div>
+          <div class="formula"><span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> + <span class="nuclide"><span class="nuclide-stack"><span>3</span><span>1</span></span>H</span> → <span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span> + <span class="nuclide"><span class="nuclide-stack"><span>1</span><span>0</span></span>n</span> + Énergie</div>
           <p class="formula-caption">La fusion du deutérium et du tritium — deux isotopes de l'hydrogène — produit un noyau d'hélium 4 (une particule alpha) et un neutron, avec un dégagement d'énergie considérable.</p>
 
           <div class="note-box">
@@ -3305,9 +3423,9 @@
               <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="activity-content">
-              <p class="activity-question">Deux noyaux de deutérium peuvent aussi fusionner directement entre eux (sans tritium), selon l'équation suivante :<br><br>²₁H + ²₁H → ³₂He + ?<br><br>Quelle particule manque du côté droit pour que l'équation soit balancée ? (Indice : cette particule n'a pas de charge.)</p>
+              <p class="activity-question">Deux noyaux de deutérium peuvent aussi fusionner directement entre eux (sans tritium), selon l'équation suivante :<br><br><span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> + <span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> → <span class="nuclide"><span class="nuclide-stack"><span>3</span><span>2</span></span>He</span> + ?<br><br>Quelle particule manque du côté droit pour que l'équation soit balancée ? (Indice : cette particule n'a pas de charge.)</p>
               <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
-              <div class="activity-hint">A : 2 + 2 = 4 à gauche. À droite, l'hélium-3 compte déjà pour 3, il manque donc 1 en A. Z : 1 + 1 = 2 à gauche ; l'hélium-3 compte déjà pour 2, il manque donc 0 en Z. Une particule avec A = 1 et Z = 0, sans charge : c'est un <strong>neutron (¹₀n)</strong>.<br><br>²₁H + ²₁H → ³₂He + ¹₀n. Vérification : A : 2+2=4 ↔ 3+1=4 ✓. Z : 1+1=2 ↔ 2+0=2 ✓.</div>
+              <div class="activity-hint">A : 2 + 2 = 4 à gauche. À droite, l'hélium-3 compte déjà pour 3, il manque donc 1 en A. Z : 1 + 1 = 2 à gauche ; l'hélium-3 compte déjà pour 2, il manque donc 0 en Z. Une particule avec A = 1 et Z = 0, sans charge : c'est un <strong>neutron (¹₀n)</strong>.<br><br><span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> + <span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> → <span class="nuclide"><span class="nuclide-stack"><span>3</span><span>2</span></span>He</span> + ¹₀n. Vérification : A : 2+2=4 ↔ 3+1=4 ✓. Z : 1+1=2 ↔ 2+0=2 ✓.</div>
             </div>
           </div>
 
@@ -3329,7 +3447,7 @@
           <table class="data-table">
             <thead><tr><th>Critère</th><th>Fission</th><th>Fusion</th></tr></thead>
             <tbody>
-              <tr><td><strong>Noyaux impliqués</strong></td><td>Un seul noyau lourd (ex. : ²³⁵U)</td><td>Deux noyaux légers (ex. : isotopes de l'hydrogène)</td></tr>
+              <tr><td><strong>Noyaux impliqués</strong></td><td>Un seul noyau lourd (ex. : <span class="nuclide"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span>)</td><td>Deux noyaux légers (ex. : isotopes de l'hydrogène)</td></tr>
               <tr><td><strong>Résultat</strong></td><td>Deux noyaux plus légers + neutrons</td><td>Un seul noyau plus lourd + parfois un neutron</td></tr>
               <tr><td><strong>Énergie libérée</strong></td><td>Très grande</td><td>Encore plus grande</td></tr>
               <tr><td><strong>Déchets radioactifs</strong></td><td>Quantité significative</td><td>Très peu</td></tr>
@@ -3412,7 +3530,7 @@
 
           <div class="quiz-q" data-qi="2">
             <div class="quiz-q-label">Calcul</div>
-            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer cette équation de fission : ²³⁵₉₂U + ¹₀n → ¹⁴¹₅₆Ba + ⁹²₃₆Kr + ? ¹₀n + Énergie ?</div>
+            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer cette équation de fission : <span class="nuclide"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span> + ¹₀n → <span class="nuclide"><span class="nuclide-stack"><span>141</span><span>56</span></span>Ba</span> + <span class="nuclide"><span class="nuclide-stack"><span>92</span><span>36</span></span>Kr</span> + ? ¹₀n + Énergie ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1 neutron</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2 neutrons</button>
@@ -3473,7 +3591,7 @@
 
           <div class="quiz-q" data-qi="7">
             <div class="quiz-q-label">Calcul</div>
-            <div class="quiz-q-text">Quelle particule manque pour balancer cette équation de fusion : ²₁H + ³₁H → ⁴₂He + ? + Énergie ?</div>
+            <div class="quiz-q-text">Quelle particule manque pour balancer cette équation de fusion : <span class="nuclide"><span class="nuclide-stack"><span>2</span><span>1</span></span>H</span> + <span class="nuclide"><span class="nuclide-stack"><span>3</span><span>1</span></span>H</span> → <span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span> + ? + Énergie ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> Un neutron</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Un proton</button>
@@ -3586,8 +3704,8 @@
               <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Aucun de ces rayonnements</button>
               <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Alpha (α)</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le rayonnement alpha correspond exactement à l'éjection d'un noyau d'hélium (⁴₂He), ce qui diminue A de 4 et Z de 2 (section 3.2.2).</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le rayonnement <strong>alpha (α)</strong> — un noyau d'hélium (⁴₂He) éjecté par le noyau instable, comme vu à la section 3.2.2.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le rayonnement alpha correspond exactement à l'éjection d'un noyau d'hélium (<span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span>), ce qui diminue A de 4 et Z de 2 (section 3.2.2).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le rayonnement <strong>alpha (α)</strong> — un noyau d'hélium (<span class="nuclide"><span class="nuclide-stack"><span>4</span><span>2</span></span>He</span>) éjecté par le noyau instable, comme vu à la section 3.2.2.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="3">
@@ -3605,15 +3723,15 @@
 
           <div class="quiz-q" data-qi="4">
             <div class="quiz-q-label">Choix multiple</div>
-            <div class="quiz-q-text">Le potassium-40 (⁴⁰₁₉K) se désintègre par émission bêta (β⁻). Quel noyau est produit ?</div>
+            <div class="quiz-q-text">Le potassium-40 (<span class="nuclide"><span class="nuclide-stack"><span>40</span><span>19</span></span>K</span>) se désintègre par émission bêta (β⁻). Quel noyau est produit ?</div>
             <div class="quiz-options">
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> ³⁶₁₇Cl</button>
-              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> ⁴⁰₂₀Ca</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> ⁴⁴₂₁Sc</button>
-              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> ⁴⁰₁₈Ar</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> <span class="nuclide"><span class="nuclide-stack"><span>36</span><span>17</span></span>Cl</span></button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> <span class="nuclide"><span class="nuclide-stack"><span>40</span><span>20</span></span>Ca</span></button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> <span class="nuclide"><span class="nuclide-stack"><span>44</span><span>21</span></span>Sc</span></button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> <span class="nuclide"><span class="nuclide-stack"><span>40</span><span>18</span></span>Ar</span></button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. En émission bêta, A reste 40 et Z augmente de 1 (un neutron devient un proton) : Z = 19 + 1 = 20, soit le <strong>calcium</strong> (Ca). ⁴⁰₂₀Ca.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>En émission bêta (section 3.2.2), A ne change pas (reste 40) mais Z <strong>augmente de 1</strong> : 19 + 1 = 20, qui correspond au calcium. Bonne réponse : ⁴⁰₂₀Ca.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. En émission bêta, A reste 40 et Z augmente de 1 (un neutron devient un proton) : Z = 19 + 1 = 20, soit le <strong>calcium</strong> (Ca). <span class="nuclide"><span class="nuclide-stack"><span>40</span><span>20</span></span>Ca</span>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>En émission bêta (section 3.2.2), A ne change pas (reste 40) mais Z <strong>augmente de 1</strong> : 19 + 1 = 20, qui correspond au calcium. Bonne réponse : <span class="nuclide"><span class="nuclide-stack"><span>40</span><span>20</span></span>Ca</span>.</span></div>
           </div>
 
           <div class="quiz-q" data-qi="5">
@@ -3623,8 +3741,8 @@
               <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
               <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
             </div>
-            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Une équation nucléaire change l'identité de l'élément (transmutation) — ce qui se conserve, ce sont les sommes du nombre de masse (A) et du numéro atomique (Z), pas le nombre d'atomes d'un élément précis.</span></div>
-            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une différence essentielle avec la chimie (section 3.1). En nucléaire, l'élément change ; ce sont <strong>A et Z</strong> qui doivent s'équilibrer de chaque côté.</span></div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Une équation nucléaire change l'identité de l'élément (transmutation) — ce qui se conserve, ce sont les sommes du nombre de masse (A) et du numéro atomique (Z), pas le nombre d'atomes d'un élément précis. Rappel : ce n'est pas le Z du noyau seul qui reste fixe (il change en désintégration bêta) — c'est la somme totale, particule éjectée comprise (Z = −1 ou +1), qui s'équilibre.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux — une différence essentielle avec la chimie (section 3.1). En nucléaire, l'élément change ; ce sont <strong>A et Z</strong> qui doivent s'équilibrer de chaque côté, en comptant la particule éjectée (électron ou positron).</span></div>
           </div>
 
           <div class="quiz-q" data-qi="6">
@@ -3642,7 +3760,7 @@
 
           <div class="quiz-q" data-qi="7">
             <div class="quiz-q-label">Calcul</div>
-            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer ²³⁵₉₂U + ¹₀n → ⁹⁵₃₈Sr + ¹³⁹₅₄Xe + ? ¹₀n + Énergie ?</div>
+            <div class="quiz-q-text">Combien de neutrons (?) faut-il pour balancer <span class="nuclide"><span class="nuclide-stack"><span>235</span><span>92</span></span>U</span> + ¹₀n → <span class="nuclide"><span class="nuclide-stack"><span>95</span><span>38</span></span>Sr</span> + <span class="nuclide"><span class="nuclide-stack"><span>139</span><span>54</span></span>Xe</span> + ? ¹₀n + Énergie ?</div>
             <div class="quiz-options">
               <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1</button>
               <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 4</button>
