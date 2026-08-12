@@ -78,6 +78,7 @@
   .section-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 4px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
   .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--teal-dark); flex: 1; }
   .section-badge { font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--orange); color: #fff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+  .inline-ste { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: var(--orange); color: #fff; padding: 2px 7px; border-radius: 3px; text-transform: uppercase; margin-left: 7px; vertical-align: 2px; white-space: nowrap; }
   .chevron { width: 20px; height: 20px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; }
   .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
   .section-body { display: none; padding: 28px 28px 32px; border-top: 2px solid var(--yellow); }
@@ -1141,7 +1142,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- SECTION 4.3 — ÉNERGIE MÉCANIQUE (SQUELETTE)     -->
+    <!-- SECTION 4.3 — L'ÉNERGIE MÉCANIQUE               -->
     <!-- ══════════════════════════════════════════════ -->
     <div class="section-card" id="section-4-3">
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
@@ -1152,13 +1153,533 @@
         </div>
       </button>
       <div class="section-body">
-        <p style="color:var(--muted);font-style:italic;">Contenu à venir :</p>
-        <ul class="content-list" style="color:var(--muted);font-style:italic;">
-          <li>4.3.1 — La relation entre le travail et l'énergie <span style="font-size:10px;background:var(--orange);color:#fff;padding:1px 6px;border-radius:3px;">STE</span></li>
-          <li>4.3.2 — La relation entre l'énergie cinétique, la masse et la vitesse <span style="font-size:10px;background:var(--orange);color:#fff;padding:1px 6px;border-radius:3px;">STE</span></li>
-          <li>4.3.3 — La relation entre l'énergie potentielle gravitationnelle, la masse, la grandeur du champ gravitationnel et la hauteur <span style="font-size:10px;background:var(--orange);color:#fff;padding:1px 6px;border-radius:3px;">STE</span></li>
-          <li>4.3.4 — La loi de la conservation de l'énergie</li>
-        </ul>
+
+        <p>Le travail, présenté à la section précédente, permet de mesurer la contribution d'une force à un déplacement. Il existe toutefois une façon plus fondamentale de le définir, en le mettant directement en relation avec l'énergie.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>L'<strong>énergie mécanique (E<sub>m</sub>)</strong> est l'énergie qui est associée au mouvement et à la position d'un corps.</p>
+        </div>
+
+        <p>Dans les situations étudiées dans ce chapitre, l'énergie mécanique (E<sub>m</sub>) correspond à la somme de l'énergie cinétique (E<sub>k</sub>) et de l'énergie potentielle gravitationnelle (E<sub>pg</sub>), deux concepts définis dans les sous-sections suivantes.<span class="inline-ste">STE</span></p>
+
+        <div class="formula">E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub></div>
+        <p class="formula-caption">E<sub>m</sub> = énergie mécanique (J) · E<sub>k</sub> = énergie cinétique (J) · E<sub>pg</sub> = énergie potentielle gravitationnelle (J)</p>
+
+        <!-- ── 4.3.1 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.3.1 — La relation entre le travail et l'énergie<span class="inline-ste">STE</span></div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Le <strong>travail (W)</strong> correspond à un transfert d'énergie entre un corps et son environnement, qui se fait par l'application de forces (des poussées ou des tractions) sur le corps.</p>
+          </div>
+
+          <p>Le travail se mesure en <strong>joules (J)</strong> — la même unité que l'énergie. Le travail (W) effectué sur un corps par des forces extérieures entraîne une variation correspondante de l'énergie de ce corps (ΔE) :</p>
+
+          <div class="formula">W = ΔE</div>
+          <p class="formula-caption">W = travail (J) · ΔE = variation de l'énergie du corps (J)</p>
+
+          <p>Ainsi, si on effectue un travail de 4 J sur un corps, l'énergie totale de ce corps augmentera de 4 J (ΔE = 4 J). Cette relation permet aussi de voir le travail sous un autre angle : alors qu'on peut définir le travail comme un <strong>transfert mécanique d'énergie</strong>, on peut tout aussi bien définir l'énergie mécanique comme <strong>la capacité à effectuer un travail</strong>.</p>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — travail positif et travail négatif (notes de cours)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p>En secondaire 4, on limite l'analyse de cette relation aux seules variations d'<strong>énergie cinétique</strong> : W = ΔE<sub>k</sub> = E<sub>kf</sub> – E<sub>ki</sub>.</p>
+              <p style="margin:0;">• Si un corps <strong>gagne</strong> de l'énergie cinétique (il accélère), le travail effectué sur lui est <strong>positif</strong> (W &gt; 0).<br>• Si un corps <strong>perd</strong> de l'énergie cinétique (il ralentit, le plus souvent à cause de la friction), le travail effectué sur lui est <strong>négatif</strong> (W &lt; 0).<br>• Si la vitesse d'un corps reste constante, son énergie cinétique ne change pas (ΔE<sub>k</sub> = 0) : le travail mesure alors seulement la dépense d'énergie de la force appliquée, sans gain net pour le corps.</p>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Une planche à roulettes dans une pente
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une planche à roulettes descend une pente et accélère, sans que personne ne la pousse. Un travail est-il effectué sur la planche ? Si oui, par quoi ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Oui. Puisque la planche accélère, elle gagne de l'énergie cinétique (ΔE<sub>k</sub> &gt; 0), donc un travail <strong>positif</strong> est effectué sur elle. Ce travail n'est pas effectué par une personne, mais par la <strong>force gravitationnelle</strong> — l'énergie qu'elle transfère à la planche sera revue sous l'angle de l'énergie potentielle gravitationnelle à la section 4.3.3.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 4.3.2 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.3.2 — La relation entre l'énergie cinétique, la masse et la vitesse<span class="inline-ste">STE</span></div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>L'<strong>énergie cinétique (E<sub>k</sub>)</strong> est l'énergie que possède un corps en mouvement en raison de sa vitesse.</p>
+          </div>
+
+          <p>Plus un corps est massif ou plus sa vitesse est importante, plus son énergie cinétique sera grande.</p>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 720 380" role="img" style="font-family:'Inter',sans-serif;max-width:640px;display:block;margin:0 auto;">
+                <title>Comparaison qualitative de l'énergie cinétique</title>
+                <desc>Trois barres verticales comparent l'énergie cinétique d'une voiture de référence roulant à une vitesse v, d'un camion plus massif roulant à la même vitesse v, et de la même voiture roulant deux fois plus vite (2v). La barre du camion est plus haute parce qu'il est plus massif. La barre de la voiture rapide est quatre fois plus haute que celle de la voiture de référence, parce que l'énergie cinétique est proportionnelle au carré de la vitesse.</desc>
+                <defs>
+                  <marker id="arrow-ek1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5a6e72"/></marker>
+                </defs>
+
+                <text x="360" y="26" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="14.5" font-weight="700" letter-spacing="0.03em" fill="#1a4a52">COMPARAISON QUALITATIVE DE L'ÉNERGIE CINÉTIQUE (E<tspan baseline-shift="sub" font-size="10">k</tspan>)</text>
+
+                <!-- axis -->
+                <line x1="60" y1="330" x2="660" y2="330" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="60" y1="330" x2="60" y2="55" stroke="#5a6e72" stroke-width="2" marker-end="url(#arrow-ek1)"/>
+                <text x="45" y="60" text-anchor="middle" font-size="14" font-weight="700" fill="#5a6e72">E<tspan baseline-shift="sub" font-size="10">k</tspan></text>
+
+                <!-- reference dashed line at bar 1 height -->
+                <line x1="60" y1="270" x2="660" y2="270" stroke="#c8d0d1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                <!-- Bar 1: voiture, v (référence) -->
+                <rect x="115" y="270" width="70" height="60" rx="3" fill="#3a8fa0"/>
+                <g transform="translate(122,233)">
+                  <path d="M12 14 Q16 1 26 1 L34 1 Q44 1 48 14 Z" fill="#1a4a52"/>
+                  <rect x="2" y="14" width="52" height="11" rx="4" fill="#1a4a52"/>
+                  <path d="M17 13 L20 3 L32 3 L36 13 Z" fill="#dfe8e4" opacity=".55"/>
+                  <circle cx="15" cy="27" r="7.5" fill="#0f2a2f"/>
+                  <circle cx="41" cy="27" r="7.5" fill="#0f2a2f"/>
+                </g>
+                <text x="150" y="352" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e2a2c">Voiture, v</text>
+                <text x="150" y="368" text-anchor="middle" font-size="11.5" fill="#5a6e72">(référence)</text>
+
+                <!-- Bar 2: camion, v (même vitesse) -->
+                <rect x="345" y="180" width="70" height="150" rx="3" fill="#3a8fa0"/>
+                <g transform="translate(343,138)">
+                  <rect x="0" y="0" width="46" height="30" rx="3" fill="#1a4a52"/>
+                  <path d="M46 10 L66 10 Q72 10 72 16 L72 30 L46 30 Z" fill="#e07b30"/>
+                  <rect x="51" y="14" width="14" height="10" rx="1.5" fill="#eef5f5" opacity=".85"/>
+                  <circle cx="15" cy="36" r="8" fill="#0f2a2f"/>
+                  <circle cx="58" cy="36" r="8" fill="#0f2a2f"/>
+                </g>
+                <text x="380" y="352" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e2a2c">Camion, v</text>
+                <text x="380" y="368" text-anchor="middle" font-size="11.5" fill="#5a6e72">(même vitesse, plus massif)</text>
+
+                <!-- Bar 3: voiture, 2v (même masse) -->
+                <rect x="575" y="90" width="70" height="240" rx="3" fill="#3a8fa0"/>
+                <g transform="translate(582,53)">
+                  <path d="M12 14 Q16 1 26 1 L34 1 Q44 1 48 14 Z" fill="#1a4a52"/>
+                  <rect x="2" y="14" width="52" height="11" rx="4" fill="#1a4a52"/>
+                  <path d="M17 13 L20 3 L32 3 L36 13 Z" fill="#dfe8e4" opacity=".55"/>
+                  <circle cx="15" cy="27" r="7.5" fill="#0f2a2f"/>
+                  <circle cx="41" cy="27" r="7.5" fill="#0f2a2f"/>
+                </g>
+                <text x="610" y="352" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e2a2c">Voiture, 2v</text>
+                <text x="610" y="368" text-anchor="middle" font-size="11.5" fill="#5a6e72">(même masse — E<tspan baseline-shift="sub" font-size="9">k</tspan> × 4)</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — À vitesse égale, un camion possède plus d'énergie cinétique qu'une voiture parce qu'il est plus massif. Mais l'effet de la vitesse est encore plus marqué : puisque E<sub>k</sub> est proportionnelle au <em>carré</em> de la vitesse, doubler la vitesse d'une voiture quadruple son énergie cinétique, à masse égale.</figcaption>
+          </figure>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Proportionnalité</span></div>
+            L'énergie cinétique (E<sub>k</sub>) est proportionnelle à la masse (m) et au <strong>carré</strong> de la vitesse (v). Donc, si la masse d'un corps double, son énergie cinétique double aussi. Si sa vitesse double, son énergie cinétique <strong>quadruple</strong>.
+          </div>
+
+          <p>L'équation qui permet d'évaluer l'énergie cinétique (E<sub>k</sub>) d'un corps en translation est la suivante :</p>
+
+          <div class="formula">E<sub>k</sub> = ½mv²</div>
+          <p class="formula-caption">E<sub>k</sub> = énergie cinétique du corps (J) · m = masse du corps (kg) · v = vitesse du corps (m/s)</p>
+
+          <div class="note-box" style="border-left-color:var(--orange);background:#fffaf4;">
+            <div class="note-label" style="color:var(--orange);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — L'énergie cinétique d'une voiture</span></div>
+            <strong>Une voiture de 1250 kg roule à une vitesse de 90 km/h. Quelle est son énergie cinétique ?</strong><br><br>
+            <em>Données :</em> m = 1250 kg · v = 90 km/h · E<sub>k</sub> = ?<br><br>
+            <em>Calcul :</em><br>
+            1. Convertir la vitesse de la voiture en mètres par seconde :<br>
+            v = 90 km/h × 1000 m/1 km × 1 h/3600 s = <strong>25 m/s</strong><br><br>
+            2. Évaluer l'énergie cinétique de la voiture :<br>
+            E<sub>k</sub> = ½mv² = ½ × 1250 kg × (25 m/s)² = <strong>390 625 J</strong><br><br>
+            L'énergie cinétique de la voiture est de <strong>390 625 J</strong>.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer une énergie cinétique
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une cycliste et son vélo ont une masse totale de 80 kg. Elle roule à une vitesse de 6 m/s. Quelle est son énergie cinétique ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 240 J</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 1440 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2880 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 480 J</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> E<sub>k</sub> = ½mv² = ½ × 80 kg × (6 m/s)² = ½ × 80 × 36 = <strong>1440 J</strong>. Le choix C oublie le ½ ; les choix A et D oublient d'élever la vitesse au carré.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 4.3.3 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.3.3 — La relation entre l'énergie potentielle gravitationnelle, la masse, la grandeur du champ gravitationnel et la hauteur<span class="inline-ste">STE</span></div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>L'<strong>énergie potentielle gravitationnelle (E<sub>pg</sub>)</strong> est une énergie qui peut être emmagasinée par les corps soumis à la force gravitationnelle.</p>
+          </div>
+
+          <p>C'est l'énergie que possède un corps en raison de sa masse et de sa hauteur par rapport à un niveau de référence.</p>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 640 380" role="img" style="font-family:'Inter',sans-serif;max-width:560px;display:block;margin:0 auto;">
+                <title>Un objet soulevé emmagasine de l'énergie potentielle gravitationnelle</title>
+                <desc>Un même objet est représenté à deux hauteurs au-dessus du sol, qui sert de niveau de référence où l'énergie potentielle gravitationnelle est nulle. À la hauteur h1, plus basse, l'objet possède une petite énergie potentielle gravitationnelle. À la hauteur h2, plus élevée, il en possède davantage. Une flèche courbe indique qu'on a soulevé l'objet de h1 à h2.</desc>
+                <defs>
+                  <marker id="arrow-h1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5a6e72"/></marker>
+                  <marker id="arrow-lift" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#e07b30"/></marker>
+                </defs>
+
+                <!-- ground / reference level -->
+                <rect x="40" y="335" width="560" height="18" fill="#dfe8e4"/>
+                <line x1="40" y1="335" x2="600" y2="335" stroke="#3a8fa0" stroke-width="2"/>
+                <text x="320" y="366" text-anchor="middle" font-size="13" fill="#5a6e72">Niveau de référence — E<tspan baseline-shift="sub" font-size="9">pg</tspan> = 0</text>
+
+                <!-- lifting arrow -->
+                <path d="M195,235 Q300,120 420,120" fill="none" stroke="#e07b30" stroke-width="3" stroke-dasharray="2,6" stroke-linecap="round" marker-end="url(#arrow-lift)"/>
+                <text x="300" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#e07b30">on soulève l'objet</text>
+
+                <!-- object at h1 (lower) -->
+                <line x1="180" y1="335" x2="180" y2="258" stroke="#5a6e72" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="170" y1="335" x2="190" y2="335" stroke="#5a6e72" stroke-width="1.5"/>
+                <line x1="170" y1="258" x2="190" y2="258" stroke="#5a6e72" stroke-width="1.5"/>
+                <circle cx="180" cy="242" r="17" fill="#c8d400" stroke="#a0aa00" stroke-width="1.5"/>
+                <text x="204" y="300" font-size="14" font-weight="700" fill="#5a6e72">h<tspan baseline-shift="sub" font-size="10">1</tspan></text>
+                <text x="180" y="205" text-anchor="middle" font-size="12.5" fill="#1e2a2c">h petite →</text>
+                <text x="180" y="222" text-anchor="middle" font-size="12.5" fill="#1e2a2c">E<tspan baseline-shift="sub" font-size="9">pg</tspan> petite</text>
+
+                <!-- object at h2 (higher) -->
+                <line x1="440" y1="335" x2="440" y2="128" stroke="#5a6e72" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="430" y1="335" x2="450" y2="335" stroke="#5a6e72" stroke-width="1.5"/>
+                <line x1="430" y1="128" x2="450" y2="128" stroke="#5a6e72" stroke-width="1.5"/>
+                <circle cx="440" cy="112" r="17" fill="#c8d400" stroke="#a0aa00" stroke-width="1.5"/>
+                <text x="464" y="230" font-size="14" font-weight="700" fill="#5a6e72">h<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+                <text x="510" y="75" text-anchor="middle" font-size="12.5" fill="#1e2a2c">h grande →</text>
+                <text x="510" y="92" text-anchor="middle" font-size="12.5" fill="#1e2a2c">E<tspan baseline-shift="sub" font-size="9">pg</tspan> grande</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Un objet qu'on soulève au-dessus du sol emmagasine de l'énergie potentielle gravitationnelle : plus il est haut par rapport au niveau de référence, plus son E<sub>pg</sub> est grande. En tombant, il perdrait cette énergie potentielle — celle-ci se transformerait alors en énergie cinétique, à mesure que sa hauteur diminue et que sa vitesse augmente.</figcaption>
+          </figure>
+
+          <p>La valeur de l'énergie potentielle gravitationnelle d'un corps n'est pas définie de manière absolue : seule la façon dont cette énergie <strong>varie</strong> est significative. Habituellement, on choisit le sol comme niveau de référence pour mesurer l'énergie potentielle gravitationnelle. Donc, on convient généralement que, au sol, E<sub>pg</sub> = 0.</p>
+
+          <p>Dans ces conditions, près de la surface de la Terre, l'équation qui permet d'évaluer l'énergie potentielle gravitationnelle (E<sub>pg</sub>) d'un corps est la suivante :</p>
+
+          <div class="formula">E<sub>pg</sub> = mgh</div>
+          <p class="formula-caption">m = masse du corps (kg) · g = grandeur du champ gravitationnel (N/kg), soit 9,8 N/kg à la surface de la Terre · h = hauteur du corps (m) par rapport au niveau de référence</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Proportionnalité</span></div>
+            L'énergie potentielle gravitationnelle (E<sub>pg</sub>) d'un corps est proportionnelle à la masse (m) du corps, à l'intensité du champ gravitationnel (g) et à la hauteur (h) du corps. Donc, si la masse ou la hauteur d'un corps double, l'énergie potentielle gravitationnelle de ce corps double aussi.
+          </div>
+
+          <div class="note-box" style="border-left-color:var(--orange);background:#fffaf4;">
+            <div class="note-label" style="color:var(--orange);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — L'énergie potentielle gravitationnelle d'une balle</span></div>
+            <strong>On lance une balle de tennis de 58 g à 10 m au-dessus du sol. Quelle quantité d'énergie potentielle gravitationnelle possède cette balle lorsqu'elle atteint le sommet de sa trajectoire, si on considère que son énergie potentielle gravitationnelle est nulle au niveau du sol ?</strong><br><br>
+            <em>Données :</em> m = 58 g · g = 9,8 N/kg · h = 10 m · E<sub>pg</sub> = ?<br><br>
+            <em>Calcul :</em><br>
+            1. Convertir la masse de la balle en kilogrammes :<br>
+            m = 58 g × 1 kg/1000 g = <strong>0,058 kg</strong><br><br>
+            2. Évaluer l'énergie potentielle gravitationnelle de la balle lorsqu'elle atteint le sommet de sa trajectoire :<br>
+            E<sub>pg</sub> = mgh = 0,058 kg × 9,8 N/kg × 10 m = <strong>5,684 J</strong><br><br>
+            Au sommet de sa trajectoire, l'énergie potentielle gravitationnelle de la balle est de <strong>5,684 J</strong>.
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — la variation de hauteur (notes de cours)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Puisque seule la <em>variation</em> de l'énergie potentielle gravitationnelle est réellement significative, on peut aussi la calculer directement à partir de la variation de hauteur (Δh) d'un corps, sans devoir fixer un niveau de référence précis : Δ E<sub>pg</sub> = mgΔh.</p>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer une énergie potentielle gravitationnelle
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Un livre de 1,2 kg est déposé sur une étagère, à 2 m au-dessus du sol (g = 9,8 N/kg). Quelle est son énergie potentielle gravitationnelle par rapport au sol ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 2,35 J</button>
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 23,52 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 11,76 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 235,2 J</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : B.</strong> E<sub>pg</sub> = mgh = 1,2 kg × 9,8 N/kg × 2 m = <strong>23,52 J</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 4.3.4 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.3.4 — La loi de la conservation de l'énergie</div>
+
+          <p>L'énergie peut changer de forme, c'est-à-dire être <strong>transformée</strong>. Elle peut aussi passer d'un corps à un autre, c'est-à-dire être <strong>transférée</strong>.</p>
+
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Définition</th><th>Exemple</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Transfert d'énergie</strong></td><td>Une même forme d'énergie passe d'un objet à un autre</td><td>Une boule de billard qui frappe de plein fouet une autre boule immobile : son énergie cinétique est transférée à la seconde boule</td></tr>
+              <tr><td><strong>Transformation d'énergie</strong></td><td>La forme d'énergie change — dans le même objet, ou d'un objet à un autre</td><td>Un radiateur qui transforme l'énergie électrique en énergie thermique ; la chute d'un objet, où l'énergie potentielle se transforme en énergie cinétique</td></tr>
+            </tbody>
+          </table>
+
+          <div class="def-box">
+            <div class="def-label">Loi</div>
+            <p>La <strong>loi de la conservation de l'énergie</strong> stipule que l'énergie peut être transformée et être transférée, mais qu'elle ne peut être ni créée ni détruite. Ainsi, l'énergie totale est une quantité constante.</p>
+          </div>
+
+          <p>La quantité totale d'énergie que possède un corps isolé est une quantité <strong>conservée</strong>, c'est-à-dire que cette quantité ne change pas dans le temps. Par « isolé », on entend que ce corps n'échange pas d'énergie avec son environnement.</p>
+
+          <p>Quand les seules formes d'énergie qui varient sont l'énergie potentielle gravitationnelle (E<sub>pg</sub>) et l'énergie cinétique (E<sub>k</sub>), la somme de ces deux quantités, qui correspond à l'énergie mécanique (E<sub>m</sub>), demeure constante.</p>
+
+          <div class="formula">E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub> = constante</div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 720 460" role="img" style="font-family:'Inter',sans-serif;max-width:640px;display:block;margin:0 auto;">
+                <title>La conservation de l'énergie mécanique — une balançoire</title>
+                <desc>Une balançoire schématisée comme un pendule est montrée à trois positions : les deux extrémités de l'arc, en haut, et le point le plus bas au centre. Sous chaque position, une barre empilée montre la répartition de l'énergie mécanique entre énergie cinétique et énergie potentielle gravitationnelle. Aux deux extrémités, la barre est entièrement de la couleur de l'énergie potentielle, puisque la vitesse y est nulle. Au point le plus bas, la barre est entièrement de la couleur de l'énergie cinétique, puisque la hauteur y est minimale. Les trois barres ont la même hauteur totale, ce qui montre que l'énergie mécanique totale reste constante.</desc>
+
+                <!-- swing set frame -->
+                <rect x="130" y="290" width="460" height="14" fill="#dfe8e4"/>
+                <line x1="130" y1="290" x2="590" y2="290" stroke="#3a8fa0" stroke-width="1.5"/>
+                <line x1="200" y1="40" x2="200" y2="290" stroke="#9aa8aa" stroke-width="6"/>
+                <line x1="520" y1="40" x2="520" y2="290" stroke="#9aa8aa" stroke-width="6"/>
+                <line x1="185" y1="40" x2="535" y2="40" stroke="#1a4a52" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="360" cy="40" r="6" fill="#1a4a52"/>
+
+                <!-- three ropes + seats -->
+                <line x1="360" y1="40" x2="191" y2="181" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="360" y1="40" x2="360" y2="260" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="360" y1="40" x2="529" y2="181" stroke="#5a6e72" stroke-width="2"/>
+                <path d="M191,181 Q360,300 529,181" fill="none" stroke="#c8d0d1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                <rect x="171" y="177" width="40" height="9" rx="3" fill="#e07b30"/>
+                <rect x="340" y="256" width="40" height="9" rx="3" fill="#e07b30"/>
+                <rect x="509" y="177" width="40" height="9" rx="3" fill="#e07b30"/>
+
+                <!-- A/B/C badges -->
+                <circle cx="191" cy="160" r="13" fill="#1a4a52"/>
+                <text x="191" y="165" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="800" fill="#c8d400">A</text>
+                <circle cx="360" cy="239" r="13" fill="#1a4a52"/>
+                <text x="360" y="244" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="800" fill="#c8d400">B</text>
+                <circle cx="529" cy="160" r="13" fill="#1a4a52"/>
+                <text x="529" y="165" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="15" font-weight="800" fill="#c8d400">C</text>
+
+                <!-- Em constant reference line -->
+                <line x1="120" y1="340" x2="600" y2="340" stroke="#c8d0d1" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <text x="360" y="330" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5a6e72">E<tspan baseline-shift="sub" font-size="9">m</tspan> (constante)</text>
+
+                <!-- Bar A: extrémité, Epg full -->
+                <rect x="161" y="340" width="60" height="80" fill="#e07b30"/>
+                <text x="191" y="437" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e2a2c">A — extrémité</text>
+
+                <!-- Bar B: bas, Ek full -->
+                <rect x="330" y="340" width="60" height="80" fill="#3a8fa0"/>
+                <text x="360" y="437" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e2a2c">B — point bas</text>
+
+                <!-- Bar C: extrémité, Epg full -->
+                <rect x="499" y="340" width="60" height="80" fill="#e07b30"/>
+                <text x="529" y="437" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e2a2c">C — extrémité</text>
+
+                <!-- legend -->
+                <rect x="612" y="345" width="14" height="14" fill="#3a8fa0"/>
+                <text x="632" y="356" font-size="12.5" fill="#1e2a2c">E<tspan baseline-shift="sub" font-size="9">k</tspan></text>
+                <rect x="612" y="368" width="14" height="14" fill="#e07b30"/>
+                <text x="632" y="379" font-size="12.5" fill="#1e2a2c">E<tspan baseline-shift="sub" font-size="9">pg</tspan></text>
+              </svg>
+            </div>
+            <figcaption>Fig. — La situation d'un enfant assis sur une balançoire suspendue peut être considérée comme une situation où l'énergie mécanique est conservée, à condition que le frottement et la résistance de l'air soient négligeables et que l'enfant n'utilise pas ses muscles pour se propulser. Aux extrémités (A, C), toute l'énergie mécanique est potentielle ; au point le plus bas (B), elle est entièrement cinétique — mais son total (E<sub>m</sub>) ne change pas.</figcaption>
+          </figure>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Erreur fréquente — l'énergie « perdue » n'est pas vraiment perdue</span></div>
+            En pratique, il y a presque toujours un peu de frottement, ce qui produit de la chaleur et empêche l'énergie <em>mécanique</em> totale de se conserver parfaitement — même dans un système isolé. Cette chaleur n'est toutefois pas de l'énergie perdue, mais de l'énergie <strong>dissipée</strong> : elle continue d'exister, sous une autre forme (thermique), et l'énergie totale du système demeure constante, conformément à la loi de la conservation de l'énergie. C'est seulement l'énergie <em>mécanique</em> (E<sub>k</sub> + E<sub>pg</sub>) qui cesse alors d'être conservée.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Transfert ou transformation ?
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une génératrice éolienne fait tourner ses pales grâce au vent, puis produit de l'électricité qui alimente une ampoule. S'agit-il uniquement d'un transfert d'énergie, uniquement d'une transformation, ou des deux ? Explique.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">Il s'agit surtout d'une série de <strong>transformations</strong> : l'énergie cinétique du vent devient l'énergie cinétique des pales (un transfert, puisque la forme ne change pas encore), puis cette énergie cinétique est transformée en énergie électrique par la génératrice, et enfin l'énergie électrique est transformée en énergie lumineuse (et un peu thermique) par l'ampoule. La situation combine donc un transfert initial et plusieurs transformations successives — un bon exemple de la façon dont l'énergie change souvent de forme <em>et</em> de porteur au fil d'une chaîne de transformations.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 4.3</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Énergie mécanique (E<sub>m</sub>)</strong></td><td>E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub></td></tr>
+              <tr><td><strong>Travail et énergie</strong></td><td>W = ΔE ; en secondaire 4, on s'en tient à W = ΔE<sub>k</sub></td></tr>
+              <tr><td><strong>Énergie cinétique (E<sub>k</sub>)</strong></td><td>E<sub>k</sub> = ½mv² ; proportionnelle à la masse et au carré de la vitesse</td></tr>
+              <tr><td><strong>Énergie potentielle gravitationnelle (E<sub>pg</sub>)</strong></td><td>E<sub>pg</sub> = mgh ; nulle au niveau de référence choisi (souvent le sol) ; seule sa variation est significative</td></tr>
+              <tr><td><strong>Loi de la conservation de l'énergie</strong></td><td>L'énergie n'est jamais créée ni détruite — seulement transformée ou transférée ; l'énergie totale d'un système isolé est constante</td></tr>
+              <tr><td><strong>Conservation de E<sub>m</sub></strong></td><td>E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub> demeure constante si ce sont les deux seules formes d'énergie qui varient (frottement et résistance de l'air négligeables)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUIZ 4.3 -->
+        <div class="quiz-block" data-quiz="q43">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 4.3<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Dans les situations étudiées dans ce chapitre, l'énergie mécanique (E<sub>m</sub>) correspond à la somme de l'énergie cinétique et de l'énergie potentielle gravitationnelle.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub>, tel que défini au début de la section 4.3.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai : E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub>, dans les situations étudiées dans ce chapitre.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Que représente ΔE dans la relation W = ΔE ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La force appliquée sur le corps</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> La variation de l'énergie du corps</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La distance parcourue par le corps</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La masse du corps</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le travail effectué sur un corps par des forces extérieures entraîne une variation correspondante de son énergie (ΔE).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>ΔE représente la <strong>variation de l'énergie du corps</strong> — c'est ce que mesure le travail effectué sur lui.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Une cycliste et son vélo ont une masse totale de 80 kg et roulent à une vitesse de 6 m/s. Quelle est leur énergie cinétique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 240 J</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 1440 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 2880 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 480 J</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. E<sub>k</sub> = ½mv² = ½ × 80 kg × (6 m/s)² = ½ × 80 × 36 = <strong>1440 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>E<sub>k</sub> = ½mv² = ½ × 80 × 6² = ½ × 80 × 36 = <strong>1440 J</strong>. Le choix C oublie le ½ ; les choix A et D oublient d'élever la vitesse au carré.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Si la vitesse d'un corps double (à masse constante), son énergie cinétique double aussi.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Puisque E<sub>k</sub> est proportionnelle au carré de la vitesse, doubler v multiplie E<sub>k</sub> par 4, et non par 2.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. E<sub>k</sub> = ½mv² est proportionnelle au <strong>carré</strong> de la vitesse : doubler v quadruple donc E<sub>k</sub>, plutôt que de la doubler.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quel niveau choisit-on habituellement comme référence, où l'on considère que E<sub>pg</sub> = 0 ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le sommet de la trajectoire</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Le centre de la Terre</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Le sol</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Peu importe : la position de départ, quelle qu'elle soit</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. On choisit habituellement <strong>le sol</strong> comme niveau de référence, où E<sub>pg</sub> = 0.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>On choisit habituellement <strong>le sol</strong> comme niveau de référence (E<sub>pg</sub> = 0), même si, en théorie, n'importe quel niveau pourrait être choisi puisque seule la variation de E<sub>pg</sub> est significative.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un livre de masse 1,2 kg est déposé sur une étagère à 2 m au-dessus du sol (g = 9,8 N/kg). Quelle est son énergie potentielle gravitationnelle par rapport au sol ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 2,35 J</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 23,52 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 11,76 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 235,2 J</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. E<sub>pg</sub> = mgh = 1,2 kg × 9,8 N/kg × 2 m = <strong>23,52 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>E<sub>pg</sub> = mgh = 1,2 kg × 9,8 N/kg × 2 m = <strong>23,52 J</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">L'énergie potentielle gravitationnelle d'un corps a une valeur absolue, la même peu importe le niveau de référence choisi.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La valeur de E<sub>pg</sub> dépend du niveau de référence choisi ; seule la façon dont elle varie a une signification physique.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. E<sub>pg</sub> n'est pas définie de façon absolue — sa valeur dépend du niveau de référence choisi. Seule sa <strong>variation</strong> a une signification physique.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Selon la loi de la conservation de l'énergie, l'énergie totale d'un système isolé...</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> peut être créée, mais pas détruite</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> peut être détruite, mais pas créée</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> ne peut être ni créée ni détruite</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> diminue toujours avec le temps</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'énergie ne peut être <strong>ni créée ni détruite</strong> — elle peut seulement être transformée ou transférée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Selon cette loi, l'énergie ne peut être <strong>ni créée ni détruite</strong> — elle est seulement transformée ou transférée.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Une bouilloire électrique qui chauffe de l'eau illustre principalement...</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> un transfert d'énergie</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> une transformation d'énergie</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> la loi de la conservation de la masse</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> aucune des réponses précédentes</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'énergie électrique est transformée en énergie thermique — c'est une <strong>transformation</strong>, puisque la forme d'énergie change.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est une <strong>transformation</strong> d'énergie : l'énergie électrique change de forme pour devenir de l'énergie thermique.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un enfant sur une balançoire atteint son point le plus haut, où E<sub>k</sub> = 0 J et E<sub>pg</sub> = 45 J. En négligeant le frottement, quelle est son énergie cinétique lorsqu'il passe par le point le plus bas de sa trajectoire, où E<sub>pg</sub> = 0 J ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 0 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 22,5 J</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> 45 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 90 J</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Puisque E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub> demeure constante (45 J) et que le frottement est négligé, toute l'énergie potentielle du point le plus haut s'est transformée en énergie cinétique au point le plus bas : E<sub>k</sub> = <strong>45 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>E<sub>m</sub> = E<sub>k</sub> + E<sub>pg</sub> reste constante à 45 J. Au point le plus bas, E<sub>pg</sub> = 0, donc toute cette énergie doit se retrouver sous forme cinétique : E<sub>k</sub> = <strong>45 J</strong>.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q43"></div>
+          <button class="quiz-reset" id="reset-q43">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
