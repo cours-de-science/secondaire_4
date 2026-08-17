@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 5 — L'électricité et l'électromagnétisme | Science Sec. 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark:   #1a4a52;
+    --teal-mid:    #256472;
+    --teal-light:  #3a8fa0;
+    --yellow:      #c8d400;
+    --yellow-dim:  #a0aa00;
+    --orange:      #e07b30;
+    --bg:          #f4f3ee;
+    --surface:     #ffffff;
+    --text:        #1e2a2c;
+    --muted:       #5a6e72;
+    --border:      #d0d8d9;
+    --sidebar-w:   268px;
+    --mono:        'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: var(--sidebar-w); background: var(--teal-dark);
+    position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; display: flex; flex-direction: column;
+    z-index: 100; transition: transform .3s ease;
+  }
+  .sidebar-header { background: var(--yellow); padding: 20px 18px 16px; flex-shrink: 0; }
+  .back-to-index { display: flex; align-items: center; gap: 5px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: var(--teal-dark); text-decoration: none; opacity: .65; margin-bottom: 12px; transition: opacity .15s; }
+  .back-to-index:hover { opacity: 1; text-decoration: underline; }
+  .sidebar-header .label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); }
+  .sidebar-header .chap-num { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 800; line-height: 1; color: var(--teal-dark); }
+  .sidebar-header .chap-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--teal-dark); margin-top: 4px; }
+  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-light); padding: 20px 18px 8px; }
+  #sidebar nav ul { list-style: none; }
+  #sidebar nav ul li a { display: flex; align-items: flex-start; gap: 10px; padding: 9px 18px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); text-decoration: none; border-left: 3px solid transparent; transition: background .15s, color .15s, border-color .15s; line-height: 1.35; }
+  #sidebar nav ul li a:hover, #sidebar nav ul li a.active { background: rgba(255,255,255,.08); color: #fff; border-left-color: var(--yellow); }
+  #sidebar nav ul li a .num { font-family: var(--mono); font-size: 11px; color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+  .sidebar-footer { margin-top: auto; padding: 16px 18px; font-size: 11px; color: rgba(255,255,255,.3); border-top: 1px solid rgba(255,255,255,.1); }
+  .sidebar-footer button { background: none; border: none; cursor: pointer; font-size: 11px; color: rgba(255,255,255,.3); padding: 0; text-align: left; width: 100%; transition: color .15s; }
+  .sidebar-footer button:hover { color: rgba(255,255,255,.6); }
+  .attrib-popover { display: none; position: absolute; bottom: 60px; left: 14px; width: 230px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.18); padding: 14px 16px; font-size: 12px; color: #1e2a2c; line-height: 1.6; z-index: 200; }
+  .attrib-popover::after { content: ''; position: absolute; bottom: -7px; left: 20px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); box-shadow: 2px 2px 4px rgba(0,0,0,.08); }
+  .attrib-popover.visible { display: block; }
+
+  /* ── MAIN ── */
+  #main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 60%, var(--teal-light) 100%); padding: 60px 56px 48px; color: #fff; position: relative; overflow: hidden; }
+  .hero::before { content: '5'; position: absolute; right: 40px; top: -10px; font-family: 'Barlow Condensed', sans-serif; font-size: 260px; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; pointer-events: none; }
+  .hero .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.05; margin-bottom: 20px; }
+  .hero p { max-width: 600px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.82); }
+
+  /* Search */
+  .search-bar-wrap { background: var(--teal-dark); padding: 14px 56px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid var(--yellow); }
+  .search-bar-wrap label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.5); white-space: nowrap; letter-spacing: .06em; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; }
+  #search-input { flex: 1; max-width: 440px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 8px 14px; font-size: 14px; color: #fff; font-family: 'Inter', sans-serif; outline: none; transition: background .2s, border-color .2s; }
+  #search-input::placeholder { color: rgba(255,255,255,.4); }
+  #search-input:focus { background: rgba(255,255,255,.16); border-color: var(--yellow); }
+  #search-count { font-size: 12px; color: var(--yellow); font-family: var(--mono); min-width: 90px; }
+
+  /* Content */
+  .content { padding: 48px 56px 80px; max-width: 880px; }
+
+  /* Section cards */
+  .section-card { background: var(--surface); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section-toggle { width: 100%; background: none; border: none; cursor: pointer; padding: 0; text-align: left; display: block; }
+  .section-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface); transition: background .15s; border-bottom: 1px solid transparent; }
+  .section-toggle:hover .section-header, .section-toggle[aria-expanded="true"] .section-header { background: #f0f6f7; border-bottom-color: var(--border); }
+  .section-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--yellow-dim); background: var(--teal-dark); padding: 4px 9px; border-radius: 5px; letter-spacing: .04em; flex-shrink: 0; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--teal-dark); flex: 1; }
+  .section-badge { font-size: 10px; font-weight: 700; letter-spacing: .1em; background: var(--orange); color: #fff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+  .inline-ste { font-size: 10px; font-weight: 700; letter-spacing: .08em; background: var(--orange); color: #fff; padding: 2px 7px; border-radius: 3px; text-transform: uppercase; margin-left: 7px; vertical-align: 2px; white-space: nowrap; }
+  .chevron { width: 20px; height: 20px; color: var(--muted); transition: transform .25s ease; flex-shrink: 0; }
+  .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .section-body { display: none; padding: 28px 28px 32px; border-top: 2px solid var(--yellow); }
+  .section-body.open { display: block; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 32px; }
+  .subsection:last-child { margin-bottom: 0; }
+  .subsection-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--yellow); border-radius: 2px; flex-shrink: 0; }
+
+  p { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul.content-list { padding-left: 20px; margin-bottom: 14px; }
+  ul.content-list li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+
+  /* Definition box */
+  .def-box { background: linear-gradient(135deg, #edf6f8, #f4fafb); border-left: 4px solid var(--teal-light); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; }
+  .def-box .def-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 6px; }
+  .def-box p { font-size: 14px; margin: 0 0 6px; color: var(--teal-dark); }
+  .def-box p:last-child { margin: 0; }
+  .def-box strong { color: var(--teal-dark); font-weight: 600; }
+
+  /* Note box */
+  .note-box { background: #fffbec; border-left: 4px solid var(--yellow-dim); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #3a3000; line-height: 1.65; }
+  .note-box .note-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow-dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .note-label .icon-sm { width: 13px; height: 13px; flex-shrink: 0; }
+  .note-bar { width: 100%; display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; padding: 0; text-align: left; font-family: inherit; color: inherit; }
+  .note-bar .chevron-n { margin-left: auto; width: 15px; height: 15px; transition: transform .2s; flex-shrink: 0; color: var(--yellow-dim); }
+  .note-bar[aria-expanded="true"] .chevron-n { transform: rotate(180deg); }
+  .note-body { display: none; margin-top: 8px; }
+  .note-bar[aria-expanded="true"] + .note-body { display: block; }
+
+  /* Formula */
+  .formula { font-family: var(--mono); background: var(--teal-dark); color: var(--yellow); padding: 14px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; margin: 16px 0; letter-spacing: .04em; text-align: center; }
+  .formula-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: -10px; margin-bottom: 14px; }
+  .charge-check { border-collapse: collapse; margin: 12px auto; font-family: var(--mono); font-size: 14px; color: var(--yellow); background: var(--teal-dark); border-radius: 8px; overflow: hidden; }
+  .charge-check td { padding: 7px 16px; text-align: center; white-space: nowrap; }
+  .charge-check tr:last-child td { font-weight: 700; border-top: 1px solid rgba(255,255,255,.25); }
+
+  /* Keyword */
+  .kw { background: rgba(200,212,0,.22); color: var(--teal-dark); padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .nuclide { display: inline-flex; align-items: center; font-weight: 700; }
+  .nuclide .nuclide-stack { display: inline-flex; flex-direction: column; align-items: flex-end; font-size: .62em; line-height: 1.05; margin-right: 2px; font-weight: 700; }
+
+  /* Search highlight */
+  mark.sh { background: #ffe063; color: #1e2a2c; border-radius: 2px; padding: 0 2px; }
+  mark.sh.current { background: #ff9d2e; box-shadow: 0 0 0 2px #ff9d2e; }
+
+  /* Rappel card */
+  .rappel-card { background: linear-gradient(120deg, var(--teal-dark), var(--teal-mid)); border-radius: 10px; padding: 24px 28px; color: rgba(255,255,255,.88); margin-bottom: 24px; }
+  .rappel-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--yellow); margin-bottom: 10px; }
+  .rappel-card p { color: rgba(255,255,255,.82); font-size: 14px; margin-bottom: 8px; }
+  .rappel-card p:last-child { margin-bottom: 0; }
+
+  /* Timeline for models */
+  .timeline { border-left: 3px solid var(--border); margin: 20px 0 20px 8px; padding-left: 24px; }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-light); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--teal-light); }
+  .timeline-item .year { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--teal-light); margin-bottom: 4px; }
+  .timeline-item .model-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .timeline-item p { font-size: 14px; margin-bottom: 6px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .data-table th { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+  .data-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f7f9f9; }
+  .data-table td strong { color: var(--teal-dark); }
+  .data-table tr.ion-key td { background: #fdf9d8; }
+  .data-table tr.ion-key td:nth-child(2), .data-table tr.ion-key td:nth-child(3) { font-weight: 700; color: var(--teal-dark); }
+  .data-table tr.ion-secondary td:nth-child(2), .data-table tr.ion-secondary td:nth-child(3) { font-weight: 600; }
+  .ion-freq-note { font-size: 13px; color: var(--text-soft, #5a6a6c); margin: -6px 0 14px; display: flex; align-items: center; gap: 6px; }
+  .ion-freq-note .dot-key { width: 10px; height: 10px; border-radius: 2px; background: #fdf9d8; border: 1px solid #e2d98a; display: inline-block; }
+
+  .ion-charge-wrap { overflow-x: auto; margin: 16px 0; }
+  .ion-charge-table { display: grid; grid-template-columns: repeat(8, minmax(82px, 1fr)); gap: 8px; min-width: 680px; }
+  .ion-fam { display: flex; flex-direction: column; align-items: center; border-radius: 8px; padding: 12px 6px 10px; text-align: center; border: 1px solid var(--border); background: var(--surface); }
+  .ion-fam-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--teal-dark); }
+  .ion-fam-name { font-size: 9.5px; line-height: 1.35; color: var(--muted); margin: 3px 0 7px; text-transform: uppercase; letter-spacing: .03em; min-height: 26px; display: flex; align-items: center; }
+  .ion-fam-ex { font-family: var(--mono); font-size: 11px; line-height: 1.35; color: var(--text); margin-bottom: 9px; min-height: 30px; display: flex; align-items: center; }
+  .ion-fam-charge { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 800; margin-top: auto; padding-top: 4px; }
+  .ion-cation { background: linear-gradient(160deg, #fff, #fdf1e7); border-color: #f0cda3; }
+  .ion-cation .ion-fam-charge { color: var(--orange); }
+  .ion-variable { background: #f7f9f9; }
+  .ion-variable .ion-fam-charge { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .ion-anion { background: linear-gradient(160deg, #fff, #eaf5f7); border-color: #bfe0e6; }
+  .ion-anion .ion-fam-charge { color: var(--teal-mid); }
+  .ion-neutral { background: var(--bg); border-style: dashed; }
+  .ion-neutral .ion-fam-charge { color: var(--muted); }
+  .ion-charge-legend { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 6px; padding: 0 2px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+  .ion-charge-legend strong { color: var(--text); }
+
+  /* Particle badges */
+  .particle-grid { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .particle-card { flex: 1; min-width: 140px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .particle-card .p-symbol { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--teal-dark); }
+  .particle-card .p-name { font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
+  .particle-card .p-charge { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .particle-card .p-mass { font-size: 12px; color: var(--muted); }
+
+  /* Couches table */
+  .couche-table { display: flex; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .couche-col { flex: 1; }
+  .couche-col .ch { padding: 8px 12px; text-align: center; font-size: 13px; }
+  .couche-col .ch.head { background: var(--teal-dark); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .couche-col .ch:not(.head) { border-bottom: 1px solid var(--border); font-family: var(--mono); }
+  .couche-col .ch:last-child { border-bottom: none; }
+  .couche-col .ch:nth-child(even) { background: #f7f9f9; }
+
+  /* Trend arrows */
+  .trend-box { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .trend-item { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .trend-item .trend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-dark); margin-bottom: 8px; }
+  .trend-item .trend-dir { font-family: var(--mono); font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 4px; }
+  .trend-item p { font-size: 13px; color: var(--muted); margin: 0; }
+
+  /* Figures */
+  .fig-block { margin: 18px 0; background: #f8f9f9; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .fig-block img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 16px; background: #fff; }
+  .fig-block img[src$=".png"]:not([src*="images/"]) { display: none; } /* hide broken placeholders gracefully — remove once images added */
+  .fig-block figcaption { font-size: 12px; color: var(--muted); padding: 8px 14px 10px; border-top: 1px solid var(--border); line-height: 1.5; font-style: italic; }
+
+  /* Compare block (Démocrite vs Aristote) */
+  .compare-block { display: flex; gap: 2px; margin: 16px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .compare-col { flex: 1; padding: 16px 18px; }
+  .compare-col--a { background: linear-gradient(135deg, #edf6f8, #dff0f4); }
+  .compare-col--b { background: linear-gradient(135deg, #fff8ee, #fef0da); }
+  .compare-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 8px; }
+  .compare-col--b .compare-label { color: var(--orange); }
+  .compare-icon { font-size: 22px; margin-bottom: 8px; letter-spacing: 4px; }
+  .compare-col p { font-size: 13px; line-height: 1.6; margin: 0; color: var(--text); }
+
+  /* Back to top */
+  #to-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; background: var(--teal-dark); color: var(--yellow); border: 2px solid var(--yellow); border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 200; }
+  #to-top.visible { opacity: 1; pointer-events: auto; }
+
+  /* Mobile toggle */
+  #menu-toggle { display: none; position: fixed; top: 14px; left: 14px; z-index: 150; background: var(--teal-dark); border: 2px solid var(--yellow); color: var(--yellow); width: 40px; height: 40px; border-radius: 8px; font-size: 20px; cursor: pointer; align-items: center; justify-content: center; }
+
+  @media (max-width: 768px) {
+    #sidebar { transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #menu-toggle { display: flex; }
+    .hero { padding: 60px 24px 36px; }
+    .search-bar-wrap { padding: 12px 24px; }
+    .content { padding: 28px 20px 60px; }
+    .particle-grid { flex-direction: column; }
+  }
+
+  /* ── QUIZ ── */
+  .quiz-block { margin-top: 36px; margin-bottom: 32px; border-top: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow); padding-top: 24px; padding-bottom: 24px; }
+  .quiz-block-bar { width: 100%; display: flex; align-items: center; gap: 10px; background: var(--teal-dark); border: none; border-radius: 10px; cursor: pointer; padding: 14px 18px; margin-bottom: 6px; text-align: left; transition: background .15s; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .quiz-block-bar:hover { background: var(--teal-mid); }
+  .quiz-block-bar .quiz-block-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+  .quiz-block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .quiz-block-subtitle { font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: 0; color: rgba(255,255,255,.72); margin-left: 2px; }
+  .quiz-block-bar .chevron-q { margin-left: auto; width: 20px; height: 20px; transition: transform .2s; flex-shrink: 0; color: #fff; }
+  .quiz-block-bar[aria-expanded="true"] .chevron-q { transform: rotate(180deg); }
+  .quiz-body { display: none; }
+  .quiz-block-bar[aria-expanded="true"] + .quiz-body { display: block; padding-top: 14px; }
+  .quiz-intro { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+  .quiz-score-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; color: var(--text-muted); }
+  .quiz-score-bar progress { flex: 1; height: 6px; border-radius: 3px; appearance: none; -webkit-appearance: none; }
+  .quiz-score-bar progress::-webkit-progress-bar { background: var(--border); border-radius: 3px; }
+  .quiz-score-bar progress::-webkit-progress-value { background: var(--teal-mid); border-radius: 3px; transition: width .4s; }
+
+  .quiz-q { background: var(--bg-alt); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; border: 1.5px solid var(--border); transition: border-color .2s; }
+  .quiz-q.answered { border-color: transparent; }
+  .quiz-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 6px; }
+  .quiz-q-text { font-size: 15px; font-weight: 500; color: var(--text-dark); line-height: 1.5; margin-bottom: 14px; }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: #fff; cursor: pointer; font-size: 14px; color: var(--text-dark); transition: background .15s, border-color .15s; text-align: left; width: 100%; line-height: 1.45; }
+  .quiz-option:hover:not(:disabled) { background: #f0f8f8; border-color: var(--teal-mid); }
+  .quiz-option .opt-letter { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-option.correct { background: #e8f8ef; border-color: #2da262; color: #1a6640; }
+  .quiz-option.correct .opt-letter { color: #2da262; }
+  .quiz-option.wrong { background: #fdecea; border-color: #d94f3d; color: #8b2218; }
+  .quiz-option.wrong .opt-letter { color: #d94f3d; }
+  .quiz-option.reveal { background: #e8f8ef; border-color: #2da262; color: #1a6640; opacity: .7; }
+  .quiz-option.reveal .opt-letter { color: #2da262; }
+
+  .quiz-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; line-height: 1.55; display: none; }
+  .quiz-feedback.show { display: flex; gap: 8px; align-items: flex-start; }
+  .quiz-feedback .icon-sm { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+  .quiz-feedback.ok { background: #e8f8ef; color: #1a6640; }
+  .quiz-feedback.ko { background: #fdecea; color: #8b2218; }
+  .quiz-result-msg { margin-top: 16px; padding: 14px 18px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; align-items: center; justify-content: center; gap: 8px; }
+  .quiz-result-msg.show { display: flex; }
+  .quiz-result-msg .icon-sm { width: 18px; height: 18px; flex-shrink: 0; }
+  .quiz-result-msg.great { background: #e8f8ef; color: #1a6640; }
+  .quiz-result-msg.good { background: #fdf6e3; color: #7a5c00; }
+  .quiz-result-msg.poor { background: #fdecea; color: #8b2218; }
+
+  .quiz-reset { margin-top: 20px; padding: 9px 20px; border-radius: 8px; border: 1.5px solid var(--teal-mid); background: #fff; color: var(--teal-dark); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s; display: none; }
+  .quiz-reset:hover { background: #f0f8f8; }
+
+  /* === ACTIVITÉ SUGGÉRÉE === */
+  .quick-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #eef5f5; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; }
+  .quick-links-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--teal-mid); margin-right: 2px; }
+  .quick-links a { font-size: 13px; font-weight: 600; color: var(--teal-dark); background: #fff; border: 1px solid var(--teal-light); border-radius: 20px; padding: 5px 13px; text-decoration: none; transition: background .15s, color .15s; }
+  .quick-links a:hover { background: var(--teal-dark); color: #fff; border-color: var(--teal-dark); }
+
+  .activity-block { margin: 22px 0; border: 1.5px solid var(--orange); border-radius: 10px; overflow: hidden; background: #fffaf4; }
+  .activity-bar { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #fdeee0; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange); text-align: left; transition: background .15s; }
+  .activity-bar:hover { background: #fbe3cc; }
+  .icon-sm { display: inline-block; vertical-align: middle; width: 14px; height: 14px; flex-shrink: 0; }
+  .activity-bar .activity-icon { width: 16px; height: 16px; flex-shrink: 0; }
+  .activity-bar .chevron-a { margin-left: auto; width: 16px; height: 16px; transition: transform .2s; flex-shrink: 0; }
+  .activity-bar[aria-expanded="true"] .chevron-a { transform: rotate(180deg); }
+  .activity-content { display: none; padding: 16px 18px 18px; }
+  .activity-bar[aria-expanded="true"] + .activity-content { display: block; }
+  .activity-question { font-size: 14.5px; color: var(--text); line-height: 1.6; font-style: italic; }
+  .activity-hint-toggle { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--teal-mid); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
+  .activity-hint { display: none; margin-top: 8px; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 10px 12px; line-height: 1.55; }
+  .activity-hint.show { display: block; }
+
+  /* Outil (procédure expérimentale / appareil) */
+  .outil-box { background: linear-gradient(135deg, #eef7f1, #f6fbf7); border: 1.5px solid #6fae87; border-radius: 10px; padding: 20px 24px; margin: 22px 0; }
+  .outil-box .outil-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: #217a4a; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .outil-box .outil-label .icon-sm { width: 16px; height: 16px; }
+  .outil-subhead { font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #217a4a; margin: 16px 0 7px; }
+  .outil-subhead:first-of-type { margin-top: 0; }
+  .outil-box ul.outil-list, .outil-box ol.outil-list { padding-left: 20px; margin: 0 0 4px; }
+  .outil-box ul.outil-list li, .outil-box ol.outil-list li { font-size: 14px; line-height: 1.65; margin-bottom: 6px; color: var(--text); }
+  .outil-safety { background: #fff4f0; border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; padding: 9px 13px; margin-top: 12px; font-size: 13px; color: #7a3a15; line-height: 1.55; }
+
+  /* Skeleton placeholder for sections not yet built */
+  .skeleton-note { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1.5px dashed var(--border); border-radius: 8px; padding: 14px 18px; font-size: 13.5px; color: var(--muted); }
+  .skeleton-note .icon-sm { width: 16px; height: 16px; flex-shrink: 0; color: var(--teal-light); }
+</style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="Menu" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar" role="navigation" aria-label="Table des matières">
+  <div class="sidebar-header">
+    <a href="index.html" class="back-to-index" title="Retour à la table des matières du cours">
+      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Tous les chapitres
+    </a>
+    <div class="label">Science Sec. 4 · Chapitre</div>
+    <div class="chap-num">5</div>
+    <div class="chap-title">L'électricité et l'électromagnétisme</div>
+  </div>
+  <div class="toc-label">Table des matières</div>
+  <nav>
+    <ul>
+      <li><a href="#rappel" class="toc-link"><span class="num">—</span> Rappel</a></li>
+      <li><a href="#section-5-1" class="toc-link"><span class="num">5.1</span> Les phénomènes électriques</a></li>
+      <li><a href="#section-5-2" class="toc-link"><span class="num">5.2</span> Les circuits électriques</a></li>
+      <li><a href="#section-5-3" class="toc-link"><span class="num">5.3</span> Les phénomènes électromagnétiques</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-footer">
+    <button onclick="document.getElementById('attrib-pop').classList.toggle('visible')" title="À propos de ce document" style="display:flex;align-items:center;gap:6px;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"/></svg> À propos de ce document</button>
+    <div class="attrib-popover" id="attrib-pop">
+      Matériel préparé par M. Raphaël Sylvestre Bouchard à l'aide des notes de cours de M. Bouchard (Collège Charlemagne, 2024–2025) et du manuel <em>Kaléidoscope</em>, Secondaire 4 (ERPI).
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main id="main">
+  <div class="hero">
+    <div class="eyebrow">Secondaire 4 — Science et technologie · Univers matériel</div>
+    <h1>L'électricité et<br>l'électromagnétisme</h1>
+    <p>Un interrupteur, un aimant, un frottement sur un ballon — des gestes anodins qui cachent tous le même acteur : la <strong>charge électrique</strong>. Ce chapitre part de ce concept fondamental pour expliquer l'électricité statique, puis construit les outils pour analyser un circuit électrique (courant, différence de potentiel, résistance, puissance), avant de montrer le lien étroit entre électricité et magnétisme — les deux faces d'un même phénomène : l'électromagnétisme.</p>
+  </div>
+
+  <div class="search-bar-wrap">
+    <label for="search-input">🔍 Recherche rapide</label>
+    <input type="text" id="search-input" placeholder="Ex: charge électrique, courant, circuit, champ magnétique…" oninput="doSearch(this.value)">
+    <span id="search-count"></span>
+  </div>
+
+  <div class="content">
+
+    <!-- RAPPEL -->
+    <div id="rappel" class="rappel-card">
+      <h2 style="display:flex;align-items:center;gap:8px;"><svg class="icon-sm" style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.2-7-12a7 7 0 1 1 14 0c0 4.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg> Rappel — La structure de l'atome</h2>
+      <p>• Un <strong>atome</strong> est formé d'un noyau (protons et neutrons) entouré d'électrons en mouvement.</p>
+      <p>• Le <strong>proton</strong> porte une charge positive et le <strong>neutron</strong> ne porte aucune charge ; tous deux se trouvent dans le noyau.</p>
+      <p>• L'<strong>électron</strong> porte une charge négative et se trouve dans le nuage électronique, autour du noyau.</p>
+      <p>• Un atome qui gagne ou perd des électrons devient un <strong>ion</strong> — un corps chargé électriquement. C'est justement ce déplacement d'électrons qui est au cœur de tous les phénomènes étudiés dans ce chapitre.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 5.1 — LES PHÉNOMÈNES ÉLECTRIQUES        -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-5-1">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">5.1</span>
+          <span class="section-title">Les phénomènes électriques</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+
+        <p>La notion de <strong>charge électrique</strong> est au centre de l'étude de l'électricité. Elle explique aussi bien un cheveu qui se dresse après avoir enlevé une tuque qu'un éclair qui traverse le ciel : dans les deux cas, ce sont des électrons qui se déplacent d'un corps à un autre.</p>
+
+        <div class="subsection">
+          <div class="subsection-title">5.1.1 — La charge électrique</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>charge électrique (q)</strong> est la grandeur physique responsable des phénomènes électriques. Elle se mesure en <strong>coulombs (C)</strong>. Il existe deux types de charges : la charge <strong>positive</strong> et la charge <strong>négative</strong>.</p>
+          </div>
+
+          <p>Chaque particule subatomique porte une charge caractéristique :</p>
+
+          <div class="particle-grid">
+            <div class="particle-card">
+              <div class="p-symbol" style="color:var(--orange);">p<sup>+</sup></div>
+              <div class="p-name">Proton (noyau)</div>
+              <div class="p-charge" style="color:var(--orange);">+1,602 × 10⁻¹⁹ C</div>
+            </div>
+            <div class="particle-card">
+              <div class="p-symbol" style="color:var(--muted);">n°</div>
+              <div class="p-name">Neutron (noyau)</div>
+              <div class="p-charge" style="color:var(--muted);">0 C (neutre)</div>
+            </div>
+            <div class="particle-card">
+              <div class="p-symbol" style="color:var(--teal-mid);">e<sup>−</sup></div>
+              <div class="p-name">Électron (nuage électronique)</div>
+              <div class="p-charge" style="color:var(--teal-mid);">−1,602 × 10⁻¹⁹ C</div>
+            </div>
+          </div>
+
+          <p>Le proton et l'électron portent des charges de grandeur exactement identique, mais de signes opposés — cette valeur commune, 1,602 × 10⁻¹⁹ C, est appelée une <strong>charge élémentaire</strong>. Le neutron, lui, ne porte aucune charge : il ne change donc jamais la charge totale d'un atome.</p>
+
+          <div class="formula">1 C = 6,24 × 10¹⁸ charges élémentaires</div>
+          <p class="formula-caption">1 charge élémentaire (e) = 1,602 × 10⁻¹⁹ C — ces charges élémentaires peuvent être des protons ou des électrons, mais en électricité statique ou dynamique, ce sont toujours des <strong>électrons</strong> qui se déplacent.</p>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.6" fill="currentColor" stroke="none"/></svg><span>Un ordre de grandeur à saisir</span></div>
+            Une charge élémentaire est minuscule. Pour qu'un corps porte une charge d'à peine 1 coulomb, il lui faudrait un surplus de 6,24 × 10¹⁸ protons par rapport à ses électrons — soit plus de 6 milliards de milliards de charges en trop. C'est pourquoi, dans la vraie vie, les charges observées (électricité statique, circuits) sont presque toujours de très petites fractions de coulomb.
+          </div>
+
+          <p>À la base, un atome ou un objet macroscopique contient autant de protons que d'électrons : on dit qu'il est <strong>neutre</strong>. Un objet neutre <em>n'est pas</em> un objet sans aucune charge — c'est un objet dont les charges positives et négatives s'équilibrent exactement. S'il transfère ou reçoit des électrons, il devient chargé positivement (s'il en a perdu) ou négativement (s'il en a gagné). Les protons, confinés au noyau, ne sont jamais transférés d'un corps à l'autre.</p>
+
+          <div class="def-box">
+            <div class="def-label">La loi des charges</div>
+            <p>Deux corps portant une charge de <strong>même signe se repoussent</strong>. Deux corps portant des charges de <strong>signes opposés s'attirent</strong>. La <strong>force électrique</strong> est la force qui s'exerce entre deux charges électriques.</p>
+          </div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 680 260" role="img" style="font-family:'Inter',sans-serif;max-width:620px;display:block;margin:0 auto;">
+                <title>Le comportement des corps chargés électriquement</title>
+                <desc>Deux charges positives se repoussent, deux charges négatives se repoussent, et une charge positive avec une charge négative s'attirent.</desc>
+                <defs>
+                  <marker id="arrow-e5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666"/></marker>
+                </defs>
+
+                <line x1="230" y1="15" x2="230" y2="240" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="460" y1="15" x2="460" y2="240" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+
+                <!-- Panel A: + + repel -->
+                <text x="115" y="30" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" letter-spacing="0.02em" fill="#1a4a52">DEUX CHARGES POSITIVES</text>
+                <rect x="63" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <rect x="147" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <line x1="70" y1="54" x2="70" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="154" y1="54" x2="154" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <circle cx="70" cy="145" r="26" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <circle cx="154" cy="145" r="26" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="70" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">+</text>
+                <text x="154" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">+</text>
+                <line x1="41" y1="145" x2="16" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <line x1="183" y1="145" x2="208" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <text x="115" y="228" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5a6e72">Se repoussent</text>
+
+                <!-- Panel B: - - repel -->
+                <text x="345" y="30" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" letter-spacing="0.02em" fill="#1a4a52">DEUX CHARGES NÉGATIVES</text>
+                <rect x="293" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <rect x="377" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <line x1="300" y1="54" x2="300" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="384" y1="54" x2="384" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <circle cx="300" cy="145" r="26" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <circle cx="384" cy="145" r="26" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <text x="300" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">−</text>
+                <text x="384" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">−</text>
+                <line x1="271" y1="145" x2="246" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <line x1="413" y1="145" x2="438" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <text x="345" y="228" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5a6e72">Se repoussent</text>
+
+                <!-- Panel C: + - attract -->
+                <text x="575" y="30" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="13" font-weight="700" letter-spacing="0.02em" fill="#1a4a52">CHARGES OPPOSÉES</text>
+                <rect x="523" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <rect x="607" y="45" width="14" height="9" rx="2" fill="#1a4a52"/>
+                <line x1="530" y1="54" x2="530" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <line x1="614" y1="54" x2="614" y2="119" stroke="#5a6e72" stroke-width="2"/>
+                <circle cx="530" cy="145" r="26" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <circle cx="614" cy="145" r="26" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <text x="530" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">+</text>
+                <text x="614" y="153" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">−</text>
+                <line x1="559" y1="145" x2="573" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <line x1="585" y1="145" x2="571" y2="145" stroke="#666" stroke-width="2.5" marker-end="url(#arrow-e5)"/>
+                <text x="575" y="228" text-anchor="middle" font-size="12.5" font-style="italic" fill="#5a6e72">S'attirent</text>
+              </svg>
+            </div>
+            <figcaption>Fig. 5.1 — Deux corps portant une charge de même signe se repoussent (A, B) ; deux corps portant des charges de signes opposés s'attirent (C).</figcaption>
+          </figure>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Convertir des charges élémentaires
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une tige de verre porte une charge de +3,204 × 10⁻¹⁸ C après avoir été frottée. Combien d'électrons a-t-elle perdus ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">On divise la charge totale par la charge élémentaire : 3,204 × 10⁻¹⁸ C ÷ 1,602 × 10⁻¹⁹ C = <strong>20 électrons</strong> perdus. Puisque la tige est devenue <em>positive</em>, elle a perdu des électrons (et non des protons, qui ne se transfèrent jamais).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">5.1.2 — L'électricité statique</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>L'<strong>électricité statique</strong> est associée aux phénomènes de charges électriques <strong>au repos</strong>. Dans tous ces phénomènes, seuls les <strong>électrons</strong> se déplacent — jamais les protons.</p>
+          </div>
+
+          <p>Il existe trois phénomènes d'électricité statique à connaître : le transfert d'électrons par frottement, le transfert d'électrons par contact direct, et la polarisation par induction.</p>
+
+          <table class="data-table">
+            <thead><tr><th>Phénomène</th><th>Contact entre les objets ?</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Frottement</strong></td><td>Oui, avec friction</td><td>Un objet devient (+), l'autre devient (−)</td></tr>
+              <tr><td><strong>Contact direct</strong></td><td>Oui, sans friction</td><td>Les deux objets atteignent une charge commune (la moyenne)</td></tr>
+              <tr><td><strong>Induction</strong></td><td>Aucun contact</td><td>L'objet neutre se polarise (deux pôles), sans changer de charge nette</td></tr>
+            </tbody>
+          </table>
+
+          <p><strong>1 — Transfert d'électrons par frottement (électrisation par frottement)</strong></p>
+          <p>Ce phénomène se produit entre deux objets neutres, habituellement de natures ou de phases différentes (souvent des matériaux isolants). En les frottant l'un contre l'autre, des électrons passent d'un objet — le <strong>donneur</strong> — vers l'autre — le <strong>capteur</strong>. Ces électrons restent confinés à la zone frottée si le capteur est un isolant, ou se répartissent dans tout l'objet s'il est métallique. Le donneur devient chargé <strong>positivement</strong>, le capteur <strong>négativement</strong>.</p>
+
+          <p>Pour prévoir quel objet jouera le rôle de donneur ou de capteur, on consulte une <strong>série électrostatique</strong> — un classement de matériaux selon leur tendance à céder ou à capter des électrons. Voici un exemple de série (à utiliser à titre indicatif seulement — pour les évaluations, se référer à la série officielle fournie sur la feuille de formules et de données du cours) :</p>
+
+          <table class="data-table">
+            <thead><tr><th colspan="2">Série électrostatique (exemple)</th></tr></thead>
+            <tbody>
+              <tr><td colspan="2" style="text-align:center;color:var(--teal-mid);font-weight:700;">← Tendance à attirer les électrons (devient −)</td></tr>
+              <tr><td>Plastique</td><td>Coton</td></tr>
+              <tr><td>Or</td><td>Papier</td></tr>
+              <tr><td>Soufre</td><td>Soie</td></tr>
+              <tr><td>Caoutchouc</td><td>Poils de chat</td></tr>
+              <tr><td>Ébonite</td><td>Plomb</td></tr>
+              <tr><td>Paraffine</td><td>Laine — Verre — Acétate — Fourrure</td></tr>
+              <tr><td colspan="2" style="text-align:center;color:var(--orange);font-weight:700;">Tendance à donner les électrons (devient +) →</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg><span>Attention — les séries électrostatiques varient</span></div>
+            Il existe plusieurs séries électrostatiques, qui peuvent différer d'une source à l'autre, et même parfois se contredire un peu. La plupart de leurs substances sont des isolants, car les métaux perdent rapidement les charges accumulées — ils peuvent tout de même être chargés par frottement, mais ils se déchargent facilement dès qu'on les touche, à moins de les tenir par un manche isolant.
+          </div>
+
+          <p>Par exemple, l'ébonite prend des électrons à la soie lorsqu'on les frotte ensemble : la soie devient donc positive, et l'ébonite, négative. Une fois frottés, les deux objets s'attirent, puisqu'ils portent des charges opposées. Si on tente ensuite de les séparer, de petites décharges électriques (de minuscules éclairs) peuvent se produire si des électrons réussissent à retourner d'où ils viennent en traversant l'air.</p>
+
+          <p><strong>2 — Transfert d'électrons par contact direct (électrisation par conduction, sans frottement)</strong></p>
+          <p>Ce transfert se fait par simple contact, sans frottement, entre deux ou plusieurs objets de charges différentes (dont certains peuvent être neutres) — souvent des conducteurs (métaux), mais pas nécessairement. Les électrons passent de l'objet le plus riche en électrons (le plus négatif, ou le moins positif) vers l'objet qui en a le moins. Le transfert s'arrête lorsque les charges atteignent un équilibre, qui correspond à la <strong>moyenne arithmétique</strong> des charges initiales.</p>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Exemple résolu — L'équilibre par contact
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Deux boules de métal, l'une chargée à +24 et l'autre à −36, se touchent. Quelle est la charge finale des deux boules, et combien d'unités de charge la deuxième boule a-t-elle données à la première ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">La charge finale correspond à la moyenne arithmétique des charges initiales : (+24 + (−36)) ÷ 2 = <strong>−6</strong> pour chacune des deux boules. La 2<sup>e</sup> boule (−36, plus riche en électrons) transfère des électrons à la 1<sup>re</sup> (+24) jusqu'à l'équilibre : elle passe de −36 à −6, donc elle a donné <strong>30 unités de charge</strong> à la première, qui elle passe de +24 à −6.</div>
+            </div>
+          </div>
+
+          <p>Dans la réalité, la quantité d'électrons qui se déplacent lors d'un tel transfert est très grande — on exprime donc généralement ces échanges en <strong>coulombs d'électrons</strong> plutôt qu'en nombre d'électrons individuels.</p>
+
+          <p><strong>3 — Polarisation par induction (électrisation par induction, sans contact)</strong></p>
+          <p>La polarisation — la création d'un pôle négatif et d'un pôle positif à l'intérieur d'un même objet — requiert deux objets de charges différentes, habituellement un objet chargé et un objet neutre (de préférence un métal, puisque les métaux se polarisent bien mieux que les isolants : leurs électrons sont très mobiles). Lorsqu'un objet chargé A est placé <strong>à proximité, sans contact,</strong> d'un objet neutre B, il repousse ou attire les électrons de B selon son propre signe. Ce déplacement d'électrons crée un pôle positif et un pôle négatif dans l'objet B, qui demeure malgré tout globalement neutre, puisqu'il ne gagne ni ne perd d'électrons au total.</p>
+
+          <p>Comme les faces rapprochées des deux objets portent alors des charges de signes contraires, les deux objets s'attirent. Cet état persiste tant que l'objet chargé reste à proximité ; si on l'éloigne suffisamment, la polarisation cesse et l'objet neutre revient à son état initial. Ce phénomène explique pourquoi un objet chargé peut attirer un objet neutre à distance, surtout si ce dernier est un métal.</p>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 640 290" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
+                <title>La polarisation d'un électroscope par induction</title>
+                <desc>Un électroscope neutre se polarise différemment selon que l'objet chargé approché est positif ou négatif ; dans les deux cas, ses deux pattes portent la même charge et se repoussent.</desc>
+                <line x1="320" y1="10" x2="320" y2="270" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+
+                <!-- Panel A: rod is POSITIVE -->
+                <text x="160" y="25" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.02em" fill="#1a4a52">OBJET CHARGÉ POSITIF</text>
+                <rect x="30" y="90" width="40" height="90" rx="6" fill="#333c3d"/>
+                <text x="50" y="118" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">+</text>
+                <text x="50" y="140" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">+</text>
+                <text x="50" y="162" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">+</text>
+                <line x1="220" y1="86" x2="220" y2="170" stroke="#5a6e72" stroke-width="3"/>
+                <circle cx="220" cy="68" r="17" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <text x="220" y="75" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">−</text>
+                <circle cx="220" cy="170" r="3" fill="#5a6e72"/>
+                <line x1="220" y1="170" x2="193" y2="222" stroke="#e07b30" stroke-width="4" stroke-linecap="round"/>
+                <line x1="220" y1="170" x2="247" y2="222" stroke="#e07b30" stroke-width="4" stroke-linecap="round"/>
+                <text x="186" y="235" text-anchor="middle" font-size="15" font-weight="800" fill="#e07b30">+</text>
+                <text x="254" y="235" text-anchor="middle" font-size="15" font-weight="800" fill="#e07b30">+</text>
+                <text x="255" y="72" font-size="11" font-weight="700" fill="#256472">pôle négatif</text>
+                <text x="220" y="258" text-anchor="middle" font-size="11" font-weight="700" fill="#e07b30">pôle positif — les pattes se repoussent</text>
+
+                <!-- Panel B: rod is NEGATIVE -->
+                <text x="480" y="25" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.02em" fill="#1a4a52">OBJET CHARGÉ NÉGATIF</text>
+                <rect x="350" y="90" width="40" height="90" rx="6" fill="#333c3d"/>
+                <text x="370" y="118" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">−</text>
+                <text x="370" y="140" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">−</text>
+                <text x="370" y="162" text-anchor="middle" font-size="14" font-weight="800" fill="#c8d400">−</text>
+                <line x1="540" y1="86" x2="540" y2="170" stroke="#5a6e72" stroke-width="3"/>
+                <circle cx="540" cy="68" r="17" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="540" y="75" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">+</text>
+                <circle cx="540" cy="170" r="3" fill="#5a6e72"/>
+                <line x1="540" y1="170" x2="513" y2="222" stroke="#256472" stroke-width="4" stroke-linecap="round"/>
+                <line x1="540" y1="170" x2="567" y2="222" stroke="#256472" stroke-width="4" stroke-linecap="round"/>
+                <text x="506" y="235" text-anchor="middle" font-size="15" font-weight="800" fill="#256472">−</text>
+                <text x="574" y="235" text-anchor="middle" font-size="15" font-weight="800" fill="#256472">−</text>
+                <text x="470" y="72" text-anchor="end" font-size="11" font-weight="700" fill="#e07b30">pôle positif</text>
+                <text x="540" y="258" text-anchor="middle" font-size="11" font-weight="700" fill="#256472">pôle négatif — les pattes se repoussent</text>
+              </svg>
+            </div>
+            <figcaption>Fig. 5.3 — Un électroscope (métal neutre) se polarise différemment selon le signe de l'objet chargé approché sans contact. Dans les deux cas, ses deux pattes portent la même charge et se repoussent — sans que l'électroscope ne gagne ou ne perde d'électrons au total.</figcaption>
+          </figure>
+
+          <p>La foudre est une manifestation particulièrement puissante de l'électricité statique, où l'air lui-même finit par se laisser traverser par une décharge électrique.</p>
+
+          <div class="quick-links">
+            <span class="quick-links-label">🎥 Vidéo</span>
+            <a href="https://www.hydroquebec.com/comprendre/videos.html?p=foudre" target="_blank" rel="noopener">Hydro-Québec — Comprendre la foudre</a>
+          </div>
+
+          <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--teal-mid);margin:20px 0 6px;">Récapitulatif — les 3 phénomènes d'électricité statique</p>
+          <table class="data-table" style="margin-top:0;">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Charge élémentaire</strong></td><td>1 e = 1,602 × 10⁻¹⁹ C ; 1 C = 6,24 × 10¹⁸ charges élémentaires</td></tr>
+              <tr><td><strong>Loi des charges</strong></td><td>Mêmes signes → répulsion ; signes opposés → attraction</td></tr>
+              <tr><td><strong>Frottement</strong></td><td>Donneur devient (+), capteur devient (−) ; suivre la série électrostatique</td></tr>
+              <tr><td><strong>Contact direct</strong></td><td>Les charges s'équilibrent à leur moyenne arithmétique</td></tr>
+              <tr><td><strong>Induction</strong></td><td>Polarisation sans contact ni transfert net ; cesse si on éloigne l'objet chargé</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">5.1.3 — La loi de Coulomb<span class="inline-ste">STE</span></div>
+
+          <p>La <strong>loi de Coulomb</strong> permet de calculer la force électrique — d'attraction ou de répulsion — qui se manifeste entre deux charges électriques q<sub>1</sub> et q<sub>2</sub>. Cette force est <strong>directement proportionnelle</strong> au produit des deux charges, et <strong>inversement proportionnelle au carré</strong> de la distance qui les sépare.</p>
+
+          <div class="formula">F<sub>é</sub> = k · (q<sub>1</sub>q<sub>2</sub>) / r²</div>
+          <p class="formula-caption">F<sub>é</sub> = force électrique (N) · q<sub>1</sub>, q<sub>2</sub> = valeurs des charges (C) · k = constante de Coulomb (9 × 10⁹ N·m²/C²) · r = distance entre les centres des charges (m)</p>
+
+          <p>Si l'on conserve le signe positif ou négatif de chaque charge dans le calcul, le signe du résultat a lui-même une signification : une force <strong>positive</strong> signifie une <strong>répulsion</strong>, et une force <strong>négative</strong> signifie une <strong>attraction</strong>. Pour modifier la force électrique entre deux charges, il n'y a que deux leviers possibles : changer la valeur des charges, ou changer la distance qui les sépare.</p>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Exemple résolu — Attraction entre deux charges
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Quelle est la force électrique entre une charge de +4 × 10⁻⁶ C et une charge de −2 × 10⁻⁶ C, séparées d'une distance de 0,3 m ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">F<sub>é</sub> = k(q<sub>1</sub>q<sub>2</sub>)/r² = 9 × 10⁹ × (4 × 10⁻⁶ × (−2 × 10⁻⁶)) / 0,3² = 9 × 10⁹ × (−8 × 10⁻¹²) / 0,09 = <strong>−0,8 N</strong>. Le signe négatif confirme une <strong>attraction</strong> — ce qui est cohérent, puisque les deux charges sont de signes opposés.</div>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Répulsion entre deux charges
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Deux charges, +3 × 10⁻⁶ C et +5 × 10⁻⁶ C, sont séparées de 0,5 m. Calcule la force électrique entre elles.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">F<sub>é</sub> = 9 × 10⁹ × (3 × 10⁻⁶ × 5 × 10⁻⁶) / 0,5² = 9 × 10⁹ × 1,5 × 10⁻¹¹ / 0,25 = <strong>0,54 N</strong>. Le résultat positif confirme une <strong>répulsion</strong>, puisque les deux charges sont positives.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">5.1.4 — Le champ électrique<span class="inline-ste">STE</span></div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>Un <strong>champ électrique</strong> est une région de l'espace autour d'une charge électrique (ou de plusieurs) où une force électrique peut se manifester sur une autre charge.</p>
+          </div>
+
+          <p>On illustre un champ électrique à l'aide de <strong>lignes de champ</strong> — des segments ou des courbes orientés qui représentent la direction que prendrait une particule chargée <strong>positive</strong> si elle était placée à cet endroit précis du champ. Deux lignes de champ ne peuvent jamais se croiser, puisqu'elles représentent chacune la force résultante unique que subirait une charge positive à un point donné.</p>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 640 360" role="img" style="font-family:'Inter',sans-serif;max-width:600px;display:block;margin:0 auto;">
+                <title>Exemples de champs électriques</title>
+                <desc>Les lignes de champ pointent vers l'extérieur autour d'une charge positive, vers l'intérieur autour d'une charge négative, s'écartent entre deux charges de même signe, et relient une charge positive à une charge négative.</desc>
+                <defs>
+                  <marker id="arrow-field" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666"/></marker>
+                </defs>
+                <line x1="320" y1="10" x2="320" y2="350" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="10" y1="175" x2="630" y2="175" stroke="#d0d8d9" stroke-width="1" stroke-dasharray="4,4"/>
+
+                <text x="150" y="20" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" fill="#1a4a52">UNE CHARGE POSITIVE (+)</text>
+                <g stroke="#666" stroke-width="2" marker-end="url(#arrow-field)">
+                  <line x1="172" y1="95" x2="218" y2="95"/>
+                  <line x1="166" y1="111" x2="198" y2="143"/>
+                  <line x1="150" y1="117" x2="150" y2="163"/>
+                  <line x1="134" y1="111" x2="102" y2="143"/>
+                  <line x1="128" y1="95" x2="82" y2="95"/>
+                  <line x1="134" y1="79" x2="102" y2="47"/>
+                  <line x1="150" y1="73" x2="150" y2="27"/>
+                  <line x1="166" y1="79" x2="198" y2="47"/>
+                </g>
+                <circle cx="150" cy="95" r="15" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="150" y="101" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">+</text>
+
+                <text x="470" y="20" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" fill="#1a4a52">UNE CHARGE NÉGATIVE (−)</text>
+                <g stroke="#666" stroke-width="2" marker-end="url(#arrow-field)">
+                  <line x1="538" y1="95" x2="492" y2="95"/>
+                  <line x1="518" y1="143" x2="486" y2="111"/>
+                  <line x1="470" y1="163" x2="470" y2="117"/>
+                  <line x1="422" y1="143" x2="454" y2="111"/>
+                  <line x1="402" y1="95" x2="448" y2="95"/>
+                  <line x1="422" y1="47" x2="454" y2="79"/>
+                  <line x1="470" y1="27" x2="470" y2="73"/>
+                  <line x1="518" y1="47" x2="486" y2="79"/>
+                </g>
+                <circle cx="470" cy="95" r="15" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <text x="470" y="101" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">−</text>
+
+                <text x="150" y="195" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" fill="#1a4a52">DEUX CHARGES DE MÊME SIGNE</text>
+                <g stroke="#666" stroke-width="2" marker-end="url(#arrow-field)">
+                  <line x1="110" y1="273" x2="110" y2="303"/>
+                  <line x1="97" y1="268" x2="76" y2="289"/>
+                  <line x1="92" y1="255" x2="62" y2="255"/>
+                  <line x1="97" y1="242" x2="76" y2="221"/>
+                  <line x1="110" y1="237" x2="110" y2="207"/>
+                  <line x1="190" y1="237" x2="190" y2="207"/>
+                  <line x1="203" y1="242" x2="224" y2="221"/>
+                  <line x1="208" y1="255" x2="238" y2="255"/>
+                  <line x1="203" y1="268" x2="224" y2="289"/>
+                  <line x1="190" y1="273" x2="190" y2="303"/>
+                </g>
+                <circle cx="110" cy="255" r="13" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="110" y="260" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">+</text>
+                <circle cx="190" cy="255" r="13" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="190" y="260" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">+</text>
+
+                <text x="470" y="195" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="12.5" font-weight="700" fill="#1a4a52">DEUX CHARGES DE SIGNES OPPOSÉS</text>
+                <g stroke="#666" stroke-width="2" fill="none">
+                  <path d="M444,255 L496,255" marker-end="url(#arrow-field)"/>
+                  <path d="M436,247 Q470,195 504,247" marker-end="url(#arrow-field)"/>
+                  <path d="M436,263 Q470,320 504,263" marker-end="url(#arrow-field)"/>
+                </g>
+                <circle cx="430" cy="255" r="13" fill="#e07b30" stroke="#fff" stroke-width="2"/>
+                <text x="430" y="260" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">+</text>
+                <circle cx="510" cy="255" r="13" fill="#256472" stroke="#fff" stroke-width="2"/>
+                <text x="510" y="260" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">−</text>
+              </svg>
+            </div>
+            <figcaption>Fig. 5.4 — Les lignes de champ électrique pointent toujours dans la direction que prendrait une charge d'essai positive : elles s'éloignent d'une charge positive, convergent vers une charge négative, et ne se croisent jamais.</figcaption>
+          </figure>
+
+          <p>Il est possible de calculer la valeur d'un champ électrique (E) créé par une charge q, en un point situé à une distance r de cette charge :</p>
+
+          <div class="formula">E (N/C) = k · q<sub>1</sub> / r²</div>
+          <p class="formula-caption">Les unités du champ électrique sont des N/C, puisqu'elles donnent la valeur de la force électrique (en newtons) qui se manifesterait, à ce point, sur une charge de 1 coulomb. Notons qu'un seul et unique charge est impliquée dans un champ électrique — contrairement à la force électrique (section précédente), qui en implique toujours deux.</p>
+
+          <p>En multipliant l'intensité du champ électrique E par une seconde charge q<sub>2</sub> placée à la distance r, on retrouve justement la force électrique F entre q<sub>1</sub> et q<sub>2</sub>, vue à la section précédente :</p>
+
+          <div class="formula">E · q<sub>2</sub> = F (N)</div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un champ électrique
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Quelle est l'intensité du champ électrique à 0,1 m d'une charge de +4 × 10⁻⁶ C ?</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">E = kq<sub>1</sub>/r² = 9 × 10⁹ × 4 × 10⁻⁶ / 0,1² = 3,6 × 10⁴ / 0,01 = <strong>3,6 × 10⁶ N/C</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 5.1</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Charge électrique (q)</strong></td><td>Grandeur responsable des phénomènes électriques ; en coulombs (C) ; 1 e = 1,602 × 10⁻¹⁹ C</td></tr>
+              <tr><td><strong>Loi des charges</strong></td><td>Mêmes signes → répulsion ; signes opposés → attraction</td></tr>
+              <tr><td><strong>Électricité statique</strong></td><td>Charges au repos ; seuls les électrons se déplacent (frottement, contact direct, induction)</td></tr>
+              <tr><td><strong>Loi de Coulomb</strong></td><td>F<sub>é</sub> = k(q<sub>1</sub>q<sub>2</sub>)/r² ; k = 9 × 10⁹ N·m²/C² ; F &gt; 0 → répulsion, F &lt; 0 → attraction</td></tr>
+              <tr><td><strong>Champ électrique</strong></td><td>E = kq<sub>1</sub>/r² (N/C) ; E·q<sub>2</sub> = F</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUIZ 5.1 -->
+        <div class="quiz-block" data-quiz="q51">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 5.1<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 10</span>
+            <progress class="quiz-progress" value="0" max="10"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un objet neutre est un objet qui ne contient aucune charge électrique.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un objet neutre contient <strong>autant de protons que d'électrons</strong> — leurs charges s'annulent, mais l'objet n'est pas dépourvu de charges pour autant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Un objet neutre contient <strong>autant de protons que d'électrons</strong> ; ce sont des charges égales et opposées qui s'annulent, pas une absence de charges.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Laquelle de ces particules ne se transfère jamais d'un corps à un autre lors de l'électrisation ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> L'électron</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Le proton</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> L'ion</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La charge élémentaire</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le <strong>proton</strong> est confiné dans le noyau de l'atome et n'est jamais transféré. Ce sont toujours les <strong>électrons</strong> qui se déplacent en électricité statique ou dynamique.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le <strong>proton</strong>, confiné au noyau, qui ne se transfère jamais. Ce sont toujours les électrons qui se déplacent d'un corps à l'autre.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Une charge de 1 coulomb correspond à combien de charges élémentaires ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 1,602 × 10⁻¹⁹</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 6,24 × 10¹⁸</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 9 × 10⁹</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 1,602 × 10¹⁹</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. 1 C = <strong>6,24 × 10¹⁸</strong> charges élémentaires. Le choix A est plutôt la valeur d'UNE charge élémentaire en coulombs — c'est l'inverse.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>1 C = <strong>6,24 × 10¹⁸</strong> charges élémentaires. Le choix A (1,602 × 10⁻¹⁹) est la charge élémentaire elle-même, pas le nombre de charges dans 1 C.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Lors du transfert d'électrons par frottement, l'objet qui perd des électrons (le donneur) devient chargé négativement.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Un objet qui <strong>perd</strong> des électrons a alors plus de protons que d'électrons : il devient chargé <strong>positivement</strong>, pas négativement.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Perdre des électrons laisse un surplus de protons : le donneur devient chargé <strong>positivement</strong>. C'est le capteur, qui gagne des électrons, qui devient négatif.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Deux boules de métal neutres se touchent : l'une porte une charge de +10 et l'autre, de +30. Quelle sera la charge finale de chacune ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> +10</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> +20</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> +30</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> +40</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Par contact direct, les charges s'équilibrent à leur <strong>moyenne arithmétique</strong> : (10 + 30) ÷ 2 = <strong>+20</strong> pour chacune des deux boules.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Par contact direct, les charges s'équilibrent à leur <strong>moyenne arithmétique</strong> : (10 + 30) ÷ 2 = <strong>+20</strong>, et non à la valeur de l'une ou l'autre boule de départ.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La polarisation par induction change la charge nette totale de l'objet neutre qui se polarise.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. L'objet polarisé développe deux pôles (+ et −) par un déplacement interne d'électrons, mais il ne gagne ni ne perd d'électrons au total : sa charge nette reste <strong>nulle</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La polarisation redistribue les électrons à l'intérieur de l'objet (créant deux pôles), sans qu'il n'y ait de transfert net d'électrons — la charge totale demeure <strong>nulle</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle est la force électrique entre deux charges de +2 × 10⁻⁶ C et +3 × 10⁻⁶ C, séparées de 0,1 m ? (k = 9 × 10⁹ N·m²/C²)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 5,4 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 0,54 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 54 N</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 0,054 N</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. F<sub>é</sub> = 9 × 10⁹ × (2 × 10⁻⁶ × 3 × 10⁻⁶) / 0,1² = 9 × 10⁹ × 6 × 10⁻¹² / 0,01 = <strong>5,4 N</strong> (répulsion, puisque les deux charges sont positives).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>F<sub>é</sub> = 9 × 10⁹ × (2 × 10⁻⁶ × 3 × 10⁻⁶) / 0,1² = 9 × 10⁹ × 6 × 10⁻¹² / 0,01 = <strong>5,4 N</strong>. Attention à bien élever la distance au carré avant de diviser.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Que représente une ligne de champ électrique en un point donné ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le trajet réel suivi par un électron</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> La direction que prendrait une charge d'essai positive placée à cet endroit</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La distance qui sépare deux charges</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> La valeur exacte de la charge qui crée le champ</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Une ligne de champ indique la direction que prendrait une <strong>charge positive</strong> placée à ce point précis du champ — c'est pour cela que deux lignes de champ ne peuvent jamais se croiser.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Une ligne de champ représente la direction que prendrait une <strong>charge d'essai positive</strong> placée à ce point — pas un trajet réel, une distance, ni une valeur de charge.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle est l'intensité du champ électrique à 0,1 m d'une charge de +4 × 10⁻⁶ C ? (k = 9 × 10⁹ N·m²/C²)</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> 3,6 × 10⁴ N/C</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> 3,6 × 10⁶ N/C</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 3,6 × 10⁸ N/C</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 4 × 10⁻⁶ N/C</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. E = kq/r² = 9 × 10⁹ × 4 × 10⁻⁶ / 0,1² = 3,6 × 10⁴ / 0,01 = <strong>3,6 × 10⁶ N/C</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>E = kq/r² = 9 × 10⁹ × 4 × 10⁻⁶ / 0,1² = 3,6 × 10⁴ / 0,01 = <strong>3,6 × 10⁶ N/C</strong>. Le choix A oublie de diviser par r² (0,01), pas seulement par r.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="9">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Deux lignes de champ électrique peuvent se croiser si les charges qui les créent sont suffisamment proches l'une de l'autre.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Puisque chaque ligne de champ représente l'unique force résultante en un point donné, deux lignes ne peuvent <strong>jamais</strong> se croiser, peu importe la distance entre les charges.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux, et ce peu importe la distance : une ligne de champ représente la force résultante <strong>unique</strong> en un point — deux lignes ne se croisent donc jamais.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q51"></div>
+          <button class="quiz-reset" id="reset-q51">↺ Recommencer</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- SECTION 5.2 — LES CIRCUITS ÉLECTRIQUES (à venir) -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section-card" id="section-5-2">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">5.2</span>
+          <span class="section-title">Les circuits électriques</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+        <div class="skeleton-note">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+          Section à venir — types de circuits, courant électrique, différence de potentiel, loi d'Ohm, lois de Kirchhoff [STE] et puissance électrique.
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- SECTION 5.3 — LES PHÉNOMÈNES ÉLECTROMAGNÉTIQUES (à venir) -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="section-card" id="section-5-3">
+      <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
+        <div class="section-header">
+          <span class="section-num">5.3</span>
+          <span class="section-title">Les phénomènes électromagnétiques</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </button>
+      <div class="section-body">
+        <div class="skeleton-note">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+          Section à venir — forces d'attraction et de répulsion magnétiques, champ magnétique d'un fil conducteur, et champ magnétique d'un solénoïde [STE].
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+
+<script>
+// ── Toggle sections ────────────────────────────────────────
+function toggleSection(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  btn.parentElement.querySelector('.section-body').classList.toggle('open', !expanded);
+}
+
+// ── Toggle activités suggérées ─────────────────────────────
+function toggleActivity(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+function toggleHint(btn) {
+  const hint = btn.nextElementSibling;
+  hint.classList.toggle('show');
+  btn.textContent = hint.classList.contains('show') ? '▾ Cacher la piste de réponse' : '▸ Voir une piste de réponse';
+}
+
+// ── Toggle blocs d'exercices ────────────────────────────────
+function toggleQuiz(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Toggle bulles de note ────────────────────────────────────
+function toggleNote(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+
+// ── Sidebar active link ────────────────────────────────────
+const tocLinks = document.querySelectorAll('.toc-link');
+const sectionIds = ['rappel','section-5-1','section-5-2','section-5-3'];
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 130) current = id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('to-top').classList.toggle('visible', window.scrollY > 300);
+}, {passive: true});
+
+// ── Smooth scroll from TOC ─────────────────────────────────
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const toggle = target.querySelector('.section-toggle');
+    if (toggle && toggle.getAttribute('aria-expanded') === 'false') toggleSection(toggle);
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+// ── Search ─────────────────────────────────────────────────
+const contentEl = document.querySelector('.content');
+const originalHTML = contentEl.innerHTML;
+
+let lastQuery = '';
+let matchIndex = -1;
+
+function doSearch(query) {
+  contentEl.innerHTML = originalHTML;
+  const countEl = document.getElementById('search-count');
+  matchIndex = -1;
+  lastQuery = query;
+
+  if (!query.trim()) { countEl.textContent = ''; return 0; }
+
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  let count = 0;
+  nodes.forEach(node => {
+    if (!re.test(node.textContent)) return;
+    re.lastIndex = 0;
+    const span = document.createElement('span');
+    span.innerHTML = node.textContent.replace(re, m => { count++; return `<mark class="sh">${m}</mark>`; });
+    node.parentNode.replaceChild(span, node);
+  });
+
+  countEl.textContent = count ? `${count} résultat${count>1?'s':''}` : 'Aucun résultat';
+
+  document.querySelectorAll('.section-card').forEach(card => {
+    if (card.querySelector('mark.sh')) {
+      const t = card.querySelector('.section-toggle');
+      if (t && t.getAttribute('aria-expanded') === 'false') toggleSection(t);
+    }
+  });
+
+  return count;
+}
+
+function goToMatch(step) {
+  const marks = contentEl.querySelectorAll('mark.sh');
+  if (!marks.length) return;
+  if (matchIndex >= 0 && marks[matchIndex]) marks[matchIndex].classList.remove('current');
+  matchIndex = (matchIndex + step + marks.length) % marks.length;
+  const m = marks[matchIndex];
+  m.classList.add('current');
+  m.scrollIntoView({behavior:'smooth', block:'center'});
+  const countEl = document.getElementById('search-count');
+  countEl.textContent = `${matchIndex+1} / ${marks.length} résultats`;
+}
+
+function runSearchAndJump(query, step) {
+  if (query !== lastQuery || !contentEl.querySelector('mark.sh')) {
+    const count = doSearch(query);
+    if (count > 0) goToMatch(0);
+  } else {
+    goToMatch(step);
+  }
+}
+
+document.getElementById('search-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    runSearchAndJump(e.target.value, e.shiftKey ? -1 : 1);
+  }
+});
+
+// Ctrl+F → recherche interne
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    const inp = document.getElementById('search-input');
+    inp.focus(); inp.select();
+  }
+});
+
+// Fermer la bulle d'attribution au clic à l'extérieur
+document.addEventListener('click', e => {
+  const pop = document.getElementById('attrib-pop');
+  if (pop && !pop.contains(e.target) && !e.target.closest('.sidebar-footer button')) {
+    pop.classList.remove('visible');
+  }
+});
+
+// === MOTEUR DE QUIZ INTERACTIFS ===
+function initQuizBlock(block) {
+  const questions = Array.from(block.querySelectorAll('.quiz-q'));
+  const total = questions.length;
+  const scoreLabel = block.querySelector('.quiz-score-label');
+  const progressBar = block.querySelector('.quiz-progress');
+  const resultMsg = block.querySelector('.quiz-result-msg');
+  const resetBtn = block.querySelector('.quiz-reset');
+  progressBar.max = total; // synchronise toujours le max réel avec le nombre de questions présentes
+
+  function updateScore() {
+    const answered = questions.filter(q => q.classList.contains('answered'));
+    const correct = answered.filter(q => q.dataset.gotCorrect === 'true').length;
+    scoreLabel.textContent = `${correct} / ${total}`;
+    progressBar.value = answered.length;
+
+    if (answered.length === total) {
+      resultMsg.classList.add('show');
+      const pct = Math.round((correct / total) * 100);
+      resultMsg.classList.remove('great', 'good', 'poor');
+      const starIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.8 6.2.6-4.7 4.2 1.4 6.1L12 16.9 6.5 19.7l1.4-6.1-4.7-4.2 6.2-.6Z"/></svg>';
+      const upIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 13l3-3 2 2 3-3.5"/></svg>';
+      const bookIcon = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 1-2-2Z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 0 2-2Z"/></svg>';
+      let icon, msg, variant;
+      if (pct === 100) { icon = starIcon; msg = `Parfait ! ${correct} / ${total} — la section est maîtrisée.`; variant = 'great'; }
+      else if (pct >= 70) { icon = upIcon; msg = `Bon travail : ${correct} / ${total}. Relis les explications des questions manquées.`; variant = 'good'; }
+      else { icon = bookIcon; msg = `${correct} / ${total} — il serait utile de revoir cette section avant de continuer.`; variant = 'poor'; }
+      resultMsg.classList.add(variant);
+      resultMsg.innerHTML = `${icon}<span>${msg}</span>`;
+      resetBtn.style.display = 'inline-block';
+    } else {
+      resultMsg.classList.remove('show', 'great', 'good', 'poor');
+      resetBtn.style.display = 'none';
+    }
+  }
+
+  questions.forEach(q => {
+    const options = Array.from(q.querySelectorAll('.quiz-option'));
+    const fbOk = q.querySelector('.quiz-feedback.ok');
+    const fbKo = q.querySelector('.quiz-feedback.ko');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (q.classList.contains('answered')) return; // déjà répondu
+
+        const isCorrect = opt.dataset.correct === 'true';
+        q.classList.add('answered');
+        q.dataset.gotCorrect = isCorrect ? 'true' : 'false';
+
+        options.forEach(o => {
+          o.disabled = true;
+          if (o.dataset.correct === 'true') {
+            o.classList.add(o === opt ? 'correct' : 'reveal');
+          } else if (o === opt) {
+            o.classList.add('wrong');
+          }
+        });
+
+        (isCorrect ? fbOk : fbKo).classList.add('show');
+        updateScore();
+      });
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    questions.forEach(q => {
+      q.classList.remove('answered');
+      delete q.dataset.gotCorrect;
+      q.querySelectorAll('.quiz-option').forEach(o => {
+        o.disabled = false;
+        o.classList.remove('correct', 'wrong', 'reveal');
+      });
+      q.querySelectorAll('.quiz-feedback').forEach(f => f.classList.remove('show'));
+    });
+    updateScore();
+  });
+
+  updateScore();
+}
+
+// === MOTEUR DE QCM AUTONOMES (activités suggérées avec choix cliquables) ===
+function initStandaloneMCQ(block) {
+  const options = Array.from(block.querySelectorAll('.quiz-option'));
+  let answered = false;
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (answered) return;
+      answered = true;
+      const isCorrect = opt.dataset.correct === 'true';
+      options.forEach(o => {
+        o.disabled = true;
+        if (o.dataset.correct === 'true') {
+          o.classList.add(o === opt ? 'correct' : 'reveal');
+        } else if (o === opt) {
+          o.classList.add('wrong');
+        }
+      });
+    });
+  });
+}
+
+document.querySelectorAll('.standalone-mcq').forEach(initStandaloneMCQ);
+
+document.querySelectorAll('.quiz-block').forEach(initQuizBlock);
+</script>
+</body>
+</html>
