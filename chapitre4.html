@@ -1656,7 +1656,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- SECTION 4.4 — ÉNERGIE THERMIQUE (SQUELETTE)     -->
+    <!-- SECTION 4.4 — ÉNERGIE THERMIQUE                 -->
     <!-- ══════════════════════════════════════════════ -->
     <div class="section-card" id="section-4-4">
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
@@ -1667,16 +1667,370 @@
         </div>
       </button>
       <div class="section-body">
-        <p style="color:var(--muted);font-style:italic;">Contenu à venir :</p>
-        <ul class="content-list" style="color:var(--muted);font-style:italic;">
-          <li>4.4.1 — La distinction entre la chaleur et la température</li>
-          <li>4.4.2 — La relation entre la chaleur, la capacité thermique massique, la masse et la variation de température <span style="font-size:10px;background:var(--orange);color:#fff;padding:1px 6px;border-radius:3px;">STE</span></li>
-        </ul>
+
+        <p>L'énergie mécanique, vue à la section précédente, dépend du mouvement et de la position d'un corps <em>dans son ensemble</em>. Il existe toutefois une autre forme d'énergie, tout aussi présente dans la vie de tous les jours, qui dépend plutôt du mouvement des particules qui composent ce corps <em>les unes par rapport aux autres</em>.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>L'<strong>énergie thermique (E<sub>th</sub>)</strong> est une forme d'énergie que possède un objet en raison du mouvement de ses particules (atomes ou molécules) les unes par rapport aux autres.</p>
+        </div>
+
+        <p>Lorsque les particules qui composent un objet deviennent plus agitées, l'énergie thermique de cet objet augmente.</p>
+
+        <!-- ── 4.4.1 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.4.1 — La distinction entre la chaleur et la température</div>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>température (T)</strong> d'un objet est une mesure du degré d'agitation de ses atomes ou de ses molécules.</p>
+          </div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 640 300" role="img" style="font-family:'Inter',sans-serif;max-width:560px;display:block;margin:0 auto;">
+                <title>Comparaison de l'agitation des particules à basse et à haute température</title>
+                <desc>Deux béchers contiennent chacun le même nombre de particules. Dans le bécher de gauche, à température basse, les particules sont immobiles. Dans le bécher de droite, à température élevée, les mêmes particules sont entourées de courts traits qui suggèrent un mouvement rapide et désordonné.</desc>
+
+                <path d="M70 50 L70 235 Q70 262 97 262 L223 262 Q250 262 250 235 L250 50" fill="#eaf4f6" stroke="#3a8fa0" stroke-width="3" stroke-linejoin="round"/>
+                <line x1="55" y1="50" x2="265" y2="50" stroke="#3a8fa0" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="120" cy="115" r="11" fill="#1a4a52"/>
+                <circle cx="190" cy="115" r="11" fill="#1a4a52"/>
+                <circle cx="120" cy="163" r="11" fill="#1a4a52"/>
+                <circle cx="190" cy="163" r="11" fill="#1a4a52"/>
+                <circle cx="120" cy="211" r="11" fill="#1a4a52"/>
+                <circle cx="190" cy="211" r="11" fill="#1a4a52"/>
+                <text x="160" y="290" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="16" font-weight="700" letter-spacing=".03em" fill="#1a4a52">TEMPÉRATURE BASSE</text>
+
+                <path d="M390 50 L390 235 Q390 262 417 262 L543 262 Q570 262 570 235 L570 50" fill="#fdf0e4" stroke="#e07b30" stroke-width="3" stroke-linejoin="round"/>
+                <line x1="375" y1="50" x2="585" y2="50" stroke="#e07b30" stroke-width="4" stroke-linecap="round"/>
+                <g stroke="#e07b30" stroke-width="2" stroke-linecap="round" opacity=".75">
+                  <line x1="424" y1="115" x2="431" y2="115"/><line x1="449" y1="115" x2="456" y2="115"/><line x1="440" y1="99" x2="440" y2="106"/>
+                  <line x1="494" y1="115" x2="501" y2="115"/><line x1="519" y1="115" x2="526" y2="115"/><line x1="510" y1="99" x2="510" y2="106"/>
+                  <line x1="424" y1="163" x2="431" y2="163"/><line x1="449" y1="163" x2="456" y2="163"/><line x1="440" y1="147" x2="440" y2="154"/>
+                  <line x1="494" y1="163" x2="501" y2="163"/><line x1="519" y1="163" x2="526" y2="163"/><line x1="510" y1="147" x2="510" y2="154"/>
+                  <line x1="424" y1="211" x2="431" y2="211"/><line x1="449" y1="211" x2="456" y2="211"/><line x1="440" y1="195" x2="440" y2="202"/>
+                  <line x1="494" y1="211" x2="501" y2="211"/><line x1="519" y1="211" x2="526" y2="211"/><line x1="510" y1="195" x2="510" y2="202"/>
+                </g>
+                <circle cx="440" cy="115" r="11" fill="#e07b30"/>
+                <circle cx="510" cy="115" r="11" fill="#e07b30"/>
+                <circle cx="440" cy="163" r="11" fill="#e07b30"/>
+                <circle cx="510" cy="163" r="11" fill="#e07b30"/>
+                <circle cx="440" cy="211" r="11" fill="#e07b30"/>
+                <circle cx="510" cy="211" r="11" fill="#e07b30"/>
+                <text x="480" y="290" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="16" font-weight="700" letter-spacing=".03em" fill="#e07b30">TEMPÉRATURE ÉLEVÉE</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Les deux béchers contiennent exactement le même nombre de particules, donc la même masse de substance ; seule leur agitation diffère. À température basse (gauche), les particules sont peu agitées. À température élevée (droite), les mêmes particules sont animées d'un mouvement rapide et désordonné, suggéré ici par les petits traits qui les entourent. C'est cette agitation — et seulement elle — que mesure la température.</figcaption>
+          </figure>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — l'énergie thermique dépend aussi de la masse (notes de cours)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Une température élevée ne signifie pas nécessairement une grande quantité d'énergie thermique : l'énergie thermique d'un corps dépend à la fois de l'agitation de ses particules (sa température) <em>et</em> du nombre de particules qu'il contient (donc de sa masse). Ainsi, une grande quantité d'eau tiède peut posséder plus d'énergie thermique qu'une petite tasse d'eau bouillante, même si sa température est beaucoup plus basse.</p>
+            </div>
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — Une baignoire et une allumette
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">Une baignoire remplie d'eau tiède est à 30 °C. Une allumette qui vient de s'éteindre est à environ 300 °C. Laquelle des deux a la température la plus élevée ? Laquelle possède, selon toute vraisemblance, le plus d'énergie thermique ? Explique la différence entre les deux réponses.</p>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint">L'allumette a la température la plus élevée : ses particules sont beaucoup plus agitées que celles de l'eau de la baignoire. Mais la baignoire contient une quantité d'eau (donc un nombre de particules) infiniment plus grande que la tête d'une allumette : c'est donc elle qui possède le plus d'énergie thermique, malgré sa température beaucoup plus basse. La température et l'énergie thermique sont deux grandeurs différentes.</div>
+            </div>
+          </div>
+
+          <p>Lorsque deux objets qui ont des températures différentes sont mis en contact, une partie de l'énergie thermique de l'objet ayant la température la plus élevée est transférée à l'objet ayant la température la plus basse. Ce transfert d'énergie thermique est appelé <strong>chaleur</strong>.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>chaleur (Q)</strong> est un transfert d'énergie thermique (E<sub>th</sub>) entre deux objets mis en contact lorsqu'il y a une différence de température entre eux.</p>
+          </div>
+
+          <figure class="fig-block">
+            <div style="background:#fff;padding:16px;">
+              <svg width="100%" viewBox="0 0 640 260" role="img" style="max-width:560px;display:block;margin:0 auto;">
+                <title>Le transfert de chaleur d'une substance chaude vers une substance froide</title>
+                <desc>Deux blocs sont représentés côte à côte, reliés par une flèche horizontale. Le bloc de gauche, orange, représente une substance chaude. Le bloc de droite, bleu, représente une substance froide. La flèche pointe de la substance chaude vers la substance froide et porte l'étiquette « chaleur (Q) », illustrant que l'énergie thermique se transfère toujours de la substance la plus chaude vers la plus froide.</desc>
+                <defs>
+                  <marker id="arrow-heat1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1a4a52"/></marker>
+                </defs>
+                <rect x="50" y="55" width="220" height="150" rx="8" fill="#e07b30"/>
+                <text x="160" y="128" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="20" font-weight="800" letter-spacing=".02em" fill="#fff">SUBSTANCE</text>
+                <text x="160" y="155" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="20" font-weight="800" letter-spacing=".02em" fill="#fff">CHAUDE</text>
+
+                <rect x="370" y="55" width="220" height="150" rx="8" fill="#3a8fa0"/>
+                <text x="480" y="128" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="20" font-weight="800" letter-spacing=".02em" fill="#fff">SUBSTANCE</text>
+                <text x="480" y="155" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="20" font-weight="800" letter-spacing=".02em" fill="#fff">FROIDE</text>
+
+                <line x1="278" y1="130" x2="362" y2="130" stroke="#1a4a52" stroke-width="4" marker-end="url(#arrow-heat1)"/>
+                <text x="320" y="113" text-anchor="middle" font-family="'Inter',sans-serif" font-size="15" font-weight="700" fill="#1a4a52">chaleur (Q)</text>
+              </svg>
+            </div>
+            <figcaption>Fig. — Lorsque deux substances à des températures différentes sont mises en contact, la chaleur (Q) se transfère toujours de la substance la plus chaude vers la substance la plus froide — jamais l'inverse. Ce transfert se poursuit jusqu'à ce que les deux substances atteignent la même température.</figcaption>
+          </figure>
+
+          <p>La chaleur se mesure en <strong>joules (J)</strong>, comme toutes les formes d'énergie. La variation de l'énergie thermique de chacun des deux objets est égale à la chaleur qui est impliquée dans ce transfert :</p>
+
+          <div class="formula">Q = ΔE<sub>th</sub></div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — comparer des températures (notes de cours)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p>En plus des degrés Celsius (°C), la température peut aussi être exprimée en kelvins (K), en soustrayant 273 : K − 273 = °C.</p>
+              <p style="margin:0;">Cette conversion importe surtout quand on <strong>compare</strong> deux températures entre elles : il faut alors utiliser les kelvins, et non les degrés Celsius. Par exemple, 20 °C (293 K) n'est <em>pas</em> le double de 10 °C (283 K) — mais 20 K est bel et bien le double de 10 K.</p>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Ce qui déclenche le transfert d'énergie</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Travail</strong></td><td>Le transfert d'énergie entraîne le déplacement d'un objet</td></tr>
+              <tr><td><strong>Chaleur</strong></td><td>Le transfert d'énergie thermique est causé par une différence de température</td></tr>
+            </tbody>
+          </table>
+          <p class="formula-caption" style="margin-top:-4px;">Le travail (section 4.2) et la chaleur sont donc deux façons différentes de transférer de l'énergie.<span class="inline-ste">STE</span></p>
+        </div>
+
+        <!-- ── 4.4.2 ── -->
+        <div class="subsection">
+          <div class="subsection-title">4.4.2 — La relation entre la chaleur, la capacité thermique massique, la masse et la variation de température<span class="inline-ste">STE</span></div>
+
+          <p>Chaque substance se réchauffe (ou se refroidit) à son propre rythme : la quantité d'énergie thermique nécessaire pour faire varier d'un degré la température d'une même masse dépend de la nature de la substance.</p>
+
+          <div class="def-box">
+            <div class="def-label">Définition</div>
+            <p>La <strong>capacité thermique massique (c)</strong> correspond à la quantité d'énergie thermique (en joules) qu'il faut transférer à un gramme d'une substance pour augmenter sa température de un degré Celsius.</p>
+          </div>
+
+          <p>La capacité thermique massique est une propriété caractéristique de chaque substance ; elle se mesure en joules par gramme et par degré Celsius (J/g·°C). Le tableau 1 présente la capacité thermique massique de quelques substances.</p>
+
+          <table class="data-table">
+            <thead><tr><th>Substance</th><th>Capacité thermique massique (J/g·°C)</th></tr></thead>
+            <tbody>
+              <tr><td>Mercure</td><td>0,14</td></tr>
+              <tr><td>Cuivre</td><td>0,39</td></tr>
+              <tr><td>Fer</td><td>0,44</td></tr>
+              <tr><td>Aluminium</td><td>0,90</td></tr>
+              <tr><td>Glace</td><td>2,06</td></tr>
+              <tr><td>Eau liquide</td><td>4,19</td></tr>
+            </tbody>
+          </table>
+          <p class="formula-caption" style="margin-top:-8px;">Tableau 1 — Par exemple, pour une même masse de mercure et d'eau liquide, le mercure a besoin de beaucoup moins d'énergie thermique que l'eau pour que sa température augmente d'un même nombre de degrés.</p>
+
+          <p>La relation mathématique entre la chaleur, la masse, la capacité thermique massique et la variation de température est la suivante :</p>
+
+          <div class="formula">Q = mcΔT</div>
+          <p class="formula-caption">Q = chaleur (J) · m = masse (g) · c = capacité thermique massique (J/g·°C) · ΔT = variation de température (°C)</p>
+
+          <p>La variation de température (ΔT) correspond à la différence entre la température finale (T<sub>f</sub>) et la température initiale (T<sub>i</sub>) :</p>
+
+          <div class="formula">ΔT = T<sub>f</sub> – T<sub>i</sub></div>
+
+          <div class="note-box">
+            <div class="note-label"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Le signe de Q</span></div>
+            Lorsqu'un objet <strong>absorbe</strong> de la chaleur, sa température augmente (ΔT &gt; 0), donc Q &gt; 0 — comme lorsqu'on met un aliment au four. Lorsqu'un objet <strong>dégage</strong> de la chaleur, sa température diminue (ΔT &lt; 0), donc Q &lt; 0 — comme lorsqu'on met un aliment au réfrigérateur.
+          </div>
+
+          <div class="note-box" style="border-left-color:var(--orange);background:#fffaf4;">
+            <div class="note-label" style="color:var(--orange);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — La chaleur absorbée par un bloc de cuivre</span></div>
+            <strong>Quelle chaleur un bloc de cuivre de 500 g absorbe-t-il lorsque sa température est portée de 4 °C à 24 °C ?</strong><br><br>
+            <em>Données :</em> m = 500 g · c = 0,39 J/g·°C (voir le tableau 1) · T<sub>f</sub> = 24 °C · T<sub>i</sub> = 4 °C · ΔT = ? · Q = ?<br><br>
+            <em>Calcul :</em><br>
+            1. Évaluer la variation de température :<br>
+            ΔT = T<sub>f</sub> – T<sub>i</sub> = 24 °C – 4 °C = <strong>20 °C</strong><br><br>
+            2. Évaluer la chaleur absorbée par le cuivre :<br>
+            Q = mcΔT = 500 g × 0,39 J/g·°C × 20 °C = <strong>3 900 J</strong><br><br>
+            Le bloc de cuivre absorbe <strong>3 900 J</strong> de chaleur.
+          </div>
+
+          <div class="activity-block">
+            <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+              <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer une chaleur dégagée
+              <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="activity-content">
+              <p class="activity-question">On refroidit 200 g d'eau liquide de 80 °C à 20 °C (c = 4,19 J/g·°C, voir le tableau 1). Quelle est la valeur de Q pour cette eau ?</p>
+              <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+                <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> −50 280 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 50 280 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> −25 140 J</button>
+                <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> −5 028 J</button>
+              </div>
+              <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+              <div class="activity-hint"><strong>Bonne réponse : A.</strong> ΔT = T<sub>f</sub> – T<sub>i</sub> = 20 °C – 80 °C = −60 °C. Q = mcΔT = 200 g × 4,19 J/g·°C × (−60 °C) = <strong>−50 280 J</strong>. Le signe négatif confirme que l'eau <strong>dégage</strong> de la chaleur en refroidissant (choix B : erreur de signe sur ΔT).</div>
+            </div>
+          </div>
+
+          <div class="note-box" style="background:#f0f6f7;">
+            <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+              <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — l'échange de chaleur entre deux substances (notes de cours)</span></div>
+              <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="note-body">
+              <p style="margin:0;">Lors d'un échange de chaleur entre deux substances de températures différentes, et en supposant qu'il n'y a aucune perte vers l'environnement, la chaleur absorbée par l'une est égale, en valeur absolue, à la chaleur dégagée par l'autre : mcΔT (absorbée) = − mcΔT (dégagée). Ce principe n'est pas approfondi ici, mais il permet notamment de déterminer la température finale d'un mélange.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 4.4</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Énergie thermique (E<sub>th</sub>)</strong></td><td>Énergie liée au mouvement des particules d'un objet les unes par rapport aux autres ; dépend à la fois de leur agitation et de leur nombre (masse)</td></tr>
+              <tr><td><strong>Température (T)</strong></td><td>Mesure du degré d'agitation des particules seulement ; se mesure en °C (comparer des températures : utiliser les K)</td></tr>
+              <tr><td><strong>Chaleur (Q)</strong></td><td>Transfert d'énergie thermique entre deux objets à températures différentes, toujours du plus chaud vers le plus froid ; Q = ΔE<sub>th</sub></td></tr>
+              <tr><td><strong>Capacité thermique massique (c)</strong></td><td>Énergie (J) nécessaire pour élever de 1 °C la température de 1 g d'une substance ; propriété caractéristique de la substance</td></tr>
+              <tr><td><strong>Relation chaleur-masse-température</strong></td><td>Q = mcΔT, où ΔT = T<sub>f</sub> – T<sub>i</sub></td></tr>
+              <tr><td><strong>Signe de Q</strong></td><td>Q &gt; 0 si la chaleur est absorbée (réchauffement) ; Q &lt; 0 si elle est dégagée (refroidissement)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUIZ 4.4 -->
+        <div class="quiz-block" data-quiz="q44">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 4.4<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 9</span>
+            <progress class="quiz-progress" value="0" max="9"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">La température d'un objet mesure la quantité totale d'énergie thermique qu'il possède.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. La température ne mesure que le degré d'agitation des particules ; l'énergie thermique totale dépend aussi de leur nombre (la masse).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. La température mesure seulement le <strong>degré d'agitation</strong> des particules ; l'énergie thermique totale dépend aussi de leur nombre (la masse).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Dans les équations de cette section, que représente Q ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> La température</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> La chaleur</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> La capacité thermique massique</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> L'énergie mécanique</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Q représente la <strong>chaleur</strong>, c'est-à-dire un transfert d'énergie thermique.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Q représente la <strong>chaleur</strong> — le transfert d'énergie thermique entre deux objets à températures différentes.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">On dépose un glaçon dans un verre d'eau tiède. Dans quel sens se transfère la chaleur ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Du glaçon vers l'eau</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> De l'eau vers le glaçon</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Dans les deux sens également</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Aucun transfert n'a lieu</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. La chaleur se transfère toujours de la substance la plus chaude (l'eau) vers la plus froide (le glaçon), jamais l'inverse.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La chaleur va toujours de la substance la plus <strong>chaude</strong> (l'eau tiède) vers la plus <strong>froide</strong> (le glaçon).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Quelle quantité de chaleur faut-il fournir à 250 g d'aluminium (c = 0,90 J/g·°C) pour élever sa température de 15 °C à 35 °C ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 4 500 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 2 250 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 9 000 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 450 J</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. ΔT = 35 °C – 15 °C = 20 °C. Q = mcΔT = 250 g × 0,90 J/g·°C × 20 °C = <strong>4 500 J</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>ΔT = 35 °C – 15 °C = 20 °C. Q = mcΔT = 250 g × 0,90 J/g·°C × 20 °C = <strong>4 500 J</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">20 °C est deux fois plus chaud que 10 °C.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Pour comparer des températures, il faut utiliser les kelvins : 20 °C (293 K) n'est pas le double de 10 °C (283 K).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Comparer des degrés Celsius directement ne fonctionne pas : il faut convertir en <strong>kelvins</strong>. 20 °C (293 K) n'est pas le double de 10 °C (283 K), même si 20 K est bel et bien le double de 10 K.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Selon le tableau 1, laquelle de ces substances nécessite le plus d'énergie thermique pour élever sa température de 1 °C, pour une même masse ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Mercure</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Cuivre</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Fer</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">D</span> Eau liquide</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. L'eau liquide a la capacité thermique massique la plus élevée du tableau (4,19 J/g·°C) : elle « résiste » le plus au changement de température.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est l'<strong>eau liquide</strong>, avec une capacité thermique massique de 4,19 J/g·°C — la plus élevée du tableau 1.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un bloc de fer de 100 g (c = 0,44 J/g·°C) passe de 50 °C à 10 °C. Quelle est la valeur de Q ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> −1 760 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 1 760 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> −176 J</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> −17 600 J</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. ΔT = 10 °C – 50 °C = −40 °C. Q = mcΔT = 100 g × 0,44 J/g·°C × (−40 °C) = <strong>−1 760 J</strong>. Le signe négatif indique que le fer dégage de la chaleur en refroidissant.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>ΔT = 10 °C – 50 °C = −40 °C. Q = mcΔT = 100 g × 0,44 J/g·°C × (−40 °C) = <strong>−1 760 J</strong>.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un haltérophile soulève une barre du sol jusqu'au-dessus de sa tête. Ce transfert d'énergie constitue...</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> un travail, car il y a déplacement d'un objet</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> de la chaleur, car l'haltérophile se réchauffe</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> ni un travail ni de la chaleur</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> à la fois un travail et de la chaleur, en parts égales</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Puisque ce transfert d'énergie entraîne le déplacement d'un objet (la barre), il s'agit d'un <strong>travail</strong>, et non de chaleur.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est un <strong>travail</strong> : ce transfert d'énergie entraîne le déplacement d'un objet (la barre), ce qui le distingue de la chaleur.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le travail et la chaleur sont deux façons différentes de transférer de l'énergie.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Le travail transfère de l'énergie par le déplacement d'un objet ; la chaleur, par une différence de température.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai : le travail transfère de l'énergie par le déplacement d'un objet, alors que la chaleur le fait par une différence de température.</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q44"></div>
+          <button class="quiz-reset" id="reset-q44">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- SECTION 4.5 — RENDEMENT ÉNERGÉTIQUE (SQUELETTE) -->
+    <!-- SECTION 4.5 — RENDEMENT ÉNERGÉTIQUE             -->
     <!-- ══════════════════════════════════════════════ -->
     <div class="section-card" id="section-4-5">
       <button class="section-toggle" aria-expanded="false" onclick="toggleSection(this)">
@@ -1687,7 +2041,254 @@
         </div>
       </button>
       <div class="section-body">
-        <p style="color:var(--muted);font-style:italic;">Contenu à venir : le rendement énergétique d'une transformation (énergie utile vs énergie totale fournie), et pourquoi il est toujours inférieur à 100 %.</p>
+
+        <p>Lorsqu'on transforme ou qu'on transfère de l'énergie pour effectuer une tâche, seule une partie de cette énergie sert réellement à accomplir la tâche voulue. Le reste ne peut pas être transformé en énergie utile ; il est souvent libéré sous forme de chaleur qui, dans ce contexte, n'est ni utilisable ni recherchée.</p>
+
+        <div class="def-box">
+          <div class="def-label">Définition</div>
+          <p>Le <strong>rendement énergétique</strong> d'un système correspond au pourcentage de l'énergie consommée qui est transformée ou transférée de façon utile.</p>
+        </div>
+
+        <p>Le rendement énergétique est exprimé par le rapport suivant :</p>
+
+        <div class="formula">Rendement énergétique = (Quantité d'énergie utile ÷ Quantité d'énergie consommée) × 100 %</div>
+
+        <div class="note-box" style="background:#f0f6f7;">
+          <button class="note-bar" aria-expanded="false" onclick="toggleNote(this)">
+            <div class="note-label" style="color:var(--teal-dark);margin-bottom:0;"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Pour aller plus loin — l'énergie consommée totale (notes de cours)</span></div>
+            <svg class="chevron-n" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="note-body">
+            <p style="margin:0;">On peut aussi exprimer cette idée par l'équation E<sub>consommée totale</sub> = E<sub>utile</sub> + E<sub>inutile</sub> : l'énergie consommée par un système se divise entre l'énergie utile (celle qu'on cherche à produire) et l'énergie inutile — aussi appelée énergie dissipée ou gaspillée, le plus souvent sous forme de chaleur.</p>
+          </div>
+        </div>
+
+        <p>Comme le montre la section 4.3.4, l'énergie ne peut être ni créée ni détruite : l'énergie qui n'est pas transformée en énergie utile n'est donc pas réellement « perdue », mais plutôt <strong>dissipée</strong> — le plus souvent sous forme de chaleur qui se répand dans l'environnement sans être exploitée.</p>
+
+        <p>Le rendement énergétique ne peut jamais dépasser 100 %.</p>
+
+        <div class="note-box" style="border-left-color:var(--orange);background:#fffaf4;">
+          <div class="note-label" style="color:var(--orange);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Exemple résolu — Le rendement énergétique d'une ampoule</span></div>
+          <strong>En 1 seconde, une ampoule électrique de 60 W consomme 60 J d'énergie électrique. Elle produit 3,5 J d'énergie lumineuse ; le reste de l'énergie est dissipé sous forme de chaleur. Quel est le rendement énergétique de cette ampoule ?</strong><br><br>
+          <em>Données :</em> Quantité d'énergie utile (énergie lumineuse produite en 1 s) = 3,5 J · Quantité d'énergie consommée (énergie électrique consommée en 1 s) = 60 J · Rendement énergétique = ?<br><br>
+          <em>Calcul :</em><br>
+          Rendement énergétique = (Quantité d'énergie utile ÷ Quantité d'énergie consommée) × 100 %<br>
+          = (3,5 J ÷ 60 J) × 100 % ≈ <strong>5,83 %</strong><br><br>
+          Le rendement énergétique de l'ampoule est d'environ <strong>5,83 %</strong>. Cela signifie que 94,17 % de l'énergie électrique consommée par l'ampoule est transformée en énergie thermique.
+        </div>
+
+        <figure class="fig-block">
+          <div style="background:#fff;padding:16px;">
+            <svg width="100%" viewBox="0 0 680 360" role="img" style="max-width:600px;display:block;margin:0 auto;">
+              <title>Répartition de l'énergie consommée par une ampoule électrique</title>
+              <desc>Un diagramme en barres illustre la répartition de l'énergie électrique consommée par une ampoule de 60 watts en une seconde. Une première barre pleine représente les 60 joules d'énergie consommée. Une flèche pointe vers une seconde barre, divisée en deux segments empilés : un mince segment jaune représentant les 3,5 joules d'énergie lumineuse utile, et un grand segment orange représentant les 56,5 joules d'énergie thermique dissipée.</desc>
+              <defs>
+                <marker id="arrow-rend1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1a4a52"/></marker>
+              </defs>
+
+              <line x1="60" y1="300" x2="650" y2="300" stroke="#5a6e72" stroke-width="2"/>
+
+              <rect x="130" y="80" width="100" height="220" fill="#256472"/>
+              <text x="180" y="64" text-anchor="middle" font-family="'Inter',sans-serif" font-size="17" font-weight="700" fill="#1a4a52">60 J</text>
+              <text x="180" y="322" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" fill="#5a6e72">Énergie consommée</text>
+              <text x="180" y="338" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" fill="#5a6e72">(électrique)</text>
+
+              <line x1="242" y1="190" x2="368" y2="190" stroke="#1a4a52" stroke-width="3" marker-end="url(#arrow-rend1)"/>
+
+              <rect x="380" y="93" width="100" height="207" fill="#e07b30"/>
+              <rect x="380" y="80" width="100" height="13" fill="#c8d400"/>
+              <text x="430" y="322" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" fill="#5a6e72">Énergie produite</text>
+
+              <line x1="480" y1="86" x2="500" y2="86" stroke="#5a6e72" stroke-width="1.5"/>
+              <text x="506" y="82" font-family="'Inter',sans-serif" font-size="13" font-weight="700" fill="#1a4a52">3,5 J — utile</text>
+              <text x="506" y="97" font-family="'Inter',sans-serif" font-size="12" fill="#5a6e72">(lumineuse)</text>
+
+              <line x1="480" y1="196" x2="500" y2="196" stroke="#5a6e72" stroke-width="1.5"/>
+              <text x="506" y="192" font-family="'Inter',sans-serif" font-size="13" font-weight="700" fill="#1a4a52">56,5 J — dissipée</text>
+              <text x="506" y="207" font-family="'Inter',sans-serif" font-size="12" fill="#5a6e72">(thermique)</text>
+            </svg>
+          </div>
+          <figcaption>Fig. — Sur les 60 J d'énergie électrique consommée chaque seconde par l'ampoule de l'exemple ci-dessus, seulement 3,5 J se retrouvent sous forme d'énergie lumineuse utile ; le reste (56,5 J) est dissipé sous forme de chaleur. Le rendement énergétique compare la portion utile (en jaune) à l'ensemble de l'énergie consommée.</figcaption>
+        </figure>
+
+        <div class="note-box" style="border-left-color:var(--teal-light);background:#eef7f8;">
+          <div class="note-label" style="color:var(--teal-mid);"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg><span>Flash Science — Le rendement des moteurs de voitures</span></div>
+          <p style="margin:0;">Même dans des conditions optimales, le rendement des moteurs à essence plafonne autour de 35 %. Les moteurs des voitures électriques, eux, peuvent dépasser 90 % de rendement — mais l'électricité qui les alimente provient souvent, dans plusieurs pays, de combustibles fossiles brûlés dans des centrales dont le rendement peut être inférieur à 40 %, ce qui nuance la comparaison globale entre les deux technologies.</p>
+        </div>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Réflexion — La chaleur, toujours gaspillée ?
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Dans l'exemple de l'ampoule ci-dessus, la chaleur dégagée est de l'énergie inutile. Est-ce toujours le cas pour tout appareil qui dégage de la chaleur ? Donne un exemple d'appareil où la chaleur est plutôt la forme d'énergie utile recherchée.</p>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint">Non. Un grille-pain, un sèche-cheveux ou une sécheuse, par exemple, sont justement conçus pour produire de la chaleur : dans ces cas, c'est la chaleur elle-même qui constitue l'énergie <strong>utile</strong>, et non une forme d'énergie dissipée.</div>
+          </div>
+        </div>
+
+        <div class="activity-block">
+          <button class="activity-bar" aria-expanded="false" onclick="toggleActivity(this)">
+            <svg class="activity-icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg> Application — Calculer un rendement énergétique
+            <svg class="chevron-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="activity-content">
+            <p class="activity-question">Un moteur à essence consomme 2 000 J d'énergie chimique par combustion et ne produit que 360 J d'énergie mécanique utile ; le reste est dissipé sous forme de chaleur. Quel est le rendement énergétique de ce moteur ?</p>
+            <div class="quiz-options standalone-mcq" style="margin:12px 0;">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 18 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 36 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 5,6 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 82 %</button>
+            </div>
+            <button class="activity-hint-toggle" onclick="toggleHint(this)">▸ Voir la réponse</button>
+            <div class="activity-hint"><strong>Bonne réponse : A.</strong> Rendement = (360 J ÷ 2 000 J) × 100 % = <strong>18 %</strong>. Ce moteur consomme donc environ 5,5 fois plus d'énergie chimique qu'il n'en produit sous forme mécanique utile.</div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">Synthèse — Section 4.5</div>
+          <table class="data-table">
+            <thead><tr><th>Concept</th><th>Idée clé</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Rendement énergétique</strong></td><td>Pourcentage de l'énergie consommée qui est transformée ou transférée de façon utile</td></tr>
+              <tr><td><strong>Formule</strong></td><td>Rendement = (énergie utile ÷ énergie consommée) × 100 %</td></tr>
+              <tr><td><strong>Limite</strong></td><td>Ne peut jamais dépasser 100 %</td></tr>
+              <tr><td><strong>Énergie inutile</strong></td><td>Dissipée ou gaspillée (souvent sous forme de chaleur), mais pas « perdue » : elle existe toujours, sous une forme non recherchée</td></tr>
+              <tr><td><strong>Cas particulier</strong></td><td>La chaleur n'est pas toujours l'énergie inutile : elle est parfois l'énergie utile recherchée (ex. : grille-pain, sécheuse)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- QUIZ 4.5 -->
+        <div class="quiz-block" data-quiz="q45">
+          <button class="quiz-block-bar" aria-expanded="false" onclick="toggleQuiz(this)">
+            <svg class="quiz-block-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3"/><path d="M8.5 13.5l2 2 4-4.5"/></svg><span class="quiz-block-title">Exercices — Section 4.5<span class="quiz-block-subtitle">Clique pour t'exercer</span></span>
+            <svg class="chevron-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="quiz-body">
+          <p class="quiz-intro">Clique sur une réponse pour la valider. La bonne réponse s'affiche immédiatement.</p>
+          <div class="quiz-score-bar">
+            <span class="quiz-score-label">0 / 9</span>
+            <progress class="quiz-progress" value="0" max="9"></progress>
+          </div>
+
+          <div class="quiz-q" data-qi="0">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Le rendement énergétique d'un système dépend de la quantité d'énergie utile et de la quantité d'énergie consommée.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rendement énergétique = (énergie utile ÷ énergie consommée) × 100 %.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est vrai : Rendement énergétique = (énergie utile ÷ énergie consommée) × 100 %.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="1">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Quelle est la bonne formule du rendement énergétique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> (énergie consommée ÷ énergie utile) × 100 %</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> (énergie utile ÷ énergie consommée) × 100 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> énergie utile × énergie consommée</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> énergie utile − énergie consommée</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. C'est la quantité d'énergie <strong>utile</strong> qu'on divise par la quantité d'énergie <strong>consommée</strong>, puis qu'on multiplie par 100 %.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>La bonne formule est (énergie <strong>utile</strong> ÷ énergie <strong>consommée</strong>) × 100 % — le choix A inverse le numérateur et le dénominateur.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="2">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Une ampoule DEL consomme 10 J d'énergie électrique par seconde et produit 8 J d'énergie lumineuse ; le reste est dissipé en chaleur. Quel est son rendement énergétique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 80 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 20 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 125 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 8 %</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rendement = (8 J ÷ 10 J) × 100 % = <strong>80 %</strong> — bien meilleur que l'ampoule incandescente de l'exemple résolu (≈ 5,83 %).</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Rendement = (8 J ÷ 10 J) × 100 % = <strong>80 %</strong>. Le choix B calcule plutôt la portion dissipée (2 J ÷ 10 J).</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="3">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Un système très efficace peut avoir un rendement énergétique supérieur à 100 %.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Le rendement énergétique ne peut jamais dépasser 100 %, peu importe l'efficacité du système.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Le rendement énergétique ne peut <strong>jamais</strong> dépasser 100 %, peu importe l'efficacité du système.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="4">
+            <div class="quiz-q-label">Calcul</div>
+            <div class="quiz-q-text">Un moteur électrique consomme 1 500 J d'énergie électrique et produit 450 J d'énergie mécanique utile. Quel est son rendement énergétique ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">A</span> 30 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> 70 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> 3 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> 333 %</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Rendement = (450 J ÷ 1 500 J) × 100 % = <strong>30 %</strong>.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Rendement = (450 J ÷ 1 500 J) × 100 % = <strong>30 %</strong>. Le choix B (70 %) correspond plutôt à la portion d'énergie dissipée.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="5">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Laquelle de ces affirmations est vraie à propos de l'énergie « inutile » dissipée par un système ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Elle est réellement détruite</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Elle est dissipée, souvent sous forme de chaleur, mais continue d'exister sous une autre forme</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Elle disparaît complètement une fois dissipée</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Elle viole la loi de la conservation de l'énergie</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Conformément à la loi de la conservation de l'énergie (section 4.3.4), cette énergie n'est jamais détruite — elle est seulement transformée en une forme non recherchée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Cette énergie est <strong>dissipée</strong>, le plus souvent sous forme de chaleur, mais elle continue d'exister — conformément à la loi de la conservation de l'énergie.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="6">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Pour lequel de ces appareils la chaleur dégagée constitue-t-elle l'énergie UTILE, plutôt que de l'énergie dissipée ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Un moteur de voiture</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">B</span> Une ampoule à incandescence</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">C</span> Un grille-pain</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> Un panneau photovoltaïque</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un grille-pain est conçu pour produire de la chaleur : c'est justement la forme d'énergie utile recherchée.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est le <strong>grille-pain</strong> : contrairement au moteur ou à l'ampoule, il est conçu pour produire de la chaleur, qui constitue ici l'énergie utile.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="7">
+            <div class="quiz-q-label">Vrai ou faux</div>
+            <div class="quiz-q-text">Selon le texte, un moteur de voiture électrique a systématiquement un rendement supérieur à 90 %.</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">V</span> Vrai</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">F</span> Faux</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact, c'est faux. Le texte précise que ces moteurs <strong>peuvent</strong> dépasser 90 %, ce qui n'est pas une garantie dans tous les cas.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>C'est faux. Le texte précise que ces moteurs <strong>peuvent</strong> dépasser 90 % — ce qui n'est pas la même chose qu'une garantie systématique.</span></div>
+          </div>
+
+          <div class="quiz-q" data-qi="8">
+            <div class="quiz-q-label">Choix multiple</div>
+            <div class="quiz-q-text">Un système affiche un rendement énergétique calculé de 115 %. Que peut-on en conclure ?</div>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">A</span> Le système est extrêmement efficace</button>
+              <button class="quiz-option" data-correct="true"><span class="opt-letter">B</span> Il y a nécessairement une erreur quelque part, car le rendement ne peut jamais dépasser 100 %</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">C</span> Le système crée de l'énergie supplémentaire</button>
+              <button class="quiz-option" data-correct="false"><span class="opt-letter">D</span> C'est normal pour les moteurs électriques modernes</button>
+            </div>
+            <div class="quiz-feedback ok"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3 4.7-5.1"/></svg><span>Exact. Un rendement supérieur à 100 % est physiquement impossible ; un tel résultat indique une erreur de mesure ou de calcul.</span></div>
+            <div class="quiz-feedback ko"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>Un rendement supérieur à 100 % est physiquement <strong>impossible</strong> : un tel résultat indique une erreur de mesure ou de calcul, jamais un système « très efficace ».</span></div>
+          </div>
+
+          <div class="quiz-result-msg" id="result-q45"></div>
+          <button class="quiz-reset" id="reset-q45">↺ Recommencer</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
